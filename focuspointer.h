@@ -17,15 +17,39 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef LIBENTERTAINING_GLOBAL_H
-#define LIBENTERTAINING_GLOBAL_H
+#ifndef FOCUSPOINTER_H
+#define FOCUSPOINTER_H
 
-#include <QtCore/qglobal.h>
+#include <QObject>
+#include <QWidget>
 
-#if defined(LIBENTERTAINING_LIBRARY)
-#  define LIBENTERTAINING_EXPORT Q_DECL_EXPORT
-#else
-#  define LIBENTERTAINING_EXPORT Q_DECL_IMPORT
-#endif
+struct FocusPointerPrivate;
+class FocusPointer : public QWidget
+{
+        Q_OBJECT
+    public:
+        static void enableFocusPointer();
+        static void disableFocusPointer();
+        static void enableAutomaticFocusPointer();
+        static void disableAutomaticFocusPointer();
 
-#endif // LIBENTERTAINING_GLOBAL_H
+        static bool isEnabled();
+
+    signals:
+
+    public slots:
+
+    protected:
+        friend FocusPointerPrivate;
+        explicit FocusPointer();
+
+    private:
+        static FocusPointerPrivate* d;
+
+        void updateFocusedWidget();
+
+        void paintEvent(QPaintEvent* event);
+        bool eventFilter(QObject* watched, QEvent* event);
+};
+
+#endif // FOCUSPOINTER_H

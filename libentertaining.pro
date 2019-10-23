@@ -1,8 +1,8 @@
-QT += widgets gamepad thelib
+QT += widgets gamepad thelib svg multimedia
 
 TEMPLATE = lib
 DEFINES += LIBENTERTAINING_LIBRARY
-TARGET += entertaining
+TARGET = entertaining
 
 CONFIG += c++11
 
@@ -18,11 +18,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    entertaining.cpp
+    dialogueoverlay.cpp \
+    entertaining.cpp \
+    focuspointer.cpp \
+    gamepadbuttons.cpp \
+    gamepadlabel.cpp \
+    musicengine.cpp \
+    pauseoverlay.cpp
 
 HEADERS += \
+    dialogueoverlay.h \
+    focuspointer.h \
+    gamepadbuttons.h \
+    gamepadlabel.h \
     libentertaining_global.h \
-    entertaining.h
+    entertaining.h \
+    musicengine.h \
+    pauseoverlay.h
 
 DISTFILES += \
     qt_libentertaining.pri
@@ -58,3 +70,9 @@ win32 {
 }
 
 INSTALLS += target module header
+
+RESOURCES += \
+    libentertaining_resources.qrc
+
+FORMS += \
+    dialogueoverlay.ui

@@ -17,15 +17,25 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef LIBENTERTAINING_GLOBAL_H
-#define LIBENTERTAINING_GLOBAL_H
+#ifndef GAMEPADLABEL_H
+#define GAMEPADLABEL_H
 
-#include <QtCore/qglobal.h>
+#include <QLabel>
 
-#if defined(LIBENTERTAINING_LIBRARY)
-#  define LIBENTERTAINING_EXPORT Q_DECL_EXPORT
-#else
-#  define LIBENTERTAINING_EXPORT Q_DECL_IMPORT
-#endif
+class GamepadLabel : public QLabel
+{
+        Q_OBJECT
+    public:
+        explicit GamepadLabel(QWidget *parent = nullptr);
 
-#endif // LIBENTERTAINING_GLOBAL_H
+        QSize sizeHint() const override;
+        QSize minimumSizeHint() const override;
+    signals:
+
+    public slots:
+
+    private:
+        void paintEvent(QPaintEvent* event) override;
+};
+
+#endif // GAMEPADLABEL_H

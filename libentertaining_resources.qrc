@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/libentertaining">
+        <file>icons/btn.svg</file>
+        <file>icons/btnA.svg</file>
+        <file>icons/btnB.svg</file>
+        <file>icons/btnDD.svg</file>
+        <file>icons/btnDL.svg</file>
+        <file>icons/btnDR.svg</file>
+        <file>icons/btnDU.svg</file>
+        <file>icons/btnGDE.svg</file>
+        <file>icons/btnPSC.svg</file>
+        <file>icons/btnPSS.svg</file>
+        <file>icons/btnPST.svg</file>
+        <file>icons/btnPSX.svg</file>
+        <file>icons/btnX.svg</file>
+        <file>icons/btnY.svg</file>
+        <file>icons/btnL1.svg</file>
+        <file>icons/btnL2.svg</file>
+        <file>icons/btnR2.svg</file>
+        <file>icons/btnR1.svg</file>
+        <file>audio/focusmove.wav</file>
+        <file>audio/select.wav</file>
+        <file>audio/back.wav</file>
+        <file>audio/pause.wav</file>
+    </qresource>
+</RCC>

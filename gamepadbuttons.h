@@ -17,15 +17,33 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef LIBENTERTAINING_GLOBAL_H
-#define LIBENTERTAINING_GLOBAL_H
+#ifndef GAMEPADBUTTONS_H
+#define GAMEPADBUTTONS_H
 
-#include <QtCore/qglobal.h>
+#include "libentertaining_global.h"
+#include <QObject>
+#include <QGamepadManager>
 
-#if defined(LIBENTERTAINING_LIBRARY)
-#  define LIBENTERTAINING_EXPORT Q_DECL_EXPORT
-#else
-#  define LIBENTERTAINING_EXPORT Q_DECL_IMPORT
-#endif
+class QPainter;
+class QFontMetrics;
 
-#endif // LIBENTERTAINING_GLOBAL_H
+class GamepadButtons : public QObject
+{
+        Q_OBJECT
+    public:
+        static QIcon iconForButton(QGamepadManager::GamepadButton button, QColor tint);
+        static QString stringForButton(QGamepadManager::GamepadButton button);
+
+        static int measureGamepadString(QFontMetrics fm, QString string);
+        static void drawGamepadString(QPainter* painter, QString string, QRect boundingRect);
+
+    signals:
+
+    public slots:
+
+    private:
+        explicit GamepadButtons(QObject *parent = nullptr);
+};
+
+
+#endif // GAMEPADBUTTONS_H

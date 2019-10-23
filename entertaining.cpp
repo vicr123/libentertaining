@@ -19,48 +19,13 @@
  * *************************************/
 #include "entertaining.h"
 
-#include <QIcon>
+#include <the-libs_global.h>
 
-QIcon Entertaining::iconForButton(QGamepadManager::GamepadButton button)
+void Entertaining::initialize()
 {
-    switch (button) {
-        case QGamepadManager::ButtonA:
-            break;
-        case QGamepadManager::ButtonB:
-            break;
-        case QGamepadManager::ButtonX:
-            break;
-        case QGamepadManager::ButtonY:
-            break;
-        case QGamepadManager::ButtonL1:
-            break;
-        case QGamepadManager::ButtonR1:
-            break;
-        case QGamepadManager::ButtonL2:
-            break;
-        case QGamepadManager::ButtonR2:
-            break;
-        case QGamepadManager::ButtonSelect:
-            break;
-        case QGamepadManager::ButtonStart:
-            break;
-        case QGamepadManager::ButtonL3:
-            break;
-        case QGamepadManager::ButtonR3:
-            break;
-        case QGamepadManager::ButtonUp:
-            break;
-        case QGamepadManager::ButtonDown:
-            break;
-        case QGamepadManager::ButtonRight:
-            break;
-        case QGamepadManager::ButtonLeft:
-            break;
-        case QGamepadManager::ButtonCenter:
-            break;
-        case QGamepadManager::ButtonGuide:
-            break;
-        default:
-            break;
-    }
+    Q_INIT_RESOURCE(libentertaining_resources);
+}
+
+Entertaining::Entertaining() {
+
 }

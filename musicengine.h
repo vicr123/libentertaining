@@ -17,22 +17,45 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ENTERTAINING_H
-#define ENTERTAINING_H
+#ifndef MUSICENGINE_H
+#define MUSICENGINE_H
 
-#include "libentertaining_global.h"
+#include <QObject>
 
-#include <QGamepadManager>
-
-class LIBENTERTAINING_EXPORT Entertaining
+struct MusicEnginePrivate;
+class MusicEngine : public QObject
 {
+        Q_OBJECT
     public:
-        static void initialize();
+        enum KnownSoundEffect {
+            FocusChanged,
+            Pause,
+            Selection,
+            Backstep
+        };
+
+        static void setBackgroundMusic(QUrl path);
+        static void playBackgroundMusic();
+        static void pauseBackgroundMusic();
+
+        static void setMuteMusic(bool mute);
+        static bool isMusicMuted();
+
+        static void playSoundEffect(KnownSoundEffect effect);
+        static void playSoundEffect(QUrl path);
+
+        static void setMuteEffects(bool mute);
+        static bool isEffectsMuted();
+
+    signals:
+
+    public slots:
 
     private:
-        Entertaining();
+        static MusicEnginePrivate* d;
 
+        explicit MusicEngine(QObject *parent = nullptr);
+        static void ensureInstance();
 };
 
-
-#endif // ENTERTAINING_H
+#endif // MUSICENGINE_H

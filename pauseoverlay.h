@@ -17,15 +17,31 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef LIBENTERTAINING_GLOBAL_H
-#define LIBENTERTAINING_GLOBAL_H
+#ifndef PAUSEOVERLAY_H
+#define PAUSEOVERLAY_H
 
-#include <QtCore/qglobal.h>
+#include <QWidget>
 
-#if defined(LIBENTERTAINING_LIBRARY)
-#  define LIBENTERTAINING_EXPORT Q_DECL_EXPORT
-#else
-#  define LIBENTERTAINING_EXPORT Q_DECL_IMPORT
-#endif
+struct PauseOverlayPrivate;
+class PauseOverlay : public QWidget
+{
+        Q_OBJECT
+    public:
+        explicit PauseOverlay(QWidget* overlayWidget, QWidget *parent = nullptr);
+        ~PauseOverlay();
 
-#endif // LIBENTERTAINING_GLOBAL_H
+        void showOverlay(QWidget* overlayOver);
+        void hideOverlay();
+
+    signals:
+
+    public slots:
+
+    private:
+        PauseOverlayPrivate* d;
+
+        bool eventFilter(QObject* watched, QEvent* event);
+        void paintEvent(QPaintEvent* event);
+};
+
+#endif // PAUSEOVERLAY_H
