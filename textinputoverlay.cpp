@@ -35,7 +35,11 @@ struct TextInputOverlayPrivate {
     QWidget* parent;
 
     QList<Keyboard*> keyboards;
+
+    static QList<QLineEdit*> handledLineEdits;
 };
+
+QList<QLineEdit*> TextInputOverlayPrivate::handledLineEdits = QList<QLineEdit*>();
 
 TextInputOverlay::TextInputOverlay(QWidget *parent) :
     QWidget(parent),
@@ -143,17 +147,20 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
 
 TextInputOverlay::~TextInputOverlay()
 {
+    d->overlay->hideOverlay();
     d->overlay->deleteLater();
     delete ui;
     delete d;
 }
 
-QString TextInputOverlay::getText(QWidget* parent, QString question, bool*canceled)
+QString TextInputOverlay::getText(QWidget* parent, QString question, bool*canceled, QString defaultText, QLineEdit::EchoMode echoMode)
 {
     QEventLoop* loop = new QEventLoop();
 
     TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
+    input->setResponse(defaultText);
+    input->setEchoMode(echoMode);
     input->show();
     connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
     connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
@@ -171,6 +178,27 @@ QString TextInputOverlay::getText(QWidget* parent, QString question, bool*cancel
     }
 }
 
+void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWidget*overlayOn)
+{
+    TextInputOverlayPrivate::handledLineEdits.append(lineEdit);
+    connect(lineEdit, &QLineEdit::destroyed, [=] {
+        TextInputOverlayPrivate::handledLineEdits.removeAll(lineEdit);
+    });
+    connect(lineEdit, &QLineEdit::returnPressed, [=] {
+        QWidget* overlay = overlayOn;
+        if (overlay == nullptr) overlay = lineEdit->parentWidget();
+
+        QString q = question;
+        if (q.isEmpty()) q = lineEdit->placeholderText();
+
+        bool canceled;
+        QString response = TextInputOverlay::getText(overlay, q, &canceled, lineEdit->text(), lineEdit->echoMode());
+        if (!canceled) {
+            lineEdit->setText(response);
+        }
+    });
+}
+
 void TextInputOverlay::setQuestion(QString question)
 {
     if (question.isEmpty()) {
@@ -181,9 +209,19 @@ void TextInputOverlay::setQuestion(QString question)
     }
 }
 
+void TextInputOverlay::setResponse(QString response)
+{
+    ui->responseBox->setText(response);
+}
+
 QString TextInputOverlay::response()
 {
     return ui->responseBox->text();
+}
+
+void TextInputOverlay::setEchoMode(QLineEdit::EchoMode echoMode)
+{
+    ui->responseBox->setEchoMode(echoMode);
 }
 
 void TextInputOverlay::show()

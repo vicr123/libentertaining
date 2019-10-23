@@ -22,10 +22,13 @@
 #include <QPainter>
 #include <QBoxLayout>
 #include <QEvent>
+#include <QGraphicsBlurEffect>
 
 struct PauseOverlayPrivate {
     QWidget* overlayWidget;
     QWidget* overlayOver;
+
+    QGraphicsBlurEffect* effect;
 };
 
 PauseOverlay::PauseOverlay(QWidget*overlayWidget, QWidget *parent) : QWidget(parent)
@@ -36,6 +39,9 @@ PauseOverlay::PauseOverlay(QWidget*overlayWidget, QWidget *parent) : QWidget(par
     QBoxLayout* layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(overlayWidget);
+
+    d->effect = new QGraphicsBlurEffect();
+    d->effect->setBlurRadius(20);
 
     this->setAttribute(Qt::WA_TranslucentBackground);
 }
@@ -49,9 +55,15 @@ void PauseOverlay::showOverlay(QWidget*overlayOver)
 {
     d->overlayOver = overlayOver;
     overlayOver->installEventFilter(this);
-    this->move(0, 0);
-    this->resize(overlayOver->width(), overlayOver->height());
-    this->setParent(overlayOver);
+
+    if (d->overlayOver->parentWidget() != nullptr) {
+        this->setGeometry(overlayOver->geometry());
+        this->setParent(overlayOver->parentWidget());
+        overlayOver->setGraphicsEffect(d->effect);
+    } else {
+        this->setGeometry(QRect(QPoint(0, 0), overlayOver->size()));
+        this->setParent(overlayOver);
+    }
     this->show();
 }
 
@@ -59,12 +71,20 @@ void PauseOverlay::hideOverlay()
 {
     this->hide();
     this->setParent(nullptr);
+
+    if (d->overlayOver->parentWidget() != nullptr) {
+        d->overlayOver->setGraphicsEffect(nullptr);
+    }
 }
 
 bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
 {
-    if (watched == d->overlayOver && event->type() == QEvent::Resize) {
-        this->resize(d->overlayOver->width(), d->overlayOver->height());
+    if (watched == d->overlayOver && (event->type() == QEvent::Resize || event->type() == QEvent::Move)) {
+        if (d->overlayOver->parentWidget() != nullptr) {
+            this->setGeometry(d->overlayOver->geometry());
+        } else {
+            this->resize(d->overlayOver->width(), d->overlayOver->height());
+        }
     }
     return false;
 }

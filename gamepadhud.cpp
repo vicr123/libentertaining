@@ -34,8 +34,6 @@ GamepadHud::GamepadHud(QWidget *parent) :
 {
     ui->setupUi(this);
     d = new GamepadHudPrivate();
-
-    this->setAutoFillBackground(true);
 }
 
 GamepadHud::~GamepadHud()

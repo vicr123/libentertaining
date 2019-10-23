@@ -186,7 +186,7 @@ bool FocusPointer::eventFilter(QObject*watched, QEvent*event)
     }
 
     if (watched == d->activeWidget) {
-        if (event->type() == QEvent::Resize) {
+        if (event->type() == QEvent::Resize || event->type() == QEvent::Move) {
             updateFocusedWidget();
         }
     }

@@ -22,6 +22,7 @@
 
 #include "libentertaining_global.h"
 #include <QWidget>
+#include <QLineEdit>
 
 namespace Ui {
     class TextInputOverlay;
@@ -36,10 +37,15 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
         explicit TextInputOverlay(QWidget *parent);
         ~TextInputOverlay();
 
-        static QString getText(QWidget* parent, QString question, bool* canceled = nullptr);
+        static QString getText(QWidget* parent, QString question, bool* canceled = nullptr, QString defaultText = "", QLineEdit::EchoMode echoMode = QLineEdit::Normal);
+        static void installHandler(QLineEdit* lineEdit, QString question = "", QWidget* overlayOn = nullptr);
 
         void setQuestion(QString question);
+
+        void setResponse(QString response);
         QString response();
+
+        void setEchoMode(QLineEdit::EchoMode echoMode);
 
     public slots:
         void show();
