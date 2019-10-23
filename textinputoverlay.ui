@@ -164,6 +164,9 @@
    <item>
     <widget class="Keyboard" name="keyboardWidget" native="true"/>
    </item>
+   <item>
+    <widget class="GamepadHud" name="gamepadHud" native="true"/>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -171,6 +174,12 @@
    <class>Keyboard</class>
    <extends>QWidget</extends>
    <header>keyboards/keyboard.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GamepadHud</class>
+   <extends>QWidget</extends>
+   <header location="global">gamepadhud.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -117,6 +117,12 @@ void Keyboard::setCapsState(Keyboard::CapsState capsState)
 {
     d->capsState = capsState;
     emit updateKeys();
+    emit capsStateChanged(capsState);
+}
+
+Keyboard::CapsState Keyboard::capsState()
+{
+    return d->capsState;
 }
 
 void Keyboard::updateButton(QPushButton*button, KeyboardKey key)

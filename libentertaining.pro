@@ -23,6 +23,7 @@ SOURCES += \
     focusbarrier.cpp \
     focuspointer.cpp \
     gamepadbuttons.cpp \
+    gamepadhud.cpp \
     gamepadlabel.cpp \
     keyboards/keyboard.cpp \
     keyboards/uskeyboard.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     focusbarrier.h \
     focuspointer.h \
     gamepadbuttons.h \
+    gamepadhud.h \
     gamepadlabel.h \
     keyboards/keyboard.h \
     keyboards/uskeyboard.h \
@@ -84,5 +86,6 @@ RESOURCES += \
 
 FORMS += \
     dialogueoverlay.ui \
+    gamepadhud.ui \
     keyboards/uskeyboard.ui \
     textinputoverlay.ui

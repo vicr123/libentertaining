@@ -74,12 +74,14 @@ class Keyboard : public QWidget {
         void setCurrentLayout(KeyboardLayout layout);
 
         void setCapsState(CapsState capsState);
+        CapsState capsState();
 
     signals:
         void typeKey(QString key);
         void backspace();
         void accept();
         void replayKeyEvent(QKeyEvent* event);
+        void capsStateChanged(CapsState capsState);
 
         void updateKeys();
 

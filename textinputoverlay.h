@@ -55,6 +55,8 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
 
         void on_cancelButton_clicked();
 
+        void on_responseBox_textChanged(const QString &arg1);
+
     private:
         Ui::TextInputOverlay *ui;
 
