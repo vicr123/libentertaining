@@ -47,7 +47,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     d->parent = parent;
     d->overlay = new PauseOverlay(this);
 
-    ui->keyboardWidget->setFixedHeight(SC_DPI(200));
+    ui->keyboardWidget->setFixedHeight(SC_DPI(300));
 
     QPalette pal = ui->responseBox->palette();
     pal.setColor(QPalette::Window, Qt::transparent);
@@ -83,9 +83,11 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     KeyboardLayout usLayout;
     usLayout.name = "en-US";
     usLayout.keys = {
-        {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', KeyboardKey::Backspace},
-        {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', KeyboardKey::Ok},
-        {'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', KeyboardKey::Shift}
+        {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', KeyboardKey::Backspace},
+        {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '\''},
+        {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '/', KeyboardKey::Ok},
+        {KeyboardKey::Shift, 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', KeyboardKey::Shift},
+        {KeyboardKey::SetNumeric, KeyboardKey::Space, KeyboardKey::SetLayout}
     };
     ui->keyboardWidget->setCurrentLayout(usLayout);
 
@@ -155,8 +157,9 @@ bool TextInputOverlay::eventFilter(QObject*watched, QEvent*event)
 {
     if (watched == ui->responseBox && event->type() == QKeyEvent::KeyPress) {
         QKeyEvent* e = static_cast<QKeyEvent*>(event);
-        if (e->key() == Qt::Key_Down || e->key() == Qt::Key_Left || e->key() == Qt::Key_Up || e->key() == Qt::Key_Right) {
+        if (e->key() == Qt::Key_Down) {
             ui->keyboardWidget->setFocus();
+            return true;
         }
     }
     return false;

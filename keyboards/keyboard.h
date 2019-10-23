@@ -28,9 +28,12 @@ struct KeyboardPrivate;
 class QPushButton;
 struct KeyboardKey {
     enum KnownKeys {
+        Space,
         Backspace,
         Shift,
-        Ok
+        Ok,
+        SetNumeric,
+        SetLayout
     };
 
     KeyboardKey(const char character);

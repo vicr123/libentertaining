@@ -123,6 +123,9 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
 {
     disconnect(button, &QPushButton::clicked, nullptr, nullptr);
     button->setFlat(true);
+
+    int standardWidth = SC_DPI(70);
+
     switch (key.type) {
         case 0: { //Key
             QChar charToSet;
@@ -138,7 +141,7 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
             }
 
             button->setText(charToSet);
-            button->setFixedWidth((this->width() - SC_DPI(300)) / 10);
+            button->setFixedWidth(standardWidth);
             connect(button, &QPushButton::clicked, this, [=] {
                 emit typeKey(charToSet);
 
@@ -157,7 +160,7 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
             switch (key.knownKey) {
                 case KeyboardKey::Backspace:
                     button->setText(tr("BKSP"));
-                    button->setFixedWidth((this->width() - SC_DPI(300)) / 10);
+                    button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         emit backspace();
                         MusicEngine::playSoundEffect(MusicEngine::Backstep);
@@ -165,7 +168,7 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                     break;
                 case KeyboardKey::Shift:
                     button->setText(tr("SHF"));
-                    button->setFixedWidth((this->width() - SC_DPI(300)) / 10);
+                    button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         MusicEngine::playSoundEffect(MusicEngine::Selection);
                         if (d->capsState == None) {
@@ -178,10 +181,37 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                 case KeyboardKey::Ok:
                     button->setFlat(false);
                     button->setText(tr("OK"));
-                    button->setFixedWidth((this->width() - SC_DPI(300)) / 10);
+                    button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         MusicEngine::playSoundEffect(MusicEngine::Selection);
                         emit accept();
+                    });
+                    break;
+                case KeyboardKey::Space:
+                    button->setFlat(true);
+                    button->setText("_");
+                    button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+                    connect(button, &QPushButton::clicked, this, [=] {
+                        MusicEngine::playSoundEffect(MusicEngine::Selection);
+                        emit typeKey(" ");
+                    });
+                    break;
+                case KeyboardKey::SetNumeric:
+                    button->setFlat(true);
+                    button->setText("123");
+                    button->setFixedWidth(standardWidth);
+                    connect(button, &QPushButton::clicked, this, [=] {
+                        MusicEngine::playSoundEffect(MusicEngine::Selection);
+                        //TODO: Change to numeric and symbol keyboard
+                    });
+                    break;
+                case KeyboardKey::SetLayout:
+                    button->setFlat(true);
+                    button->setText("Hè");
+                    button->setFixedWidth(standardWidth);
+                    connect(button, &QPushButton::clicked, this, [=] {
+                        MusicEngine::playSoundEffect(MusicEngine::Selection);
+                        //TODO: Change to another keyboard
                     });
                     break;
             }
