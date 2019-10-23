@@ -1,4 +1,4 @@
-QT += widgets gamepad thelib svg multimedia
+QT += widgets gamepad svg multimedia
 
 TEMPLATE = lib
 DEFINES += LIBENTERTAINING_LIBRARY
@@ -58,6 +58,8 @@ unix {
 }
 
 unix:!macx {
+    QT += thelib
+
     target.path = /usr/lib
     header.path = /usr/include/libentertaining
     module.files = qt_libentertaining.pri
@@ -65,6 +67,9 @@ unix:!macx {
 
 macx {
     CONFIG(debug, debug|release): TARGET = libentertaining_debug
+
+    INCLUDEPATH += "/usr/local/include/the-libs"
+    LIBS += -L/usr/local/lib -lthe-libs
 
     target.path = /usr/local/lib
     header.path = /usr/local/include/libentertaining
