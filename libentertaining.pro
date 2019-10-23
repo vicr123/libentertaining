@@ -20,21 +20,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     dialogueoverlay.cpp \
     entertaining.cpp \
+    focusbarrier.cpp \
     focuspointer.cpp \
     gamepadbuttons.cpp \
     gamepadlabel.cpp \
+    keyboards/keyboard.cpp \
+    keyboards/uskeyboard.cpp \
     musicengine.cpp \
-    pauseoverlay.cpp
+    pauseoverlay.cpp \
+    textinputoverlay.cpp
 
 HEADERS += \
     dialogueoverlay.h \
+    focusbarrier.h \
     focuspointer.h \
     gamepadbuttons.h \
     gamepadlabel.h \
+    keyboards/keyboard.h \
+    keyboards/uskeyboard.h \
     libentertaining_global.h \
     entertaining.h \
     musicengine.h \
-    pauseoverlay.h
+    pauseoverlay.h \
+    textinputoverlay.h
 
 DISTFILES += \
     qt_libentertaining.pri
@@ -65,8 +73,8 @@ win32 {
     CONFIG(debug, debug|release): TARGET = libentertainingd
 
     module.files = qt_thelib.pri
-    header.path = "C:/Program Files/thelibs/include"
-    target.path = "C:/Program Files/thelibs/lib"
+    header.path = "C:/Program Files/libentertaining/include"
+    target.path = "C:/Program Files/libentertaining/lib"
 }
 
 INSTALLS += target module header
@@ -75,4 +83,6 @@ RESOURCES += \
     libentertaining_resources.qrc
 
 FORMS += \
-    dialogueoverlay.ui
+    dialogueoverlay.ui \
+    keyboards/uskeyboard.ui \
+    textinputoverlay.ui

@@ -34,6 +34,7 @@ struct MusicEnginePrivate {
 
     const QMap<MusicEngine::KnownSoundEffect, QUrl> soundEffectUrls = {
         {MusicEngine::FocusChanged, QUrl("qrc:/libentertaining/audio/focusmove.wav")},
+        {MusicEngine::FocusChangedFailed, QUrl("qrc:/libentertaining/audio/back.wav")},
         {MusicEngine::Pause, QUrl("qrc:/libentertaining/audio/pause.wav")},
         {MusicEngine::Selection, QUrl("qrc:/libentertaining/audio/select.wav")},
         {MusicEngine::Backstep, QUrl("qrc:/libentertaining/audio/back.wav")}

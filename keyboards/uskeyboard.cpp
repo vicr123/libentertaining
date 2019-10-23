@@ -17,21 +17,31 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ENTERTAINING_H
-#define ENTERTAINING_H
+#include "uskeyboard.h"
+#include "ui_uskeyboard.h"
 
-#include "libentertaining_global.h"
-#include <QGamepadManager>
-
-class LIBENTERTAINING_EXPORT Entertaining
-{
-    public:
-        static void initialize();
-
-    private:
-        Entertaining();
+struct USKeyboardPrivate {
 
 };
 
+USKeyboard::USKeyboard(QWidget *parent) :
+    Keyboard(parent),
+    ui(new Ui::USKeyboard)
+{
+    ui->setupUi(this);
+}
 
-#endif // ENTERTAINING_H
+USKeyboard::~USKeyboard()
+{
+    delete ui;
+}
+
+QString USKeyboard::name()
+{
+    return "en-US";
+}
+
+QString USKeyboard::humanReadableName()
+{
+    return tr("English (US)");
+}

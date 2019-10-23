@@ -17,33 +17,51 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef GAMEPADBUTTONS_H
-#define GAMEPADBUTTONS_H
+#ifndef TEXTINPUTOVERLAY_H
+#define TEXTINPUTOVERLAY_H
 
 #include "libentertaining_global.h"
-#include <QObject>
-#include <QGamepadManager>
+#include <QWidget>
 
-class QPainter;
-class QFontMetrics;
+namespace Ui {
+    class TextInputOverlay;
+}
 
-class LIBENTERTAINING_EXPORT GamepadButtons : public QObject
+struct TextInputOverlayPrivate;
+class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
 {
         Q_OBJECT
+
     public:
-        static QIcon iconForButton(QGamepadManager::GamepadButton button, QColor tint);
-        static QString stringForButton(QGamepadManager::GamepadButton button);
+        explicit TextInputOverlay(QWidget *parent);
+        ~TextInputOverlay();
 
-        static int measureGamepadString(QFontMetrics fm, QString string);
-        static void drawGamepadString(QPainter* painter, QString string, QRect boundingRect);
+        static QString getText(QWidget* parent, QString question, bool* canceled = nullptr);
 
-    signals:
+        void setQuestion(QString question);
+        QString response();
 
     public slots:
+        void show();
+
+    signals:
+        void accepted(QString response);
+        void rejected();
+
+    private slots:
+        void on_responseBox_returnPressed();
+
+        void on_okButton_clicked();
+
+        void on_cancelButton_clicked();
 
     private:
-        explicit GamepadButtons(QObject *parent = nullptr);
+        Ui::TextInputOverlay *ui;
+
+        TextInputOverlayPrivate* d;
+
+        void paintEvent(QPaintEvent* event);
+        bool eventFilter(QObject* watched, QEvent* event);
 };
 
-
-#endif // GAMEPADBUTTONS_H
+#endif // TEXTINPUTOVERLAY_H

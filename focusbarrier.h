@@ -17,21 +17,30 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ENTERTAINING_H
-#define ENTERTAINING_H
+#ifndef FOCUSBARRIER_H
+#define FOCUSBARRIER_H
 
 #include "libentertaining_global.h"
-#include <QGamepadManager>
+#include <QPushButton>
 
-class LIBENTERTAINING_EXPORT Entertaining
+struct FocusBarrierPrivate;
+class LIBENTERTAINING_EXPORT FocusBarrier : public QPushButton
 {
+        Q_OBJECT
     public:
-        static void initialize();
+        explicit FocusBarrier(QWidget *parent = nullptr);
+        ~FocusBarrier();
+
+        void setBounceWidget(QWidget* widget);
+
+    signals:
+
+    public slots:
 
     private:
-        Entertaining();
+        FocusBarrierPrivate* d;
 
+        void focusInEvent(QFocusEvent* event);
 };
 
-
-#endif // ENTERTAINING_H
+#endif // FOCUSBARRIER_H

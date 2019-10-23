@@ -20,15 +20,17 @@
 #ifndef MUSICENGINE_H
 #define MUSICENGINE_H
 
+#include "libentertaining_global.h"
 #include <QObject>
 
 struct MusicEnginePrivate;
-class MusicEngine : public QObject
+class LIBENTERTAINING_EXPORT MusicEngine : public QObject
 {
         Q_OBJECT
     public:
         enum KnownSoundEffect {
             FocusChanged,
+            FocusChangedFailed,
             Pause,
             Selection,
             Backstep

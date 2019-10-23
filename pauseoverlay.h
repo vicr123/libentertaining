@@ -20,10 +20,11 @@
 #ifndef PAUSEOVERLAY_H
 #define PAUSEOVERLAY_H
 
+#include "libentertaining_global.h"
 #include <QWidget>
 
 struct PauseOverlayPrivate;
-class PauseOverlay : public QWidget
+class LIBENTERTAINING_EXPORT PauseOverlay : public QWidget
 {
         Q_OBJECT
     public:

@@ -20,11 +20,12 @@
 #ifndef FOCUSPOINTER_H
 #define FOCUSPOINTER_H
 
+#include "libentertaining_global.h"
 #include <QObject>
 #include <QWidget>
 
 struct FocusPointerPrivate;
-class FocusPointer : public QWidget
+class LIBENTERTAINING_EXPORT FocusPointer : public QWidget
 {
         Q_OBJECT
     public:

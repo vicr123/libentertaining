@@ -20,6 +20,7 @@
 #ifndef DIALOGUEOVERLAY_H
 #define DIALOGUEOVERLAY_H
 
+#include "libentertaining_global.h"
 #include <QWidget>
 #include <QMap>
 
@@ -28,7 +29,7 @@ namespace Ui {
 }
 
 struct DialogueOverlayPrivate;
-class DialogueOverlay : public QWidget
+class LIBENTERTAINING_EXPORT DialogueOverlay : public QWidget
 {
         Q_OBJECT
 

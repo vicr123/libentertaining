@@ -25,6 +25,7 @@
 #include <the-libs_global.h>
 #include <tvariantanimation.h>
 
+#include "focusbarrier.h"
 #include "musicengine.h"
 
 struct FocusPointerPrivate {
@@ -90,8 +91,11 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
             this->setFocusProxy(d->activeWidget);
             d->activeWidget->installEventFilter(this);
 
+
             if (d->enabled) {
-                MusicEngine::playSoundEffect(MusicEngine::FocusChanged);
+                if (qobject_cast<FocusBarrier*>(d->activeWidget) == nullptr && qobject_cast<FocusBarrier*>(old) == nullptr) {
+                    MusicEngine::playSoundEffect(MusicEngine::FocusChanged);
+                }
             }
 
             this->updateFocusedWidget();

@@ -29,6 +29,8 @@
 #include <QPushButton>
 #include <tvariantanimation.h>
 
+#include "focusbarrier.h"
+
 struct DialogueOverlayPrivate {
     QWidget* parent;
 
@@ -167,7 +169,13 @@ void DialogueOverlay::skipTextAnimation()
         //Set and display the options
         int height = 0;
 
+        FocusBarrier* topBarrier = new FocusBarrier();
+        d->optionSelectionWidgetLayout->addWidget(topBarrier);
+        d->optionsContents.append(topBarrier);
+
         QPushButton* firstButton = nullptr;
+        QPushButton* bottomButton = nullptr;
+
         for (QString key : d->lastOptions.keys()) {
             QPushButton* button = new QPushButton();
             button->setText(d->lastOptions.value(key));
@@ -189,6 +197,16 @@ void DialogueOverlay::skipTextAnimation()
             height += button->sizeHint().height();
 
             if (firstButton == nullptr) firstButton = button;
+            bottomButton = button;
+        }
+
+        FocusBarrier* bottomBarrier = new FocusBarrier();
+        d->optionSelectionWidgetLayout->addWidget(bottomBarrier);
+        d->optionsContents.append(bottomBarrier);
+
+        if (firstButton != nullptr) {
+            topBarrier->setBounceWidget(firstButton);
+            bottomBarrier->setBounceWidget(bottomButton);
         }
 
         this->setFocusProxy(firstButton);

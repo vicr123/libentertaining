@@ -20,9 +20,10 @@
 #ifndef GAMEPADLABEL_H
 #define GAMEPADLABEL_H
 
+#include "libentertaining_global.h"
 #include <QLabel>
 
-class GamepadLabel : public QLabel
+class LIBENTERTAINING_EXPORT GamepadLabel : public QLabel
 {
         Q_OBJECT
     public:
