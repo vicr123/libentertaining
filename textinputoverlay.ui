@@ -106,17 +106,17 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+              <widget class="QLabel" name="errorLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
+               <property name="text">
+                <string notr="true"/>
                </property>
-              </spacer>
+              </widget>
              </item>
              <item>
               <widget class="QPushButton" name="cancelButton">
@@ -124,7 +124,8 @@
                 <string>Cancel</string>
                </property>
                <property name="icon">
-                <iconset theme="dialog-cancel"/>
+                <iconset theme="dialog-cancel">
+                 <normaloff>.</normaloff>.</iconset>
                </property>
               </widget>
              </item>
@@ -134,7 +135,8 @@
                 <string>OK</string>
                </property>
                <property name="icon">
-                <iconset theme="dialog-ok"/>
+                <iconset theme="dialog-ok">
+                 <normaloff>.</normaloff>.</iconset>
                </property>
               </widget>
              </item>
@@ -171,15 +173,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Keyboard</class>
-   <extends>QWidget</extends>
-   <header>keyboards/keyboard.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>GamepadHud</class>
    <extends>QWidget</extends>
    <header location="global">gamepadhud.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Keyboard</class>
+   <extends>QWidget</extends>
+   <header>keyboards/keyboard.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

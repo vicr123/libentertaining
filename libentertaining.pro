@@ -29,6 +29,7 @@ SOURCES += \
     gamepadhud.cpp \
     gamepadlabel.cpp \
     keyboards/keyboard.cpp \
+    keyboards/keyboardlayoutsdatabase.cpp \
     keyboards/uskeyboard.cpp \
     musicengine.cpp \
     pauseoverlay.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     gamepadhud.h \
     gamepadlabel.h \
     keyboards/keyboard.h \
+    keyboards/keyboardlayoutsdatabase.h \
     keyboards/uskeyboard.h \
     libentertaining_global.h \
     entertaining.h \

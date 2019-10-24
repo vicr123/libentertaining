@@ -38,6 +38,7 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
         ~TextInputOverlay();
 
         static QString getText(QWidget* parent, QString question, bool* canceled = nullptr, QString defaultText = "", QLineEdit::EchoMode echoMode = QLineEdit::Normal);
+        static int getInt(QWidget* parent, QString question, bool* canceled = nullptr, int defaultText = 0, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
         static void installHandler(QLineEdit* lineEdit, QString question = "", QWidget* overlayOn = nullptr);
 
         void setQuestion(QString question);
@@ -62,6 +63,8 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
         void on_cancelButton_clicked();
 
         void on_responseBox_textChanged(const QString &arg1);
+
+        void tryAccept();
 
     private:
         Ui::TextInputOverlay *ui;

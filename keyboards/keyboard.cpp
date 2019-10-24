@@ -73,6 +73,7 @@ Keyboard::~Keyboard()
 void Keyboard::setCurrentLayout(KeyboardLayout layout)
 {
     if (d->currentWidget != nullptr) {
+        d->currentWidget->setVisible(false);
         d->holderLayout->removeWidget(d->currentWidget);
         d->currentWidget->deleteLater();
     }
@@ -189,7 +190,6 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                     button->setText(tr("OK"));
                     button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
-                        MusicEngine::playSoundEffect(MusicEngine::Selection);
                         emit accept();
                     });
                     break;
@@ -220,6 +220,12 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                         //TODO: Change to another keyboard
                     });
                     break;
+                case KeyboardKey::Dummy:
+                    //This key does nothing
+                    button->setFlat(true);
+                    button->setFixedWidth(standardWidth);
+                    break;
+
             }
             break;
     }

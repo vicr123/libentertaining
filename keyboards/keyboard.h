@@ -33,7 +33,9 @@ struct KeyboardKey {
         Shift,
         Ok,
         SetNumeric,
-        SetLayout
+        SetLayout,
+
+        Dummy
     };
 
     KeyboardKey(const char character);

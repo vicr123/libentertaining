@@ -25,11 +25,13 @@
 #include <QPainter>
 #include <QShortcut>
 #include <QKeyEvent>
+#include <terrorflash.h>
 #include "musicengine.h"
 #include "pauseoverlay.h"
 #include "private/textinputlineedithandler.h"
 
 #include "keyboards/uskeyboard.h"
+#include "keyboards/keyboardlayoutsdatabase.h"
 
 struct TextInputOverlayPrivate {
     PauseOverlay* overlay;
@@ -89,7 +91,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
         ui->responseBox->setText(text);
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [=] {
-        ui->okButton->click();
+        tryAccept();
     });
 
     QPalette pal = ui->responseBox->palette();
@@ -115,7 +117,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
         ui->responseBox->setText(text);
     });
     connect(ui->keyboardWidget, &Keyboard::accept, this, [=] {
-        emit accepted(ui->responseBox->text());
+        tryAccept();
     });
     connect(ui->keyboardWidget, &Keyboard::replayKeyEvent, this, [=](QKeyEvent* event) {
         QApplication::sendEvent(ui->responseBox, event);
@@ -134,17 +136,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
         }
     });
 
-    //Set up keyboard layouts
-    KeyboardLayout usLayout;
-    usLayout.name = "en-US";
-    usLayout.keys = {
-        {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', KeyboardKey::Backspace},
-        {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '\''},
-        {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '/', KeyboardKey::Ok},
-        {KeyboardKey::Shift, 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', KeyboardKey::Shift},
-        {KeyboardKey::SetNumeric, KeyboardKey::Space, KeyboardKey::SetLayout}
-    };
-    ui->keyboardWidget->setCurrentLayout(usLayout);
+    ui->keyboardWidget->setCurrentLayout(KeyboardLayoutsDatabase::layoutForName("en-US"));
 
     ui->responseBox->installEventFilter(this);
 }
@@ -170,15 +162,45 @@ QString TextInputOverlay::getText(QWidget* parent, QString question, bool*cancel
     connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
     if (loop->exec() == 0) {
         if (canceled != nullptr) *canceled = false;
+        input->hide();
         QString response = input->response();
         input->deleteLater();
         loop->deleteLater();
         return response;
     } else {
         if (canceled != nullptr) *canceled = true;
+        input->hide();
         input->deleteLater();
         loop->deleteLater();
         return "";
+    }
+}
+
+int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, int defaultText, QLineEdit::EchoMode echoMode)
+{
+    QEventLoop* loop = new QEventLoop();
+
+    TextInputOverlay* input = new TextInputOverlay(parent);
+    input->setQuestion(question);
+    input->setResponse(QString::number(defaultText));
+    input->setEchoMode(echoMode);
+    input->setInputMethodHints(Qt::ImhDigitsOnly);
+    input->show();
+    connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
+    connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
+    if (loop->exec() == 0) {
+        if (canceled != nullptr) *canceled = false;
+        input->hide();
+        QString response = input->response();
+        input->deleteLater();
+        loop->deleteLater();
+        return response.toInt();
+    } else {
+        if (canceled != nullptr) *canceled = true;
+        input->hide();
+        input->deleteLater();
+        loop->deleteLater();
+        return 0;
     }
 }
 
@@ -190,16 +212,24 @@ void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWi
         TextInputOverlayPrivate::handledLineEdits.removeAll(handler);
     });
     connect(handler, &TextInputLineEditHandler::openKeyboard, [=] {
+        QEventLoop* loop = new QEventLoop();
+
         QWidget* overlay = overlayOn;
         if (overlay == nullptr) overlay = lineEdit->parentWidget();
 
         QString q = question;
         if (q.isEmpty()) q = lineEdit->placeholderText();
 
-        bool canceled;
-        QString response = TextInputOverlay::getText(overlay, q, &canceled, lineEdit->text(), lineEdit->echoMode());
-        if (!canceled) {
-            lineEdit->setText(response);
+        TextInputOverlay* input = new TextInputOverlay(overlay);
+        input->setQuestion(question);
+        input->setResponse(lineEdit->text());
+        input->setEchoMode(lineEdit->echoMode());
+        input->setInputMethodHints(lineEdit->inputMethodHints());
+        input->show();
+        connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
+        connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
+        if (loop->exec() != 0) {
+            lineEdit->setText(input->response());
         }
     });
 }
@@ -231,6 +261,11 @@ void TextInputOverlay::setEchoMode(QLineEdit::EchoMode echoMode)
 
 void TextInputOverlay::show()
 {
+    //Choose the correct layout
+    KeyboardLayout layout = KeyboardLayoutsDatabase::layoutForName("en-US");
+    if (this->inputMethodHints() & Qt::ImhDigitsOnly) layout = KeyboardLayoutsDatabase::layoutForName("numOnly");
+    ui->keyboardWidget->setCurrentLayout(layout);
+
     d->overlay->showOverlay(d->parent);
     ui->responseBox->setFocus();
 }
@@ -262,8 +297,7 @@ void TextInputOverlay::on_responseBox_returnPressed()
 
 void TextInputOverlay::on_okButton_clicked()
 {
-    MusicEngine::playSoundEffect(MusicEngine::Selection);
-    emit accepted(ui->responseBox->text());
+    tryAccept();
 }
 
 void TextInputOverlay::on_cancelButton_clicked()
@@ -278,5 +312,25 @@ void TextInputOverlay::on_responseBox_textChanged(const QString &arg1)
         ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Cancel"));
     } else {
         ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Backspace"));
+    }
+}
+
+void TextInputOverlay::tryAccept()
+{
+    QString text = ui->responseBox->text();
+    QString error = "";
+    if (this->inputMethodHints() & Qt::ImhDigitsOnly) {
+        bool ok;
+        text.toInt(&ok);
+        if (!ok) error = tr("Enter a number");
+    }
+
+    if (error.isEmpty()) {
+        MusicEngine::playSoundEffect(MusicEngine::Selection);
+        emit accepted(ui->responseBox->text());
+    } else {
+        MusicEngine::playSoundEffect(MusicEngine::Backstep);
+        ui->errorLabel->setText(error);
+        tErrorFlash::flashError(ui->responseBox);
     }
 }
