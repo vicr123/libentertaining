@@ -21,12 +21,17 @@
 
 #include "private/gamepadlistener.h"
 #include <the-libs_global.h>
-
+#include <QTranslator>
 
 void Entertaining::initialize()
 {
     Q_INIT_RESOURCE(libentertaining_resources);
+    Q_INIT_RESOURCE(libentertaining_translations);
     new GamepadListener();
+
+    QTranslator* translator = new QTranslator();
+    translator->load(QLocale::system().name(), ":/libentertaining/translations/");
+    QApplication::installTranslator(translator);
 }
 
 Entertaining::Entertaining() {

@@ -68,6 +68,9 @@ unix {
 }
 
 unix:!macx {
+    #Include required build tools
+    include(/usr/share/the-libs/pri/gentranslations.pri)
+
     QT += thelib
 
     target.path = /usr/lib
@@ -76,6 +79,9 @@ unix:!macx {
 }
 
 macx {
+    #Include required build tools
+    include(/usr/local/share/the-libs/pri/gentranslations.pri)
+
     CONFIG(debug, debug|release): TARGET = libentertaining_debug
 
     INCLUDEPATH += "/usr/local/include/the-libs"
@@ -87,6 +93,9 @@ macx {
 }
 
 win32 {
+    #Include required build tools
+    include(C:/Program Files/thelibs/pri/gentranslations.pri)
+
     CONFIG(debug, debug|release): TARGET = libentertainingd
 
     module.files = qt_thelib.pri
@@ -97,7 +106,8 @@ win32 {
 INSTALLS += target module header
 
 RESOURCES += \
-    libentertaining_resources.qrc
+    libentertaining_resources.qrc \
+    libentertaining_translations.qrc
 
 FORMS += \
     dialogueoverlay.ui \

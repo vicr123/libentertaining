@@ -1,0 +1,10 @@
+name: 'Install libentertaining'
+description: "Install libentertaining"
+inputs:
+  libentertaining-branch:
+    description: 'Branch of libentertaining to install'
+    required: false
+    default: 'master'
+runs:
+  using: 'node12'
+  main: 'install.js'
