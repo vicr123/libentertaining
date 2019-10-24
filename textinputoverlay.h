@@ -38,7 +38,7 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
         ~TextInputOverlay();
 
         static QString getText(QWidget* parent, QString question, bool* canceled = nullptr, QString defaultText = "", QLineEdit::EchoMode echoMode = QLineEdit::Normal);
-        static int getInt(QWidget* parent, QString question, bool* canceled = nullptr, int defaultText = 0, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
+        static int getInt(QWidget* parent, QString question, bool* canceled = nullptr, int defaultText = 0, int min = 0, int max = 100, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
         static void installHandler(QLineEdit* lineEdit, QString question = "", QWidget* overlayOn = nullptr);
 
         void setQuestion(QString question);
@@ -47,6 +47,8 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
         QString response();
 
         void setEchoMode(QLineEdit::EchoMode echoMode);
+
+        void setValidator(QValidator* validator, QString errorMessage);
 
     public slots:
         void show();

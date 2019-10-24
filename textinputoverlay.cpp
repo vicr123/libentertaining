@@ -25,6 +25,7 @@
 #include <QPainter>
 #include <QShortcut>
 #include <QKeyEvent>
+#include <QValidator>
 #include <terrorflash.h>
 #include "musicengine.h"
 #include "pauseoverlay.h"
@@ -38,6 +39,8 @@ struct TextInputOverlayPrivate {
     QWidget* parent;
 
     QList<Keyboard*> keyboards;
+    QValidator* validator = nullptr;
+    QString validatorError;
 
     static QList<TextInputLineEditHandler*> handledLineEdits;
 };
@@ -176,15 +179,18 @@ QString TextInputOverlay::getText(QWidget* parent, QString question, bool*cancel
     }
 }
 
-int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, int defaultText, QLineEdit::EchoMode echoMode)
+int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, int defaultText, int min, int max, QLineEdit::EchoMode echoMode)
 {
     QEventLoop* loop = new QEventLoop();
+
+    QIntValidator validator(min, max);
 
     TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
     input->setResponse(QString::number(defaultText));
     input->setEchoMode(echoMode);
     input->setInputMethodHints(Qt::ImhDigitsOnly);
+    input->setValidator(&validator, tr("Enter a number between %1 and %2").arg(min).arg(max));
     input->show();
     connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
     connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
@@ -259,6 +265,12 @@ void TextInputOverlay::setEchoMode(QLineEdit::EchoMode echoMode)
     ui->responseBox->setEchoMode(echoMode);
 }
 
+void TextInputOverlay::setValidator(QValidator*validator, QString errorMessage)
+{
+    d->validator = validator;
+    d->validatorError = errorMessage;
+}
+
 void TextInputOverlay::show()
 {
     //Choose the correct layout
@@ -319,10 +331,18 @@ void TextInputOverlay::tryAccept()
 {
     QString text = ui->responseBox->text();
     QString error = "";
-    if (this->inputMethodHints() & Qt::ImhDigitsOnly) {
-        bool ok;
-        text.toInt(&ok);
-        if (!ok) error = tr("Enter a number");
+
+    if (d->validator != nullptr) {
+        int pos = 0;
+        QValidator::State state = d->validator->validate(text, pos);
+        switch (state) {
+            case QValidator::Invalid:
+            case QValidator::Intermediate:
+                error = d->validatorError;
+                break;
+            case QValidator::Acceptable:
+                break;
+        }
     }
 
     if (error.isEmpty()) {
