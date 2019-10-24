@@ -38,6 +38,7 @@ struct KeyboardKey {
         Dummy
     };
 
+    KeyboardKey();
     KeyboardKey(const char character);
     KeyboardKey(const QChar character);
     KeyboardKey(std::function<void()> clickHandler, QString label);

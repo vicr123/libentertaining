@@ -296,6 +296,11 @@ bool Keyboard::eventFilter(QObject*watched, QEvent*event)
     return false;
 }
 
+KeyboardKey::KeyboardKey()
+{
+
+}
+
 KeyboardKey::KeyboardKey(char character)
 {
     this->type = 0;
