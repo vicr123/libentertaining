@@ -27,6 +27,7 @@
 #include <QKeyEvent>
 #include "musicengine.h"
 #include "pauseoverlay.h"
+#include "private/textinputlineedithandler.h"
 
 #include "keyboards/uskeyboard.h"
 
@@ -36,10 +37,10 @@ struct TextInputOverlayPrivate {
 
     QList<Keyboard*> keyboards;
 
-    static QList<QLineEdit*> handledLineEdits;
+    static QList<TextInputLineEditHandler*> handledLineEdits;
 };
 
-QList<QLineEdit*> TextInputOverlayPrivate::handledLineEdits = QList<QLineEdit*>();
+QList<TextInputLineEditHandler*> TextInputOverlayPrivate::handledLineEdits = QList<TextInputLineEditHandler*>();
 
 TextInputOverlay::TextInputOverlay(QWidget *parent) :
     QWidget(parent),
@@ -59,20 +60,22 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonX, tr("Space"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonStart, tr("OK"));
 
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [=] {
+//    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [=] {
 
-    });
+//    });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
         QString text = ui->responseBox->text();
         if (text.isEmpty()) {
             //Cancel instead
             ui->cancelButton->click();
         } else {
+            MusicEngine::playSoundEffect(MusicEngine::Backstep);
             text.chop(1);
             ui->responseBox->setText(text);
         }
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonY, [=] {
+        MusicEngine::playSoundEffect(MusicEngine::Selection);
         if (ui->keyboardWidget->capsState() == Keyboard::None) {
             ui->keyboardWidget->setCapsState(Keyboard::Shift);
         } else {
@@ -80,6 +83,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
         }
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonX, [=] {
+        MusicEngine::playSoundEffect(MusicEngine::Selection);
         QString text = ui->responseBox->text();
         text.append(" ");
         ui->responseBox->setText(text);
@@ -180,11 +184,12 @@ QString TextInputOverlay::getText(QWidget* parent, QString question, bool*cancel
 
 void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWidget*overlayOn)
 {
-    TextInputOverlayPrivate::handledLineEdits.append(lineEdit);
-    connect(lineEdit, &QLineEdit::destroyed, [=] {
-        TextInputOverlayPrivate::handledLineEdits.removeAll(lineEdit);
+    TextInputLineEditHandler* handler = new TextInputLineEditHandler(lineEdit);
+    TextInputOverlayPrivate::handledLineEdits.append(handler);
+    connect(handler, &TextInputLineEditHandler::destroyed, [=] {
+        TextInputOverlayPrivate::handledLineEdits.removeAll(handler);
     });
-    connect(lineEdit, &QLineEdit::returnPressed, [=] {
+    connect(handler, &TextInputLineEditHandler::openKeyboard, [=] {
         QWidget* overlay = overlayOn;
         if (overlay == nullptr) overlay = lineEdit->parentWidget();
 

@@ -17,18 +17,25 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "entertaining.h"
+#ifndef TEXTINPUTLINEEDITHANDLER_H
+#define TEXTINPUTLINEEDITHANDLER_H
 
-#include "private/gamepadlistener.h"
-#include <the-libs_global.h>
+#include <QLineEdit>
 
-
-void Entertaining::initialize()
+class TextInputLineEditHandler : public QObject
 {
-    Q_INIT_RESOURCE(libentertaining_resources);
-    new GamepadListener();
-}
+        Q_OBJECT
+    public:
+        explicit TextInputLineEditHandler(QLineEdit *parent);
+        ~TextInputLineEditHandler();
 
-Entertaining::Entertaining() {
+    signals:
+        void openKeyboard();
 
-}
+    public slots:
+
+    private:
+        bool eventFilter(QObject* watched, QEvent* event);
+};
+
+#endif // TEXTINPUTLINEEDITHANDLER_H

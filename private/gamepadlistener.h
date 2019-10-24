@@ -17,18 +17,28 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "entertaining.h"
+#ifndef GAMEPADLISTENER_H
+#define GAMEPADLISTENER_H
 
-#include "private/gamepadlistener.h"
-#include <the-libs_global.h>
+#include <QObject>
 
-
-void Entertaining::initialize()
+struct GamepadListenerPrivate;
+class GamepadEvent;
+class GamepadListener : public QObject
 {
-    Q_INIT_RESOURCE(libentertaining_resources);
-    new GamepadListener();
-}
+        Q_OBJECT
+    public:
+        explicit GamepadListener(QObject *parent = nullptr);
+        ~GamepadListener();
 
-Entertaining::Entertaining() {
+    signals:
 
-}
+    public slots:
+
+    private:
+        GamepadListenerPrivate* d;
+
+        void propagateEvent(GamepadEvent* event);
+};
+
+#endif // GAMEPADLISTENER_H

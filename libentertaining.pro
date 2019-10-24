@@ -1,4 +1,6 @@
 QT += widgets gamepad svg multimedia
+SHARE_APP_NAME = libentertaining
+
 
 TEMPLATE = lib
 DEFINES += LIBENTERTAINING_LIBRARY
@@ -23,12 +25,15 @@ SOURCES += \
     focusbarrier.cpp \
     focuspointer.cpp \
     gamepadbuttons.cpp \
+    gamepadevent.cpp \
     gamepadhud.cpp \
     gamepadlabel.cpp \
     keyboards/keyboard.cpp \
     keyboards/uskeyboard.cpp \
     musicengine.cpp \
     pauseoverlay.cpp \
+    private/gamepadlistener.cpp \
+    private/textinputlineedithandler.cpp \
     textinputoverlay.cpp
 
 HEADERS += \
@@ -36,6 +41,7 @@ HEADERS += \
     focusbarrier.h \
     focuspointer.h \
     gamepadbuttons.h \
+    gamepadevent.h \
     gamepadhud.h \
     gamepadlabel.h \
     keyboards/keyboard.h \
@@ -44,6 +50,8 @@ HEADERS += \
     entertaining.h \
     musicengine.h \
     pauseoverlay.h \
+    private/gamepadlistener.h \
+    private/textinputlineedithandler.h \
     textinputoverlay.h
 
 DISTFILES += \

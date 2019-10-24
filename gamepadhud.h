@@ -37,13 +37,20 @@ class LIBENTERTAINING_EXPORT GamepadHud : public QWidget
         explicit GamepadHud(QWidget *parent = nullptr);
         ~GamepadHud();
 
+        void setParent(QWidget* parent);
+        void addListener(QWidget* listenTo);
+        void removeListener(QWidget* listenTo);
+
         void setButtonText(QGamepadManager::GamepadButton button, QString text);
         void setButtonAction(QGamepadManager::GamepadButton button, std::function<void()> action);
         void removeText(QGamepadManager::GamepadButton button);
+        void removeButtonAction(QGamepadManager::GamepadButton button);
 
     private:
         Ui::GamepadHud *ui;
         GamepadHudPrivate* d;
+
+        bool eventFilter(QObject* watched, QEvent* event);
 };
 
 #endif // GAMEPADHUD_H

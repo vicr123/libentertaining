@@ -21,11 +21,14 @@
 #include "ui_gamepadhud.h"
 
 #include <QPushButton>
+#include "gamepadevent.h"
 #include "gamepadbuttons.h"
 
 struct GamepadHudPrivate {
     QMap<QGamepadManager::GamepadButton, QPushButton*> hudItems;
     QMap<QGamepadManager::GamepadButton, std::function<void()>> buttonActions;
+
+    QWidget* parent = nullptr;
 };
 
 GamepadHud::GamepadHud(QWidget *parent) :
@@ -34,12 +37,32 @@ GamepadHud::GamepadHud(QWidget *parent) :
 {
     ui->setupUi(this);
     d = new GamepadHudPrivate();
+
+    this->setParent(parent);
 }
 
 GamepadHud::~GamepadHud()
 {
     delete ui;
     delete d;
+}
+
+void GamepadHud::setParent(QWidget* parent)
+{
+    if (d->parent != nullptr) d->parent->removeEventFilter(this);
+    QWidget::setParent(parent);
+    d->parent = parent;
+    if (parent != nullptr) parent->installEventFilter(this);
+}
+
+void GamepadHud::addListener(QWidget*listenTo)
+{
+    listenTo->installEventFilter(this);
+}
+
+void GamepadHud::removeListener(QWidget*listenTo)
+{
+    listenTo->removeEventFilter(this);
 }
 
 void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString text)
@@ -84,5 +107,26 @@ void GamepadHud::removeText(QGamepadManager::GamepadButton button)
         ui->buttonLayout->removeWidget(item);
         item->deleteLater();
     }
+}
+
+void GamepadHud::removeButtonAction(QGamepadManager::GamepadButton button)
+{
+    d->buttonActions.remove(button);
+}
+
+bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
+{
+    if (watched == d->parent && event->type() == GamepadEvent::type()) {
+        GamepadEvent* e = static_cast<GamepadEvent*>(event);
+        if (e->isButtonEvent() && e->buttonPressed() && d->buttonActions.contains(e->button())) {
+            //Run the button action
+            d->buttonActions.value(e->button())();
+
+            //Prevent propagation
+            e->accept();
+            return true;
+        }
+    }
+    return false;
 }
 

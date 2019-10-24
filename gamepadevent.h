@@ -17,18 +17,36 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "entertaining.h"
+#ifndef GAMEPADEVENT_H
+#define GAMEPADEVENT_H
 
-#include "private/gamepadlistener.h"
-#include <the-libs_global.h>
+#include <QEvent>
+#include <QGamepadManager>
+#include "libentertaining_global.h"
 
-
-void Entertaining::initialize()
+struct GamepadEventPrivate;
+class LIBENTERTAINING_EXPORT GamepadEvent : public QEvent
 {
-    Q_INIT_RESOURCE(libentertaining_resources);
-    new GamepadListener();
-}
+    public:
+        explicit GamepadEvent(int deviceId, QGamepadManager::GamepadButton button, double value);
+        explicit GamepadEvent(int deviceId, QGamepadManager::GamepadAxis axis, double value);
+        ~GamepadEvent();
 
-Entertaining::Entertaining() {
+        static QEvent::Type type();
 
-}
+        QGamepad* gamepad();
+        double newValue();
+
+        bool isButtonEvent();
+
+        QGamepadManager::GamepadButton button();
+        bool buttonPressed();
+        bool buttonReleased();
+
+        QGamepadManager::GamepadAxis axis();
+
+    private:
+        GamepadEventPrivate* dd;
+};
+
+#endif // GAMEPADEVENT_H

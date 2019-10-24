@@ -17,18 +17,32 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "entertaining.h"
+#include "textinputlineedithandler.h"
 
-#include "private/gamepadlistener.h"
-#include <the-libs_global.h>
+#include "gamepadevent.h"
 
-
-void Entertaining::initialize()
+TextInputLineEditHandler::TextInputLineEditHandler(QLineEdit *parent) : QObject(parent)
 {
-    Q_INIT_RESOURCE(libentertaining_resources);
-    new GamepadListener();
+    parent->installEventFilter(this);
 }
 
-Entertaining::Entertaining() {
+TextInputLineEditHandler::~TextInputLineEditHandler()
+{
 
+}
+
+bool TextInputLineEditHandler::eventFilter(QObject*watched, QEvent*event)
+{
+    if (event->type() == GamepadEvent::type()) {
+        GamepadEvent* e = static_cast<GamepadEvent*>(event);
+        if (e->isButtonEvent() && e->buttonPressed() && e->button() == QGamepadManager::ButtonA) {
+            //Open the keyboard
+            emit openKeyboard();
+
+            //Prevent propagation
+            e->accept();
+            return true;
+        }
+    }
+    return false;
 }
