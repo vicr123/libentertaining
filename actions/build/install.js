@@ -9,10 +9,6 @@ const process = require('process');
         //TODO
         core.setFailed("Not running on a supported platform.");
         return;
-    } else {
-        //Fail
-        core.setFailed("Not running on a supported platform.");
-        return;
     }
     
     //Install the-libs
