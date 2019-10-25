@@ -70,9 +70,9 @@ GamepadEvent::GamepadEvent(int deviceId, QGamepadManager::GamepadAxis axis, doub
     dd->axis = axis;
 
     double oldValue = dd->axisValues.value(axis, 0);
-    if (abs(oldValue) < 0.8 && abs(value) >= 0.8) {
+    if (qAbs(oldValue) < 0.8 && qAbs(value) >= 0.8) {
         dd->buttonPressed = true;
-    } else if (abs(oldValue) >= 0.8 && abs(value) < 0.8) {
+    } else if (qAbs(oldValue) >= 0.8 && qAbs(value) < 0.8) {
         dd->buttonReleased = true;
     }
     dd->axisValues.insert(axis, value);
