@@ -22,6 +22,7 @@
 #include <QApplication>
 #include <QPointer>
 #include <QPainter>
+#include <QAbstractItemView>
 #include <the-libs_global.h>
 #include <tvariantanimation.h>
 
@@ -80,6 +81,7 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
 
     connect(static_cast<QApplication*>(QApplication::instance()), &QApplication::focusChanged, this, [=](QWidget* old, QWidget* now) {
         if (!d->activeWidget.isNull()) {
+            disconnect(d->activeWidget, nullptr, this, nullptr);
             d->activeWidget->removeEventFilter(this);
         }
 
@@ -91,6 +93,13 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
             this->setFocusProxy(d->activeWidget);
             d->activeWidget->installEventFilter(this);
 
+            QAbstractItemView* listView = qobject_cast<QAbstractItemView*>(d->activeWidget);
+            if (listView) {
+                connect(listView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [=] {
+                    MusicEngine::playSoundEffect(MusicEngine::FocusChanged);
+                    this->updateFocusedWidget();
+                });
+            }
 
             if (d->enabled) {
                 if (qobject_cast<FocusBarrier*>(d->activeWidget) == nullptr && qobject_cast<FocusBarrier*>(old) == nullptr) {
@@ -141,10 +150,20 @@ void FocusPointer::updateFocusedWidget()
         if (d->enabled) d->instance->show();
 
         this->setParent(parentWindow);
-        this->resize(d->activeWidget->size() + SC_DPI_T(QSize(10, 10), QSize));
-        this->move(d->activeWidget->mapTo(parentWindow, SC_DPI_T(QPoint(-5, -5), QPoint)));
-//        this->move(d->activeWidget->mapTo(parentWindow, QPoint(d->activeWidget->width() - SC_DPI(16), d->activeWidget->height() - SC_DPI(16))));
 
+        QRect geometry;
+
+        QAbstractItemView* listView = qobject_cast<QAbstractItemView*>(d->activeWidget);
+        if (listView) {
+            geometry = listView->visualRect(listView->currentIndex());
+            geometry.moveTopLeft(listView->viewport()->mapTo(parentWindow, geometry.topLeft()));
+            geometry.adjust(SC_DPI(-5), SC_DPI(-5), SC_DPI(5), SC_DPI(5));
+        } else {
+            geometry.setSize(d->activeWidget->size() + SC_DPI_T(QSize(10, 10), QSize));
+            geometry.moveTopLeft(d->activeWidget->mapTo(parentWindow, SC_DPI_T(QPoint(-5, -5), QPoint)));
+        }
+
+        this->setGeometry(geometry);
         this->raise();
     }
 }

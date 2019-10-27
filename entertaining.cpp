@@ -39,8 +39,8 @@ void Entertaining::initialize()
     QPalette pal;
 
     pal.setColor(QPalette::Window, QColor(40, 40, 40));
-    pal.setColor(QPalette::Base, QColor(40, 40, 40));
-    pal.setColor(QPalette::AlternateBase, QColor(60, 60, 60));
+    pal.setColor(QPalette::Base, QColor(40, 40, 40, 0));
+    pal.setColor(QPalette::AlternateBase, QColor(60, 60, 60, 0));
     pal.setColor(QPalette::WindowText, Qt::white);
     pal.setColor(QPalette::Text, Qt::white);
     pal.setColor(QPalette::ToolTipText, Qt::white);

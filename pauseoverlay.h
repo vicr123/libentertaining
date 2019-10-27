@@ -54,6 +54,7 @@ class LIBENTERTAINING_EXPORT PauseOverlay : public QWidget
         bool eventFilter(QObject* watched, QEvent* event);
         void paintEvent(QPaintEvent* event);
 
+        void animateCurrentOut(std::function<void()> after = []{});
         void setNewOverlayWidget(QWidget* widget, std::function<void()> after = []{});
 };
 

@@ -20,12 +20,12 @@
 #include "gamepadhud.h"
 #include "ui_gamepadhud.h"
 
-#include <QPushButton>
+#include <QToolButton>
 #include "gamepadevent.h"
 #include "gamepadbuttons.h"
 
 struct GamepadHudPrivate {
-    QMap<QGamepadManager::GamepadButton, QPushButton*> hudItems;
+    QMap<QGamepadManager::GamepadButton, QToolButton*> hudItems;
     QMap<QGamepadManager::GamepadButton, std::function<void()>> buttonActions;
 
     QWidget* parent = nullptr;
@@ -68,20 +68,21 @@ void GamepadHud::removeListener(QWidget*listenTo)
 void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString text)
 {
 //    d->buttonText.insert(button, text);
-    QPushButton* item;
+    QToolButton* item;
     if (d->hudItems.contains(button)) {
         item = d->hudItems.value(button);
     } else {
-        item = new QPushButton();
+        item = new QToolButton();
 
         QPalette pal = item->palette();
         pal.setColor(QPalette::Window, Qt::transparent);
         item->setPalette(pal);
 
-        item->setFlat(true);
+        item->setAutoRaise(true);
+        item->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         item->setFocusPolicy(Qt::NoFocus);
         item->setIcon(GamepadButtons::iconForButton(button, this->palette().color(QPalette::WindowText)));
-        connect(item, &QPushButton::clicked, this, [=] {
+        connect(item, &QToolButton::clicked, this, [=] {
             if (d->buttonActions.contains(button)) {
                 d->buttonActions.value(button)();
             }
@@ -102,7 +103,7 @@ void GamepadHud::setButtonAction(QGamepadManager::GamepadButton button, std::fun
 void GamepadHud::removeText(QGamepadManager::GamepadButton button)
 {
     if (d->hudItems.contains(button)) {
-        QPushButton* item = d->hudItems.value(button);
+        QToolButton* item = d->hudItems.value(button);
         d->hudItems.remove(button);
         ui->buttonLayout->removeWidget(item);
         item->deleteLater();

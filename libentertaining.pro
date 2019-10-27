@@ -31,10 +31,16 @@ SOURCES += \
     keyboards/keyboard.cpp \
     keyboards/keyboardlayoutsdatabase.cpp \
     keyboards/uskeyboard.cpp \
+    loadoverlay.cpp \
     musicengine.cpp \
     pauseoverlay.cpp \
     private/gamepadlistener.cpp \
+    private/loaddialog.cpp \
+    private/savedialog.cpp \
+    private/saveengine.cpp \
+    private/savesmodel.cpp \
     private/textinputlineedithandler.cpp \
+    saveoverlay.cpp \
     textinputoverlay.cpp
 
 HEADERS += \
@@ -50,10 +56,16 @@ HEADERS += \
     keyboards/uskeyboard.h \
     libentertaining_global.h \
     entertaining.h \
+    loadoverlay.h \
     musicengine.h \
     pauseoverlay.h \
     private/gamepadlistener.h \
+    private/loaddialog.h \
+    private/savedialog.h \
+    private/saveengine.h \
+    private/savesmodel.h \
     private/textinputlineedithandler.h \
+    saveoverlay.h \
     textinputoverlay.h
 
 DISTFILES += \
@@ -113,4 +125,6 @@ FORMS += \
     dialogueoverlay.ui \
     gamepadhud.ui \
     keyboards/uskeyboard.ui \
+    private/loaddialog.ui \
+    private/savedialog.ui \
     textinputoverlay.ui

@@ -50,16 +50,12 @@ PauseOverlay::PauseOverlay(QWidget*overlayOver, QWidget*overlayWidget, QWidget *
         d->overlayWidget.push(overlayWidget);
     }
 
-
     d->layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     d->layout->setContentsMargins(0, 0, 0, 0);
 
     d->opacity = new QGraphicsOpacityEffect(this);
     d->opacity->setOpacity(0);
     this->setGraphicsEffect(d->opacity);
-
-    d->overlayOpacity = new QGraphicsOpacityEffect(this);
-    d->overlayOpacity->setOpacity(0);
 
     d->blur = new QGraphicsBlurEffect(this);
 
@@ -152,7 +148,9 @@ void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
     //We'll automatically show this widget when the pop completes
     if (!d->animatingPop) {
         if (this->isVisible()) {
-            setNewOverlayWidget(overlayWidget);
+            animateCurrentOut([=] {
+                setNewOverlayWidget(overlayWidget);
+            });
         } else {
             this->showOverlay();
         }
@@ -161,24 +159,29 @@ void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
 
 void PauseOverlay::popOverlayWidget(std::function<void ()> after)
 {
+    //If we're already popping we want to go back more steps
+    if (d->animatingPop) {
+        QWidget* topWidget = d->overlayWidget.pop();
+        topWidget->setGraphicsEffect(nullptr);
+
+        QMetaObject::Connection* c = new QMetaObject::Connection();
+        *c = connect(this, &PauseOverlay::widgetPopped, this, [=] {
+            disconnect(*c);
+            delete c;
+
+            after();
+        });
+
+        return;
+    }
+
     d->animatingPop = true;
     QWidget* topWidget = d->overlayWidget.pop();
 
-    d->overlayOpacity->setEnabled(true);
-
-    tVariantAnimation* anim = new tVariantAnimation(this);
-    anim->setStartValue(1.0);
-    anim->setEndValue(0.0);
-    anim->setDuration(250);
-    anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
-        d->overlayOpacity->setOpacity(value.toDouble());
-    });
-    connect(anim, &tVariantAnimation::finished, this, [=] {
-        anim->deleteLater();
-        d->layout->removeWidget(topWidget);
-
+    animateCurrentOut([=] {
+        topWidget->setGraphicsEffect(nullptr);
         after();
+        emit widgetPopped();
 
         QTimer::singleShot(0, this, [=] {
             d->animatingPop = false;
@@ -190,7 +193,6 @@ void PauseOverlay::popOverlayWidget(std::function<void ()> after)
             }
         });
     });
-    anim->start();
 }
 
 void PauseOverlay::setDeleteOnHide(bool deleteOnHide)
@@ -218,13 +220,37 @@ void PauseOverlay::paintEvent(QPaintEvent*event)
     painter.drawRect(0, 0, this->width(), this->height());
 }
 
+void PauseOverlay::animateCurrentOut(std::function<void ()> after)
+{
+    d->overlayOpacity->setEnabled(true);
+
+    tVariantAnimation* anim = new tVariantAnimation(this);
+    anim->setStartValue(1.0);
+    anim->setEndValue(0.0);
+    anim->setDuration(250);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->overlayOpacity->setOpacity(value.toDouble());
+    });
+    connect(anim, &tVariantAnimation::finished, this, [=] {
+        anim->deleteLater();
+        d->layout->removeWidget(d->currentOverlayWidget);
+        d->currentOverlayWidget->setVisible(false);
+        after();
+    });
+    anim->start();
+}
+
 void PauseOverlay::setNewOverlayWidget(QWidget*widget, std::function<void()> after)
 {
     d->currentOverlayWidget = widget;
     d->layout->addWidget(widget);
-    widget->setFocus();
+
+    d->overlayOpacity = new QGraphicsOpacityEffect(this);
+    d->overlayOpacity->setOpacity(0);
 
     widget->setGraphicsEffect(d->overlayOpacity);
+    widget->setVisible(true);
 
     tVariantAnimation* anim = new tVariantAnimation(this);
     anim->setStartValue(0.0);
@@ -239,6 +265,7 @@ void PauseOverlay::setNewOverlayWidget(QWidget*widget, std::function<void()> aft
         anim->deleteLater();
         this->update();
         d->overlayOpacity->setEnabled(false);
+        widget->setFocus();
         after();
     });
     anim->start();

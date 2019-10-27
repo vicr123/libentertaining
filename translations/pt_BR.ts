@@ -41,6 +41,77 @@
     </message>
 </context>
 <context>
+    <name>LoadDialog</name>
+    <message>
+        <location filename="../private/loaddialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.ui" line="71"/>
+        <location filename="../private/loaddialog.cpp" line="48"/>
+        <source>Load</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.ui" line="96"/>
+        <source>Selelct a file to load</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="49"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="50"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SaveDialog</name>
+    <message>
+        <location filename="../private/savedialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/savedialog.ui" line="71"/>
+        <location filename="../private/savedialog.cpp" line="48"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/savedialog.ui" line="96"/>
+        <source>Selelct a file to save as</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/savedialog.cpp" line="49"/>
+        <source>Create New Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/savedialog.cpp" line="50"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/savedialog.cpp" line="94"/>
+        <source>What do you want to call this save?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SavesModel</name>
+    <message>
+        <location filename="../private/savesmodel.cpp" line="64"/>
+        <source>Create New Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TextInputOverlay</name>
     <message>
         <location filename="../textinputoverlay.ui" line="14"/>
