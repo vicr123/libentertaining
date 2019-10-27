@@ -63,6 +63,7 @@ LoadDialog::LoadDialog(PauseOverlay*overlay, QWidget *parent) :
     d->model = new SavesModel();
     d->model->setShowNewFile(false);
     ui->loadView->setModel(d->model);
+    ui->loadView->setItemDelegate(new SavesDelegate(this));
 
     QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
     connect(backShortcut, &QShortcut::activated, this, [=] {

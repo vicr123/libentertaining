@@ -23,6 +23,7 @@
 #include <QStandardPaths>
 #include <QFile>
 #include <QDateTime>
+#include <QDataStream>
 
 struct SaveEnginePrivate {
     SaveEngine* instance = new SaveEngine();
@@ -57,8 +58,29 @@ SaveObject SaveEngine::getSaveByFilename(QString filename)
 
     SaveObject save;
     save.fileName = filename;
+
+    QIODevice* device = save.getStream();
+
+    QDataStream stream(device);
+    uint magicNumber;
+    int version;
+    stream >> magicNumber >> version;
+
+    if (magicNumber == SAVE_FILE_MAGIC_NUMBER) {
+        stream.setVersion(version);
+
+        QString appName;
+        stream >> appName;
+
+        stream >> save.metadata;
+    } else {
+        save.metadata.insert("description", "[" + tr("Corrupt Save") + "]");
+    }
+
     save.metadata.insert("name", file.fileName());
     save.metadata.insert("date", file.birthTime());
+
+    device->deleteLater();
     return save;
 }
 

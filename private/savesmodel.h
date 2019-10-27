@@ -21,6 +21,7 @@
 #define SAVESMODEL_H
 
 #include <QAbstractListModel>
+#include <QStyledItemDelegate>
 
 struct SavesModelPrivate;
 class SavesModel : public QAbstractListModel
@@ -39,6 +40,17 @@ class SavesModel : public QAbstractListModel
 
     private:
         SavesModelPrivate* d;
+};
+
+class SavesDelegate : public QStyledItemDelegate {
+        Q_OBJECT
+
+    public:
+        SavesDelegate(QObject* parent = nullptr);
+        ~SavesDelegate() override;
+
+        void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+        QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 #endif // SAVESMODEL_H

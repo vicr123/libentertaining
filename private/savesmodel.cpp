@@ -21,6 +21,9 @@
 
 #include "saveengine.h"
 #include <QIcon>
+#include <QPainter>
+#include <QDateTime>
+#include <the-libs_global.h>
 
 struct SavesModelPrivate {
     SaveObjectList saves;
@@ -74,6 +77,10 @@ QVariant SavesModel::data(const QModelIndex &index, int role) const
                 return save.metadata.value("name");
             case Qt::UserRole:
                 return save.fileName;
+            case Qt::UserRole + 1:
+                return save.metadata.value("description");
+            case Qt::UserRole + 2:
+                return save.metadata.value("date");
         }
     }
 
@@ -83,4 +90,61 @@ QVariant SavesModel::data(const QModelIndex &index, int role) const
 void SavesModel::setShowNewFile(bool showNewFile)
 {
     d->showNewFile = showNewFile;
+}
+
+SavesDelegate::SavesDelegate(QObject*parent) : QStyledItemDelegate(parent)
+{
+
+}
+
+SavesDelegate::~SavesDelegate()
+{
+
+}
+
+void SavesDelegate::paint(QPainter*painter, const QStyleOptionViewItem&option, const QModelIndex&index) const
+{
+    if (index.data(Qt::UserRole).type() == QVariant::Bool) {
+        QStyledItemDelegate::paint(painter, option, index);
+    } else {
+        QLocale locale;
+
+        QPen textPen;
+        if (option.state & QStyle::State_Selected) {
+            painter->setBrush(option.palette.brush(QPalette::Highlight));
+        } else if (option.state & QStyle::State_MouseOver) {
+            QColor col = option.palette.color(QPalette::Highlight);
+            col.setAlpha(127);
+            painter->setBrush(col);
+        } else {
+            painter->setBrush(Qt::transparent);
+        }
+        painter->setPen(Qt::transparent);
+        painter->drawRect(option.rect);
+
+        painter->setPen(option.palette.color(QPalette::WindowText));
+
+        QRect textRect;
+        textRect.setHeight(option.fontMetrics.height());
+        textRect.setWidth(option.rect.width() - SC_DPI(12));
+        textRect.moveLeft(option.rect.left() + SC_DPI(6));
+        textRect.moveTop(option.rect.top() + SC_DPI(6));
+
+        painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
+
+        textRect.moveTop(textRect.bottom() + SC_DPI(3));
+        painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::UserRole + 1).toString());
+
+        textRect.moveTop(textRect.bottom() + SC_DPI(3));
+        painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, locale.toString(index.data(Qt::UserRole + 2).toDateTime(), QLocale::LongFormat));
+    }
+}
+
+QSize SavesDelegate::sizeHint(const QStyleOptionViewItem&option, const QModelIndex&index) const
+{
+    QSize size = QStyledItemDelegate::sizeHint(option, index);
+    if (index.data(Qt::UserRole).type() != QVariant::Bool) {
+        size.setHeight(option.fontMetrics.height() * 3 + SC_DPI(18));
+    }
+    return size;
 }

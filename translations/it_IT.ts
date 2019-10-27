@@ -98,15 +98,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/savedialog.cpp" line="97"/>
+        <location filename="../private/savedialog.cpp" line="98"/>
         <source>What do you want to call this save?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SaveEngine</name>
+    <message>
+        <location filename="../private/saveengine.cpp" line="77"/>
+        <source>Corrupt Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SavesModel</name>
     <message>
-        <location filename="../private/savesmodel.cpp" line="64"/>
+        <location filename="../private/savesmodel.cpp" line="67"/>
         <source>Create New Save</source>
         <translation type="unfinished"></translation>
     </message>
