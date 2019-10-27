@@ -22,19 +22,29 @@
 
 #include "libentertaining_global.h"
 #include <QWidget>
+#include <functional>
 
 struct PauseOverlayPrivate;
 class LIBENTERTAINING_EXPORT PauseOverlay : public QWidget
 {
         Q_OBJECT
     public:
-        explicit PauseOverlay(QWidget* overlayWidget, QWidget *parent = nullptr);
+        explicit PauseOverlay(QWidget* overlayOver = nullptr, QWidget* overlayWidget = nullptr, QWidget *parent = nullptr);
         ~PauseOverlay();
 
-        void showOverlay(QWidget* overlayOver);
+        void setOverlayOver(QWidget* overlayOver);
+
+        void showOverlay();
         void hideOverlay();
 
+        void setOverlayWidget(QWidget* overlayWidget);
+        void pushOverlayWidget(QWidget* overlayWidget);
+        void popOverlayWidget(std::function<void()> after = []{});
+
+        void setDeleteOnHide(bool deleteOnHide);
+
     signals:
+        void widgetPopped();
 
     public slots:
 
@@ -43,6 +53,8 @@ class LIBENTERTAINING_EXPORT PauseOverlay : public QWidget
 
         bool eventFilter(QObject* watched, QEvent* event);
         void paintEvent(QPaintEvent* event);
+
+        void setNewOverlayWidget(QWidget* widget, std::function<void()> after = []{});
 };
 
 #endif // PAUSEOVERLAY_H

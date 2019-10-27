@@ -32,6 +32,29 @@ void Entertaining::initialize()
     QTranslator* translator = new QTranslator();
     translator->load(QLocale::system().name(), ":/libentertaining/translations/");
     QApplication::installTranslator(translator);
+
+    QApplication::setStyle(QStyleFactory::create("contemporary"));
+
+    //Set application palette
+    QPalette pal;
+
+    pal.setColor(QPalette::Window, QColor(40, 40, 40));
+    pal.setColor(QPalette::Base, QColor(40, 40, 40));
+    pal.setColor(QPalette::AlternateBase, QColor(60, 60, 60));
+    pal.setColor(QPalette::WindowText, Qt::white);
+    pal.setColor(QPalette::Text, Qt::white);
+    pal.setColor(QPalette::ToolTipText, Qt::white);
+
+    pal.setColor(QPalette::Disabled, QPalette::WindowText, QColor(150, 150, 150));
+
+    pal.setColor(QPalette::Button, QColor(0, 50, 150));
+    pal.setColor(QPalette::ButtonText, Qt::white);
+    pal.setColor(QPalette::Highlight, QColor(0, 80, 170));
+    pal.setColor(QPalette::HighlightedText, Qt::white);
+    pal.setColor(QPalette::Disabled, QPalette::Button, QColor(0, 30, 100));
+    pal.setColor(QPalette::Disabled, QPalette::ButtonText, QColor(150, 150, 150));
+
+    QApplication::setPalette(pal);
 }
 
 Entertaining::Entertaining() {

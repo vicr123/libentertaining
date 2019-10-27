@@ -23,27 +23,49 @@
 #include <QBoxLayout>
 #include <QEvent>
 #include <QGraphicsBlurEffect>
+#include <QStack>
+#include <QTimer>
+#include <tvariantanimation.h>
 
 struct PauseOverlayPrivate {
-    QWidget* overlayWidget;
-    QWidget* overlayOver;
+    QStack<QWidget*> overlayWidget;
+    QWidget* currentOverlayWidget = nullptr;
+    QWidget* overlayOver = nullptr;
 
-    QGraphicsBlurEffect* effect;
+    QBoxLayout* layout;
+
+    QGraphicsOpacityEffect* opacity;
+    QGraphicsOpacityEffect* overlayOpacity;
+    QGraphicsBlurEffect* blur;
+
+    bool animatingPop = false;
+    bool deleteOnHide = true;
 };
 
-PauseOverlay::PauseOverlay(QWidget*overlayWidget, QWidget *parent) : QWidget(parent)
+PauseOverlay::PauseOverlay(QWidget*overlayOver, QWidget*overlayWidget, QWidget *parent) : QWidget(parent)
 {
     d = new PauseOverlayPrivate();
-    d->overlayWidget = overlayWidget;
 
-    QBoxLayout* layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->addWidget(overlayWidget);
+    if (overlayWidget != nullptr) {
+        d->overlayWidget.push(overlayWidget);
+    }
 
-    d->effect = new QGraphicsBlurEffect();
-    d->effect->setBlurRadius(20);
+
+    d->layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
+    d->layout->setContentsMargins(0, 0, 0, 0);
+
+    d->opacity = new QGraphicsOpacityEffect(this);
+    d->opacity->setOpacity(0);
+    this->setGraphicsEffect(d->opacity);
+
+    d->overlayOpacity = new QGraphicsOpacityEffect(this);
+    d->overlayOpacity->setOpacity(0);
+
+    d->blur = new QGraphicsBlurEffect(this);
 
     this->setAttribute(Qt::WA_TranslucentBackground);
+
+    setOverlayOver(overlayOver);
 }
 
 PauseOverlay::~PauseOverlay()
@@ -51,30 +73,129 @@ PauseOverlay::~PauseOverlay()
     delete d;
 }
 
-void PauseOverlay::showOverlay(QWidget*overlayOver)
+void PauseOverlay::setOverlayOver(QWidget*overlayOver)
 {
-    d->overlayOver = overlayOver;
-    overlayOver->installEventFilter(this);
-
-    if (d->overlayOver->parentWidget() != nullptr) {
-        this->setGeometry(overlayOver->geometry());
-        this->setParent(overlayOver->parentWidget());
-        overlayOver->setGraphicsEffect(d->effect);
-    } else {
-        this->setGeometry(QRect(QPoint(0, 0), overlayOver->size()));
-        this->setParent(overlayOver);
+    if (d->overlayOver != nullptr) {
+        d->overlayOver->removeEventFilter(this);
+        d->overlayOver->setGraphicsEffect(nullptr);
     }
+
+    d->overlayOver = overlayOver;
+
+    if (overlayOver != nullptr) {
+        overlayOver->installEventFilter(this);
+
+        if (d->overlayOver->parentWidget() != nullptr) {
+            this->setGeometry(overlayOver->geometry());
+            this->setParent(overlayOver->parentWidget());
+            overlayOver->setGraphicsEffect(d->blur);
+        } else {
+            this->setGeometry(QRect(QPoint(0, 0), overlayOver->size()));
+            this->setParent(overlayOver);
+        }
+    }
+}
+
+void PauseOverlay::showOverlay()
+{
     this->show();
+
+    tVariantAnimation* anim = new tVariantAnimation(this);
+    anim->setStartValue(0.0);
+    anim->setEndValue(1.0);
+    anim->setDuration(250);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->opacity->setOpacity(value.toDouble());
+    });
+    connect(anim, &tVariantAnimation::finished, this, [=] {
+        anim->deleteLater();
+        d->opacity->setEnabled(false);
+        setNewOverlayWidget(d->overlayWidget.top());
+    });
+    anim->start();
+
+    d->blur->setBlurRadius(20);
 }
 
 void PauseOverlay::hideOverlay()
 {
-    this->hide();
-    this->setParent(nullptr);
+    tVariantAnimation* anim = new tVariantAnimation(this);
+    anim->setStartValue(1.0);
+    anim->setEndValue(0.0);
+    anim->setDuration(250);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->opacity->setOpacity(value.toDouble());
+    });
+    connect(anim, &tVariantAnimation::finished, this, [=] {
+        anim->deleteLater();
+        this->hide();
+        d->blur->setBlurRadius(0);
 
-    if (d->overlayOver->parentWidget() != nullptr) {
-        d->overlayOver->setGraphicsEffect(nullptr);
+        if (d->deleteOnHide) this->deleteLater();
+    });
+    anim->start();
+}
+
+void PauseOverlay::setOverlayWidget(QWidget*overlayWidget)
+{
+    d->overlayWidget.clear();
+    pushOverlayWidget(overlayWidget);
+}
+
+void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
+{
+    d->overlayWidget.push(overlayWidget);
+
+    //Don't do anything if we're currently animating a pop
+    //We'll automatically show this widget when the pop completes
+    if (!d->animatingPop) {
+        if (this->isVisible()) {
+            setNewOverlayWidget(overlayWidget);
+        } else {
+            this->showOverlay();
+        }
     }
+}
+
+void PauseOverlay::popOverlayWidget(std::function<void ()> after)
+{
+    d->animatingPop = true;
+    QWidget* topWidget = d->overlayWidget.pop();
+
+    d->overlayOpacity->setEnabled(true);
+
+    tVariantAnimation* anim = new tVariantAnimation(this);
+    anim->setStartValue(1.0);
+    anim->setEndValue(0.0);
+    anim->setDuration(250);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->overlayOpacity->setOpacity(value.toDouble());
+    });
+    connect(anim, &tVariantAnimation::finished, this, [=] {
+        anim->deleteLater();
+        d->layout->removeWidget(topWidget);
+
+        after();
+
+        QTimer::singleShot(0, this, [=] {
+            d->animatingPop = false;
+
+            if (d->overlayWidget.count() > 0) {
+                setNewOverlayWidget(d->overlayWidget.top());
+            } else {
+                this->hideOverlay();
+            }
+        });
+    });
+    anim->start();
+}
+
+void PauseOverlay::setDeleteOnHide(bool deleteOnHide)
+{
+    d->deleteOnHide = deleteOnHide;
 }
 
 bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
@@ -95,4 +216,30 @@ void PauseOverlay::paintEvent(QPaintEvent*event)
     painter.setBrush(QColor(0, 0, 0, 127));
     painter.setPen(Qt::transparent);
     painter.drawRect(0, 0, this->width(), this->height());
+}
+
+void PauseOverlay::setNewOverlayWidget(QWidget*widget, std::function<void()> after)
+{
+    d->currentOverlayWidget = widget;
+    d->layout->addWidget(widget);
+    widget->setFocus();
+
+    widget->setGraphicsEffect(d->overlayOpacity);
+
+    tVariantAnimation* anim = new tVariantAnimation(this);
+    anim->setStartValue(0.0);
+    anim->setEndValue(1.0);
+    anim->setDuration(250);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->overlayOpacity->setOpacity(value.toDouble());
+        this->update();
+    });
+    connect(anim, &tVariantAnimation::finished, this, [=] {
+        anim->deleteLater();
+        this->update();
+        d->overlayOpacity->setEnabled(false);
+        after();
+    });
+    anim->start();
 }

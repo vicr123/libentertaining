@@ -105,10 +105,14 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
 
     this->resize(SC_DPI_T(QSize(32, 32), QSize));
 
+//    QColor mainCol = QApplication::palette().color(QPalette::Highlight);
+
     d->colourPulse = new tVariantAnimation();
     d->colourPulse->setForceAnimation(true);
     d->colourPulse->setStartValue(QColor(0, 100, 255));
     d->colourPulse->setEndValue(QColor(0, 200, 255));
+//    d->colourPulse->setStartValue(mainCol.darker());
+//    d->colourPulse->setEndValue(mainCol.lighter());
     d->colourPulse->setDuration(500);
     connect(d->colourPulse, &tVariantAnimation::valueChanged, this, [=] {
         this->update();

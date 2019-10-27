@@ -49,45 +49,45 @@
     </message>
     <message>
         <location filename="../textinputoverlay.ui" line="124"/>
-        <location filename="../textinputoverlay.cpp" line="63"/>
-        <location filename="../textinputoverlay.cpp" line="324"/>
+        <location filename="../textinputoverlay.cpp" line="68"/>
+        <location filename="../textinputoverlay.cpp" line="329"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../textinputoverlay.ui" line="135"/>
-        <location filename="../textinputoverlay.cpp" line="66"/>
+        <location filename="../textinputoverlay.cpp" line="71"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="62"/>
+        <location filename="../textinputoverlay.cpp" line="67"/>
         <source>Key</source>
         <translation>Gõ</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="64"/>
-        <location filename="../textinputoverlay.cpp" line="133"/>
+        <location filename="../textinputoverlay.cpp" line="69"/>
+        <location filename="../textinputoverlay.cpp" line="138"/>
         <source>Shift</source>
         <translation>Shift</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="65"/>
+        <location filename="../textinputoverlay.cpp" line="70"/>
         <source>Space</source>
         <translation>Dấu Cách</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="136"/>
+        <location filename="../textinputoverlay.cpp" line="141"/>
         <source>Caps Off</source>
         <translation>Tắt Caps</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="193"/>
+        <location filename="../textinputoverlay.cpp" line="197"/>
         <source>Enter a number between %1 and %2</source>
         <translation>Nhập số từ %1 đến %2</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="326"/>
+        <location filename="../textinputoverlay.cpp" line="331"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>
