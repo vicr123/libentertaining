@@ -28,7 +28,6 @@
 QIcon iconForButtonHelper(QString iconName, QColor tint) {
     QIcon icon;
 
-    Q_INIT_RESOURCE(thelibs_icons);
     QSvgRenderer renderer(QStringLiteral(":/libentertaining/icons/%1.svg").arg(iconName));
     QList<QSize> sizes = {{16, 16}, {32, 32}, {48, 48}, {64, 64}, {128, 128}, {256, 256}};
     for (QSize size : sizes) {
