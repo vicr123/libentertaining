@@ -25,7 +25,7 @@
 
 class PauseOverlay;
 struct SaveOverlayPrivate;
-class SaveOverlay : public QObject
+class LIBENTERTAINING_EXPORT SaveOverlay : public QObject
 {
         Q_OBJECT
     public:
