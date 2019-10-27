@@ -58,6 +58,7 @@ class LIBENTERTAINING_EXPORT DialogueOverlay : public QWidget
         void keyReleaseEvent(QKeyEvent* event);
         void mouseReleaseEvent(QMouseEvent* event);
         bool eventFilter(QObject* watched, QEvent* event);
+        bool event(QEvent* event);
 };
 
 #endif // DIALOGUEOVERLAY_H

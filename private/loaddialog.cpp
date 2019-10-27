@@ -53,6 +53,7 @@ LoadDialog::LoadDialog(PauseOverlay*overlay, QWidget *parent) :
         on_loadView_activated(ui->loadView->currentIndex());
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+        MusicEngine::playSoundEffect(MusicEngine::Backstep);
         emit rejected();
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonX, [=] {
@@ -92,6 +93,8 @@ void LoadDialog::on_backButton_clicked()
 
 void LoadDialog::on_loadView_activated(const QModelIndex &index)
 {
+    MusicEngine::playSoundEffect(MusicEngine::Selection);
+
     //Load the data
     QString filename = d->model->data(index, Qt::UserRole).toString();
     SaveObject object = SaveEngine::getSaveByFilename(filename);

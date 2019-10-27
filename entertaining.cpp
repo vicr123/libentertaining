@@ -22,6 +22,7 @@
 #include "private/gamepadlistener.h"
 #include <the-libs_global.h>
 #include <QTranslator>
+#include "private/applicationeventfilter.h"
 
 void Entertaining::initialize()
 {
@@ -55,6 +56,8 @@ void Entertaining::initialize()
     pal.setColor(QPalette::Disabled, QPalette::ButtonText, QColor(150, 150, 150));
 
     QApplication::setPalette(pal);
+
+    QApplication::instance()->installEventFilter(new ApplicationEventFilter());
 }
 
 Entertaining::Entertaining() {

@@ -22,6 +22,7 @@
 #include <QApplication>
 #include <QPointer>
 #include <QPainter>
+#include <QTimer>
 #include <QAbstractItemView>
 #include <the-libs_global.h>
 #include <tvariantanimation.h>
@@ -97,7 +98,7 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
             if (listView) {
                 connect(listView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [=] {
                     MusicEngine::playSoundEffect(MusicEngine::FocusChanged);
-                    this->updateFocusedWidget();
+                    QTimer::singleShot(0, this, &FocusPointer::updateFocusedWidget);
                 });
             }
 
@@ -155,10 +156,15 @@ void FocusPointer::updateFocusedWidget()
 
         QAbstractItemView* listView = qobject_cast<QAbstractItemView*>(d->activeWidget);
         if (listView) {
-            geometry = listView->visualRect(listView->currentIndex());
-            geometry.moveTopLeft(listView->viewport()->mapTo(parentWindow, geometry.topLeft()));
-            geometry.adjust(SC_DPI(-5), SC_DPI(-5), SC_DPI(5), SC_DPI(5));
-        } else {
+            QModelIndex index = listView->currentIndex();
+            if (index.isValid()) {
+                geometry = listView->visualRect(index);
+                geometry.moveTopLeft(listView->viewport()->mapTo(parentWindow, geometry.topLeft()));
+                geometry.adjust(SC_DPI(-5), SC_DPI(-5), SC_DPI(5), SC_DPI(5));
+            }
+        }
+
+        if (geometry.isNull()) {
             geometry.setSize(d->activeWidget->size() + SC_DPI_T(QSize(10, 10), QSize));
             geometry.moveTopLeft(d->activeWidget->mapTo(parentWindow, SC_DPI_T(QPoint(-5, -5), QPoint)));
         }

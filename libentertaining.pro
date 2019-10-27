@@ -34,6 +34,7 @@ SOURCES += \
     loadoverlay.cpp \
     musicengine.cpp \
     pauseoverlay.cpp \
+    private/applicationeventfilter.cpp \
     private/gamepadlistener.cpp \
     private/loaddialog.cpp \
     private/savedialog.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     loadoverlay.h \
     musicengine.h \
     pauseoverlay.h \
+    private/applicationeventfilter.h \
     private/gamepadlistener.h \
     private/loaddialog.h \
     private/savedialog.h \

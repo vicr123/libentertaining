@@ -32,6 +32,8 @@ struct PauseOverlayPrivate {
     QWidget* currentOverlayWidget = nullptr;
     QWidget* overlayOver = nullptr;
 
+    QWidget* tempFocusWidget;
+
     QBoxLayout* layout;
 
     QGraphicsOpacityEffect* opacity;
@@ -49,6 +51,9 @@ PauseOverlay::PauseOverlay(QWidget*overlayOver, QWidget*overlayWidget, QWidget *
     if (overlayWidget != nullptr) {
         d->overlayWidget.push(overlayWidget);
     }
+
+    d->tempFocusWidget = new QWidget(this);
+    d->tempFocusWidget->setGeometry(-20, -20, 2, 2);
 
     d->layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     d->layout->setContentsMargins(0, 0, 0, 0);
@@ -95,6 +100,9 @@ void PauseOverlay::setOverlayOver(QWidget*overlayOver)
 void PauseOverlay::showOverlay()
 {
     this->show();
+
+    //Hide the focus pointer until we're done
+    d->tempFocusWidget->setFocus();
 
     tVariantAnimation* anim = new tVariantAnimation(this);
     anim->setStartValue(0.0);
@@ -222,6 +230,8 @@ void PauseOverlay::paintEvent(QPaintEvent*event)
 
 void PauseOverlay::animateCurrentOut(std::function<void ()> after)
 {
+    //Hide the focus pointer until we're done
+    d->tempFocusWidget->setFocus();
     d->overlayOpacity->setEnabled(true);
 
     tVariantAnimation* anim = new tVariantAnimation(this);

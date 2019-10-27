@@ -53,6 +53,7 @@ SaveDialog::SaveDialog(PauseOverlay*overlay, QWidget *parent) :
         on_saveView_activated(ui->saveView->currentIndex());
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+        MusicEngine::playSoundEffect(MusicEngine::Backstep);
         emit rejected();
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonX, [=] {
@@ -90,6 +91,8 @@ void SaveDialog::on_backButton_clicked()
 
 void SaveDialog::newSave()
 {
+    MusicEngine::playSoundEffect(MusicEngine::Selection);
+
     bool canceled;
     QString filename = TextInputOverlay::getText(this, tr("What do you want to call this save?"), &canceled, "", QLineEdit::Normal, d->overlay);
 

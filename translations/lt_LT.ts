@@ -98,7 +98,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/savedialog.cpp" line="94"/>
+        <location filename="../private/savedialog.cpp" line="97"/>
         <source>What do you want to call this save?</source>
         <translation type="unfinished"></translation>
     </message>

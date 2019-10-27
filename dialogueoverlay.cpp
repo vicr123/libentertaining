@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QGraphicsOpacityEffect>
 #include <QPushButton>
+#include "gamepadevent.h"
 #include <tvariantanimation.h>
 
 #include "focusbarrier.h"
@@ -46,6 +47,7 @@ struct DialogueOverlayPrivate {
     QWidget* optionSelectionWidget;
     QBoxLayout* optionSelectionWidgetLayout;
     QList<QPushButton*> optionsContents;
+    QPushButton* selectedOption = nullptr;
 };
 
 DialogueOverlay::DialogueOverlay(QWidget *parent) :
@@ -179,6 +181,7 @@ void DialogueOverlay::skipTextAnimation()
         for (QString key : d->lastOptions.keys()) {
             QPushButton* button = new QPushButton();
             button->setText(d->lastOptions.value(key));
+            button->installEventFilter(this);
             connect(button, &QPushButton::clicked, this, [=] {
                 d->optionSelectionWidget->hide();
 
@@ -209,8 +212,8 @@ void DialogueOverlay::skipTextAnimation()
             bottomBarrier->setBounceWidget(bottomButton);
         }
 
-        this->setFocusProxy(firstButton);
         firstButton->setFocus();
+        this->setFocusProxy(firstButton);
 
         d->optionSelectionWidget->setFixedWidth(static_cast<int>(this->width() * 0.18));
         d->optionSelectionWidget->setFixedHeight(height);
@@ -251,7 +254,30 @@ bool DialogueOverlay::eventFilter(QObject*watched, QEvent*event)
         d->optionSelectionWidget->move(this->width() - d->optionSelectionWidget->width() - SC_DPI(20), this->height() - d->optionSelectionWidget->height() - SC_DPI(20));
     } else if (watched == ui->dialogFrame && event->type() == QEvent::Paint) {
         QPainter painter(ui->dialogFrame);
-
+    } else if (d->optionsContents.contains(qobject_cast<QPushButton*>(watched))) {
+        d->selectedOption = qobject_cast<QPushButton*>(watched);
     }
     return false;
+}
+
+bool DialogueOverlay::event(QEvent*event)
+{
+    if (event->type() == GamepadEvent::type()) {
+        GamepadEvent* e = static_cast<GamepadEvent*>(event);
+        if (e->isButtonEvent() && e->buttonPressed()) {
+            if (e->button() == QGamepadManager::ButtonA) {
+                //Advance the text or select the focused button
+                if (d->haveOptions) {
+                    d->selectedOption->click();
+                } else {
+                    progressDialogue();
+                }
+            }
+
+            //Prevent propagation
+            e->accept();
+            return true;
+        }
+    }
+    return QWidget::event(event);
 }
