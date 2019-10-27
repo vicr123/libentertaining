@@ -112,6 +112,9 @@ win32 {
 
     CONFIG(debug, debug|release): TARGET = libentertainingd
 
+    INCLUDEPATH += "C:/Program Files/thelibs/include"
+    LIBS += -L"C:/Program Files/thelibs/lib" -lthe-libs
+
     module.files = qt_thelib.pri
     header.path = "C:/Program Files/libentertaining/include"
     target.path = "C:/Program Files/libentertaining/lib"
