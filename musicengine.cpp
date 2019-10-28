@@ -63,22 +63,8 @@ void MusicEngine::setBackgroundMusic(QString audioResource)
     ensureInstance();
 
     d->backgroundMusicUrls.clear();
-
-    QString mediaDir;
-
-#if defined(Q_OS_MAC)
-    mediaDir = tApplication::macOSBundlePath() + "/Contents/audio";
-#elif defined(Q_OS_LINUX)
-    mediaDir = tApplication::shareDir() + "/audio";
-#elif defined(Q_OS_WIN)
-    mediaDir = tApplication::applicationDirPath() + "\\audio";
-#endif
-
-    QDir dir(mediaDir);
-    for (QFileInfo fileInfo : dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot)) {
-        if (fileInfo.baseName() == audioResource) {
-            d->backgroundMusicUrls.enqueue(QUrl::fromLocalFile(fileInfo.filePath()));
-        }
+    for (QUrl url : resolveAudioResource(audioResource)) {
+        d->backgroundMusicUrls.enqueue(url);
     }
 
     tryNextBackgroundTrack();
@@ -135,6 +121,12 @@ void MusicEngine::playSoundEffect(QUrl path)
     d->activeEffects.append(effect);
 }
 
+void MusicEngine::playSoundEffect(QString audioResource)
+{
+    QList<QUrl> urls = resolveAudioResource(audioResource);
+    if (urls.count() > 0) playSoundEffect(urls.first());
+}
+
 void MusicEngine::setMuteEffects(bool mute)
 {
     ensureInstance();
@@ -178,4 +170,26 @@ void MusicEngine::tryNextBackgroundTrack()
         d->backgroundMusic->setMedia(QMediaContent(fileUrl));
         if (d->playingBackgroudMusic) playBackgroundMusic();
     }
+}
+
+QList<QUrl> MusicEngine::resolveAudioResource(QString audioResource)
+{
+    QList<QUrl> resources;
+    QString mediaDir;
+
+#if defined(Q_OS_MAC)
+    mediaDir = tApplication::macOSBundlePath() + "/Contents/audio";
+#elif defined(Q_OS_LINUX)
+    mediaDir = tApplication::shareDir() + "/audio";
+#elif defined(Q_OS_WIN)
+    mediaDir = tApplication::applicationDirPath() + "\\audio";
+#endif
+
+    QDir dir(mediaDir);
+    for (QFileInfo fileInfo : dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot)) {
+        if (fileInfo.baseName() == audioResource) {
+            resources.append(QUrl::fromLocalFile(fileInfo.filePath()));
+        }
+    }
+    return resources;
 }

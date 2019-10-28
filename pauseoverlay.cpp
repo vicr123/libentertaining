@@ -63,6 +63,7 @@ PauseOverlay::PauseOverlay(QWidget*overlayOver, QWidget*overlayWidget, QWidget *
     this->setGraphicsEffect(d->opacity);
 
     d->blur = new QGraphicsBlurEffect(this);
+    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
 
     this->setAttribute(Qt::WA_TranslucentBackground);
 
@@ -119,11 +120,24 @@ void PauseOverlay::showOverlay()
     });
     anim->start();
 
-    d->blur->setBlurRadius(20);
+    tVariantAnimation* blurAnim = new tVariantAnimation(this);
+    blurAnim->setStartValue(0.0);
+    blurAnim->setEndValue(20.0);
+    blurAnim->setDuration(250);
+    blurAnim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->blur->setBlurRadius(value.toReal());
+    });
+    connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+        blurAnim->deleteLater();
+        d->blur->setBlurHints(QGraphicsBlurEffect::QualityHint);
+    });
+    blurAnim->start();
 }
 
 void PauseOverlay::hideOverlay()
 {
+    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
     tVariantAnimation* anim = new tVariantAnimation(this);
     anim->setStartValue(1.0);
     anim->setEndValue(0.0);
@@ -135,9 +149,21 @@ void PauseOverlay::hideOverlay()
     connect(anim, &tVariantAnimation::finished, this, [=] {
         anim->deleteLater();
         this->hide();
-        d->blur->setBlurRadius(0);
 
-        if (d->deleteOnHide) this->deleteLater();
+        tVariantAnimation* blurAnim = new tVariantAnimation(this);
+        blurAnim->setStartValue(20.0);
+        blurAnim->setEndValue(0.0);
+        blurAnim->setDuration(250);
+        blurAnim->setEasingCurve(QEasingCurve::OutCubic);
+        connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+            d->blur->setBlurRadius(value.toReal());
+        });
+        connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+            blurAnim->deleteLater();
+            if (d->deleteOnHide) this->deleteLater();
+        });
+        blurAnim->start();
+
     });
     anim->start();
 }

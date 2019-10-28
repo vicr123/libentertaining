@@ -46,6 +46,7 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
 
         static void playSoundEffect(KnownSoundEffect effect);
         static void playSoundEffect(QUrl path);
+        static void playSoundEffect(QString audioResource);
 
         static void setMuteEffects(bool mute);
         static bool isEffectsMuted();
@@ -60,6 +61,7 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
         explicit MusicEngine(QObject *parent = nullptr);
         static void ensureInstance();
         static void tryNextBackgroundTrack();
+        static QList<QUrl> resolveAudioResource(QString audioResource);
 };
 
 #endif // MUSICENGINE_H
