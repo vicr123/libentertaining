@@ -10,10 +10,18 @@ typedef void (*InitDiscordFunction)(const char* applicationId, DiscordEventHandl
 typedef void (*UpdateDiscordFunction)(const DiscordRichPresence* presence);
 #endif
 
+#define TO_CONST_CHAR(string, bufSize) ([=]() -> char* { \
+        char* strBuf = new char[bufSize]; \
+        sprintf(strBuf, "%s", qPrintable(string)); \
+        d->bufsToDelete.append(strBuf); \
+        return strBuf; \
+    })();
+
 struct DiscordIntegrationPrivate {
     DiscordIntegration* instance;
 
     bool discordAvailable = false;
+    QList<char*> bufsToDelete;
 
 #ifdef BUILD_DISCORD
     InitDiscordFunction Discord_Initialize;
@@ -33,30 +41,35 @@ DiscordIntegration* DiscordIntegration::instance()
     return d->instance;
 }
 
-void DiscordIntegration::setPresence(DiscordIntegration::RichPresence presence)
+void DiscordIntegration::setPresence(QVariantMap presence)
 {
 #ifdef BUILD_DISCORD
     if (d->discordAvailable) {
         DiscordRichPresence rp;
         memset(&rp, 0, sizeof(rp));
 
-        rp.state = qPrintable(presence.state);
-        rp.details = qPrintable(presence.details);
-        rp.startTimestamp = presence.startTimestamp.toUTC().toMSecsSinceEpoch();
-        rp.endTimestamp = presence.endTimestamp.toUTC().toMSecsSinceEpoch();
-        rp.largeImageKey = qPrintable(presence.largeImageKey);
-        rp.smallImageKey = qPrintable(presence.smallImageKey);
-        rp.largeImageText = qPrintable(presence.largeImageText);
-        rp.smallImageText = qPrintable(presence.smallImageText);
-        rp.partyId = qPrintable(presence.partyId);
-        rp.partySize = presence.partySize;
-        rp.partyMax = presence.partyMax;
-        rp.matchSecret = qPrintable(presence.matchSecret);
-        rp.joinSecret = qPrintable(presence.joinSecret);
-        rp.spectateSecret = qPrintable(presence.spectateSecret);
-        rp.instance = presence.instance;
+        if (presence.contains("state")) rp.state = TO_CONST_CHAR(presence.value("state").toString(), 128);
+        if (presence.contains("details")) rp.details = TO_CONST_CHAR(presence.value("details").toString(), 128);
+        if (presence.contains("startTimestamp")) rp.startTimestamp = presence.value("startTimestamp").toDateTime().toUTC().toMSecsSinceEpoch();
+        if (presence.contains("endTimestamp")) rp.endTimestamp = presence.value("endTimestamp").toDateTime().toUTC().toMSecsSinceEpoch();
+        if (presence.contains("largeImageKey")) rp.largeImageKey = TO_CONST_CHAR(presence.value("largeImageKey").toString(), 32);
+        if (presence.contains("smallImageKey")) rp.smallImageKey = TO_CONST_CHAR(presence.value("smallImageKey").toString(), 32);
+        if (presence.contains("largeImageText")) rp.largeImageText = TO_CONST_CHAR(presence.value("largeImageText").toString(), 128);
+        if (presence.contains("smallImageText")) rp.smallImageText = TO_CONST_CHAR(presence.value("smallImageText").toString(), 128);
+        if (presence.contains("partyId")) rp.partyId = TO_CONST_CHAR(presence.value("partyId").toString(), 128);
+        if (presence.contains("partySize")) rp.partySize = presence.value("partySize").toInt();
+        if (presence.contains("partyMax")) rp.partyMax = presence.value("partyMax").toInt();
+        if (presence.contains("matchSecret")) rp.matchSecret = TO_CONST_CHAR(presence.value("matchSecret").toString(), 128);
+        if (presence.contains("joinSecret")) rp.joinSecret = TO_CONST_CHAR(presence.value("joinSecret").toString(), 128);
+        if (presence.contains("spectateSecret")) rp.spectateSecret = TO_CONST_CHAR(presence.value("spectateSecret").toString(), 128);
 
+        qDebug() << presence;
         Discord_UpdatePresence(&rp);
+
+        for (char* c : d->bufsToDelete) {
+            delete[] c;
+        }
+        d->bufsToDelete.clear();
     }
 #endif
 }
