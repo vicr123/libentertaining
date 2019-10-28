@@ -22,12 +22,17 @@
 #include <QMediaPlayer>
 #include <QSoundEffect>
 #include <QSound>
+#include <QDir>
+#include <QQueue>
+#include <tapplication.h>
 
 struct MusicEnginePrivate {
     MusicEngine* instance = nullptr;
 
     QMediaPlayer* backgroundMusic;
     bool playingBackgroudMusic = false;
+
+    QQueue<QUrl> backgroundMusicUrls;
 
     QList<QSoundEffect*> activeEffects;
     bool muteEffects = false;
@@ -48,8 +53,35 @@ void MusicEngine::setBackgroundMusic(QUrl path)
 {
     ensureInstance();
 
+    d->backgroundMusicUrls.clear();
     d->backgroundMusic->setMedia(QMediaContent(path));
     if (d->playingBackgroudMusic) playBackgroundMusic();
+}
+
+void MusicEngine::setBackgroundMusic(QString audioResource)
+{
+    ensureInstance();
+
+    d->backgroundMusicUrls.clear();
+
+    QString mediaDir;
+
+#if defined(Q_OS_MAC)
+    mediaDir = tApplication::macOSBundlePath() + "/Contents/audio";
+#elif defined(Q_OS_LINUX)
+    mediaDir = tApplication::shareDir() + "/audio";
+#elif defined(Q_OS_WIN)
+    mediaDir = tApplication::applicationDirPath() + "\\audio";
+#endif
+
+    QDir dir(mediaDir);
+    for (QFileInfo fileInfo : dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot)) {
+        if (fileInfo.baseName() == audioResource) {
+            d->backgroundMusicUrls.enqueue(QUrl::fromLocalFile(fileInfo.filePath()));
+        }
+    }
+
+    tryNextBackgroundTrack();
 }
 
 void MusicEngine::playBackgroundMusic()
@@ -127,9 +159,23 @@ MusicEngine::MusicEngine(QObject *parent) : QObject(parent)
             d->backgroundMusic->play();
         }
     });
+    connect(d->backgroundMusic, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, [=](QMediaPlayer::Error error) {
+        qDebug() << "Qt Multimedia Error" << error;
+        tryNextBackgroundTrack();
+    });
 }
 
 void MusicEngine::ensureInstance()
 {
     if (d->instance == nullptr) d->instance = new MusicEngine();
+}
+
+void MusicEngine::tryNextBackgroundTrack()
+{
+    if (d->backgroundMusicUrls.count() > 0) {
+        QUrl fileUrl = d->backgroundMusicUrls.dequeue();
+        qDebug() << "Background music: Trying" << fileUrl;
+        d->backgroundMusic->setMedia(QMediaContent(fileUrl));
+        if (d->playingBackgroudMusic) playBackgroundMusic();
+    }
 }

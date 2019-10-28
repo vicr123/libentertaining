@@ -37,6 +37,7 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
         };
 
         static void setBackgroundMusic(QUrl path);
+        static void setBackgroundMusic(QString audioResource);
         static void playBackgroundMusic();
         static void pauseBackgroundMusic();
 
@@ -58,6 +59,7 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
 
         explicit MusicEngine(QObject *parent = nullptr);
         static void ensureInstance();
+        static void tryNextBackgroundTrack();
 };
 
 #endif // MUSICENGINE_H
