@@ -22,6 +22,7 @@
 #include "private/gamepadlistener.h"
 #include <the-libs_global.h>
 #include <QTranslator>
+#include <QFontDatabase>
 #include "private/applicationeventfilter.h"
 
 void Entertaining::initialize()
@@ -35,6 +36,10 @@ void Entertaining::initialize()
     QApplication::installTranslator(translator);
 
     QApplication::setStyle(QStyleFactory::create("contemporary"));
+
+    QFontDatabase::addApplicationFont(":/libentertaining/resources/Contemporary-Regular.ttf");
+    QFont font("Contemporary", 10);
+    QApplication::setFont(font);
 
     //Set application palette
     QPalette pal;

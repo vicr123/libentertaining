@@ -22,5 +22,6 @@
         <file>audio/select.wav</file>
         <file>audio/back.wav</file>
         <file>audio/pause.wav</file>
+        <file>resources/Contemporary-Regular.ttf</file>
     </qresource>
 </RCC>
