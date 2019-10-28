@@ -1,6 +1,31 @@
 QT += widgets gamepad svg multimedia
 SHARE_APP_NAME = libentertaining
 
+#Determine whether to build Discord
+no-discord {
+    #Don't build Discord
+} else {
+    macx {
+        exists(/usr/local/lib/libdiscord-rpc.a) || discord {
+            #Build Discord
+            message(Building with Discord RPC support)
+            DEFINES += BUILD_DISCORD
+            CONFIG += BUILD_DISCORD
+            INCLUDEPATH += /usr/local/include/
+            LIBS += -L/usr/local/lib -ldiscord-rpc
+        }
+    }
+
+    unix!macx {
+        exists(/usr/lib/libdiscord-rpc.so) || discord {
+            #Build Discord
+            message(Building with Discord RPC support)
+            DEFINES += BUILD_DISCORD
+            CONFIG += BUILD_DISCORD
+        }
+    }
+}
+
 
 TEMPLATE = lib
 DEFINES += LIBENTERTAINING_LIBRARY
@@ -21,6 +46,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     dialogueoverlay.cpp \
+    discordintegration.cpp \
     entertaining.cpp \
     focusbarrier.cpp \
     focuspointer.cpp \
@@ -46,6 +72,7 @@ SOURCES += \
 
 HEADERS += \
     dialogueoverlay.h \
+    discordintegration.h \
     focusbarrier.h \
     focuspointer.h \
     gamepadbuttons.h \
@@ -99,7 +126,7 @@ macx {
     CONFIG(debug, debug|release): TARGET = libentertaining_debug
 
     INCLUDEPATH += "/usr/local/include/the-libs"
-    LIBS += -L/usr/local/lib -lthe-libs
+    LIBS += -L/usr/local/lib -lthe-libs -framework AppKit
 
     target.path = /usr/local/lib
     header.path = /usr/local/include/libentertaining
