@@ -3,13 +3,14 @@
 
 #include <QWidget>
 #include <QVariantMap>
+#include "libentertaining_global.h"
 
 namespace Ui {
     class SettingWidget;
 }
 
 struct SettingWidgetPrivate;
-class SettingWidget : public QWidget
+class LIBENTERTAINING_EXPORT SettingWidget : public QWidget
 {
         Q_OBJECT
 
