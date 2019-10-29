@@ -4,21 +4,8 @@
 <context>
     <name>DialogueOverlay</name>
     <message>
-        <location filename="../dialogueoverlay.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../dialogueoverlay.ui" line="75"/>
         <source>Dialog Text goes here</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>GamepadHud</name>
-    <message>
-        <location filename="../gamepadhud.ui" line="14"/>
-        <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -43,11 +30,6 @@
 <context>
     <name>LoadDialog</name>
     <message>
-        <location filename="../private/loaddialog.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../private/loaddialog.ui" line="71"/>
         <location filename="../private/loaddialog.cpp" line="48"/>
         <source>Load</source>
@@ -71,11 +53,6 @@
 </context>
 <context>
     <name>SaveDialog</name>
-    <message>
-        <location filename="../private/savedialog.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../private/savedialog.ui" line="71"/>
         <location filename="../private/savedialog.cpp" line="48"/>
@@ -120,20 +97,7 @@
     </message>
 </context>
 <context>
-    <name>SettingWidget</name>
-    <message>
-        <location filename="../settingwidget.ui" line="17"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TextInputOverlay</name>
-    <message>
-        <location filename="../textinputoverlay.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../textinputoverlay.ui" line="124"/>
         <location filename="../textinputoverlay.cpp" line="68"/>
@@ -181,11 +145,6 @@
 </context>
 <context>
     <name>USKeyboard</name>
-    <message>
-        <location filename="../keyboards/uskeyboard.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../keyboards/uskeyboard.cpp" line="46"/>
         <source>English (US)</source>
