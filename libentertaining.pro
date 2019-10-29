@@ -68,6 +68,7 @@ SOURCES += \
     private/savesmodel.cpp \
     private/textinputlineedithandler.cpp \
     saveoverlay.cpp \
+    settingwidget.cpp \
     textinputoverlay.cpp
 
 HEADERS += \
@@ -95,6 +96,7 @@ HEADERS += \
     private/savesmodel.h \
     private/textinputlineedithandler.h \
     saveoverlay.h \
+    settingwidget.h \
     textinputoverlay.h
 
 DISTFILES += \
@@ -159,4 +161,5 @@ FORMS += \
     keyboards/uskeyboard.ui \
     private/loaddialog.ui \
     private/savedialog.ui \
+    settingwidget.ui \
     textinputoverlay.ui

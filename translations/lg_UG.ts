@@ -120,6 +120,14 @@
     </message>
 </context>
 <context>
+    <name>SettingWidget</name>
+    <message>
+        <location filename="../settingwidget.ui" line="17"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TextInputOverlay</name>
     <message>
         <location filename="../textinputoverlay.ui" line="14"/>
