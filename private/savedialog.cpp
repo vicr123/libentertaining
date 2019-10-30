@@ -27,19 +27,17 @@
 #include "textinputoverlay.h"
 
 struct SaveDialogPrivate {
-    PauseOverlay* overlay;
     SavesModel* model;
     SaveObject selected;
 };
 
-SaveDialog::SaveDialog(PauseOverlay*overlay, QWidget *parent) :
+SaveDialog::SaveDialog(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SaveDialog)
 {
     ui->setupUi(this);
 
     d = new SaveDialogPrivate();
-    d->overlay = overlay;
 
     QPalette pal = ui->saveView->palette();
     pal.setColor(QPalette::Window, Qt::transparent);
@@ -94,9 +92,9 @@ void SaveDialog::newSave()
 {
     MusicEngine::playSoundEffect(MusicEngine::Selection);
 
-    QRegularExpressionValidator* val = new QRegularExpressionValidator(QRegularExpression("(?!\\s*$)."));
+    QRegularExpressionValidator* val = new QRegularExpressionValidator(QRegularExpression("(?!\\s*$).+"));
 
-    TextInputOverlay* overlay = new TextInputOverlay(this, d->overlay);
+    TextInputOverlay* overlay = new TextInputOverlay(this);
     overlay->setQuestion(tr("What do you want to call this save?"));
     overlay->setValidator(val, tr("Enter a name for this save"));
 

@@ -29,7 +29,7 @@ class LIBENTERTAINING_EXPORT SaveOverlay : public QObject
 {
         Q_OBJECT
     public:
-        explicit SaveOverlay(QWidget *parent = nullptr, PauseOverlay* pauseOverlay = nullptr);
+        explicit SaveOverlay(QWidget *parent = nullptr);
         ~SaveOverlay();
 
         void save();

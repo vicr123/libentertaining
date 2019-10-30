@@ -27,20 +27,12 @@
 
 struct SaveOverlayPrivate {
     QWidget* parent;
-    PauseOverlay* overlay;
 };
 
-SaveOverlay::SaveOverlay(QWidget *parent, PauseOverlay* pauseOverlay) : QObject(parent)
+SaveOverlay::SaveOverlay(QWidget *parent) : QObject(parent)
 {
     d = new SaveOverlayPrivate();
     d->parent = parent;
-
-    if (pauseOverlay == nullptr) {
-        d->overlay = new PauseOverlay(parent, nullptr);
-        connect(this, &SaveOverlay::destroyed, d->overlay, &PauseOverlay::deleteLater);
-    } else {
-        d->overlay = pauseOverlay;
-    }
 }
 
 SaveOverlay::~SaveOverlay()
@@ -52,14 +44,14 @@ void SaveOverlay::save()
 {
     QEventLoop* loop = new QEventLoop();
 
-    SaveDialog* dlg = new SaveDialog(d->overlay);
+    SaveDialog* dlg = new SaveDialog();
     connect(dlg, &SaveDialog::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
     connect(dlg, &SaveDialog::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
 
-    d->overlay->pushOverlayWidget(dlg);
+    PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(dlg);
 
     if (loop->exec() == 0) {
-        d->overlay->popOverlayWidget();
+        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget();
 
         SaveObject object = dlg->selectedSaveFile();
 
@@ -78,7 +70,7 @@ void SaveOverlay::save()
         device->deleteLater();
     } else {
         //User cancelled
-        d->overlay->popOverlayWidget();
+        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget();
         emit canceled();
     }
 }

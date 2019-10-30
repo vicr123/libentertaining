@@ -27,20 +27,12 @@
 
 struct LoadOverlayPrivate {
     QWidget* parent;
-    PauseOverlay* overlay;
 };
 
-LoadOverlay::LoadOverlay(QWidget *parent, PauseOverlay* pauseOverlay) : QObject(parent)
+LoadOverlay::LoadOverlay(QWidget *parent) : QObject(parent)
 {
     d = new LoadOverlayPrivate();
     d->parent = parent;
-
-    if (pauseOverlay == nullptr) {
-        d->overlay = new PauseOverlay(parent, nullptr);
-        connect(this, &LoadOverlay::destroyed, d->overlay, &PauseOverlay::deleteLater);
-    } else {
-        d->overlay = pauseOverlay;
-    }
 }
 
 LoadOverlay::~LoadOverlay()
@@ -48,19 +40,18 @@ LoadOverlay::~LoadOverlay()
     delete d;
 }
 
-#include <QDebug>
 void LoadOverlay::load()
 {
     QEventLoop* loop = new QEventLoop();
 
-    LoadDialog* dlg = new LoadDialog(d->overlay);
+    LoadDialog* dlg = new LoadDialog();
     connect(dlg, &LoadDialog::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
     connect(dlg, &LoadDialog::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
 
-    d->overlay->pushOverlayWidget(dlg);
+    PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(dlg);
 
     if (loop->exec() == 0) {
-        d->overlay->popOverlayWidget();
+        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget();
 
         SaveObject object = dlg->selectedSaveFile();
 
@@ -73,7 +64,6 @@ void LoadOverlay::load()
 
         if (magicNumber != SAVE_FILE_MAGIC_NUMBER) {
             //Error error!
-            qDebug() << "Load error";
             return;
         }
 
@@ -90,7 +80,7 @@ void LoadOverlay::load()
         device->deleteLater();
     } else {
         //User cancelled
-        d->overlay->popOverlayWidget();
+        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget();
         emit canceled();
     }
 }

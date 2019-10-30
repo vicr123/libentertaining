@@ -27,19 +27,17 @@
 #include "musicengine.h"
 
 struct LoadDialogPrivate {
-    PauseOverlay* overlay;
     SavesModel* model;
     SaveObject selected;
 };
 
-LoadDialog::LoadDialog(PauseOverlay*overlay, QWidget *parent) :
+LoadDialog::LoadDialog(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LoadDialog)
 {
     ui->setupUi(this);
 
     d = new LoadDialogPrivate();
-    d->overlay = overlay;
 
     QPalette pal = ui->loadView->palette();
     pal.setColor(QPalette::Window, Qt::transparent);

@@ -29,7 +29,7 @@ class LIBENTERTAINING_EXPORT LoadOverlay : public QObject
 {
         Q_OBJECT
     public:
-        explicit LoadOverlay(QWidget *parent = nullptr, PauseOverlay* pauseOverlay = nullptr);
+        explicit LoadOverlay(QWidget *parent = nullptr);
         ~LoadOverlay();
 
         void load();

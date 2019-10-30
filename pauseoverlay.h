@@ -29,10 +29,9 @@ class LIBENTERTAINING_EXPORT PauseOverlay : public QWidget
 {
         Q_OBJECT
     public:
-        explicit PauseOverlay(QWidget* overlayOver = nullptr, QWidget* overlayWidget = nullptr, QWidget *parent = nullptr);
+        static void registerOverlayForWindow(QWidget* window, QWidget* blurOver);
+        static PauseOverlay* overlayForWindow(QWidget* window);
         ~PauseOverlay();
-
-        void setOverlayOver(QWidget* overlayOver);
 
         void showOverlay();
         void hideOverlay();
@@ -41,14 +40,13 @@ class LIBENTERTAINING_EXPORT PauseOverlay : public QWidget
         void pushOverlayWidget(QWidget* overlayWidget);
         void popOverlayWidget(std::function<void()> after = []{});
 
-        void setDeleteOnHide(bool deleteOnHide);
-
     signals:
         void widgetPopped();
 
     public slots:
 
     private:
+        explicit PauseOverlay(QWidget* blurOver, QWidget *parent = nullptr);
         PauseOverlayPrivate* d;
 
         bool eventFilter(QObject* watched, QEvent* event);

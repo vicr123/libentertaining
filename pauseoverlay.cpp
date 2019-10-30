@@ -28,9 +28,11 @@
 #include <tvariantanimation.h>
 
 struct PauseOverlayPrivate {
+    static QMap<QWidget*, PauseOverlay*> overlays;
+
     QStack<QWidget*> overlayWidget;
     QWidget* currentOverlayWidget = nullptr;
-    QWidget* overlayOver = nullptr;
+    QWidget* parentWidget;
 
     QWidget* tempFocusWidget;
 
@@ -41,16 +43,13 @@ struct PauseOverlayPrivate {
     QGraphicsBlurEffect* blur;
 
     bool animatingPop = false;
-    bool deleteOnHide = true;
 };
 
-PauseOverlay::PauseOverlay(QWidget*overlayOver, QWidget*overlayWidget, QWidget *parent) : QWidget(parent)
+QMap<QWidget*, PauseOverlay*> PauseOverlayPrivate::overlays = QMap<QWidget*, PauseOverlay*>();
+
+PauseOverlay::PauseOverlay(QWidget*blurOver, QWidget *parent) : QWidget(parent)
 {
     d = new PauseOverlayPrivate();
-
-    if (overlayWidget != nullptr) {
-        d->overlayWidget.push(overlayWidget);
-    }
 
     d->tempFocusWidget = new QWidget(this);
     d->tempFocusWidget->setGeometry(-20, -20, 2, 2);
@@ -64,38 +63,31 @@ PauseOverlay::PauseOverlay(QWidget*overlayOver, QWidget*overlayWidget, QWidget *
 
     d->blur = new QGraphicsBlurEffect(this);
     d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
+    d->blur->setEnabled(false);
+    blurOver->setGraphicsEffect(d->blur);
 
     this->setAttribute(Qt::WA_TranslucentBackground);
 
-    setOverlayOver(overlayOver);
+    d->parentWidget = parent;
+    parent->installEventFilter(this);
+    this->setGeometry(0, 0, parent->width(), parent->height());
+    this->hide();
+}
+
+void PauseOverlay::registerOverlayForWindow(QWidget*window, QWidget*blurOver)
+{
+    PauseOverlay* overlay = new PauseOverlay(blurOver, window->window());
+    PauseOverlayPrivate::overlays.insert(window->window(), overlay);
+}
+
+PauseOverlay*PauseOverlay::overlayForWindow(QWidget*window)
+{
+    return PauseOverlayPrivate::overlays.value(window->window());
 }
 
 PauseOverlay::~PauseOverlay()
 {
     delete d;
-}
-
-void PauseOverlay::setOverlayOver(QWidget*overlayOver)
-{
-    if (d->overlayOver != nullptr) {
-        d->overlayOver->removeEventFilter(this);
-        d->overlayOver->setGraphicsEffect(nullptr);
-    }
-
-    d->overlayOver = overlayOver;
-
-    if (overlayOver != nullptr) {
-        overlayOver->installEventFilter(this);
-
-        if (d->overlayOver->parentWidget() != nullptr) {
-            this->setGeometry(overlayOver->geometry());
-            this->setParent(overlayOver->parentWidget());
-            overlayOver->setGraphicsEffect(d->blur);
-        } else {
-            this->setGeometry(QRect(QPoint(0, 0), overlayOver->size()));
-            this->setParent(overlayOver);
-        }
-    }
 }
 
 void PauseOverlay::showOverlay()
@@ -120,6 +112,7 @@ void PauseOverlay::showOverlay()
     });
     anim->start();
 
+    d->blur->setEnabled(true);
     tVariantAnimation* blurAnim = new tVariantAnimation(this);
     blurAnim->setStartValue(0.0);
     blurAnim->setEndValue(20.0);
@@ -159,8 +152,8 @@ void PauseOverlay::hideOverlay()
             d->blur->setBlurRadius(value.toReal());
         });
         connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+            d->blur->setEnabled(false);
             blurAnim->deleteLater();
-            if (d->deleteOnHide) this->deleteLater();
         });
         blurAnim->start();
 
@@ -229,19 +222,10 @@ void PauseOverlay::popOverlayWidget(std::function<void ()> after)
     });
 }
 
-void PauseOverlay::setDeleteOnHide(bool deleteOnHide)
-{
-    d->deleteOnHide = deleteOnHide;
-}
-
 bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
 {
-    if (watched == d->overlayOver && (event->type() == QEvent::Resize || event->type() == QEvent::Move)) {
-        if (d->overlayOver->parentWidget() != nullptr) {
-            this->setGeometry(d->overlayOver->geometry());
-        } else {
-            this->resize(d->overlayOver->width(), d->overlayOver->height());
-        }
+    if (watched == d->parentWidget && event->type() == QEvent::Resize) {
+        this->resize(d->parentWidget->width(), d->parentWidget->height());
     }
     return false;
 }

@@ -26,7 +26,6 @@ namespace Ui {
     class SaveDialog;
 }
 
-class PauseOverlay;
 struct SaveDialogPrivate;
 struct SaveObject;
 class SaveDialog : public QWidget
@@ -34,7 +33,7 @@ class SaveDialog : public QWidget
         Q_OBJECT
 
     public:
-        explicit SaveDialog(PauseOverlay* overlay, QWidget *parent = nullptr);
+        explicit SaveDialog(QWidget *parent = nullptr);
         ~SaveDialog();
 
         SaveObject selectedSaveFile();

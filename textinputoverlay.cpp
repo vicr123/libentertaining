@@ -35,7 +35,6 @@
 #include "keyboards/keyboardlayoutsdatabase.h"
 
 struct TextInputOverlayPrivate {
-    PauseOverlay* overlay;
     QWidget* parent;
 
     QList<Keyboard*> keyboards;
@@ -47,7 +46,7 @@ struct TextInputOverlayPrivate {
 
 QList<TextInputLineEditHandler*> TextInputOverlayPrivate::handledLineEdits = QList<TextInputLineEditHandler*>();
 
-TextInputOverlay::TextInputOverlay(QWidget *parent, PauseOverlay* pauseOverlay) :
+TextInputOverlay::TextInputOverlay(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TextInputOverlay)
 {
@@ -55,12 +54,6 @@ TextInputOverlay::TextInputOverlay(QWidget *parent, PauseOverlay* pauseOverlay) 
 
     d = new TextInputOverlayPrivate();
     d->parent = parent;
-
-    if (pauseOverlay == nullptr) {
-        d->overlay = new PauseOverlay(parent, nullptr, this);
-    } else {
-        d->overlay = pauseOverlay;
-    }
 
     ui->keyboardWidget->setFixedHeight(SC_DPI(300));
 
@@ -156,11 +149,11 @@ TextInputOverlay::~TextInputOverlay()
     delete d;
 }
 
-QString TextInputOverlay::getText(QWidget* parent, QString question, bool*canceled, QString defaultText, QLineEdit::EchoMode echoMode, PauseOverlay* overlay)
+QString TextInputOverlay::getText(QWidget* parent, QString question, bool*canceled, QString defaultText, QLineEdit::EchoMode echoMode)
 {
     QEventLoop* loop = new QEventLoop();
 
-    TextInputOverlay* input = new TextInputOverlay(parent, overlay);
+    TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
     input->setResponse(defaultText);
     input->setEchoMode(echoMode);
@@ -183,13 +176,13 @@ QString TextInputOverlay::getText(QWidget* parent, QString question, bool*cancel
     }
 }
 
-int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, int defaultText, int min, int max, QLineEdit::EchoMode echoMode, PauseOverlay* overlay)
+int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, int defaultText, int min, int max, QLineEdit::EchoMode echoMode)
 {
     QEventLoop* loop = new QEventLoop();
 
     QIntValidator validator(min, max);
 
-    TextInputOverlay* input = new TextInputOverlay(parent, overlay);
+    TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
     input->setResponse(QString::number(defaultText));
     input->setEchoMode(echoMode);
@@ -282,7 +275,7 @@ void TextInputOverlay::show()
     if (this->inputMethodHints() & Qt::ImhDigitsOnly) layout = KeyboardLayoutsDatabase::layoutForName("numOnly");
     ui->keyboardWidget->setCurrentLayout(layout);
 
-    d->overlay->pushOverlayWidget(this);
+    PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 }
 
 void TextInputOverlay::paintEvent(QPaintEvent*event)
@@ -318,7 +311,7 @@ void TextInputOverlay::on_okButton_clicked()
 void TextInputOverlay::on_cancelButton_clicked()
 {
     MusicEngine::playSoundEffect(MusicEngine::Backstep);
-    d->overlay->popOverlayWidget([=] {
+    PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget([=] {
         emit rejected();
     });
 }
@@ -352,7 +345,7 @@ void TextInputOverlay::tryAccept()
 
     if (error.isEmpty()) {
         MusicEngine::playSoundEffect(MusicEngine::Selection);
-        d->overlay->popOverlayWidget([=] {
+        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget([=] {
             emit accepted(ui->responseBox->text());
         });
     } else {
