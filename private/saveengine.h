@@ -26,11 +26,13 @@
 #define SAVE_FILE_MAGIC_NUMBER 0xE3928472
 
 class QIODevice;
+class QFileInfo;
 struct SaveObject {
     QString fileName;
     QVariantMap metadata;
 
     QIODevice* getStream();
+    QFileInfo getFileInfo();
 };
 typedef QList<SaveObject> SaveObjectList;
 

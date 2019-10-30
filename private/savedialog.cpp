@@ -94,13 +94,21 @@ void SaveDialog::newSave()
 {
     MusicEngine::playSoundEffect(MusicEngine::Selection);
 
-    bool canceled;
-    QString filename = TextInputOverlay::getText(this, tr("What do you want to call this save?"), &canceled, "", QLineEdit::Normal, d->overlay);
+    QRegularExpressionValidator* val = new QRegularExpressionValidator(QRegularExpression("(?!\\s*$)."));
 
-    if (!canceled) {
-        d->selected = SaveEngine::getSaveByFilename(filename);
+    TextInputOverlay* overlay = new TextInputOverlay(this, d->overlay);
+    overlay->setQuestion(tr("What do you want to call this save?"));
+    overlay->setValidator(val, tr("Enter a name for this save"));
+
+    overlay->show();
+    connect(overlay, &TextInputOverlay::accepted, [=] {
+        overlay->deleteLater();
+        d->selected = SaveEngine::getSaveByFilename(overlay->response().trimmed());
         emit accepted();
-    }
+    });
+    connect(overlay, &TextInputOverlay::rejected, this, [=] {
+        overlay->deleteLater();
+    });
 }
 
 void SaveDialog::on_saveView_activated(const QModelIndex &index)

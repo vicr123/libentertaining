@@ -65,15 +65,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/savedialog.cpp" line="98"/>
+        <location filename="../private/savedialog.cpp" line="100"/>
         <source>What do you want to call this save?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/savedialog.cpp" line="101"/>
+        <source>Enter a name for this save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SaveEngine</name>
     <message>
-        <location filename="../private/saveengine.cpp" line="77"/>
+        <location filename="../private/saveengine.cpp" line="71"/>
         <source>Corrupt Save</source>
         <translation type="unfinished"></translation>
     </message>

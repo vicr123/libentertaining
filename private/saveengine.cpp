@@ -42,23 +42,17 @@ SaveObjectList SaveEngine::getSaves()
 
     QDir savePath(saveDirPath());
     for (QString fileName : savePath.entryList(QDir::Files | QDir::NoDotAndDotDot, QDir::Time)) {
-        saves.append(getSaveByFilename(fileName));
+        saves.append(getSaveByFilename(QByteArray::fromHex(fileName.toUtf8())));
     }
     return saves;
 }
 
 SaveObject SaveEngine::getSaveByFilename(QString filename)
 {
-    QFileInfo file(QDir(saveDirPath()).absoluteFilePath(filename));
-    if (!file.exists()) {
-        QFile touch(file.filePath());
-        touch.open(QFile::ReadWrite);
-        touch.close();
-    }
-
     SaveObject save;
     save.fileName = filename;
 
+    QFileInfo file = save.getFileInfo();
     QIODevice* device = save.getStream();
 
     QDataStream stream(device);
@@ -77,7 +71,7 @@ SaveObject SaveEngine::getSaveByFilename(QString filename)
         save.metadata.insert("description", "[" + tr("Corrupt Save") + "]");
     }
 
-    save.metadata.insert("name", file.fileName());
+    save.metadata.insert("name", filename);
     save.metadata.insert("date", file.birthTime());
 
     device->deleteLater();
@@ -86,7 +80,7 @@ SaveObject SaveEngine::getSaveByFilename(QString filename)
 
 QString SaveEngine::saveDirPath()
 {
-    QString savePath = QDir(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)).absoluteFilePath("saves");
+    QString savePath = QDir(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)).absoluteFilePath("save");
     if (!QDir(savePath).exists()) {
         QDir::root().mkpath(savePath);
     }
@@ -95,7 +89,19 @@ QString SaveEngine::saveDirPath()
 
 QIODevice* SaveObject::getStream()
 {
-    QFile* f = new QFile(QDir(SaveEngine::saveDirPath()).absoluteFilePath(this->fileName));
+    QFile* f = new QFile(QDir(SaveEngine::saveDirPath()).absoluteFilePath(this->fileName.toUtf8().toHex()));
     f->open(QFile::ReadWrite);
     return f;
+}
+
+QFileInfo SaveObject::getFileInfo()
+{
+    QFileInfo file(QDir(SaveEngine::saveDirPath()).absoluteFilePath(this->fileName.toUtf8().toHex()));
+    if (!file.exists()) {
+        QFile touch(file.filePath());
+        touch.open(QFile::ReadWrite);
+        touch.close();
+    }
+
+    return file;
 }
