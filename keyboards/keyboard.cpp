@@ -63,6 +63,12 @@ Keyboard::Keyboard(QWidget* parent) : QWidget(parent)
     QFont font = this->font();
     font.setPointSize(15);
     this->setFont(font);
+
+    QPalette pal = this->palette();
+    QColor bg = pal.color(QPalette::Window);
+    bg.setAlpha(254);
+    pal.setColor(QPalette::Window, bg);
+    this->setPalette(pal);
 }
 
 Keyboard::~Keyboard()
@@ -98,6 +104,7 @@ void Keyboard::setCurrentLayout(KeyboardLayout layout)
             button->setProperty("keyboard_isKeyboardButton", true);
             button->installEventFilter(this);
             button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+            button->setIconSize(SC_DPI_T(QSize(32, 32), QSize));
             connect(this, &Keyboard::updateKeys, button, std::bind(&Keyboard::updateButton, this, button, key));
             updateButton(button, key);
             d->buttons.append(button);
@@ -166,15 +173,23 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
         case 2: //Known Key
             switch (key.knownKey) {
                 case KeyboardKey::Backspace:
-                    button->setText(tr("BKSP"));
+                    button->setIcon(QIcon(":/libentertaining/icons/backspace.svg"));
                     button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         emit backspace();
                         MusicEngine::playSoundEffect(MusicEngine::Backstep);
                     });
                     break;
-                case KeyboardKey::Shift:
-                    button->setText(tr("SHF"));
+                case KeyboardKey::Shift: {
+                    QString icon;
+                    if (d->capsState == Caps) {
+                        icon = "capsOn";
+                    } else if (d->capsState == Shift) {
+                        icon = "shiftOn";
+                    } else {
+                        icon = "shift";
+                    }
+                    button->setIcon(QIcon(QStringLiteral(":/libentertaining/icons/%1.svg").arg(icon)));
                     button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         MusicEngine::playSoundEffect(MusicEngine::Selection);
@@ -185,6 +200,7 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                         }
                     });
                     break;
+                }
                 case KeyboardKey::Ok:
                     button->setFlat(false);
                     button->setText(tr("OK"));
@@ -213,7 +229,7 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                     break;
                 case KeyboardKey::SetLayout:
                     button->setFlat(true);
-                    button->setText("Hè");
+                    button->setIcon(QIcon(":/libentertaining/icons/language.svg"));
                     button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         MusicEngine::playSoundEffect(MusicEngine::Selection);

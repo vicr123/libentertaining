@@ -23,10 +23,16 @@
 #include <QApplication>
 #include <QWidget>
 #include <QKeyEvent>
+#include <QScrollArea>
+#include <QTimer>
+#include <QPointer>
 #include "gamepadevent.h"
 
 struct GamepadListenerPrivate {
-
+    QTimer* scrollTimer;
+    QPointer<QScrollArea> currentScrollArea;
+    double rightAxisX;
+    double rightAxisY;
 };
 
 GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
@@ -45,6 +51,10 @@ GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
         GamepadEvent event(deviceId, axis, value);
         propagateEvent(&event);
     });
+
+    d->scrollTimer = new QTimer();
+    d->scrollTimer->setInterval(5);
+    connect(d->scrollTimer, &QTimer::timeout, this, &GamepadListener::scroll);
 }
 
 GamepadListener::~GamepadListener()
@@ -52,12 +62,28 @@ GamepadListener::~GamepadListener()
     delete d;
 }
 
+void GamepadListener::scroll()
+{
+    if (!d->currentScrollArea.isNull()) {
+        QPoint gPos = d->currentScrollArea->viewport()->mapToGlobal(QPoint(0, 0));
+        QPointF delta(-5 * d->rightAxisX, -5 * d->rightAxisY);
+
+        QWheelEvent event(QPoint(0, 0), gPos, delta.toPoint(), delta.toPoint(), Qt::NoButton, Qt::NoModifier, Qt::NoScrollPhase, true, Qt::MouseEventNotSynthesized);
+        QApplication::sendEvent(d->currentScrollArea->viewport(), &event);
+    }
+}
+
 void GamepadListener::propagateEvent(GamepadEvent*event)
 {
+    d->currentScrollArea = nullptr;
+
     QWidget* currentHandling = QApplication::focusWidget();
     if (currentHandling == nullptr) return; //Ignore this event
     while (currentHandling != nullptr) {
-//        if (QApplication::sendEvent(currentHandling, event)) return;
+        if (!d->currentScrollArea && qobject_cast<QScrollArea*>(currentHandling)) {
+            d->currentScrollArea = qobject_cast<QScrollArea*>(currentHandling);
+        }
+
         QApplication::sendEvent(currentHandling, event);
         if (event->isAccepted()) return;
         currentHandling = currentHandling->parentWidget();
@@ -78,6 +104,12 @@ void GamepadListener::propagateEvent(GamepadEvent*event)
                 switch (event->button()) {
                     case QGamepadManager::ButtonUp:
                         key = Qt::Key_Up;
+                        if (event->axis() == QGamepadManager::AxisRightX) {
+                            d->rightAxisX = event->newValue();
+                        } else if (event->axis() == QGamepadManager::AxisRightY) {
+                            d->rightAxisY = event->newValue();
+                        }
+                        if (!d->scrollTimer->isActive()) d->scrollTimer->start();
                         break;
                     case QGamepadManager::ButtonDown:
                         key = Qt::Key_Down;
@@ -115,5 +147,21 @@ void GamepadListener::propagateEvent(GamepadEvent*event)
         QApplication::sendEvent(QApplication::focusWidget(), &pressEvent);
         QKeyEvent relEvent(QKeyEvent::KeyRelease, key, Qt::NoModifier);
         QApplication::sendEvent(QApplication::focusWidget(), &relEvent);
+    }
+
+    if (d->currentScrollArea.isNull()) {
+        if (d->scrollTimer->isActive()) d->scrollTimer->stop();
+    } else {
+        if (event->axis() == QGamepadManager::AxisRightX) {
+            d->rightAxisX = event->newValue();
+        } else if (event->axis() == QGamepadManager::AxisRightY) {
+            d->rightAxisY = event->newValue();
+        }
+
+        if (qFuzzyCompare(d->rightAxisX, 0) && qFuzzyCompare(d->rightAxisY, 0)) {
+            if (d->scrollTimer->isActive()) d->scrollTimer->stop();
+        } else {
+            if (!d->scrollTimer->isActive()) d->scrollTimer->start();
+        }
     }
 }

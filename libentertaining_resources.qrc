@@ -23,5 +23,14 @@
         <file>audio/back.wav</file>
         <file>audio/pause.wav</file>
         <file>resources/Contemporary-Regular.ttf</file>
+        <file>icons/btnSEL.svg</file>
+        <file>icons/btnSTR.svg</file>
+        <file>icons/btnL3.svg</file>
+        <file>icons/btnR3.svg</file>
+        <file>icons/shift.svg</file>
+        <file>icons/shiftOn.svg</file>
+        <file>icons/capsOn.svg</file>
+        <file>icons/language.svg</file>
+        <file>icons/backspace.svg</file>
     </qresource>
 </RCC>

@@ -34,6 +34,7 @@ class GamepadListener : public QObject
     signals:
 
     public slots:
+        void scroll();
 
     private:
         GamepadListenerPrivate* d;

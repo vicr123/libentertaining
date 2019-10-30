@@ -12,17 +12,7 @@
 <context>
     <name>Keyboard</name>
     <message>
-        <location filename="../keyboards/keyboard.cpp" line="169"/>
-        <source>BKSP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../keyboards/keyboard.cpp" line="177"/>
-        <source>SHF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../keyboards/keyboard.cpp" line="190"/>
+        <location filename="../keyboards/keyboard.cpp" line="206"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>

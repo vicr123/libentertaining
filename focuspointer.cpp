@@ -33,6 +33,7 @@
 struct FocusPointerPrivate {
     FocusPointer* instance = nullptr;
     QPointer<QWidget> activeWidget;
+    QList<QPointer<QWidget>> filteredWidgets;
 
     bool automatic = false;
     bool enabled = false;
@@ -84,6 +85,13 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
         if (!d->activeWidget.isNull()) {
             disconnect(d->activeWidget, nullptr, this, nullptr);
             d->activeWidget->removeEventFilter(this);
+
+            for (QPointer<QWidget> w : d->filteredWidgets) {
+                if (!w.isNull()) {
+                    disconnect(w, nullptr, this, nullptr);
+                    w->removeEventFilter(this);
+                }
+            }
         }
 
         d->activeWidget = now;
@@ -93,6 +101,12 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
         } else {
             this->setFocusProxy(d->activeWidget);
             d->activeWidget->installEventFilter(this);
+            QWidget* parent = d->activeWidget->parentWidget();
+            while (parent != nullptr) {
+                parent->installEventFilter(this);
+                d->filteredWidgets.append(QPointer<QWidget>(parent));
+                parent = parent->parentWidget();
+            }
 
             QAbstractItemView* listView = qobject_cast<QAbstractItemView*>(d->activeWidget);
             if (listView) {
@@ -142,12 +156,12 @@ FocusPointer::FocusPointer() : QWidget(nullptr)
 
 void FocusPointer::updateFocusedWidget()
 {
-    QWidget* parentWindow = d->activeWidget->window();
 
-    if (d->activeWidget.isNull() || parentWindow == nullptr) {
+    if (d->activeWidget.isNull() || d->activeWidget->window() == nullptr) {
         this->setParent(nullptr);
         d->instance->hide();
     } else {
+        QWidget* parentWindow = d->activeWidget->window();
         if (d->enabled) d->instance->show();
 
         this->setParent(parentWindow);
@@ -216,6 +230,10 @@ bool FocusPointer::eventFilter(QObject*watched, QEvent*event)
 
     if (watched == d->activeWidget) {
         if (event->type() == QEvent::Resize || event->type() == QEvent::Move) {
+            updateFocusedWidget();
+        }
+    } else if (d->filteredWidgets.contains(QPointer<QWidget>(qobject_cast<QWidget*>(watched)))) {
+        if (event->type() == QEvent::Move) {
             updateFocusedWidget();
         }
     }
