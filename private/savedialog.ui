@@ -46,8 +46,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="go-previous">
-         <normaloff>../../theShell/statuscenter/PulseaudioPane</normaloff>../../theShell/statuscenter/PulseaudioPane</iconset>
+        <iconset resource="../libentertaining_resources.qrc">
+         <normaloff>:/libentertaining/icons/go-previous.svg</normaloff>:/libentertaining/icons/go-previous.svg</iconset>
        </property>
        <property name="autoRaise">
         <bool>true</bool>
@@ -93,7 +93,7 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Selelct a file to save as</string>
+      <string>Select a file to save as</string>
      </property>
      <property name="margin">
       <number>9</number>
@@ -145,6 +145,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../libentertaining_resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

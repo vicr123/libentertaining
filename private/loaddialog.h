@@ -43,6 +43,10 @@ class LoadDialog : public QWidget
 
         void on_loadView_activated(const QModelIndex &index);
 
+        void openFileOptions();
+
+        void on_loadView_customContextMenuRequested(const QPoint &pos);
+
     signals:
         void rejected();
         void accepted();

@@ -34,7 +34,7 @@ SavesModel::SavesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     d = new SavesModelPrivate();
-    d->saves = SaveEngine::getSaves();
+    reload();
 }
 
 SavesModel::~SavesModel()
@@ -90,6 +90,13 @@ QVariant SavesModel::data(const QModelIndex &index, int role) const
 void SavesModel::setShowNewFile(bool showNewFile)
 {
     d->showNewFile = showNewFile;
+    emit dataChanged(index(0), index(this->rowCount()));
+}
+
+void SavesModel::reload()
+{
+    d->saves = SaveEngine::getSaves();
+    emit dataChanged(index(0), index(this->rowCount()));
 }
 
 SavesDelegate::SavesDelegate(QObject*parent) : QStyledItemDelegate(parent)

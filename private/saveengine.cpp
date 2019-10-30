@@ -89,7 +89,7 @@ QString SaveEngine::saveDirPath()
 
 QIODevice* SaveObject::getStream()
 {
-    QFile* f = new QFile(QDir(SaveEngine::saveDirPath()).absoluteFilePath(this->fileName.toUtf8().toHex()));
+    QFile* f = new QFile(this->getRealFilePath());
     f->open(QFile::ReadWrite);
     return f;
 }
@@ -104,4 +104,32 @@ QFileInfo SaveObject::getFileInfo()
     }
 
     return file;
+}
+
+QString SaveObject::getRealFilePath()
+{
+    return QDir(SaveEngine::saveDirPath()).absoluteFilePath(this->fileName.toUtf8().toHex());
+}
+
+void SaveObject::copyTo(QString filename)
+{
+    SaveObject other = SaveEngine::getSaveByFilename(filename);
+    if (other.getRealFilePath() == this->getRealFilePath()) return;
+
+    QFile::remove(other.getRealFilePath());
+    QFile::copy(this->getRealFilePath(), other.getRealFilePath());
+}
+
+void SaveObject::moveTo(QString filename)
+{
+    SaveObject other = SaveEngine::getSaveByFilename(filename);
+    if (other.getRealFilePath() == this->getRealFilePath()) return;
+
+    QFile::remove(other.getRealFilePath());
+    QFile::rename(this->getRealFilePath(), other.getRealFilePath());
+}
+
+void SaveObject::deleteFile()
+{
+    QFile::remove(this->getRealFilePath());
 }

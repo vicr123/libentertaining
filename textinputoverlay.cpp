@@ -108,14 +108,10 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     });
 
     connect(ui->keyboardWidget, &Keyboard::typeKey, this, [=](QString key) {
-        QString text = ui->responseBox->text();
-        text.append(key);
-        ui->responseBox->setText(text);
+        ui->responseBox->insert(key);
     });
     connect(ui->keyboardWidget, &Keyboard::backspace, this, [=] {
-        QString text = ui->responseBox->text();
-        text.chop(1);
-        ui->responseBox->setText(text);
+        ui->responseBox->backspace();
     });
     connect(ui->keyboardWidget, &Keyboard::accept, this, [=] {
         tryAccept();
@@ -274,6 +270,8 @@ void TextInputOverlay::show()
     KeyboardLayout layout = KeyboardLayoutsDatabase::layoutForName("en-US");
     if (this->inputMethodHints() & Qt::ImhDigitsOnly) layout = KeyboardLayoutsDatabase::layoutForName("numOnly");
     ui->keyboardWidget->setCurrentLayout(layout);
+
+    ui->responseBox->selectAll();
 
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 }

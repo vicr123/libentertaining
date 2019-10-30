@@ -38,6 +38,8 @@ class SavesModel : public QAbstractListModel
 
         void setShowNewFile(bool showNewFile);
 
+        void reload();
+
     private:
         SavesModelPrivate* d;
 };

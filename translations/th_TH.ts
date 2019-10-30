@@ -21,22 +21,70 @@
     <name>LoadDialog</name>
     <message>
         <location filename="../private/loaddialog.ui" line="71"/>
-        <location filename="../private/loaddialog.cpp" line="46"/>
+        <location filename="../private/loaddialog.cpp" line="49"/>
         <source>Load</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../private/loaddialog.ui" line="96"/>
-        <source>Selelct a file to load</source>
+        <source>Select a file to load</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/loaddialog.cpp" line="47"/>
+        <location filename="../private/loaddialog.cpp" line="50"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/loaddialog.cpp" line="48"/>
+        <location filename="../private/loaddialog.cpp" line="51"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="125"/>
+        <source>Copy to which file?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="133"/>
+        <source>Rename to what?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoadDialogFileOptions</name>
+    <message>
+        <location filename="../private/loaddialogfileoptions.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialogfileoptions.ui" line="71"/>
+        <source>File Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialogfileoptions.ui" line="102"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialogfileoptions.ui" line="107"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialogfileoptions.ui" line="112"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialogfileoptions.cpp" line="35"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialogfileoptions.cpp" line="36"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -51,7 +99,7 @@
     </message>
     <message>
         <location filename="../private/savedialog.ui" line="96"/>
-        <source>Selelct a file to save as</source>
+        <source>Select a file to save as</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -96,7 +144,7 @@
     <message>
         <location filename="../textinputoverlay.ui" line="124"/>
         <location filename="../textinputoverlay.cpp" line="61"/>
-        <location filename="../textinputoverlay.cpp" line="322"/>
+        <location filename="../textinputoverlay.cpp" line="320"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,7 +161,7 @@
     </message>
     <message>
         <location filename="../textinputoverlay.cpp" line="62"/>
-        <location filename="../textinputoverlay.cpp" line="131"/>
+        <location filename="../textinputoverlay.cpp" line="127"/>
         <source>Shift</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,17 +171,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="134"/>
+        <location filename="../textinputoverlay.cpp" line="130"/>
         <source>Caps Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="190"/>
+        <location filename="../textinputoverlay.cpp" line="186"/>
         <source>Enter a number between %1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="324"/>
+        <location filename="../textinputoverlay.cpp" line="322"/>
         <source>Backspace</source>
         <translation type="unfinished"></translation>
     </message>

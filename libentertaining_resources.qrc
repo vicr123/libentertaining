@@ -32,5 +32,8 @@
         <file>icons/capsOn.svg</file>
         <file>icons/language.svg</file>
         <file>icons/backspace.svg</file>
+        <file>icons/go-previous.svg</file>
+        <file>icons/dialog-cancel.svg</file>
+        <file>icons/dialog-ok.svg</file>
     </qresource>
 </RCC>

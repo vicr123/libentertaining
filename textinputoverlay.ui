@@ -124,8 +124,8 @@
                 <string>Cancel</string>
                </property>
                <property name="icon">
-                <iconset theme="dialog-cancel">
-                 <normaloff>.</normaloff>.</iconset>
+                <iconset resource="libentertaining_resources.qrc">
+                 <normaloff>:/libentertaining/icons/dialog-cancel.svg</normaloff>:/libentertaining/icons/dialog-cancel.svg</iconset>
                </property>
               </widget>
              </item>
@@ -135,8 +135,8 @@
                 <string>OK</string>
                </property>
                <property name="icon">
-                <iconset theme="dialog-ok">
-                 <normaloff>.</normaloff>.</iconset>
+                <iconset resource="libentertaining_resources.qrc">
+                 <normaloff>:/libentertaining/icons/dialog-ok.svg</normaloff>:/libentertaining/icons/dialog-ok.svg</iconset>
                </property>
               </widget>
              </item>
@@ -185,7 +185,9 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="libentertaining_resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>responseBox</sender>

@@ -25,6 +25,9 @@
 #include "savesmodel.h"
 #include "saveengine.h"
 #include "musicengine.h"
+#include <tpopover.h>
+#include "loaddialogfileoptions.h"
+#include "textinputoverlay.h"
 
 struct LoadDialogPrivate {
     SavesModel* model;
@@ -55,7 +58,7 @@ LoadDialog::LoadDialog(QWidget *parent) :
         emit rejected();
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonX, [=] {
-
+        this->openFileOptions();
     });
 
     d->model = new SavesModel();
@@ -67,8 +70,9 @@ LoadDialog::LoadDialog(QWidget *parent) :
     connect(backShortcut, &QShortcut::activated, this, [=] {
         ui->backButton->click();
     });
-    connect(backShortcut, &QShortcut::activatedAmbiguously, this, [=] {
-        ui->backButton->click();
+    QShortcut* optionsShortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this);
+    connect(optionsShortcut, &QShortcut::activated, this, [=] {
+        this->openFileOptions();
     });
 
     this->setFocusProxy(ui->loadView);
@@ -100,4 +104,57 @@ void LoadDialog::on_loadView_activated(const QModelIndex &index)
     d->selected = object;
 
     emit accepted();
+}
+
+void LoadDialog::openFileOptions()
+{
+    LoadDialogFileOptions* options = new LoadDialogFileOptions();
+    tPopover* popover = new tPopover(options);
+    popover->setPopoverSide(tPopover::Bottom);
+    popover->setPopoverWidth(options->sizeHint().height());
+    connect(options, &LoadDialogFileOptions::rejected, popover, &tPopover::dismiss);
+    connect(options, &LoadDialogFileOptions::performAction, this, [=](LoadDialogFileOptions::Action action) {
+        popover->dismiss();
+
+        QString filename = d->model->data(ui->loadView->currentIndex(), Qt::UserRole).toString();
+        SaveObject object = SaveEngine::getSaveByFilename(filename);
+
+        switch (action) {
+            case LoadDialogFileOptions::Copy: {
+                bool canceled;
+                QString newFilename = TextInputOverlay::getText(this, tr("Copy to which file?"), &canceled, filename);
+                if (!canceled) {
+                    object.copyTo(newFilename);
+                }
+                break;
+            }
+            case LoadDialogFileOptions::Rename: {
+                bool canceled;
+                QString newFilename = TextInputOverlay::getText(this, tr("Rename to what?"), &canceled, filename);
+                if (!canceled) {
+                    object.moveTo(newFilename);
+                }
+                break;
+            }
+            case LoadDialogFileOptions::Delete: {
+                //TODO: Add a prompt ensuring the user wants to delete
+                object.deleteFile();
+                break;
+            }
+        }
+
+        d->model->reload();
+    });
+    connect(popover, &tPopover::dismissed, options, &LoadDialogFileOptions::deleteLater);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, this, [=] {
+        ui->loadView->setFocus();
+    });
+    popover->show(this);
+}
+
+void LoadDialog::on_loadView_customContextMenuRequested(const QPoint &pos)
+{
+//    ui->loadView->setCurrentIndex(ui->loadView->indexAt(pos));
+    openFileOptions();
 }

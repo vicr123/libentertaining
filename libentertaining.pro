@@ -63,6 +63,7 @@ SOURCES += \
     private/applicationeventfilter.cpp \
     private/gamepadlistener.cpp \
     private/loaddialog.cpp \
+    private/loaddialogfileoptions.cpp \
     private/savedialog.cpp \
     private/saveengine.cpp \
     private/savesmodel.cpp \
@@ -91,6 +92,7 @@ HEADERS += \
     private/applicationeventfilter.h \
     private/gamepadlistener.h \
     private/loaddialog.h \
+    private/loaddialogfileoptions.h \
     private/savedialog.h \
     private/saveengine.h \
     private/savesmodel.h \
@@ -160,6 +162,7 @@ FORMS += \
     gamepadhud.ui \
     keyboards/uskeyboard.ui \
     private/loaddialog.ui \
+    private/loaddialogfileoptions.ui \
     private/savedialog.ui \
     settingwidget.ui \
     textinputoverlay.ui
