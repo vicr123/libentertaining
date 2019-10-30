@@ -14,7 +14,7 @@
     <message>
         <location filename="../keyboards/keyboard.cpp" line="206"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -23,32 +23,32 @@
         <location filename="../private/loaddialog.ui" line="71"/>
         <location filename="../private/loaddialog.cpp" line="49"/>
         <source>Load</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.ui" line="96"/>
         <source>Select a file to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn tệp để mở</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="50"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Tùy chọn</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="51"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="125"/>
         <source>Copy to which file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chép vào tệp nào?</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="133"/>
         <source>Rename to what?</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi tên thành gì?</translation>
     </message>
 </context>
 <context>
@@ -61,32 +61,32 @@
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="71"/>
         <source>File Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Tùy chọn tệp</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="102"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Chép</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="107"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi tên</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="112"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="35"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="36"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Lại</translation>
     </message>
 </context>
 <context>
@@ -95,32 +95,32 @@
         <location filename="../private/savedialog.ui" line="71"/>
         <location filename="../private/savedialog.cpp" line="46"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../private/savedialog.ui" line="96"/>
         <source>Select a file to save as</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn tệp để lưu thành</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="47"/>
         <source>Create New Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo bản lưu mới</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="98"/>
         <source>What do you want to call this save?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn muốn gọi bản lưu này tên gì?</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="99"/>
         <source>Enter a name for this save</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhập vào tên cho bản lưu này</translation>
     </message>
 </context>
 <context>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../private/saveengine.cpp" line="71"/>
         <source>Corrupt Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Bản lưu bị hỏng</translation>
     </message>
 </context>
 <context>
@@ -136,7 +136,7 @@
     <message>
         <location filename="../private/savesmodel.cpp" line="67"/>
         <source>Create New Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo bản lưu mới</translation>
     </message>
 </context>
 <context>
