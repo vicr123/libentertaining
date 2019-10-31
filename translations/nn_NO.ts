@@ -2,10 +2,116 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="nb_NO" sourcelanguage="en_US">
 <context>
+    <name>ButtonDiagnostics</name>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="41"/>
+        <source>Button Diagnostics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="51"/>
+        <source>Press a button on the gamepad and the symbol for the button will appear here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="158"/>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="180"/>
+        <source>You can also hold down any button to end the test.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="49"/>
+        <source>Depending on your setup, the %1 button may not register here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="59"/>
+        <source>Gamepad Disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="60"/>
+        <source>The gamepad that you were testing was disconnected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DialogueOverlay</name>
     <message>
         <location filename="../dialogueoverlay.ui" line="75"/>
         <source>Dialog Text goes here</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GamepadConfigurationOverlay</name>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="68"/>
+        <source>Gamepads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="140"/>
+        <source>Configure a gamepad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="150"/>
+        <source>Select the gamepad you want to configure.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="219"/>
+        <source>GAMEPAD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="228"/>
+        <source>Configure Button Mappings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="235"/>
+        <source>Configure Button Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="275"/>
+        <source>DIAGNOSTICS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="284"/>
+        <source>Check Buttons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="291"/>
+        <source>Check Sticks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="58"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
+        <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -253,6 +359,52 @@
     <message>
         <location filename="../private/savesmodel.cpp" line="67"/>
         <source>Create New Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StickDiagnostics</name>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="53"/>
+        <source>Stick Diagnostics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="63"/>
+        <source>The dot shows the location of the control stick, as reported by the controller.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="124"/>
+        <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="64"/>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="40"/>
+        <source>L</source>
+        <comment>L for (L)eft</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="41"/>
+        <source>R</source>
+        <comment>R for (R)ight</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="51"/>
+        <source>Gamepad Disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="52"/>
+        <source>The gamepad that you were testing was disconnected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

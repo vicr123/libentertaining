@@ -66,7 +66,7 @@ void GamepadListener::scroll()
 {
     if (!d->currentScrollArea.isNull()) {
         QPoint gPos = d->currentScrollArea->viewport()->mapToGlobal(QPoint(0, 0));
-        QPointF delta(-5 * d->rightAxisX, -5 * d->rightAxisY);
+        QPointF delta(-10 * d->rightAxisX, -10 * d->rightAxisY);
 
         QWheelEvent event(QPoint(0, 0), gPos, delta.toPoint(), delta.toPoint(), Qt::NoButton, Qt::NoModifier, Qt::NoScrollPhase, true, Qt::MouseEventNotSynthesized);
         QApplication::sendEvent(d->currentScrollArea->viewport(), &event);

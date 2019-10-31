@@ -143,19 +143,20 @@ void PauseOverlay::hideOverlay()
         anim->deleteLater();
         this->hide();
 
-        tVariantAnimation* blurAnim = new tVariantAnimation(this);
-        blurAnim->setStartValue(20.0);
-        blurAnim->setEndValue(0.0);
-        blurAnim->setDuration(250);
-        blurAnim->setEasingCurve(QEasingCurve::OutCubic);
-        connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
-            d->blur->setBlurRadius(value.toReal());
-        });
-        connect(blurAnim, &tVariantAnimation::finished, this, [=] {
-            d->blur->setEnabled(false);
-            blurAnim->deleteLater();
-        });
-        blurAnim->start();
+//        tVariantAnimation* blurAnim = new tVariantAnimation(this);
+//        blurAnim->setStartValue(20.0);
+//        blurAnim->setEndValue(0.0);
+//        blurAnim->setDuration(250);
+//        blurAnim->setEasingCurve(QEasingCurve::OutCubic);
+//        connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+//            d->blur->setBlurRadius(value.toReal());
+//        });
+//        connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+//            d->blur->setEnabled(false);
+//            blurAnim->deleteLater();
+//        });
+//        blurAnim->start();
+        d->blur->setEnabled(false);
 
     });
     anim->start();

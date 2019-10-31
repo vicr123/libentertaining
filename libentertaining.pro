@@ -50,7 +50,11 @@ SOURCES += \
     entertaining.cpp \
     focusbarrier.cpp \
     focuspointer.cpp \
+    gamepadConfiguration/buttondiagnostics.cpp \
+    gamepadConfiguration/stickdiagnostics.cpp \
+    gamepadConfiguration/stickdiagnosticsstickwidget.cpp \
     gamepadbuttons.cpp \
+    gamepadconfigurationoverlay.cpp \
     gamepadevent.cpp \
     gamepadhud.cpp \
     gamepadlabel.cpp \
@@ -62,6 +66,7 @@ SOURCES += \
     pauseoverlay.cpp \
     private/applicationeventfilter.cpp \
     private/gamepadlistener.cpp \
+    private/gamepadmodel.cpp \
     private/loaddialog.cpp \
     private/loaddialogfileoptions.cpp \
     private/savedialog.cpp \
@@ -78,7 +83,11 @@ HEADERS += \
     discordintegration.h \
     focusbarrier.h \
     focuspointer.h \
+    gamepadConfiguration/buttondiagnostics.h \
+    gamepadConfiguration/stickdiagnostics.h \
+    gamepadConfiguration/stickdiagnosticsstickwidget.h \
     gamepadbuttons.h \
+    gamepadconfigurationoverlay.h \
     gamepadevent.h \
     gamepadhud.h \
     gamepadlabel.h \
@@ -92,6 +101,7 @@ HEADERS += \
     pauseoverlay.h \
     private/applicationeventfilter.h \
     private/gamepadlistener.h \
+    private/gamepadmodel.h \
     private/loaddialog.h \
     private/loaddialogfileoptions.h \
     private/savedialog.h \
@@ -161,6 +171,9 @@ RESOURCES += \
 
 FORMS += \
     dialogueoverlay.ui \
+    gamepadConfiguration/buttondiagnostics.ui \
+    gamepadConfiguration/stickdiagnostics.ui \
+    gamepadconfigurationoverlay.ui \
     gamepadhud.ui \
     keyboards/uskeyboard.ui \
     private/loaddialog.ui \
