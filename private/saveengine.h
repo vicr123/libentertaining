@@ -33,11 +33,11 @@ struct SaveObject {
 
     QIODevice* getStream();
     QFileInfo getFileInfo();
-    QString getRealFilePath();
+    QString getRealFilePath() const;
 
     void copyTo(QString filename);
     void moveTo(QString filename);
-    void deleteFile();
+    void deleteFile() const;
 };
 typedef QList<SaveObject> SaveObjectList;
 

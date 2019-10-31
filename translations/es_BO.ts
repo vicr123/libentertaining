@@ -21,7 +21,7 @@
     <name>LoadDialog</name>
     <message>
         <location filename="../private/loaddialog.ui" line="71"/>
-        <location filename="../private/loaddialog.cpp" line="49"/>
+        <location filename="../private/loaddialog.cpp" line="50"/>
         <source>Load</source>
         <translation type="unfinished"></translation>
     </message>
@@ -31,23 +31,44 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/loaddialog.cpp" line="50"/>
+        <location filename="../private/loaddialog.cpp" line="51"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/loaddialog.cpp" line="51"/>
+        <location filename="../private/loaddialog.cpp" line="52"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/loaddialog.cpp" line="125"/>
+        <location filename="../private/loaddialog.cpp" line="82"/>
+        <source>o</source>
+        <comment>Shortcut key for (O)ptions</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="134"/>
         <source>Copy to which file?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/loaddialog.cpp" line="133"/>
+        <location filename="../private/loaddialog.cpp" line="142"/>
         <source>Rename to what?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="151"/>
+        <source>Delete this file?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="152"/>
+        <source>Once you delete this file, you can&apos;t get it back.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/loaddialog.cpp" line="153"/>
+        <source>Delete File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -86,6 +107,102 @@
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="36"/>
         <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoadOverlay</name>
+    <message>
+        <location filename="../loadoverlay.cpp" line="70"/>
+        <source>Corrupt File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../loadoverlay.cpp" line="71"/>
+        <source>Sorry, that file is corrupt and needs to be deleted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QuestionOverlay</name>
+    <message>
+        <location filename="../questionoverlay.cpp" line="105"/>
+        <source>Discard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="106"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="107"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="108"/>
+        <source>Save All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="81"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="43"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="44"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="110"/>
+        <source>Yes To All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="111"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="112"/>
+        <source>No To All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="113"/>
+        <source>Abort</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="114"/>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="115"/>
+        <source>Ignore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="116"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="117"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="104"/>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

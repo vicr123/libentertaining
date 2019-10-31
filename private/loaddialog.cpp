@@ -28,6 +28,7 @@
 #include <tpopover.h>
 #include "loaddialogfileoptions.h"
 #include "textinputoverlay.h"
+#include "questionoverlay.h"
 
 struct LoadDialogPrivate {
     SavesModel* model;
@@ -72,6 +73,14 @@ LoadDialog::LoadDialog(QWidget *parent) :
     });
     QShortcut* optionsShortcut = new QShortcut(QKeySequence(Qt::Key_Tab), this);
     connect(optionsShortcut, &QShortcut::activated, this, [=] {
+        this->openFileOptions();
+    });
+    QShortcut* optionsShortcut2 = new QShortcut(QKeySequence(Qt::SHIFT | Qt::Key_Enter), this);
+    connect(optionsShortcut2, &QShortcut::activated, this, [=] {
+        this->openFileOptions();
+    });
+    QShortcut* optionsShortcut3 = new QShortcut(QKeySequence(tr("o", "Shortcut key for (O)ptions")), this);
+    connect(optionsShortcut3, &QShortcut::activated, this, [=] {
         this->openFileOptions();
     });
 
@@ -137,8 +146,19 @@ void LoadDialog::openFileOptions()
                 break;
             }
             case LoadDialogFileOptions::Delete: {
-                //TODO: Add a prompt ensuring the user wants to delete
-                object.deleteFile();
+                QuestionOverlay* question = new QuestionOverlay(this);
+                question->setIcon(QMessageBox::Warning);
+                question->setTitle(tr("Delete this file?"));
+                question->setText(tr("Once you delete this file, you can't get it back."));
+                question->setButtons(QMessageBox::Cancel | QMessageBox::Yes, tr("Delete File"), true);
+                connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+                    if (button == QMessageBox::Yes) {
+                        object.deleteFile();
+                        d->model->reload();
+                    }
+                    question->deleteLater();
+                });
+                connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
                 break;
             }
         }

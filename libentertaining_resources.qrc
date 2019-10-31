@@ -35,5 +35,11 @@
         <file>icons/go-previous.svg</file>
         <file>icons/dialog-cancel.svg</file>
         <file>icons/dialog-ok.svg</file>
+        <file>icons/dialog-error.svg</file>
+        <file>icons/dialog-information.svg</file>
+        <file>icons/dialog-question.svg</file>
+        <file>icons/dialog-warning.svg</file>
+        <file>audio/error.wav</file>
+        <file>audio/warning.wav</file>
     </qresource>
 </RCC>

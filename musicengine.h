@@ -33,7 +33,9 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
             FocusChangedFailed,
             Pause,
             Selection,
-            Backstep
+            Backstep,
+            Warning,
+            Error
         };
 
         static void setBackgroundMusic(QUrl path);

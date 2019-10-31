@@ -106,7 +106,7 @@ QFileInfo SaveObject::getFileInfo()
     return file;
 }
 
-QString SaveObject::getRealFilePath()
+QString SaveObject::getRealFilePath() const
 {
     return QDir(SaveEngine::saveDirPath()).absoluteFilePath(this->fileName.toUtf8().toHex());
 }
@@ -129,7 +129,7 @@ void SaveObject::moveTo(QString filename)
     QFile::rename(this->getRealFilePath(), other.getRealFilePath());
 }
 
-void SaveObject::deleteFile()
+void SaveObject::deleteFile() const
 {
     QFile::remove(this->getRealFilePath());
 }

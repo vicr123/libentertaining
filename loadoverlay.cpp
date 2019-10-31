@@ -23,6 +23,7 @@
 #include "private/loaddialog.h"
 #include <QEventLoop>
 #include <QApplication>
+#include "questionoverlay.h"
 #include "private/saveengine.h"
 
 struct LoadOverlayPrivate {
@@ -64,6 +65,13 @@ void LoadOverlay::load()
 
         if (magicNumber != SAVE_FILE_MAGIC_NUMBER) {
             //Error error!
+            QuestionOverlay* question = new QuestionOverlay(d->parent);
+            question->setIcon(QMessageBox::Critical);
+            question->setTitle(tr("Corrupt File"));
+            question->setText(tr("Sorry, that file is corrupt and needs to be deleted."));
+            question->setButtons(QMessageBox::Ok);
+            connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+            connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
             return;
         }
 

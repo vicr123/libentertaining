@@ -42,7 +42,9 @@ struct MusicEnginePrivate {
         {MusicEngine::FocusChangedFailed, QUrl("qrc:/libentertaining/audio/back.wav")},
         {MusicEngine::Pause, QUrl("qrc:/libentertaining/audio/pause.wav")},
         {MusicEngine::Selection, QUrl("qrc:/libentertaining/audio/select.wav")},
-        {MusicEngine::Backstep, QUrl("qrc:/libentertaining/audio/back.wav")}
+        {MusicEngine::Backstep, QUrl("qrc:/libentertaining/audio/back.wav")},
+        {MusicEngine::Warning, QUrl("qrc:/libentertaining/audio/warning.wav")},
+        {MusicEngine::Error, QUrl("qrc:/libentertaining/audio/error.wav")}
     };
 
 };

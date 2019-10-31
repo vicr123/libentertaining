@@ -68,6 +68,7 @@ SOURCES += \
     private/saveengine.cpp \
     private/savesmodel.cpp \
     private/textinputlineedithandler.cpp \
+    questionoverlay.cpp \
     saveoverlay.cpp \
     settingwidget.cpp \
     textinputoverlay.cpp
@@ -97,6 +98,7 @@ HEADERS += \
     private/saveengine.h \
     private/savesmodel.h \
     private/textinputlineedithandler.h \
+    questionoverlay.h \
     saveoverlay.h \
     settingwidget.h \
     textinputoverlay.h
@@ -164,5 +166,6 @@ FORMS += \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \
     private/savedialog.ui \
+    questionoverlay.ui \
     settingwidget.ui \
     textinputoverlay.ui

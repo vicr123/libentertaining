@@ -23,14 +23,14 @@
 #include <QApplication>
 #include <QWidget>
 #include <QKeyEvent>
-#include <QScrollArea>
+#include <QAbstractScrollArea>
 #include <QTimer>
 #include <QPointer>
 #include "gamepadevent.h"
 
 struct GamepadListenerPrivate {
     QTimer* scrollTimer;
-    QPointer<QScrollArea> currentScrollArea;
+    QPointer<QAbstractScrollArea> currentScrollArea;
     double rightAxisX;
     double rightAxisY;
 };
@@ -80,8 +80,8 @@ void GamepadListener::propagateEvent(GamepadEvent*event)
     QWidget* currentHandling = QApplication::focusWidget();
     if (currentHandling == nullptr) return; //Ignore this event
     while (currentHandling != nullptr) {
-        if (!d->currentScrollArea && qobject_cast<QScrollArea*>(currentHandling)) {
-            d->currentScrollArea = qobject_cast<QScrollArea*>(currentHandling);
+        if (!d->currentScrollArea && qobject_cast<QAbstractScrollArea*>(currentHandling)) {
+            d->currentScrollArea = qobject_cast<QAbstractScrollArea*>(currentHandling);
         }
 
         QApplication::sendEvent(currentHandling, event);
