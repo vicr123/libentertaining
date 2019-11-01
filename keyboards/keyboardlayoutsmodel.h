@@ -17,29 +17,24 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef KEYBOARDLAYOUTSDATABASE_H
-#define KEYBOARDLAYOUTSDATABASE_H
+#ifndef KEYBOARDLAYOUTSMODEL_H
+#define KEYBOARDLAYOUTSMODEL_H
 
-#include <QCoreApplication>
-#include <QMap>
-#include "keyboard.h"
+#include <QAbstractListModel>
 
-class KeyboardLayoutsModel;
-class KeyboardLayoutsDatabase
+class KeyboardLayoutsModel : public QAbstractListModel
 {
-        Q_DECLARE_TR_FUNCTIONS(KeyboardLayoutsDatabase)
+        Q_OBJECT
 
     public:
-        static KeyboardLayout layoutForName(QString name);
+        explicit KeyboardLayoutsModel(QObject *parent = nullptr);
 
-    protected:
-        friend KeyboardLayoutsModel;
-        static QMap<QString, KeyboardLayout> displayLayouts();
+        // Basic functionality:
+        int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+
+        QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     private:
-        KeyboardLayoutsDatabase();
-        static QMap<QString, KeyboardLayout> layouts;
-        static QMap<QString, KeyboardLayout> setupLayouts();
 };
 
-#endif // KEYBOARDLAYOUTSDATABASE_H
+#endif // KEYBOARDLAYOUTSMODEL_H

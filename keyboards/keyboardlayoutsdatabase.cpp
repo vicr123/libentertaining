@@ -33,6 +33,7 @@ QMap<QString, KeyboardLayout> KeyboardLayoutsDatabase::setupLayouts()
     {
         KeyboardLayout usLayout;
         usLayout.name = "en-US";
+        usLayout.displayName = tr("English (US)");
         usLayout.keys = {
             {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', KeyboardKey::Backspace},
             {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '\''},
@@ -41,6 +42,20 @@ QMap<QString, KeyboardLayout> KeyboardLayoutsDatabase::setupLayouts()
             {KeyboardKey::SetNumeric, KeyboardKey::Space, KeyboardKey::SetLayout}
         };
         layouts.append(usLayout);
+    }
+
+    {
+        KeyboardLayout vnLayout;
+        vnLayout.name = "vi-VN";
+        vnLayout.displayName = tr("Vietnamese (VN)");
+        vnLayout.keys = {
+            {QChar(0x103), QChar(0xE2), QChar(0xEA), QChar(0xF4), QChar(0x300), QChar(0x309), QChar(0x303), QChar(0x301), QChar(0x323), QChar(0x111), KeyboardKey::Backspace},
+            {'q', QChar(0x1B0), 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', QChar(0x1A1)},
+            {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '/', KeyboardKey::Ok},
+            {KeyboardKey::Shift, 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', KeyboardKey::Shift},
+            {KeyboardKey::SetNumeric, KeyboardKey::Space, KeyboardKey::SetLayout}
+        };
+        layouts.append(vnLayout);
     }
 
     {
@@ -56,6 +71,20 @@ QMap<QString, KeyboardLayout> KeyboardLayoutsDatabase::setupLayouts()
         layouts.append(numLayout);
     }
 
+    {
+        KeyboardLayout symLayout;
+        symLayout.name = "sym";
+        symLayout.honourShift = false;
+        symLayout.keys = {
+            {'1', '2', '3', '!', '@', '#', '(', ')', ':', ';', KeyboardKey::Backspace},
+            {'4', '5', '6', '$', '%', '^', '[', ']', '\'', '"', '|'},
+            {'7', '8', '9', '&', '*', '=', '{', '}', '/', '\\', KeyboardKey::Ok},
+            {'.', '0', '?', '+', '-', '_', '<', '>', ',', '`', '~'},
+            {KeyboardKey::SetNumeric, KeyboardKey::Space, KeyboardKey::SetLayout}
+        };
+        layouts.append(symLayout);
+    }
+
     QMap<QString, KeyboardLayout> layoutsMap;
     for (KeyboardLayout layout : layouts) {
         layoutsMap.insert(layout.name, layout);
@@ -66,4 +95,12 @@ QMap<QString, KeyboardLayout> KeyboardLayoutsDatabase::setupLayouts()
 KeyboardLayout KeyboardLayoutsDatabase::layoutForName(QString name)
 {
     return layouts.value(name);
+}
+
+QMap<QString, KeyboardLayout> KeyboardLayoutsDatabase::displayLayouts()
+{
+    QMap<QString, KeyboardLayout> layouts = KeyboardLayoutsDatabase::layouts;
+    layouts.remove("numOnly");
+    layouts.remove("sym");
+    return layouts;
 }

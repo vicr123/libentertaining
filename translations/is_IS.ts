@@ -118,8 +118,45 @@
 <context>
     <name>Keyboard</name>
     <message>
-        <location filename="../keyboards/keyboard.cpp" line="206"/>
+        <location filename="../keyboards/keyboard.cpp" line="233"/>
         <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../keyboards/keyboard.cpp" line="252"/>
+        <source>ABC</source>
+        <comment>ABC for alphabetic keyboard; use something that makes sense in your locale</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardLayoutsDatabase</name>
+    <message>
+        <location filename="../keyboards/keyboardlayoutsdatabase.cpp" line="36"/>
+        <source>English (US)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../keyboards/keyboardlayoutsdatabase.cpp" line="50"/>
+        <source>Vietnamese (VN)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LayoutSelect</name>
+    <message>
+        <location filename="../keyboards/layoutselect.ui" line="71"/>
+        <source>Select Keyboard Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../keyboards/layoutselect.cpp" line="37"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../keyboards/layoutselect.cpp" line="38"/>
+        <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -412,45 +449,46 @@
     <name>TextInputOverlay</name>
     <message>
         <location filename="../textinputoverlay.ui" line="124"/>
-        <location filename="../textinputoverlay.cpp" line="61"/>
-        <location filename="../textinputoverlay.cpp" line="320"/>
+        <location filename="../textinputoverlay.cpp" line="121"/>
+        <location filename="../textinputoverlay.cpp" line="327"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../textinputoverlay.ui" line="135"/>
-        <location filename="../textinputoverlay.cpp" line="64"/>
+        <location filename="../textinputoverlay.cpp" line="140"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="60"/>
+        <location filename="../textinputoverlay.cpp" line="119"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="62"/>
+        <location filename="../textinputoverlay.cpp" line="104"/>
         <location filename="../textinputoverlay.cpp" line="127"/>
         <source>Shift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="63"/>
+        <location filename="../textinputoverlay.cpp" line="134"/>
         <source>Space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="130"/>
+        <location filename="../textinputoverlay.cpp" line="107"/>
         <source>Caps Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="186"/>
+        <location filename="../textinputoverlay.cpp" line="193"/>
         <source>Enter a number between %1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="322"/>
+        <location filename="../textinputoverlay.cpp" line="123"/>
+        <location filename="../textinputoverlay.cpp" line="329"/>
         <source>Backspace</source>
         <translation type="unfinished"></translation>
     </message>

@@ -60,6 +60,8 @@ SOURCES += \
     gamepadlabel.cpp \
     keyboards/keyboard.cpp \
     keyboards/keyboardlayoutsdatabase.cpp \
+    keyboards/keyboardlayoutsmodel.cpp \
+    keyboards/layoutselect.cpp \
     keyboards/uskeyboard.cpp \
     loadoverlay.cpp \
     musicengine.cpp \
@@ -93,6 +95,8 @@ HEADERS += \
     gamepadlabel.h \
     keyboards/keyboard.h \
     keyboards/keyboardlayoutsdatabase.h \
+    keyboards/keyboardlayoutsmodel.h \
+    keyboards/layoutselect.h \
     keyboards/uskeyboard.h \
     libentertaining_global.h \
     entertaining.h \
@@ -175,6 +179,7 @@ FORMS += \
     gamepadConfiguration/stickdiagnostics.ui \
     gamepadconfigurationoverlay.ui \
     gamepadhud.ui \
+    keyboards/layoutselect.ui \
     keyboards/uskeyboard.ui \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \

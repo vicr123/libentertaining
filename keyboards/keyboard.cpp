@@ -27,15 +27,22 @@
 #include <focuspointer.h>
 #include <the-libs_global.h>
 #include "musicengine.h"
+#include "layoutselect.h"
+#include <tpopover.h>
+#include "keyboardlayoutsdatabase.h"
 
 struct KeyboardPrivate {
     KeyboardLayout currentLayout;
+    bool showSymbolKeyboard = false;
 
     QBoxLayout* holderLayout;
     QWidget* currentWidget = nullptr;
 
     QList<QPushButton*> buttons;
     QWidget* currentButton = nullptr;
+
+    bool canShift = false;
+    bool canSpace = false;
 
     Keyboard::CapsState capsState = Keyboard::None;
 };
@@ -91,7 +98,9 @@ void Keyboard::setCurrentLayout(KeyboardLayout layout)
     mainLayout->setSpacing(0);
     d->currentWidget->setLayout(mainLayout);
 
-    d->currentLayout = layout;
+    d->canShift = false;
+    d->canSpace = false;
+    if (!d->showSymbolKeyboard) d->currentLayout = layout;
     for (QVector<KeyboardKey> keys : layout.keys) {
         QBoxLayout* l = new QBoxLayout(QBoxLayout::LeftToRight);
         l->setContentsMargins(0, 0, 0, 0);
@@ -119,6 +128,7 @@ void Keyboard::setCurrentLayout(KeyboardLayout layout)
     d->holderLayout->addWidget(d->currentWidget);
 
     setCurrentButton(d->buttons.first());
+    emit keyboardUpdated();
 }
 
 void Keyboard::setCapsState(Keyboard::CapsState capsState)
@@ -131,6 +141,16 @@ void Keyboard::setCapsState(Keyboard::CapsState capsState)
 Keyboard::CapsState Keyboard::capsState()
 {
     return d->capsState;
+}
+
+bool Keyboard::canShift()
+{
+    return d->canShift;
+}
+
+bool Keyboard::canSpace()
+{
+    return d->canSpace;
 }
 
 void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
@@ -154,7 +174,13 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                 charToSet = key.character;
             }
 
-            button->setText(charToSet);
+            QString textToSet = charToSet;
+
+            if (charToSet.category() == QChar::Mark_NonSpacing || charToSet.category() == QChar::Mark_SpacingCombining || !charToSet.isPrint()) {
+                textToSet.prepend(QChar(0x25CC));
+            }
+
+            button->setText(textToSet);
             button->setFixedWidth(standardWidth);
             connect(button, &QPushButton::clicked, this, [=] {
                 emit typeKey(charToSet);
@@ -199,6 +225,7 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                             setCapsState(None);
                         }
                     });
+                    d->canShift = true;
                     break;
                 }
                 case KeyboardKey::Ok:
@@ -217,14 +244,25 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                         MusicEngine::playSoundEffect(MusicEngine::Selection);
                         emit typeKey(" ");
                     });
+                    d->canSpace = true;
                     break;
                 case KeyboardKey::SetNumeric:
                     button->setFlat(true);
-                    button->setText("123");
+                    if (d->showSymbolKeyboard) {
+                        button->setText(tr("ABC", "ABC for alphabetic keyboard; use something that makes sense in your locale"));
+                    } else {
+                        button->setText("123");
+                    }
                     button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         MusicEngine::playSoundEffect(MusicEngine::Selection);
-                        //TODO: Change to numeric and symbol keyboard
+                        if (d->showSymbolKeyboard) {
+                            d->showSymbolKeyboard = false;
+                            setCurrentLayout(d->currentLayout);
+                        } else {
+                            d->showSymbolKeyboard = true;
+                            setCurrentLayout(KeyboardLayoutsDatabase::layoutForName("sym"));
+                        }
                     });
                     break;
                 case KeyboardKey::SetLayout:
@@ -233,7 +271,23 @@ void Keyboard::updateButton(QPushButton*button, KeyboardKey key)
                     button->setFixedWidth(standardWidth);
                     connect(button, &QPushButton::clicked, this, [=] {
                         MusicEngine::playSoundEffect(MusicEngine::Selection);
-                        //TODO: Change to another keyboard
+
+                        LayoutSelect* options = new LayoutSelect();
+                        tPopover* popover = new tPopover(options);
+                        popover->setPopoverSide(tPopover::Bottom);
+                        popover->setPopoverWidth(options->sizeHint().height());
+                        connect(options, &LayoutSelect::rejected, popover, &tPopover::dismiss);
+                        connect(options, &LayoutSelect::changeLayout, this, [=](QString layout) {
+                            popover->dismiss();
+                            d->showSymbolKeyboard = false;
+                            setCurrentLayout(KeyboardLayoutsDatabase::layoutForName(layout));
+                        });
+                        connect(popover, &tPopover::dismissed, options, &LayoutSelect::deleteLater);
+                        connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+                        connect(popover, &tPopover::dismissed, this, [=] {
+                            this->setFocus();
+                        });
+                        popover->show(this->window());
                     });
                     break;
                 case KeyboardKey::Dummy:

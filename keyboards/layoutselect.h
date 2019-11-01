@@ -17,29 +17,34 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef KEYBOARDLAYOUTSDATABASE_H
-#define KEYBOARDLAYOUTSDATABASE_H
+#ifndef LAYOUTSELECT_H
+#define LAYOUTSELECT_H
 
-#include <QCoreApplication>
-#include <QMap>
-#include "keyboard.h"
+#include <QWidget>
 
-class KeyboardLayoutsModel;
-class KeyboardLayoutsDatabase
+namespace Ui {
+    class LayoutSelect;
+}
+
+class LayoutSelect : public QWidget
 {
-        Q_DECLARE_TR_FUNCTIONS(KeyboardLayoutsDatabase)
+        Q_OBJECT
 
     public:
-        static KeyboardLayout layoutForName(QString name);
+        explicit LayoutSelect(QWidget *parent = nullptr);
+        ~LayoutSelect();
 
-    protected:
-        friend KeyboardLayoutsModel;
-        static QMap<QString, KeyboardLayout> displayLayouts();
+    signals:
+        void changeLayout(QString layout);
+        void rejected();
+
+    private slots:
+        void on_backButton_clicked();
+
+        void on_layoutsWidget_activated(const QModelIndex &index);
 
     private:
-        KeyboardLayoutsDatabase();
-        static QMap<QString, KeyboardLayout> layouts;
-        static QMap<QString, KeyboardLayout> setupLayouts();
+        Ui::LayoutSelect *ui;
 };
 
-#endif // KEYBOARDLAYOUTSDATABASE_H
+#endif // LAYOUTSELECT_H

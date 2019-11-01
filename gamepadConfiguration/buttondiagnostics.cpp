@@ -85,6 +85,7 @@ ButtonDiagnostics::~ButtonDiagnostics()
 
 void ButtonDiagnostics::quit()
 {
+    d->gamepad.blockSignals(true);
     PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
         emit done();
     });

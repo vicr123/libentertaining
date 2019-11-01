@@ -59,6 +59,7 @@ struct KeyboardLayout {
 
     bool honourShift = true;
     QString name;
+    QString displayName;
 };
 
 class Keyboard : public QWidget {
@@ -79,12 +80,16 @@ class Keyboard : public QWidget {
         void setCapsState(CapsState capsState);
         CapsState capsState();
 
+        bool canShift();
+        bool canSpace();
+
     signals:
         void typeKey(QString key);
         void backspace();
         void accept();
         void replayKeyEvent(QKeyEvent* event);
         void capsStateChanged(CapsState capsState);
+        void keyboardUpdated();
 
         void updateKeys();
 

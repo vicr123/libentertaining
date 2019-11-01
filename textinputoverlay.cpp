@@ -57,15 +57,6 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
 
     ui->keyboardWidget->setFixedHeight(SC_DPI(300));
 
-    ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Key"));
-    ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Cancel"));
-    ui->gamepadHud->setButtonText(QGamepadManager::ButtonY, tr("Shift"));
-    ui->gamepadHud->setButtonText(QGamepadManager::ButtonX, tr("Space"));
-    ui->gamepadHud->setButtonText(QGamepadManager::ButtonStart, tr("OK"));
-
-//    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [=] {
-
-//    });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
         QString text = ui->responseBox->text();
         if (text.isEmpty()) {
@@ -76,20 +67,6 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
             text.chop(1);
             ui->responseBox->setText(text);
         }
-    });
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonY, [=] {
-        MusicEngine::playSoundEffect(MusicEngine::Selection);
-        if (ui->keyboardWidget->capsState() == Keyboard::None) {
-            ui->keyboardWidget->setCapsState(Keyboard::Shift);
-        } else {
-            ui->keyboardWidget->setCapsState(Keyboard::None);
-        }
-    });
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonX, [=] {
-        MusicEngine::playSoundEffect(MusicEngine::Selection);
-        QString text = ui->responseBox->text();
-        text.append(" ");
-        ui->responseBox->setText(text);
     });
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [=] {
         tryAccept();
@@ -131,6 +108,36 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
                 break;
 
         }
+    });
+    connect(ui->keyboardWidget, &Keyboard::keyboardUpdated, this, [=] {
+        ui->gamepadHud->removeText(QGamepadManager::ButtonA);
+        ui->gamepadHud->removeText(QGamepadManager::ButtonB);
+        ui->gamepadHud->removeText(QGamepadManager::ButtonY);
+        ui->gamepadHud->removeText(QGamepadManager::ButtonX);
+        ui->gamepadHud->removeText(QGamepadManager::ButtonStart);
+
+        ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Key"));
+        if (ui->responseBox->text().isEmpty()) {
+            ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Cancel"));
+        } else {
+            ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Backspace"));
+        }
+
+        if (ui->keyboardWidget->canShift()) {
+            ui->gamepadHud->setButtonText(QGamepadManager::ButtonY, tr("Shift"));
+            ui->gamepadHud->setButtonAction(QGamepadManager::ButtonY, std::bind(&TextInputOverlay::keyboardShift, this));
+        } else {
+            ui->gamepadHud->removeButtonAction(QGamepadManager::ButtonY);
+        }
+
+        if (ui->keyboardWidget->canSpace()) {
+            ui->gamepadHud->setButtonText(QGamepadManager::ButtonX, tr("Space"));
+            ui->gamepadHud->setButtonAction(QGamepadManager::ButtonX, std::bind(&TextInputOverlay::keyboardSpace, this));
+        } else {
+            ui->gamepadHud->removeButtonAction(QGamepadManager::ButtonX);
+        }
+
+        ui->gamepadHud->setButtonText(QGamepadManager::ButtonStart, tr("OK"));
     });
 
     ui->keyboardWidget->setCurrentLayout(KeyboardLayoutsDatabase::layoutForName("en-US"));
@@ -351,4 +358,22 @@ void TextInputOverlay::tryAccept()
         ui->errorLabel->setText(error);
         tErrorFlash::flashError(ui->responseBox);
     }
+}
+
+void TextInputOverlay::keyboardShift()
+{
+    MusicEngine::playSoundEffect(MusicEngine::Selection);
+    if (ui->keyboardWidget->capsState() == Keyboard::None) {
+        ui->keyboardWidget->setCapsState(Keyboard::Shift);
+    } else {
+        ui->keyboardWidget->setCapsState(Keyboard::None);
+    }
+}
+
+void TextInputOverlay::keyboardSpace()
+{
+    MusicEngine::playSoundEffect(MusicEngine::Selection);
+    QString text = ui->responseBox->text();
+    text.append(" ");
+    ui->responseBox->setText(text);
 }

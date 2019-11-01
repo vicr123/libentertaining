@@ -75,6 +75,7 @@ StickDiagnostics::~StickDiagnostics()
 
 void StickDiagnostics::quit()
 {
+    d->gamepad.blockSignals(true);
     PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
         emit done();
     });

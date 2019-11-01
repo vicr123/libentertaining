@@ -69,6 +69,10 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
 
         void tryAccept();
 
+        void keyboardShift();
+
+        void keyboardSpace();
+
     private:
         Ui::TextInputOverlay *ui;
 
