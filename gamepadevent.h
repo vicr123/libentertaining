@@ -36,6 +36,7 @@ class LIBENTERTAINING_EXPORT GamepadEvent : public QEvent
 
         QGamepad* gamepad();
         double newValue();
+        QPointF newAxisLocation();
 
         bool isButtonEvent();
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>568</width>
-    <height>410</height>
+    <width>783</width>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,7 +60,27 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>The dot shows the location of the control stick, as reported by the controller.</string>
+      <string>The dot shows the location of the control stick, after normalisation.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>The circle shows the point at which we'll consider the stick to have moved 100% of the way to the edge.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Ideally, the dot should move slightly past this point when you move the stick to the edge.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

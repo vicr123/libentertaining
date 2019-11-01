@@ -413,11 +413,21 @@
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="63"/>
-        <source>The dot shows the location of the control stick, as reported by the controller.</source>
+        <source>The dot shows the location of the control stick, after normalisation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="124"/>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="73"/>
+        <source>The circle shows the point at which we&apos;ll consider the stick to have moved 100% of the way to the edge.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="83"/>
+        <source>Ideally, the dot should move slightly past this point when you move the stick to the edge.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="144"/>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="64"/>
         <source>Done</source>
         <translation type="unfinished"></translation>

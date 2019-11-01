@@ -24,7 +24,7 @@
 
 struct StickDiagnosticsStickWidgetPrivate {
     QString side;
-    double x = 0, y = 0;
+    QPointF axisLocation;
 };
 
 StickDiagnosticsStickWidget::StickDiagnosticsStickWidget(QWidget *parent) : QWidget(parent)
@@ -47,15 +47,9 @@ void StickDiagnosticsStickWidget::setSide(QString side)
     d->side = side;
 }
 
-void StickDiagnosticsStickWidget::setXAxis(double x)
+void StickDiagnosticsStickWidget::setAxisLocation(QPointF loc)
 {
-    d->x = x;
-    this->update();
-}
-
-void StickDiagnosticsStickWidget::setYAxis(double y)
-{
-    d->y = y;
+    d->axisLocation = loc;
     this->update();
 }
 
@@ -78,7 +72,7 @@ void StickDiagnosticsStickWidget::paintEvent(QPaintEvent*event)
 
     //Draw the outside circle
     QSize oneSize(this->width(), this->height());
-    oneSize *= 0.9;
+    oneSize *= 0.75;
 
     QRect circleArea;
     circleArea.setSize(oneSize);
@@ -89,12 +83,11 @@ void StickDiagnosticsStickWidget::paintEvent(QPaintEvent*event)
     painter.drawLine(this->width() / 2, 0, this->width() / 2, this->height());
     painter.drawLine(0, this->height() / 2, this->width(), this->height() / 2);
 
-
     painter.setBrush(this->palette().color(QPalette::WindowText));
 
     QPoint stickCenter;
-    stickCenter.setX(static_cast<int>(this->width() / 2 + (d->x * (this->width() / 2 * 0.9))));
-    stickCenter.setY(static_cast<int>(this->height() / 2 + (d->y * (this->height() / 2 * 0.9))));
+    stickCenter.setX(static_cast<int>(this->width() / 2 + (d->axisLocation.x() * (this->width() / 2 * 0.75))));
+    stickCenter.setY(static_cast<int>(this->height() / 2 + (d->axisLocation.y() * (this->height() / 2 * 0.75))));
 
     QRect stickRect;
     stickRect.setSize(SC_DPI_T(QSize(5, 5), QSize));

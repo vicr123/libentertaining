@@ -93,11 +93,7 @@ bool StickDiagnostics::event(QEvent*event)
                 w = ui->stickR;
             }
 
-            if (e->axis() == QGamepadManager::AxisLeftX || e->axis() == QGamepadManager::AxisRightX) {
-                w->setXAxis(e->newValue());
-            } else {
-                w->setYAxis(e->newValue());
-            }
+            w->setAxisLocation(e->newAxisLocation());
         }
         e->accept();
         return true;

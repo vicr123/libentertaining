@@ -73,6 +73,7 @@ void GamepadListener::scroll()
     }
 }
 
+#include <QDebug>
 void GamepadListener::propagateEvent(GamepadEvent*event)
 {
     d->currentScrollArea = nullptr;
@@ -128,18 +129,17 @@ void GamepadListener::propagateEvent(GamepadEvent*event)
                 }
             } else return;
         } else {
-            if (event->axis() == QGamepadManager::AxisLeftX) {
-                if (event->newValue() < 0) {
+            if (event->axis() == QGamepadManager::AxisLeftX || event->axis() == QGamepadManager::AxisLeftY) {
+                qDebug() << event->newAxisLocation();
+                if (event->newAxisLocation().x() < -0.9) {
                     key = Qt::Key_Left;
-                } else {
+                } else if (event->newAxisLocation().x() > 0.9) {
                     key = Qt::Key_Right;
-                }
-            } else if (event->axis() == QGamepadManager::AxisLeftY) {
-                if (event->newValue() < 0) {
+                } else if (event->newAxisLocation().y() < -0.9) {
                     key = Qt::Key_Up;
-                } else {
+                } else if (event->newAxisLocation().y() > 0.9) {
                     key = Qt::Key_Down;
-                }
+                } else return;
             } else return;
         }
 

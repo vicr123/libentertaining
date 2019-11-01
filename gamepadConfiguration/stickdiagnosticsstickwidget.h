@@ -33,8 +33,7 @@ class StickDiagnosticsStickWidget : public QWidget
         QSize sizeHint() const;
 
         void setSide(QString side);
-        void setXAxis(double x);
-        void setYAxis(double y);
+        void setAxisLocation(QPointF loc);
 
     signals:
 
