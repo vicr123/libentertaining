@@ -16,12 +16,17 @@ no-discord {
         }
     }
 
-    unix!macx {
-        exists(/usr/lib/libdiscord-rpc.so) || discord {
+    unix:!macx {
+        exists(/usr/lib/libdiscord-rpc.a) || exists(/usr/lib/libdiscord-rpc.so) || discord {
             #Build Discord
             message(Building with Discord RPC support)
             DEFINES += BUILD_DISCORD
             CONFIG += BUILD_DISCORD
+            LIBS += -ldiscord-rpc
+
+            exists(/usr/lib/libdiscord-rpc.a) {
+                DEFINES += DISCORD_STATIC
+            }
         }
     }
 }
@@ -65,6 +70,8 @@ SOURCES += \
     keyboards/uskeyboard.cpp \
     loadoverlay.cpp \
     musicengine.cpp \
+    notificationengine.cpp \
+    notifications/notificationpopup.cpp \
     pauseoverlay.cpp \
     private/applicationeventfilter.cpp \
     private/gamepadlistener.cpp \
@@ -102,6 +109,8 @@ HEADERS += \
     entertaining.h \
     loadoverlay.h \
     musicengine.h \
+    notificationengine.h \
+    notifications/notificationpopup.h \
     pauseoverlay.h \
     private/applicationeventfilter.h \
     private/gamepadlistener.h \
@@ -181,6 +190,7 @@ FORMS += \
     gamepadhud.ui \
     keyboards/layoutselect.ui \
     keyboards/uskeyboard.ui \
+    notifications/notificationpopup.ui \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \
     private/savedialog.ui \

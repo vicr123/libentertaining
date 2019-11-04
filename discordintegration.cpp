@@ -15,7 +15,7 @@ typedef void (*UpdateDiscordFunction)(const DiscordRichPresence* presence);
         sprintf(strBuf, "%s", qPrintable(string)); \
         d->bufsToDelete.append(strBuf); \
         return strBuf; \
-    })();
+    })()
 
 struct DiscordIntegrationPrivate {
     DiscordIntegration* instance;
@@ -78,12 +78,18 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
 {
     #ifdef BUILD_DISCORD
         #ifdef Q_OS_LINUX
-            QLibrary* lib = new QLibrary("libdiscord-rpc.so");
-            if (lib->load()) {
-                d->Discord_Initialize = reinterpret_cast<InitDiscordFunction>(lib->resolve("Discord_Initialize"));
-                d->Discord_UpdatePresence = reinterpret_cast<UpdateDiscordFunction>(lib->resolve("Discord_UpdatePresence"));
+            #ifdef DISCORD_STATIC
+                d->Discord_Initialize = &::Discord_Initialize;
+                d->Discord_UpdatePresence = &::Discord_UpdatePresence;
                 d->discordAvailable = true;
-            }
+            #else
+                QLibrary* lib = new QLibrary("libdiscord-rpc.so");
+                if (lib->load()) {
+                    d->Discord_Initialize = reinterpret_cast<InitDiscordFunction>(lib->resolve("Discord_Initialize"));
+                    d->Discord_UpdatePresence = reinterpret_cast<UpdateDiscordFunction>(lib->resolve("Discord_UpdatePresence"));
+                    d->discordAvailable = true;
+                }
+            #endif
         #elif defined(Q_OS_MAC)
             d->Discord_Initialize = &::Discord_Initialize;
             d->Discord_UpdatePresence = &::Discord_UpdatePresence;

@@ -34,8 +34,11 @@ class LIBENTERTAINING_EXPORT GamepadButtons : public QObject
         static QIcon iconForButton(QGamepadManager::GamepadButton button, QColor tint);
         static QString stringForButton(QGamepadManager::GamepadButton button);
 
-        static int measureGamepadString(QFontMetrics fm, QString string);
-        static void drawGamepadString(QPainter* painter, QString string, QRect boundingRect);
+        static QPixmap iconForKey(QKeySequence key, QFont font, QPalette pal);
+        static QString stringForKey(QKeySequence key);
+
+        static int measureGamepadString(QFont font, QString string);
+        static void drawGamepadString(QPainter* painter, QString string, QRect boundingRect, QPalette pal);
 
     signals:
 
@@ -43,6 +46,8 @@ class LIBENTERTAINING_EXPORT GamepadButtons : public QObject
 
     private:
         explicit GamepadButtons(QObject *parent = nullptr);
+
+        static QPixmap getKeyIcon(QString key, QFont font, QPalette pal);
 };
 
 

@@ -26,6 +26,7 @@
 #include <QAbstractScrollArea>
 #include <QTimer>
 #include <QPointer>
+#include "notificationengine.h"
 #include "gamepadevent.h"
 
 struct GamepadListenerPrivate {
@@ -33,6 +34,9 @@ struct GamepadListenerPrivate {
     QPointer<QAbstractScrollArea> currentScrollArea;
     double rightAxisX;
     double rightAxisY;
+
+    QMap<int, QString> gamepadNames;
+    QList<int> gamepadsWaitingForNotification;
 };
 
 GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
@@ -51,6 +55,31 @@ GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
         GamepadEvent event(deviceId, axis, value);
         propagateEvent(&event);
     });
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadConnected, this, [=](int deviceId) {
+        d->gamepadsWaitingForNotification.append(deviceId);
+    });
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadDisconnected, this, [=](int deviceId) {
+        NotificationEngine::push({
+            tr("Gamepad Disconnected"),
+            d->gamepadNames.value(deviceId)
+        });
+        d->gamepadNames.remove(deviceId);
+        d->gamepadsWaitingForNotification.removeAll(deviceId);
+    });
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadNameChanged, this, [=](int deviceId, QString name) {
+        d->gamepadNames.insert(deviceId, name);
+        if (d->gamepadsWaitingForNotification.contains(deviceId)) {
+            NotificationEngine::push({
+                tr("Gamepad Connected"),
+                name
+            });
+            d->gamepadsWaitingForNotification.removeAll(deviceId);
+        }
+    });
+
+    for (int gamepad : QGamepadManager::instance()->connectedGamepads()) {
+        d->gamepadNames.insert(gamepad, QGamepadManager::instance()->gamepadName(gamepad));
+    }
 
     d->scrollTimer = new QTimer();
     d->scrollTimer->setInterval(5);

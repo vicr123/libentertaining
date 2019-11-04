@@ -22,7 +22,7 @@
 #include "musicengine.h"
 
 struct FocusBarrierPrivate {
-    QWidget* bounceWidget;
+    QWidget* bounceWidget = nullptr;
 };
 
 FocusBarrier::FocusBarrier(QWidget *parent) : QPushButton(parent)
@@ -45,5 +45,5 @@ void FocusBarrier::setBounceWidget(QWidget*widget)
 void FocusBarrier::focusInEvent(QFocusEvent*event)
 {
     MusicEngine::playSoundEffect(MusicEngine::FocusChangedFailed);
-    d->bounceWidget->setFocus();
+    if (d->bounceWidget) d->bounceWidget->setFocus();
 }

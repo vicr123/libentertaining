@@ -35,14 +35,14 @@ void GamepadLabel::paintEvent(QPaintEvent* event)
 
     QRect boundingRect(0, 0, this->width(), this->height());
     boundingRect.adjust(this->margin(), this->margin(), -this->margin(), -this->margin());
-    GamepadButtons::drawGamepadString(&painter, this->text(), boundingRect);
+    GamepadButtons::drawGamepadString(&painter, this->text(), boundingRect, this->palette());
 }
 
 QSize GamepadLabel::sizeHint() const
 {
     QSize size;
     size.setHeight(this->fontMetrics().height());
-    size.setWidth(GamepadButtons::measureGamepadString(this->fontMetrics(), this->text()));
+    size.setWidth(GamepadButtons::measureGamepadString(this->font(), this->text()));
     size.rheight() += this->margin() * 2;
     size.rwidth() += this->margin() * 2;
     return size;

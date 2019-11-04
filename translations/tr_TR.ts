@@ -53,6 +53,15 @@
     </message>
 </context>
 <context>
+    <name>GamepadButtons</name>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="113"/>
+        <location filename="../gamepadbuttons.cpp" line="123"/>
+        <source>No Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GamepadConfigurationOverlay</name>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="14"/>
@@ -112,6 +121,19 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
         <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GamepadListener</name>
+    <message>
+        <location filename="../private/gamepadlistener.cpp" line="73"/>
+        <source>Gamepad Connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadlistener.cpp" line="63"/>
+        <source>Gamepad Disconnected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -263,6 +285,14 @@
     <message>
         <location filename="../loadoverlay.cpp" line="71"/>
         <source>Sorry, that file is corrupt and needs to be deleted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NotificationEngine</name>
+    <message>
+        <location filename="../notificationengine.cpp" line="140"/>
+        <source>%1 / %2 to focus</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
