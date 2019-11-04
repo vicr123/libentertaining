@@ -23,8 +23,10 @@
 #include <QObject>
 #include <QIcon>
 #include <QMap>
+#include <libentertaining_global.h>
 
 struct NotificationData {
+    NotificationData();
     NotificationData(QString title, QString text, QIcon icon = QIcon(), QMap<QString, QString> actions = QMap<QString, QString>());
 
     QString title;
@@ -38,7 +40,7 @@ struct NotificationData {
 
 struct NotificationEnginePrivate;
 class NotificationPopup;
-class NotificationEngine : public QObject
+class LIBENTERTAINING_EXPORT NotificationEngine : public QObject
 {
         Q_OBJECT
     public:
@@ -49,7 +51,10 @@ class NotificationEngine : public QObject
 
         static void focusNotifications();
 
+        static NotificationEngine* instance();
+
     signals:
+        void actionClicked(quint64 notificationId, QString key);
 
     public slots:
 
@@ -59,7 +64,6 @@ class NotificationEngine : public QObject
         static NotificationEnginePrivate* d;
         bool eventFilter(QObject* watched, QEvent* event);
 
-        static void ensureInstance();
         static void removePopup(NotificationPopup* popup);
         void setFirstPopup();
 };

@@ -8,6 +8,7 @@
 
 typedef void (*InitDiscordFunction)(const char* applicationId, DiscordEventHandlers* handlers, int autoRegister, const char* optionalSteamId);
 typedef void (*UpdateDiscordFunction)(const DiscordRichPresence* presence);
+typedef void (*DiscordRespondFunction)(const char* userid, int reply);
 #endif
 
 #define TO_CONST_CHAR(string, bufSize) ([=]() -> char* { \
@@ -23,11 +24,57 @@ struct DiscordIntegrationPrivate {
     bool discordAvailable = false;
     QList<char*> bufsToDelete;
 
+    QString joinSecret;
+    QString spectateSecret;
+
 #ifdef BUILD_DISCORD
     InitDiscordFunction Discord_Initialize;
     UpdateDiscordFunction Discord_UpdatePresence;
+    DiscordRespondFunction Discord_Respond;
 #endif
 };
+
+struct DiscordJoinRequestCallbackProtected {
+    QString profilePicture;
+    QString username;
+    QString discriminator;
+    QString userId;
+
+    std::function<void()> acceptCallback;
+    std::function<void()> rejectCallback;
+    std::function<void()> timeoutCallback;
+};
+
+DiscordJoinRequestCallback::~DiscordJoinRequestCallback()
+{
+    delete d;
+}
+
+QString DiscordJoinRequestCallback::userTag()
+{
+    return QStringLiteral("%1#%2").arg(d->username).arg(d->userId);
+}
+
+void DiscordJoinRequestCallback::accept()
+{
+    d->acceptCallback();
+}
+
+void DiscordJoinRequestCallback::reject()
+{
+    d->rejectCallback();
+}
+
+void DiscordJoinRequestCallback::timeout()
+{
+    d->timeoutCallback();
+    emit timedOut();
+}
+
+DiscordJoinRequestCallback::DiscordJoinRequestCallback() : QObject(nullptr)
+{
+    d = new DiscordJoinRequestCallbackProtected();
+}
 
 DiscordIntegrationPrivate* DiscordIntegration::d = new DiscordIntegrationPrivate();
 
@@ -74,6 +121,16 @@ void DiscordIntegration::setPresence(QVariantMap presence)
 #endif
 }
 
+QString DiscordIntegration::lastJoinSecret()
+{
+    return d->joinSecret;
+}
+
+QString DiscordIntegration::lastSpectateSecret()
+{
+    return d->spectateSecret;
+}
+
 DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject(nullptr)
 {
     #ifdef BUILD_DISCORD
@@ -81,18 +138,21 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
             #ifdef DISCORD_STATIC
                 d->Discord_Initialize = &::Discord_Initialize;
                 d->Discord_UpdatePresence = &::Discord_UpdatePresence;
+                d->Discord_Respond = &::Discord_Respond;
                 d->discordAvailable = true;
             #else
                 QLibrary* lib = new QLibrary("libdiscord-rpc.so");
                 if (lib->load()) {
                     d->Discord_Initialize = reinterpret_cast<InitDiscordFunction>(lib->resolve("Discord_Initialize"));
                     d->Discord_UpdatePresence = reinterpret_cast<UpdateDiscordFunction>(lib->resolve("Discord_UpdatePresence"));
+                    d->Discord_Respond = reinterpret_cast<DiscordRespondFunction>(lib->resolve("Discord_Respond"));
                     d->discordAvailable = true;
                 }
             #endif
         #elif defined(Q_OS_MAC)
             d->Discord_Initialize = &::Discord_Initialize;
             d->Discord_UpdatePresence = &::Discord_UpdatePresence;
+            d->Discord_Respond = &::Discord_Respond;
             d->discordAvailable = true;
         #endif
 
@@ -107,6 +167,33 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
             };
             handlers.disconnected = [](int errorCode, const char* message) {
                 qDebug() << "Discord Disconnected!";
+            };
+            handlers.joinRequest = [](const DiscordUser* user) {
+                DiscordJoinRequestCallback* callback = new DiscordJoinRequestCallback();
+                callback->d->profilePicture = QString::fromLatin1(user->avatar);
+                callback->d->userId = QString::fromLatin1(user->userId);
+                callback->d->username = QString::fromLatin1(user->username);
+                callback->d->discriminator = QString::fromLatin1(user->discriminator);
+
+                callback->d->acceptCallback = [=] {
+                    d->Discord_Respond(user->userId, DISCORD_REPLY_YES);
+                };
+                callback->d->rejectCallback = [=] {
+                    d->Discord_Respond(user->userId, DISCORD_REPLY_NO);
+                };
+                callback->d->timeoutCallback = [=] {
+                    d->Discord_Respond(user->userId, DISCORD_REPLY_IGNORE);
+                };
+
+                emit d->instance->joinRequest(callback);
+            };
+            handlers.joinGame = [](const char* joinSecret) {
+                d->joinSecret = QString::fromLatin1(joinSecret);
+                emit d->instance->joinGame(d->joinSecret);
+            };
+            handlers.spectateGame = [](const char* spectateSecret) {
+                d->spectateSecret = QString::fromLatin1(spectateSecret);
+                emit d->instance->joinGame(d->spectateSecret);
             };
             Discord_Initialize(qPrintable(appId), &handlers, true, qPrintable(steamId));
         }

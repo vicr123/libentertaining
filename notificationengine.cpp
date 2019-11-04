@@ -55,7 +55,7 @@ NotificationEnginePrivate* NotificationEngine::d = new NotificationEnginePrivate
 
 void NotificationEngine::setApplicationNotificationWindow(QWidget*window)
 {
-    ensureInstance();
+    instance();
 
     if (d->window) {
         d->window->removeEventFilter(d->instance);
@@ -74,7 +74,7 @@ void NotificationEngine::setApplicationNotificationWindow(QWidget*window)
 
 quint64 NotificationEngine::push(NotificationData notification)
 {
-    ensureInstance();
+    instance();
     if (d->window == nullptr) return 0;
 
     quint64 notificationNumber = d->current++;
@@ -83,9 +83,14 @@ quint64 NotificationEngine::push(NotificationData notification)
     connect(popup, &NotificationPopup::dismiss, d->instance, [=] {
         removePopup(popup);
     });
+    connect(popup, &NotificationPopup::activatedAction, d->instance, [=](QString key) {
+        emit d->instance->actionClicked(notificationNumber, key);
+        removePopup(popup);
+    });
     connect(popup, &NotificationPopup::destroyed, d->instance, [=] {
         d->popups.remove(notificationNumber);
     });
+
     d->notificationsLayout->addWidget(popup);
     d->showingPopups.enqueue(popup);
 
@@ -115,6 +120,12 @@ void NotificationEngine::focusNotifications()
     if (d->showingPopups.count() > 0) {
         d->showingPopups.first()->setFocus();
     }
+}
+
+NotificationEngine*NotificationEngine::instance()
+{
+    if (d->instance == nullptr) d->instance = new NotificationEngine();
+    return d->instance;
 }
 
 NotificationEngine::NotificationEngine() : QObject(nullptr)
@@ -163,11 +174,6 @@ bool NotificationEngine::eventFilter(QObject*watched, QEvent*event)
     return false;
 }
 
-void NotificationEngine::ensureInstance()
-{
-    if (d->instance == nullptr) d->instance = new NotificationEngine();
-}
-
 void NotificationEngine::removePopup(NotificationPopup*popup)
 {
     if (d->showingPopups.contains(popup)) {
@@ -196,6 +202,11 @@ void NotificationEngine::setFirstPopup()
     } else {
         d->focusPrompt->setVisible(false);
     }
+}
+
+NotificationData::NotificationData()
+{
+
 }
 
 NotificationData::NotificationData(QString title, QString text, QIcon icon, QMap<QString, QString> actions)

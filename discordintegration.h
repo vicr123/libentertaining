@@ -5,6 +5,30 @@
 #include <QDateTime>
 #include "libentertaining_global.h"
 
+class DiscordIntegration;
+
+struct DiscordJoinRequestCallbackProtected;
+class DiscordJoinRequestCallback : public QObject {
+        Q_OBJECT
+    public:
+        ~DiscordJoinRequestCallback();
+
+        QString userTag();
+
+        void accept();
+        void reject();
+        void timeout();
+
+    signals:
+        void timedOut();
+
+    protected:
+        friend DiscordIntegration;
+
+        explicit DiscordJoinRequestCallback();
+        DiscordJoinRequestCallbackProtected* d;
+};
+
 struct DiscordIntegrationPrivate;
 class LIBENTERTAINING_EXPORT DiscordIntegration : public QObject
 {
@@ -15,7 +39,13 @@ class LIBENTERTAINING_EXPORT DiscordIntegration : public QObject
 
         void setPresence(QVariantMap presence);
 
+        static QString lastJoinSecret();
+        static QString lastSpectateSecret();
+
     signals:
+        void joinRequest(DiscordJoinRequestCallback* callback);
+        void joinGame(QString joinSecret);
+        void spectateGame(QString spectateSecret);
 
     public slots:
 
