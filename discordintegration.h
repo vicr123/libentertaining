@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDateTime>
+#include <tpromise.h>
 #include "libentertaining_global.h"
 
 class DiscordIntegration;
@@ -14,6 +15,8 @@ class LIBENTERTAINING_EXPORT DiscordJoinRequestCallback : public QObject {
         ~DiscordJoinRequestCallback();
 
         QString userTag();
+        QUrl pictureUrl();
+        tPromise<QPixmap>* profilePicture();
 
         void accept();
         void reject();

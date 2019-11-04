@@ -3,6 +3,11 @@
 #include <QLibrary>
 #include <QDebug>
 #include <QTimer>
+#include <QUrl>
+
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
 
 #ifdef BUILD_DISCORD
 #include <discord_rpc.h>
@@ -57,7 +62,37 @@ DiscordJoinRequestCallback::~DiscordJoinRequestCallback()
 
 QString DiscordJoinRequestCallback::userTag()
 {
-    return QStringLiteral("%1#%2").arg(d->username).arg(d->userId);
+    return QStringLiteral("%1#%2").arg(d->username).arg(d->discriminator);
+}
+
+QUrl DiscordJoinRequestCallback::pictureUrl()
+{
+    if (d->profilePicture.isEmpty()) {
+        return QUrl(QStringLiteral("https://cdn.discordapp.com/embed/avatars/%1.png").arg(d->discriminator.toInt() % 5));
+    } else {
+        return QUrl(QStringLiteral("https://cdn.discordapp.com/avatars/%1/%2.png").arg(d->userId).arg(d->profilePicture));
+    }
+}
+
+tPromise<QPixmap>*DiscordJoinRequestCallback::profilePicture()
+{
+    return new tPromise<QPixmap>([=](std::function<void(QPixmap)> successFunction, std::function<void(QString)> failureFunction) {
+        QNetworkAccessManager* mgr = new QNetworkAccessManager();
+        QNetworkReply* reply = mgr->get(QNetworkRequest(this->pictureUrl()));
+        connect(reply, &QNetworkReply::finished, this, [=] {
+            QPixmap pixmap;
+            if (pixmap.loadFromData(reply->readAll())) {
+                successFunction(pixmap);
+            } else {
+                failureFunction("Couldn't load pixmap");
+            }
+            reply->deleteLater();
+            mgr->deleteLater();
+        });
+        connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, [=](QNetworkReply::NetworkError error) {
+            qDebug() << error;
+        });
+    });
 }
 
 void DiscordJoinRequestCallback::accept()
@@ -184,13 +219,13 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
                 callback->d->discriminator = QString::fromLatin1(user->discriminator);
 
                 callback->d->acceptCallback = [=] {
-                    d->Discord_Respond(user->userId, DISCORD_REPLY_YES);
+                    d->Discord_Respond(callback->d->userId.toLatin1(), DISCORD_REPLY_YES);
                 };
                 callback->d->rejectCallback = [=] {
-                    d->Discord_Respond(user->userId, DISCORD_REPLY_NO);
+                    d->Discord_Respond(callback->d->userId.toLatin1(), DISCORD_REPLY_NO);
                 };
                 callback->d->timeoutCallback = [=] {
-                    d->Discord_Respond(user->userId, DISCORD_REPLY_IGNORE);
+                    d->Discord_Respond(callback->d->userId.toLatin1(), DISCORD_REPLY_IGNORE);
                 };
 
                 emit d->instance->joinRequest(callback);

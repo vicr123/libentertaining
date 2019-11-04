@@ -1,4 +1,4 @@
-QT += widgets gamepad svg multimedia
+QT += widgets gamepad svg multimedia network
 SHARE_APP_NAME = libentertaining
 
 #Determine whether to build Discord
