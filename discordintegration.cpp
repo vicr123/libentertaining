@@ -2,6 +2,7 @@
 
 #include <QLibrary>
 #include <QDebug>
+#include <QTimer>
 
 #ifdef BUILD_DISCORD
 #include <discord_rpc.h>
@@ -9,6 +10,7 @@
 typedef void (*InitDiscordFunction)(const char* applicationId, DiscordEventHandlers* handlers, int autoRegister, const char* optionalSteamId);
 typedef void (*UpdateDiscordFunction)(const DiscordRichPresence* presence);
 typedef void (*DiscordRespondFunction)(const char* userid, int reply);
+typedef void (*DiscordRunCallbacksFunction)(void);
 #endif
 
 #define TO_CONST_CHAR(string, bufSize) ([=]() -> char* { \
@@ -27,10 +29,13 @@ struct DiscordIntegrationPrivate {
     QString joinSecret;
     QString spectateSecret;
 
+    QTimer* discordCallbacksTimer;
+
 #ifdef BUILD_DISCORD
     InitDiscordFunction Discord_Initialize;
     UpdateDiscordFunction Discord_UpdatePresence;
     DiscordRespondFunction Discord_Respond;
+    DiscordRunCallbacksFunction Discord_RunCallbacks;
 #endif
 };
 
@@ -134,26 +139,29 @@ QString DiscordIntegration::lastSpectateSecret()
 DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject(nullptr)
 {
     #ifdef BUILD_DISCORD
-        #ifdef Q_OS_LINUX
-            #ifdef DISCORD_STATIC
-                d->Discord_Initialize = &::Discord_Initialize;
-                d->Discord_UpdatePresence = &::Discord_UpdatePresence;
-                d->Discord_Respond = &::Discord_Respond;
-                d->discordAvailable = true;
-            #else
-                QLibrary* lib = new QLibrary("libdiscord-rpc.so");
-                if (lib->load()) {
-                    d->Discord_Initialize = reinterpret_cast<InitDiscordFunction>(lib->resolve("Discord_Initialize"));
-                    d->Discord_UpdatePresence = reinterpret_cast<UpdateDiscordFunction>(lib->resolve("Discord_UpdatePresence"));
-                    d->Discord_Respond = reinterpret_cast<DiscordRespondFunction>(lib->resolve("Discord_Respond"));
-                    d->discordAvailable = true;
-                }
-            #endif
-        #elif defined(Q_OS_MAC)
+        #ifdef DISCORD_STATIC
             d->Discord_Initialize = &::Discord_Initialize;
             d->Discord_UpdatePresence = &::Discord_UpdatePresence;
             d->Discord_Respond = &::Discord_Respond;
+            d->Discord_RunCallbacks = &::Discord_RunCallbacks;
             d->discordAvailable = true;
+        #else
+            QLibrary* lib;
+            #ifdef Q_OS_LINUX
+                lib = new QLibrary("libdiscord-rpc.so");
+            #elif defined(Q_OS_MAC)
+                lib = new QLibrary("libdiscord-rpc.dylib");
+            #elif defined(Q_OS_WIN)
+                lib = new QLibrary("discord-rpc.dll");
+            #endif
+
+            if (lib->load()) {
+                d->Discord_Initialize = reinterpret_cast<InitDiscordFunction>(lib->resolve("Discord_Initialize"));
+                d->Discord_UpdatePresence = reinterpret_cast<UpdateDiscordFunction>(lib->resolve("Discord_UpdatePresence"));
+                d->Discord_Respond = reinterpret_cast<DiscordRespondFunction>(lib->resolve("Discord_Respond"));
+                d->Discord_RunCallbacks = reinterpret_cast<DiscordRunCallbacksFunction>(lib->resolve("Discord_RunCallbacks"));
+                d->discordAvailable = true;
+            }
         #endif
 
         if (d->discordAvailable) {
@@ -189,6 +197,7 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
             };
             handlers.joinGame = [](const char* joinSecret) {
                 d->joinSecret = QString::fromLatin1(joinSecret);
+                qDebug() << "Join game" << d->joinSecret;
                 emit d->instance->joinGame(d->joinSecret);
             };
             handlers.spectateGame = [](const char* spectateSecret) {
@@ -196,6 +205,13 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
                 emit d->instance->joinGame(d->spectateSecret);
             };
             Discord_Initialize(qPrintable(appId), &handlers, true, qPrintable(steamId));
+
+            d->discordCallbacksTimer = new QTimer();
+            d->discordCallbacksTimer->setInterval(1000);
+            connect(d->discordCallbacksTimer, &QTimer::timeout, this, [=] {
+                d->Discord_RunCallbacks();
+            });
+            d->discordCallbacksTimer->start();
         }
     #endif
 }

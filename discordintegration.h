@@ -8,7 +8,7 @@
 class DiscordIntegration;
 
 struct DiscordJoinRequestCallbackProtected;
-class DiscordJoinRequestCallback : public QObject {
+class LIBENTERTAINING_EXPORT DiscordJoinRequestCallback : public QObject {
         Q_OBJECT
     public:
         ~DiscordJoinRequestCallback();

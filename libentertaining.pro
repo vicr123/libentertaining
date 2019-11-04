@@ -13,6 +13,7 @@ no-discord {
             CONFIG += BUILD_DISCORD
             INCLUDEPATH += /usr/local/include/
             LIBS += -L/usr/local/lib -ldiscord-rpc
+            DEFINES += DISCORD_STATIC
         }
     }
 

@@ -76,6 +76,7 @@ quint64 NotificationEngine::push(NotificationData notification)
 {
     instance();
     if (d->window == nullptr) return 0;
+    if (QApplication::closingDown()) return 0;
 
     quint64 notificationNumber = d->current++;
 

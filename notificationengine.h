@@ -25,7 +25,7 @@
 #include <QMap>
 #include <libentertaining_global.h>
 
-struct NotificationData {
+struct LIBENTERTAINING_EXPORT NotificationData {
     NotificationData();
     NotificationData(QString title, QString text, QIcon icon = QIcon(), QMap<QString, QString> actions = QMap<QString, QString>());
 
