@@ -5,29 +5,38 @@ SHARE_APP_NAME = libentertaining
 no-discord {
     #Don't build Discord
 } else {
+
     macx {
-        exists(/usr/local/lib/libdiscord-rpc.a) || discord {
-            #Build Discord
-            message(Building with Discord RPC support)
-            DEFINES += BUILD_DISCORD
-            CONFIG += BUILD_DISCORD
-            INCLUDEPATH += /usr/local/include/
-            LIBS += -L/usr/local/lib -ldiscord-rpc
-            DEFINES += DISCORD_STATIC
-        }
+        DISCORD_STATIC_PATH = /usr/local/lib/libdiscord-rpc.a
+
+        DISCORD_LIBS = -L/usr/local/lib -ldiscord-rpc
+        DISCORD_INCLUDEPATH = /usr/local/include/
     }
 
     unix:!macx {
-        exists(/usr/lib/libdiscord-rpc.a) || exists(/usr/lib/libdiscord-rpc.so) || discord {
-            #Build Discord
-            message(Building with Discord RPC support)
-            DEFINES += BUILD_DISCORD
-            CONFIG += BUILD_DISCORD
-            LIBS += -ldiscord-rpc
+        DISCORD_PATH = /usr/lib/libdiscord-rpc.so
+        DISCORD_STATIC_PATH = /usr/lib/libdiscord-rpc.a
 
-            exists(/usr/lib/libdiscord-rpc.a) {
-                DEFINES += DISCORD_STATIC
-            }
+        DISCORD_LIBS = -ldiscord-rpc
+    }
+
+    win32 {
+        DISCORD_STATIC_PATH = "C:/Program Files (x86)/DiscordRPC/lib/discord-rpc.lib"
+
+        DISCORD_LIBS = -L"C:/Program Files (x86)/DiscordRPC/lib/" -ldiscord-rpc.lib
+        DISCORD_INCLUDEPATH = "C:/Program Files (x86)/DiscordRPC/include/"
+    }
+
+    exists($${DISCORD_STATIC_PATH}) || exists($${DISCORD_PATH}) || discord {
+        #Build Discord
+        message(Building with Discord RPC support)
+        DEFINES += BUILD_DISCORD
+        CONFIG += BUILD_DISCORD
+        LIBS += $$DISCORD_LIBS
+        INCLUDEPATH += $$DISCORD_INCLUDEPATH
+
+        exists($${DISCORD_STATIC_PATH}) {
+            DEFINES += DISCORD_STATIC
         }
     }
 }
