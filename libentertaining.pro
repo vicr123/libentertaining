@@ -38,6 +38,8 @@ no-discord {
         exists($${DISCORD_STATIC_PATH}) {
             DEFINES += DISCORD_STATIC
         }
+    } else {
+        message(Discord RPC library not found)
     }
 }
 
