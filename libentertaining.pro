@@ -1,5 +1,9 @@
-QT += widgets gamepad svg multimedia network
+QT += widgets gamepad svg multimedia network websockets
 SHARE_APP_NAME = libentertaining
+
+DEFINES += SETTINGS_ORGANISATION="\\\"theSuite\\\""
+DEFINES += SETTINGS_APPLICATION="\\\"libentertaining\\\""
+DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST="\\\"localhost:3000\\\""
 
 #Determine whether to build Discord
 no-discord {
@@ -84,8 +88,15 @@ SOURCES += \
     musicengine.cpp \
     notificationengine.cpp \
     notifications/notificationpopup.cpp \
+    online/friendsdialog.cpp \
+    online/logindialog.cpp \
+    online/onlineapi.cpp \
+    online/onlinewebsocket.cpp \
     pauseoverlay.cpp \
     private/applicationeventfilter.cpp \
+    private/entertainingsettings.cpp \
+    private/friendpage.cpp \
+    private/friendsmodel.cpp \
     private/gamepadlistener.cpp \
     private/gamepadmodel.cpp \
     private/loaddialog.cpp \
@@ -123,8 +134,15 @@ HEADERS += \
     musicengine.h \
     notificationengine.h \
     notifications/notificationpopup.h \
+    online/friendsdialog.h \
+    online/logindialog.h \
+    online/onlineapi.h \
+    online/onlinewebsocket.h \
     pauseoverlay.h \
     private/applicationeventfilter.h \
+    private/entertainingsettings.h \
+    private/friendpage.h \
+    private/friendsmodel.h \
     private/gamepadlistener.h \
     private/gamepadmodel.h \
     private/loaddialog.h \
@@ -203,6 +221,9 @@ FORMS += \
     keyboards/layoutselect.ui \
     keyboards/uskeyboard.ui \
     notifications/notificationpopup.ui \
+    online/friendsdialog.ui \
+    online/logindialog.ui \
+    private/friendpage.ui \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \
     private/savedialog.ui \

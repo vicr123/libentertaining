@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FriendPage</class>
+ <widget class="QWidget" name="FriendPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>501</width>
+    <height>429</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Title</string>
+     </property>
+     <property name="margin">
+      <number>9</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="friendPage"/>
+     <widget class="QWidget" name="incomingRequestPage">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Accept this friend request?</string>
+         </property>
+         <property name="margin">
+          <number>9</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="FocusBarrier" name="focusBarrier">
+         <property name="text">
+          <string notr="true">Barrier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCommandLinkButton" name="acceptIncomingButton">
+         <property name="text">
+          <string>Accept</string>
+         </property>
+         <property name="description">
+          <string>Add this user to your friends list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCommandLinkButton" name="declineIncomingButton">
+         <property name="text">
+          <string>Decline</string>
+         </property>
+         <property name="description">
+          <string>Remove this user from your friends list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCommandLinkButton" name="blockIncomingButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Block</string>
+         </property>
+         <property name="description">
+          <string>Remove this user from your friends list and don't show them again</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="FocusBarrier" name="focusBarrier_2">
+         <property name="text">
+          <string notr="true">Barrier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="outgoingRequestPage"/>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FocusBarrier</class>
+   <extends>QPushButton</extends>
+   <header location="global">focusbarrier.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>focusBarrier</tabstop>
+  <tabstop>acceptIncomingButton</tabstop>
+  <tabstop>declineIncomingButton</tabstop>
+  <tabstop>blockIncomingButton</tabstop>
+  <tabstop>focusBarrier_2</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

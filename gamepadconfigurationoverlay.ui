@@ -114,7 +114,10 @@
      </item>
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
-       <widget class="QWidget" name="selectGamepadPage" native="true">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="selectGamepadPage">
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <spacer name="verticalSpacer">

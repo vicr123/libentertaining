@@ -234,7 +234,7 @@ bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
 void PauseOverlay::paintEvent(QPaintEvent*event)
 {
     QPainter painter(this);
-    painter.setBrush(QColor(0, 0, 0, 127));
+    painter.setBrush(QColor(0, 0, 0, 200));
     painter.setPen(Qt::transparent);
     painter.drawRect(0, 0, this->width(), this->height());
 }

@@ -20,6 +20,7 @@
 #include "gamepadhud.h"
 #include "ui_gamepadhud.h"
 
+#include <QKeyEvent>
 #include <QToolButton>
 #include "gamepadevent.h"
 #include "gamepadbuttons.h"
@@ -113,6 +114,20 @@ void GamepadHud::removeText(QGamepadManager::GamepadButton button)
 void GamepadHud::removeButtonAction(QGamepadManager::GamepadButton button)
 {
     d->buttonActions.remove(button);
+}
+
+std::function<void ()> GamepadHud::standardAction(GamepadHud::StandardAction action)
+{
+    switch (action) {
+        case GamepadHud::SelectAction:
+            return [=] {
+                QKeyEvent event(QKeyEvent::KeyPress, Qt::Key_Space, Qt::NoModifier);
+                QApplication::sendEvent(QApplication::focusWidget(), &event);
+
+                QKeyEvent event2(QKeyEvent::KeyRelease, Qt::Key_Space, Qt::NoModifier);
+                QApplication::sendEvent(QApplication::focusWidget(), &event2);
+            };
+    }
 }
 
 bool GamepadHud::eventFilter(QObject*watched, QEvent*event)

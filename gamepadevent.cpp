@@ -123,8 +123,12 @@ GamepadEvent::GamepadEvent(int deviceId, QGamepadManager::GamepadAxis axis, doub
         qreal normX = normR * qCos(angle);
         qreal normY = normR * qSin(angle);
 
+//        qreal normX = x;
+//        qreal normY = y;
+
         if (shouldFlipX) normX *= -1;
         if (shouldFlipY) normY *= -1;
+
 
         dd->axisLocation = QPointF(normX, normY);
 

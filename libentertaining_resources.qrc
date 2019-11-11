@@ -42,5 +42,6 @@
         <file>audio/error.wav</file>
         <file>audio/warning.wav</file>
         <file>icons/window-close.svg</file>
+        <file>icons/list-add.svg</file>
     </qresource>
 </RCC>

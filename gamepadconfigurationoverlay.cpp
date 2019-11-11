@@ -58,13 +58,7 @@ GamepadConfigurationOverlay::GamepadConfigurationOverlay(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Select"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [=] {
-        QKeyEvent event(QKeyEvent::KeyPress, Qt::Key_Space, Qt::NoModifier);
-        QApplication::sendEvent(QApplication::focusWidget(), &event);
-
-        QKeyEvent event2(QKeyEvent::KeyRelease, Qt::Key_Space, Qt::NoModifier);
-        QApplication::sendEvent(QApplication::focusWidget(), &event2);
-    });
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
         if (ui->gamepadsWidget->hasFocus()) {
             ui->backButton->click();

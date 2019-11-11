@@ -37,6 +37,10 @@ class LIBENTERTAINING_EXPORT GamepadHud : public QWidget
         explicit GamepadHud(QWidget *parent = nullptr);
         ~GamepadHud();
 
+        enum StandardAction {
+            SelectAction
+        };
+
         void setParent(QWidget* parent);
         void addListener(QWidget* listenTo);
         void removeListener(QWidget* listenTo);
@@ -45,6 +49,8 @@ class LIBENTERTAINING_EXPORT GamepadHud : public QWidget
         void setButtonAction(QGamepadManager::GamepadButton button, std::function<void()> action);
         void removeText(QGamepadManager::GamepadButton button);
         void removeButtonAction(QGamepadManager::GamepadButton button);
+
+        static std::function<void()> standardAction(StandardAction action);
 
     private:
         Ui::GamepadHud *ui;

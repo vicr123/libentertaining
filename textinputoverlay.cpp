@@ -234,9 +234,10 @@ void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWi
         input->show();
         connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
         connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
-        if (loop->exec() != 0) {
+        if (loop->exec() == 0) {
             lineEdit->setText(input->response());
         }
+        lineEdit->setFocus();
     });
 }
 

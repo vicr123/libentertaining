@@ -19,6 +19,8 @@
  * *************************************/
 #include "textinputlineedithandler.h"
 
+#include <QApplication>
+#include <QKeyEvent>
 #include "gamepadevent.h"
 
 TextInputLineEditHandler::TextInputLineEditHandler(QLineEdit *parent) : QObject(parent)
@@ -43,6 +45,18 @@ bool TextInputLineEditHandler::eventFilter(QObject*watched, QEvent*event)
             e->accept();
             return true;
         }
+    } else if (event->type() == QEvent::KeyPress) {
+        QKeyEvent* e = static_cast<QKeyEvent*>(event);
+        if (e->key() == Qt::Key_Up || e->key() == Qt::Key_Down) {
+            //Move the focus
+            Qt::Key key = e->key() == Qt::Key_Up ? Qt::Key_Backtab : Qt::Key_Tab;
+
+            QKeyEvent pressEvent(QKeyEvent::KeyPress, key, Qt::NoModifier);
+            QApplication::sendEvent(QApplication::focusWidget(), &pressEvent);
+            QKeyEvent relEvent(QKeyEvent::KeyRelease, key, Qt::NoModifier);
+            QApplication::sendEvent(QApplication::focusWidget(), &relEvent);
+        }
+
     }
     return false;
 }
