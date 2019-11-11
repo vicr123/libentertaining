@@ -33,6 +33,10 @@ struct FriendsModelAction {
 struct Friend {
     QString username;
     QString status;
+
+    bool isOnline;
+    QString application;
+    QString applicationDisplayName;
 };
 
 struct FriendsModelPrivate {
@@ -104,7 +108,11 @@ QVariant FriendsModel::data(const QModelIndex &index, int role) const
             case Qt::UserRole + 1: {
                 QString status = f.status;
                 if (status == "friend") {
-                    return tr("Friend");
+                    if (f.isOnline) {
+                        return f.applicationDisplayName;
+                    } else {
+                        return tr("Offline");
+                    }
                 } else if (status == "request-incoming") {
                     return tr("Incoming Request");
                 } else if (status == "request-outgoing") {
@@ -134,6 +142,17 @@ void FriendsModel::update()
             Friend f;
             f.username = friendObject.value("username").toString();
             f.status = friendObject.value("status").toString();
+            if (f.status == "friend") {
+                QJsonValue onlineValue = friendObject.value("onlineState");
+                if (onlineValue.isBool()) {
+                    f.isOnline = false;
+                } else {
+                    QJsonObject onlineStatus = onlineValue.toObject();
+                    f.isOnline = true;
+                    f.application = onlineStatus.value("application").toString();
+                    f.applicationDisplayName = onlineStatus.value("applicationDisplayName").toString();
+                }
+            }
             d->friends.append(f);
         }
 

@@ -218,32 +218,32 @@
 <context>
     <name>FriendsModel</name>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="50"/>
+        <location filename="../private/friendsmodel.cpp" line="54"/>
         <source>Add Friend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="52"/>
+        <location filename="../private/friendsmodel.cpp" line="56"/>
         <source>Add a friend to your friends list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="107"/>
-        <source>Friend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/friendsmodel.cpp" line="109"/>
+        <location filename="../private/friendsmodel.cpp" line="117"/>
         <source>Incoming Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="111"/>
+        <location filename="../private/friendsmodel.cpp" line="119"/>
         <source>Outgoing Friend Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="113"/>
+        <location filename="../private/friendsmodel.cpp" line="114"/>
+        <source>Offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/friendsmodel.cpp" line="121"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
