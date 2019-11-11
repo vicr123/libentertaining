@@ -62,8 +62,24 @@ void FriendPage::setActiveUser(QString username, QString friendStatus)
 
 void FriendPage::on_acceptIncomingButton_clicked()
 {
+    respondToFriendRequest(true);
+}
+
+void FriendPage::on_declineIncomingButton_clicked()
+{
+    respondToFriendRequest(false);
+}
+
+void FriendPage::respondToFriendRequest(bool accept)
+{
     //Accept the friend request
-    OnlineApi::instance()->post("/friends/acceptByUsername", {
+    QString endpoint;
+    if (accept) {
+        endpoint = "/friends/acceptByUsername";
+    } else {
+        endpoint = "/friends/declineByUsername";
+    }
+    OnlineApi::instance()->post(endpoint, {
         {"username", d->currentUsername}
     })->then([=](QJsonDocument doc) {
         QuestionOverlay* question = new QuestionOverlay(this);
@@ -79,10 +95,15 @@ void FriendPage::on_acceptIncomingButton_clicked()
             }
         } else {
             question->setIcon(QMessageBox::Information);
-            question->setTitle(tr("Friend Request Sent"));
-            question->setText(tr("The friend request from %1 has been accepted.").arg(d->currentUsername));
+            if (accept) {
+                question->setTitle(tr("Friend Request Accepted"));
+                question->setText(tr("The friend request from %1 has been accepted.").arg(d->currentUsername));
 
-            setActiveUser(d->currentUsername, "friend");
+                setActiveUser(d->currentUsername, "friend");
+            } else {
+                question->setTitle(tr("Friend Request Declined"));
+                question->setText(tr("The friend request from %1 has been removed.").arg(d->currentUsername));
+            }
         }
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);

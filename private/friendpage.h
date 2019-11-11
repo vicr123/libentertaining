@@ -40,9 +40,13 @@ class FriendPage : public QWidget
     private slots:
         void on_acceptIncomingButton_clicked();
 
+        void on_declineIncomingButton_clicked();
+
     private:
         Ui::FriendPage *ui;
         FriendPagePrivate* d;
+
+        void respondToFriendRequest(bool accept);
 };
 
 #endif // FRIENDPAGE_H

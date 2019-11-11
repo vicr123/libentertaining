@@ -43,6 +43,7 @@ tPromise<QJsonDocument>*OnlineApi::post(QString endpoint, QJsonObject body)
         QNetworkAccessManager* mgr = new QNetworkAccessManager();
 
         QUrl url("http://" + serverHost());
+        url.setScheme(isServerSecure() ? "https" : "http");
         url.setPath("/api/" + endpoint);
 
         QNetworkRequest req(url);
@@ -66,6 +67,7 @@ tPromise<QJsonDocument>*OnlineApi::get(QString endpoint)
         QNetworkAccessManager* mgr = new QNetworkAccessManager();
 
         QUrl url("http://" + serverHost());
+        url.setScheme(isServerSecure() ? "https" : "http");
         url.setPath("/api/" + endpoint);
 
         QNetworkRequest req(url);
@@ -90,6 +92,7 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
     qRegisterMetaType<QAbstractSocket::SocketState>();
 
     QUrl url("ws://" + serverHost());
+    url.setScheme(isServerSecure() ? "wss" : "ws");
     url.setPath("/api/play");
 
     if (d->settings->contains("online/token")) {
@@ -219,6 +222,18 @@ QString OnlineApi::serverHost()
     QByteArray server = qgetenv("ENTERTAINING_ONLINE_HOST");
     if (server.isEmpty()) server = DEFAULT_ENTERTAINING_ONLINE_HOST;
     return server;
+}
+
+bool OnlineApi::isServerSecure()
+{
+    QByteArray isSecure = qgetenv("ENTERTAINING_ONLINE_HOST_IS_SECURE");
+    bool secure;
+    if (isSecure.isEmpty()) {
+        secure = DEFAULT_ENTERTAINING_ONLINE_HOST_IS_SECURE;
+    } else {
+        secure = isSecure == "true";
+    }
+    return secure;
 }
 
 QString OnlineApi::authorizationHeader()

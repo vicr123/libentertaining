@@ -4,6 +4,7 @@ SHARE_APP_NAME = libentertaining
 DEFINES += SETTINGS_ORGANISATION="\\\"theSuite\\\""
 DEFINES += SETTINGS_APPLICATION="\\\"libentertaining\\\""
 DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST="\\\"localhost:3000\\\""
+DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST_IS_SECURE="false"
 
 #Determine whether to build Discord
 no-discord {
@@ -27,7 +28,7 @@ no-discord {
     win32 {
         DISCORD_STATIC_PATH = "C:/Program Files (x86)/DiscordRPC/lib/discord-rpc.lib"
 
-        DISCORD_LIBS = -L"C:/Program Files (x86)/DiscordRPC/lib/" -ldiscord-rpc.lib
+        DISCORD_LIBS = -L"C:/Program Files (x86)/DiscordRPC/lib/" -ldiscord-rpc
         DISCORD_INCLUDEPATH = "C:/Program Files (x86)/DiscordRPC/include/"
     }
 

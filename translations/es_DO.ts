@@ -100,28 +100,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="74"/>
+        <location filename="../private/friendpage.cpp" line="90"/>
         <source>Unknown User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="75"/>
+        <location filename="../private/friendpage.cpp" line="91"/>
         <source>That user doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="77"/>
         <location filename="../private/friendpage.cpp" line="93"/>
+        <location filename="../private/friendpage.cpp" line="114"/>
         <source>Friend Request Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="82"/>
-        <source>Friend Request Sent</source>
+        <location filename="../private/friendpage.cpp" line="99"/>
+        <source>Friend Request Accepted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="83"/>
+        <location filename="../private/friendpage.cpp" line="104"/>
+        <source>Friend Request Declined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/friendpage.cpp" line="105"/>
+        <source>The friend request from %1 has been removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/friendpage.cpp" line="100"/>
         <source>The friend request from %1 has been accepted.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -623,91 +633,91 @@
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="251"/>
+        <location filename="../online/onlineapi.cpp" line="266"/>
         <source>The server is not operating correctly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="103"/>
+        <location filename="../online/onlineapi.cpp" line="106"/>
         <source>You are not logged in.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="113"/>
+        <location filename="../online/onlineapi.cpp" line="116"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="118"/>
+        <location filename="../online/onlineapi.cpp" line="121"/>
         <source>The connection was lost because a server error occurred.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="122"/>
+        <location filename="../online/onlineapi.cpp" line="125"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="125"/>
+        <location filename="../online/onlineapi.cpp" line="128"/>
         <source>The connection was lost because too much data was sent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="128"/>
+        <location filename="../online/onlineapi.cpp" line="131"/>
         <source>The connection was lost because an internal error occurred.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="133"/>
+        <location filename="../online/onlineapi.cpp" line="136"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="139"/>
+        <location filename="../online/onlineapi.cpp" line="142"/>
         <source>The connection was lost because the server does not support this application.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="142"/>
+        <location filename="../online/onlineapi.cpp" line="145"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="148"/>
+        <location filename="../online/onlineapi.cpp" line="151"/>
         <source>The connection to the server was lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="160"/>
+        <location filename="../online/onlineapi.cpp" line="163"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="163"/>
+        <location filename="../online/onlineapi.cpp" line="166"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="166"/>
+        <location filename="../online/onlineapi.cpp" line="169"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="202"/>
+        <location filename="../online/onlineapi.cpp" line="205"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="204"/>
+        <location filename="../online/onlineapi.cpp" line="207"/>
         <source>You are not authorized to perform this action now.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="206"/>
+        <location filename="../online/onlineapi.cpp" line="209"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -49,6 +49,7 @@ class LIBENTERTAINING_EXPORT OnlineApi : public QObject
         static OnlineApiPrivate* d;
 
         QString serverHost();
+        bool isServerSecure();
         QString authorizationHeader();
 
         QString buildRejection(QNetworkReply* reply);
