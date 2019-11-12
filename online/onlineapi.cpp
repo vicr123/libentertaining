@@ -210,7 +210,7 @@ QString OnlineApi::errorFromPromiseRejection(QString rejection)
         case 404:
             return tr("The server may not support this game because the requested path was not found.");
         default:
-            return parts.at(3);
+            return parts.at(2);
     }
 }
 
