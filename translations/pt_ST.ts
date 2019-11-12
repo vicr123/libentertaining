@@ -735,7 +735,7 @@
 <context>
     <name>NotificationEngine</name>
     <message>
-        <location filename="../notificationengine.cpp" line="152"/>
+        <location filename="../notificationengine.cpp" line="151"/>
         <source>%1 / %2 to focus</source>
         <translation type="unfinished"></translation>
     </message>

@@ -207,6 +207,8 @@ DiscordIntegration::DiscordIntegration(QString appId, QString steamId) : QObject
             };
             handlers.errored = [](int errorCode, const char* message) {
                 qDebug() << "Discord Error!";
+                qDebug() << errorCode;
+                qDebug() << message;
             };
             handlers.disconnected = [](int errorCode, const char* message) {
                 qDebug() << "Discord Disconnected!";

@@ -66,7 +66,6 @@ void NotificationEngine::setApplicationNotificationWindow(QWidget*window)
     d->window->installEventFilter(d->instance);
     d->container->setParent(d->window);
     d->container->move(d->window->width() - d->container->width(), 0);
-    d->container->show();
 
     d->shortcut = new QShortcut(QKeySequence(Qt::Key_F12), window);
     connect(d->shortcut, &QShortcut::activated, d->instance, &NotificationEngine::focusNotifications);
@@ -189,6 +188,7 @@ void NotificationEngine::setFirstPopup()
 {
     if (d->showingPopups.count() > 0) {
 //        NotificationPopup* popup = d->showingPopups.first();
+        d->container->setVisible(true);
         d->focusPrompt->setVisible(true);
 
         QWidget* before = d->bar1;
@@ -201,6 +201,7 @@ void NotificationEngine::setFirstPopup()
         d->bar1->setBounceWidget(d->showingPopups.last());
         d->bar2->setBounceWidget(d->showingPopups.first());
     } else {
+        d->container->setVisible(false);
         d->focusPrompt->setVisible(false);
     }
 }
