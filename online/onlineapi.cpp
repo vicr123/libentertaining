@@ -27,6 +27,8 @@
 struct OnlineApiPrivate {
     OnlineApi* instance = nullptr;
     QSettings* settings = EntertainingSettings::instance();
+
+    QString loggedInUsername;
 };
 
 OnlineApiPrivate* OnlineApi::d = new OnlineApiPrivate();
@@ -210,6 +212,16 @@ QString OnlineApi::errorFromPromiseRejection(QString rejection)
         default:
             return parts.at(3);
     }
+}
+
+QString OnlineApi::getLoggedInUsername()
+{
+    return d->loggedInUsername;
+}
+
+void OnlineApi::setLoggedInUsername(QString loggedInUsername)
+{
+    d->loggedInUsername = loggedInUsername;
 }
 
 OnlineApi::OnlineApi(QObject *parent) : QObject(parent)

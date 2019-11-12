@@ -46,14 +46,18 @@ FriendsDialog::FriendsDialog(QWidget *parent) :
     ui->friendsList->setItemDelegate(new FriendsDelegate);
     ui->friendsList->installEventFilter(this);
 
-    ui->addFriendPage->setFocusProxy(ui->addFriendByUsernameButton);
+    ui->logOutButton->setProperty("type", "destructive");
 
+    ui->profilePage->setFocusProxy(ui->changeUsernameButton);
+    ui->addFriendPage->setFocusProxy(ui->addFriendByUsernameButton);
     this->setFocusProxy(ui->friendsList);
 
     connect(ui->friendsList->selectionModel(), &QItemSelectionModel::selectionChanged, this, [=](QItemSelection current, QItemSelection previous) {
         QModelIndex index = current.indexes().first();
         QString pane = index.data(Qt::UserRole).toString();
-        if (pane == "friend-add") {
+        if (pane == "profile") {
+            ui->stackedWidget->setCurrentWidget(ui->profilePage);
+        } else if (pane == "friend-add") {
             ui->stackedWidget->setCurrentWidget(ui->addFriendPage);
         } else if (pane == "friend") {
             ui->friendPage->setActiveUser(index.data(Qt::DisplayRole).toString(), index.data(Qt::UserRole + 2).toString());
@@ -75,6 +79,10 @@ FriendsDialog::FriendsDialog(QWidget *parent) :
 
     ui->focusBarrier->setBounceWidget(ui->addFriendByUsernameButton);
     ui->focusBarrier_2->setBounceWidget(ui->addFriendByUsernameButton);
+    ui->focusBarrier_3->setBounceWidget(ui->changeUsernameButton);
+    ui->focusBarrier_4->setBounceWidget(ui->logOutButton);
+
+    ui->profilePageTitle->setText(OnlineApi::getLoggedInUsername());
 
     PauseOverlay::overlayForWindow(parent)->pushOverlayWidget(this);
 }
@@ -141,6 +149,16 @@ bool FriendsDialog::eventFilter(QObject*watched, QEvent*event)
         QKeyEvent* e = static_cast<QKeyEvent*>(event);
         if (e->key() == Qt::Key_Right || e->key() == Qt::Key_Enter || e->key() == Qt::Key_Space) {
             ui->stackedWidget->currentWidget()->setFocus();
+        } else if (e->key() == Qt::Key_Up) {
+            if (ui->friendsList->model()->index(ui->friendsList->currentIndex().row() - 1, 0).data(Qt::UserRole).toString() == "sep") {
+                ui->friendsList->setCurrentIndex(ui->friendsList->model()->index(ui->friendsList->currentIndex().row() - 2, 0));
+                return true;
+            }
+        } else if (e->key() == Qt::Key_Down) {
+            if (ui->friendsList->model()->index(ui->friendsList->currentIndex().row() + 1, 0).data(Qt::UserRole).toString() == "sep") {
+                ui->friendsList->setCurrentIndex(ui->friendsList->model()->index(ui->friendsList->currentIndex().row() + 2, 0));
+                return true;
+            }
         }
     }
     return false;

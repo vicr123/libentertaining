@@ -22,6 +22,7 @@
 #include "private/entertainingsettings.h"
 #include <QJsonObject>
 #include <QTimer>
+#include "onlineapi.h"
 #include "friendsdialog.h"
 #include "notificationengine.h"
 
@@ -111,6 +112,9 @@ OnlineWebSocket::OnlineWebSocket(QString applicationName, QString applicationVer
                     d->state = OnlineWebSocketPrivate::Connected;
                     d->username = o.value("playingAs").toString();
                     d->pingTimer.start();
+
+                    OnlineApi::setLoggedInUsername(d->username);
+
                     emit ready();
                 } else {
                     d->state = OnlineWebSocketPrivate::Errored;

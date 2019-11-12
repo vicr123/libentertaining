@@ -40,9 +40,15 @@ class LIBENTERTAINING_EXPORT OnlineApi : public QObject
         static int httpStatusCodeFromPromiseRejection(QString rejection);
         static QString errorFromPromiseRejection(QString rejection);
 
+        static QString getLoggedInUsername();
+
     signals:
 
     public slots:
+
+    protected:
+        friend OnlineWebSocket;
+        static void setLoggedInUsername(QString loggedInUsername);
 
     private:
         explicit OnlineApi(QObject *parent = nullptr);

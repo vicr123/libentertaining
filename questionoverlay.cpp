@@ -106,7 +106,6 @@ void QuestionOverlay::setButtons(QMessageBox::StandardButtons buttons, QString y
     if (buttons & QMessageBox::Open) shownButtons.append(ButtonDef(tr("Open"), QMessageBox::Open, "document-open"));
     if (buttons & QMessageBox::Save) shownButtons.append(ButtonDef(tr("Save"), QMessageBox::Save, "document-save"));
     if (buttons & QMessageBox::SaveAll) shownButtons.append(ButtonDef(tr("Save All"), QMessageBox::SaveAll, "document-save-all"));
-    if (buttons & QMessageBox::Yes) shownButtons.append(ButtonDef(yesPrompt, QMessageBox::Yes, "dialog-ok"));
     if (buttons & QMessageBox::YesToAll) shownButtons.append(ButtonDef(tr("Yes To All"), QMessageBox::YesToAll, "dialog-ok"));
     if (buttons & QMessageBox::No) shownButtons.append(ButtonDef(tr("No"), QMessageBox::No, "dialog-cancel"));
     if (buttons & QMessageBox::NoToAll) shownButtons.append(ButtonDef(tr("No To All"), QMessageBox::NoToAll, "dialog-cancel"));
@@ -115,6 +114,7 @@ void QuestionOverlay::setButtons(QMessageBox::StandardButtons buttons, QString y
     if (buttons & QMessageBox::Ignore) shownButtons.append(ButtonDef(tr("Ignore"), QMessageBox::Ignore));
     if (buttons & QMessageBox::Close) shownButtons.append(ButtonDef(tr("Close"), QMessageBox::Close, "dialog-close"));
     if (buttons & QMessageBox::Ok) shownButtons.append(ButtonDef(tr("OK"), QMessageBox::Ok, "dialog-ok"));
+    if (buttons & QMessageBox::Yes) shownButtons.append(ButtonDef(yesPrompt, QMessageBox::Yes, "dialog-ok"));
 
     QPushButton* firstButton = nullptr;
     QPushButton* lastButton = nullptr;

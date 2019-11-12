@@ -42,11 +42,15 @@ class FriendPage : public QWidget
 
         void on_declineIncomingButton_clicked();
 
+        void on_removeFriendButton_clicked();
+
+        void on_retractRequestButton_clicked();
+
     private:
         Ui::FriendPage *ui;
         FriendPagePrivate* d;
 
-        void respondToFriendRequest(bool accept);
+        void respondToFriendRequest(QString response);
 };
 
 #endif // FRIENDPAGE_H

@@ -43,5 +43,7 @@
         <file>audio/warning.wav</file>
         <file>icons/window-close.svg</file>
         <file>icons/list-add.svg</file>
+        <file>icons/user.svg</file>
+        <file>icons/go-next.svg</file>
     </qresource>
 </RCC>
