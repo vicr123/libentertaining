@@ -211,7 +211,7 @@ win32 {
     target.path = "C:/Program Files/libentertaining/lib"
 }
 
-INSTALLS += target module header
+INSTALLS += target module header onlineheader
 
 RESOURCES += \
     libentertaining_resources.qrc \
