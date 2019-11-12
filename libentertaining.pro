@@ -162,6 +162,7 @@ DISTFILES += \
 
 # Install rules
 header.files = *.h
+onlineheader.files = online/*.h
 module.path = $$[QMAKE_MKSPECS]/modules
 
 unix {
@@ -176,6 +177,7 @@ unix:!macx {
 
     target.path = /usr/lib
     header.path = /usr/include/libentertaining
+    onlineheader.path = /usr/include/libentertaining/online
     module.files = qt_libentertaining.pri
 }
 
@@ -190,6 +192,7 @@ macx {
 
     target.path = /usr/local/lib
     header.path = /usr/local/include/libentertaining
+    onlineheader.path = /usr/local/include/libentertaining/online
     module.files = qt_libentertaining.pri
 }
 
@@ -204,6 +207,7 @@ win32 {
 
     module.files = qt_thelib.pri
     header.path = "C:/Program Files/libentertaining/include"
+    onlineheader.path = "C:/Program Files/libentertaining/include/online"
     target.path = "C:/Program Files/libentertaining/lib"
 }
 
