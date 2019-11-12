@@ -74,6 +74,7 @@ SaveObject SaveEngine::getSaveByFilename(QString filename)
     save.metadata.insert("name", filename);
     save.metadata.insert("date", file.birthTime());
 
+    device->close();
     device->deleteLater();
     return save;
 }

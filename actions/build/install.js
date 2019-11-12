@@ -17,8 +17,14 @@ const process = require('process');
             cwd: `${process.cwd()}/discord-rpc`
         };
         
+        let installPrefix;
         await exec.exec("git clone https://github.com/discordapp/discord-rpc.git");
-        await exec.exec(`cmake .`, [], options);
+        if (process.platform == 'linux') {
+            installPrefix = "/usr"
+        } else {
+            installPrefix = "/usr/local"
+        }
+        await exec.exec(`cmake . -DCMAKE_INSTALL_PREFIX=${installPrefix} -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_EXAMPLES=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON`, [], options);
         await exec.exec(`make`, [], options);
         await exec.exec(`sudo make install`, [], options);
     }

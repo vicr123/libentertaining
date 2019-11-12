@@ -28,7 +28,7 @@ no-discord {
     win32 {
         DISCORD_STATIC_PATH = "C:/Program Files (x86)/DiscordRPC/lib/discord-rpc.lib"
 
-        DISCORD_LIBS = -L"C:/Program Files (x86)/DiscordRPC/lib/" -ldiscord-rpc
+        DISCORD_LIBS = -L"C:/Program Files (x86)/DiscordRPC/lib/" -ldiscord-rpc -lAdvapi32
         DISCORD_INCLUDEPATH = "C:/Program Files (x86)/DiscordRPC/include/"
     }
 
