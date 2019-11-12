@@ -21,13 +21,14 @@
 #define FRIENDSDIALOG_H
 
 #include <QWidget>
+#include <libentertaining_global.h>
 
 namespace Ui {
     class FriendsDialog;
 }
 
 struct FriendsDialogPrivate;
-class FriendsDialog : public QWidget
+class LIBENTERTAINING_EXPORT FriendsDialog : public QWidget
 {
         Q_OBJECT
 

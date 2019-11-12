@@ -3,8 +3,8 @@ SHARE_APP_NAME = libentertaining
 
 DEFINES += SETTINGS_ORGANISATION="\\\"theSuite\\\""
 DEFINES += SETTINGS_APPLICATION="\\\"libentertaining\\\""
-DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST="\\\"localhost:3000\\\""
-DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST_IS_SECURE="false"
+DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST="\\\"entertaining.games\\\""
+DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST_IS_SECURE="true"
 
 #Determine whether to build Discord
 no-discord {
