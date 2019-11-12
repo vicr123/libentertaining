@@ -144,6 +144,11 @@ OnlineWebSocket::OnlineWebSocket(QString applicationName, QString applicationVer
         d->pingTimer.stop();
     });
 
+    connect(OnlineApi::instance(), &OnlineApi::loggedOut, this, [=] {
+        //Force the connection to close
+        this->close();
+    });
+
     connect(NotificationEngine::instance(), &NotificationEngine::actionClicked, this, &OnlineWebSocket::actionClicked);
 }
 
@@ -152,6 +157,13 @@ void OnlineWebSocket::processSystemMessage(QJsonObject obj)
     QString type = obj.value("type").toString();
     if (type == "clientPingReply") {
         d->lastPingSeq = obj.value("seq").toInt();
+    } else if (type == "serverPing") {
+        //Immediately reply
+        sendJsonO({
+            {"system", true},
+            {"type", "clientPingReply"},
+            {"seq", obj.value("seq").toInt()}
+        });
     } else if (type == "notifyNewFriendRequests") {
         NotificationData notification(tr("New Friend Requests"), tr("You have friend requests pending approval"), QIcon(), {
                                           {"friendsRelations", tr("Friends and Relations")}

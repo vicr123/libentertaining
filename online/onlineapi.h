@@ -37,12 +37,15 @@ class LIBENTERTAINING_EXPORT OnlineApi : public QObject
         tPromise<QJsonDocument>* get(QString endpoint);
         tPromise<OnlineWebSocket*>* play(QString applicationName, QString applicationVersion, QWidget* parentWidget);
 
+        void logOut();
+
         static int httpStatusCodeFromPromiseRejection(QString rejection);
         static QString errorFromPromiseRejection(QString rejection);
 
         static QString getLoggedInUsername();
 
     signals:
+        void loggedOut();
 
     public slots:
 

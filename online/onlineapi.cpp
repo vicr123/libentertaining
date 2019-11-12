@@ -185,10 +185,15 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
             disconnect(*errorConnection);
             delete errorConnection;
 
-
             res(ws);
         });
     });
+}
+
+void OnlineApi::logOut()
+{
+    d->settings->remove("online/token");
+    emit loggedOut();
 }
 
 int OnlineApi::httpStatusCodeFromPromiseRejection(QString rejection)

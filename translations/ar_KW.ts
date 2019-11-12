@@ -71,7 +71,7 @@
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="108"/>
-        <location filename="../private/friendpage.cpp" line="139"/>
+        <location filename="../private/friendpage.cpp" line="145"/>
         <source>Remove Friend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -127,86 +127,86 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="100"/>
-        <location filename="../private/friendpage.cpp" line="153"/>
+        <location filename="../private/friendpage.cpp" line="102"/>
+        <location filename="../private/friendpage.cpp" line="160"/>
         <source>Unknown User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="101"/>
-        <location filename="../private/friendpage.cpp" line="154"/>
+        <location filename="../private/friendpage.cpp" line="103"/>
+        <location filename="../private/friendpage.cpp" line="161"/>
         <source>That user doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="103"/>
-        <location filename="../private/friendpage.cpp" line="127"/>
+        <location filename="../private/friendpage.cpp" line="105"/>
+        <location filename="../private/friendpage.cpp" line="132"/>
         <source>Friend Request Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="109"/>
+        <location filename="../private/friendpage.cpp" line="111"/>
         <source>Friend Request Accepted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="114"/>
+        <location filename="../private/friendpage.cpp" line="116"/>
         <source>Friend Request Declined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="115"/>
+        <location filename="../private/friendpage.cpp" line="117"/>
         <source>The friend request from %1 has been removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="117"/>
+        <location filename="../private/friendpage.cpp" line="119"/>
         <source>Friend Request Retracted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="118"/>
+        <location filename="../private/friendpage.cpp" line="120"/>
         <source>Your friend request to %1 has been retracted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="140"/>
+        <location filename="../private/friendpage.cpp" line="146"/>
         <source>Remove %1 as a friend?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="141"/>
+        <location filename="../private/friendpage.cpp" line="147"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="156"/>
+        <location filename="../private/friendpage.cpp" line="163"/>
         <source>Not Friends</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="157"/>
+        <location filename="../private/friendpage.cpp" line="164"/>
         <source>You&apos;re not friends with this user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="159"/>
-        <location filename="../private/friendpage.cpp" line="173"/>
+        <location filename="../private/friendpage.cpp" line="166"/>
+        <location filename="../private/friendpage.cpp" line="183"/>
         <source>Friend Removal Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="164"/>
+        <location filename="../private/friendpage.cpp" line="171"/>
         <source>Friend Removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="165"/>
+        <location filename="../private/friendpage.cpp" line="172"/>
         <source>%1 has been removed from your friend list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendpage.cpp" line="110"/>
+        <location filename="../private/friendpage.cpp" line="112"/>
         <source>The friend request from %1 has been accepted.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -214,104 +214,121 @@
 <context>
     <name>FriendsDialog</name>
     <message>
-        <location filename="../online/friendsdialog.ui" line="14"/>
+        <location filename="../online/friendsdialog.ui" line="17"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="97"/>
+        <location filename="../online/friendsdialog.ui" line="122"/>
         <source>Friends and Relations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="201"/>
+        <location filename="../online/friendsdialog.ui" line="226"/>
         <source>PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="218"/>
+        <location filename="../online/friendsdialog.ui" line="243"/>
         <source>Change Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="225"/>
+        <location filename="../online/friendsdialog.ui" line="250"/>
+        <source>Change Email Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/friendsdialog.ui" line="263"/>
+        <source>SECURITY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/friendsdialog.ui" line="273"/>
         <source>Change Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="238"/>
-        <source>YOU AND THIS DEVICE</source>
+        <location filename="../online/friendsdialog.ui" line="280"/>
+        <source>Set up Two Factor Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="248"/>
+        <location filename="../online/friendsdialog.ui" line="287"/>
+        <location filename="../online/friendsdialog.cpp" line="196"/>
+        <location filename="../online/friendsdialog.cpp" line="198"/>
         <source>Log Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="299"/>
+        <location filename="../online/friendsdialog.ui" line="338"/>
         <source>Add Friend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="322"/>
+        <location filename="../online/friendsdialog.ui" line="361"/>
         <source>You can send a friend request to someone by entering their username.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="339"/>
+        <location filename="../online/friendsdialog.ui" line="378"/>
         <source>Add Friend by Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="68"/>
+        <location filename="../online/friendsdialog.cpp" line="80"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="69"/>
+        <location filename="../online/friendsdialog.cpp" line="81"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="106"/>
+        <location filename="../online/friendsdialog.cpp" line="128"/>
         <source>What&apos;s your friend&apos;s username?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="117"/>
+        <location filename="../online/friendsdialog.cpp" line="140"/>
         <source>Unknown User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="118"/>
+        <location filename="../online/friendsdialog.cpp" line="141"/>
         <source>That user doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="120"/>
+        <location filename="../online/friendsdialog.cpp" line="143"/>
         <source>Already Friends</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="121"/>
+        <location filename="../online/friendsdialog.cpp" line="144"/>
         <source>You&apos;re already friends with that user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="123"/>
-        <location filename="../online/friendsdialog.cpp" line="137"/>
+        <location filename="../online/friendsdialog.cpp" line="146"/>
+        <location filename="../online/friendsdialog.cpp" line="161"/>
         <source>Friend Request Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="128"/>
+        <location filename="../online/friendsdialog.cpp" line="151"/>
         <source>Friend Request Sent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="129"/>
+        <location filename="../online/friendsdialog.cpp" line="152"/>
         <source>Your friend request to %1 has been sent.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/friendsdialog.cpp" line="197"/>
+        <source>Log out of %1?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -604,7 +621,7 @@
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
         <location filename="../online/logindialog.ui" line="198"/>
-        <location filename="../online/logindialog.cpp" line="64"/>
+        <location filename="../online/logindialog.cpp" line="65"/>
         <source>Log In</source>
         <translation type="unfinished"></translation>
     </message>
@@ -616,16 +633,16 @@
     <message>
         <location filename="../online/logindialog.ui" line="162"/>
         <location filename="../online/logindialog.ui" line="371"/>
-        <location filename="../online/logindialog.cpp" line="57"/>
-        <location filename="../online/logindialog.cpp" line="59"/>
+        <location filename="../online/logindialog.cpp" line="58"/>
+        <location filename="../online/logindialog.cpp" line="60"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="169"/>
         <location filename="../online/logindialog.ui" line="323"/>
-        <location filename="../online/logindialog.cpp" line="56"/>
-        <location filename="../online/logindialog.cpp" line="58"/>
+        <location filename="../online/logindialog.cpp" line="57"/>
+        <location filename="../online/logindialog.cpp" line="59"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
@@ -641,93 +658,93 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="330"/>
-        <location filename="../online/logindialog.cpp" line="61"/>
+        <location filename="../online/logindialog.cpp" line="62"/>
         <source>Email Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="337"/>
-        <location filename="../online/logindialog.cpp" line="60"/>
+        <location filename="../online/logindialog.cpp" line="61"/>
         <source>Confirm Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="191"/>
         <location filename="../online/logindialog.ui" line="359"/>
-        <location filename="../online/logindialog.cpp" line="78"/>
+        <location filename="../online/logindialog.cpp" line="83"/>
         <source>Register</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="63"/>
-        <location filename="../online/logindialog.cpp" line="77"/>
+        <location filename="../online/logindialog.cpp" line="64"/>
+        <location filename="../online/logindialog.cpp" line="82"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="65"/>
-        <location filename="../online/logindialog.cpp" line="79"/>
+        <location filename="../online/logindialog.cpp" line="66"/>
+        <location filename="../online/logindialog.cpp" line="84"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="137"/>
+        <location filename="../online/logindialog.cpp" line="147"/>
         <source>Enter a new username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="138"/>
+        <location filename="../online/logindialog.cpp" line="148"/>
         <source>Enter a password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="139"/>
+        <location filename="../online/logindialog.cpp" line="149"/>
         <source>Confirm your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="140"/>
+        <location filename="../online/logindialog.cpp" line="150"/>
         <source>Enter your email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="142"/>
+        <location filename="../online/logindialog.cpp" line="152"/>
         <source>Check that the passwords match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="147"/>
-        <location filename="../online/logindialog.cpp" line="187"/>
+        <location filename="../online/logindialog.cpp" line="157"/>
+        <location filename="../online/logindialog.cpp" line="197"/>
         <source>Check your input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="167"/>
+        <location filename="../online/logindialog.cpp" line="177"/>
         <source>Registration Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="181"/>
+        <location filename="../online/logindialog.cpp" line="191"/>
         <source>Enter your username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="182"/>
+        <location filename="../online/logindialog.cpp" line="192"/>
         <source>Enter your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="207"/>
+        <location filename="../online/logindialog.cpp" line="217"/>
         <source>Incorrect Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="208"/>
+        <location filename="../online/logindialog.cpp" line="218"/>
         <source>Check your username and password and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="211"/>
+        <location filename="../online/logindialog.cpp" line="221"/>
         <source>Login Failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -743,7 +760,7 @@
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="278"/>
+        <location filename="../online/onlineapi.cpp" line="283"/>
         <source>The server is not operating correctly.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -817,17 +834,17 @@ Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="207"/>
+        <location filename="../online/onlineapi.cpp" line="212"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="209"/>
+        <location filename="../online/onlineapi.cpp" line="214"/>
         <source>You are not authorized to perform this action now.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="211"/>
+        <location filename="../online/onlineapi.cpp" line="216"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -835,38 +852,38 @@ Try again later.</source>
 <context>
     <name>OnlineWebSocket</name>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="156"/>
+        <location filename="../online/onlinewebsocket.cpp" line="168"/>
         <source>New Friend Requests</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="156"/>
+        <location filename="../online/onlinewebsocket.cpp" line="168"/>
         <source>You have friend requests pending approval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="157"/>
-        <location filename="../online/onlinewebsocket.cpp" line="168"/>
+        <location filename="../online/onlinewebsocket.cpp" line="169"/>
+        <location filename="../online/onlinewebsocket.cpp" line="180"/>
         <source>Friends and Relations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="167"/>
+        <location filename="../online/onlinewebsocket.cpp" line="179"/>
         <source>New Friend Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="167"/>
+        <location filename="../online/onlinewebsocket.cpp" line="179"/>
         <source>%1 sent you a friend request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="178"/>
+        <location filename="../online/onlinewebsocket.cpp" line="190"/>
         <source>Friend Request Accepted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="178"/>
+        <location filename="../online/onlinewebsocket.cpp" line="190"/>
         <source>%1 accepted your friend request</source>
         <translation type="unfinished"></translation>
     </message>

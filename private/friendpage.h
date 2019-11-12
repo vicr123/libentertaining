@@ -37,6 +37,10 @@ class FriendPage : public QWidget
 
         void setActiveUser(QString username, QString friendStatus);
 
+    signals:
+        void blockUi(bool block);
+        void reloadFriendsModel();
+
     private slots:
         void on_acceptIncomingButton_clicked();
 

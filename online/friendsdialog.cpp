@@ -27,6 +27,7 @@
 #include "questionoverlay.h"
 #include "onlineapi.h"
 #include <QKeyEvent>
+#include <QShortcut>
 
 struct FriendsDialogPrivate {
     FriendsModel* model;
@@ -65,11 +66,32 @@ FriendsDialog::FriendsDialog(QWidget *parent) :
         }
     });
 
+    connect(ui->friendPage, &FriendPage::blockUi, this, [=](bool block) {
+        if (block) {
+            ui->mainStack->setCurrentWidget(ui->loaderPage);
+        } else {
+            ui->mainStack->setCurrentWidget(ui->mainPage);
+        }
+    });
+    connect(ui->friendPage, &FriendPage::reloadFriendsModel, this, [=] {
+        d->model->update();
+    });
+
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Select"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+        if (ui->friendsList->hasFocus()) {
+            ui->backButton->click();
+        } else {
+            ui->friendsList->setFocus();
+        }
+    });
+
+
+    QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
+    connect(backShortcut, &QShortcut::activated, this, [=] {
         if (ui->friendsList->hasFocus()) {
             ui->backButton->click();
         } else {
@@ -106,6 +128,7 @@ void FriendsDialog::on_addFriendByUsernameButton_clicked()
     QString username = TextInputOverlay::getText(this, tr("What's your friend's username?"), &canceled);
     if (!canceled) {
         //Send the friend request
+        ui->mainStack->setCurrentWidget(ui->loaderPage);
         OnlineApi::instance()->post("/friends/requestByUsername", {
             {"username", username}
         })->then([=](QJsonDocument doc) {
@@ -131,6 +154,7 @@ void FriendsDialog::on_addFriendByUsernameButton_clicked()
             question->setButtons(QMessageBox::Ok);
             connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
             connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+            ui->mainStack->setCurrentWidget(ui->mainPage);
         })->error([=](QString error) {
             QuestionOverlay* question = new QuestionOverlay(this);
             question->setIcon(QMessageBox::Critical);
@@ -139,6 +163,7 @@ void FriendsDialog::on_addFriendByUsernameButton_clicked()
             question->setButtons(QMessageBox::Ok);
             connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
             connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+            ui->mainStack->setCurrentWidget(ui->mainPage);
         });
     }
 }
@@ -162,4 +187,21 @@ bool FriendsDialog::eventFilter(QObject*watched, QEvent*event)
         }
     }
     return false;
+}
+
+void FriendsDialog::on_logOutButton_clicked()
+{
+    QuestionOverlay* question = new QuestionOverlay(this);
+    question->setIcon(QMessageBox::Question);
+    question->setTitle(tr("Log Out"));
+    question->setText(tr("Log out of %1?").arg(OnlineApi::instance()->getLoggedInUsername()));
+    question->setButtons(QMessageBox::Yes | QMessageBox::Cancel, tr("Log Out"), true);
+    connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+        if (button == QMessageBox::Yes) {
+            //Log out of the account
+            ui->backButton->click();
+            OnlineApi::instance()->logOut();
+        }
+    });
+    connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 }

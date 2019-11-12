@@ -23,6 +23,7 @@
 #include <QEventLoop>
 #include <QSettings>
 #include <QKeyEvent>
+#include <QShortcut>
 #include "onlineapi.h"
 #include "questionoverlay.h"
 #include "musicengine.h"
@@ -73,6 +74,10 @@ LoginDialog::LoginDialog(QWidget *parent) :
         ui->loginButton->click();
     });
 
+    QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), ui->loginPage);
+    connect(backShortcut, &QShortcut::activated, this, [=] {
+        ui->backButton->click();
+    });
 
     ui->gamepadHud2->setButtonText(QGamepadManager::ButtonA, tr("Select"));
     ui->gamepadHud2->setButtonText(QGamepadManager::ButtonStart, tr("Register"));
@@ -85,6 +90,11 @@ LoginDialog::LoginDialog(QWidget *parent) :
     });
     ui->gamepadHud2->setButtonAction(QGamepadManager::ButtonStart, [=] {
         ui->doRegisterButton->click();
+    });
+
+    QShortcut* backShortcut2 = new QShortcut(QKeySequence(Qt::Key_Escape), ui->registerPage);
+    connect(backShortcut2, &QShortcut::activated, this, [=] {
+        ui->backButton_2->click();
     });
 
     this->setFocusProxy(ui->usernameBox);

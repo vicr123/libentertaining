@@ -89,6 +89,8 @@ void FriendPage::respondToFriendRequest(QString response)
     } else if (response == "retract") {
         endpoint = "/friends/retractByUsername";
     }
+
+    emit blockUi(true);
     OnlineApi::instance()->post(endpoint, {
         {"username", d->currentUsername}
     })->then([=](QJsonDocument doc) {
@@ -121,6 +123,9 @@ void FriendPage::respondToFriendRequest(QString response)
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        emit blockUi(false);
+        emit reloadFriendsModel();
     })->error([=](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
@@ -129,6 +134,7 @@ void FriendPage::respondToFriendRequest(QString response)
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+        emit blockUi(false);
     });
 }
 
@@ -142,6 +148,7 @@ void FriendPage::on_removeFriendButton_clicked()
     connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
         if (button == QMessageBox::Yes) {
             //Remove friend
+            emit blockUi(true);
             OnlineApi::instance()->post("/friends/removeByUsername", {
                 {"username", d->currentUsername}
             })->then([=](QJsonDocument doc) {
@@ -167,6 +174,9 @@ void FriendPage::on_removeFriendButton_clicked()
                 question->setButtons(QMessageBox::Ok);
                 connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
                 connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+                emit reloadFriendsModel();
+                emit blockUi(false);
             })->error([=](QString error) {
                 QuestionOverlay* question = new QuestionOverlay(this);
                 question->setIcon(QMessageBox::Critical);
@@ -175,6 +185,7 @@ void FriendPage::on_removeFriendButton_clicked()
                 question->setButtons(QMessageBox::Ok);
                 connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
                 connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+                emit blockUi(false);
             });
         }
     });

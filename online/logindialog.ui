@@ -492,5 +492,102 @@
  <resources>
   <include location="../libentertaining_resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>passwordBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>loginButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>642</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>648</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>usernameBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>passwordBox</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>611</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>613</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>registerUsernameBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>registerPasswordBox</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>623</x>
+     <y>94</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>624</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>registerPasswordBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>registerPasswordConfirmBox</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>592</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>registerPasswordConfirmBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>registerEmailBox</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>571</x>
+     <y>157</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>568</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>registerEmailBox</sender>
+   <signal>returnPressed()</signal>
+   <receiver>doRegisterButton</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>549</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>621</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
