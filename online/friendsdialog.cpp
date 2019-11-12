@@ -154,6 +154,8 @@ void FriendsDialog::on_addFriendByUsernameButton_clicked()
             question->setButtons(QMessageBox::Ok);
             connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
             connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+            d->model->update();
             ui->mainStack->setCurrentWidget(ui->mainPage);
         })->error([=](QString error) {
             QuestionOverlay* question = new QuestionOverlay(this);

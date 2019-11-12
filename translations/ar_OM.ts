@@ -255,8 +255,8 @@
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="287"/>
-        <location filename="../online/friendsdialog.cpp" line="196"/>
         <location filename="../online/friendsdialog.cpp" line="198"/>
+        <location filename="../online/friendsdialog.cpp" line="200"/>
         <source>Log Out</source>
         <translation type="unfinished"></translation>
     </message>
@@ -312,7 +312,7 @@
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="146"/>
-        <location filename="../online/friendsdialog.cpp" line="161"/>
+        <location filename="../online/friendsdialog.cpp" line="163"/>
         <source>Friend Request Failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -327,7 +327,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="197"/>
+        <location filename="../online/friendsdialog.cpp" line="199"/>
         <source>Log out of %1?</source>
         <translation type="unfinished"></translation>
     </message>

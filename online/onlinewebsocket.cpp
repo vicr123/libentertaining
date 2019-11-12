@@ -161,7 +161,7 @@ void OnlineWebSocket::processSystemMessage(QJsonObject obj)
         //Immediately reply
         sendJsonO({
             {"system", true},
-            {"type", "clientPingReply"},
+            {"type", "serverPingReply"},
             {"seq", obj.value("seq").toInt()}
         });
     } else if (type == "notifyNewFriendRequests") {
