@@ -47,9 +47,6 @@ FriendsDialog::FriendsDialog(QWidget *parent) :
     ui->friendsList->setItemDelegate(new FriendsDelegate);
     ui->friendsList->installEventFilter(this);
 
-    ui->logOutButton->setProperty("type", "destructive");
-
-    ui->profilePage->setFocusProxy(ui->changeUsernameButton);
     ui->addFriendPage->setFocusProxy(ui->addFriendByUsernameButton);
     this->setFocusProxy(ui->friendsList);
 
@@ -101,10 +98,6 @@ FriendsDialog::FriendsDialog(QWidget *parent) :
 
     ui->focusBarrier->setBounceWidget(ui->addFriendByUsernameButton);
     ui->focusBarrier_2->setBounceWidget(ui->addFriendByUsernameButton);
-    ui->focusBarrier_3->setBounceWidget(ui->changeUsernameButton);
-    ui->focusBarrier_4->setBounceWidget(ui->logOutButton);
-
-    ui->profilePageTitle->setText(OnlineApi::getLoggedInUsername());
 
     PauseOverlay::overlayForWindow(parent)->pushOverlayWidget(this);
 }
@@ -191,19 +184,3 @@ bool FriendsDialog::eventFilter(QObject*watched, QEvent*event)
     return false;
 }
 
-void FriendsDialog::on_logOutButton_clicked()
-{
-    QuestionOverlay* question = new QuestionOverlay(this);
-    question->setIcon(QMessageBox::Question);
-    question->setTitle(tr("Log Out"));
-    question->setText(tr("Log out of %1?").arg(OnlineApi::instance()->getLoggedInUsername()));
-    question->setButtons(QMessageBox::Yes | QMessageBox::Cancel, tr("Log Out"), true);
-    connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
-        if (button == QMessageBox::Yes) {
-            //Log out of the account
-            ui->backButton->click();
-            OnlineApi::instance()->logOut();
-        }
-    });
-    connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
-}

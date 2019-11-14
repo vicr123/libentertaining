@@ -210,6 +210,37 @@ int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, in
     }
 }
 
+QString TextInputOverlay::getTextWithRegex(QWidget*parent, QString question, QRegularExpression regex, bool*canceled, QString defaultText, QString errorText, Qt::InputMethodHints hints, QLineEdit::EchoMode echoMode)
+{
+    QEventLoop* loop = new QEventLoop();
+
+    QRegularExpressionValidator validator(regex);
+
+    TextInputOverlay* input = new TextInputOverlay(parent);
+    input->setQuestion(question);
+    input->setResponse(defaultText);
+    input->setEchoMode(echoMode);
+    input->setInputMethodHints(hints);
+    input->setValidator(&validator, errorText);
+    input->show();
+    connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
+    connect(input, &TextInputOverlay::rejected, loop, std::bind(&QEventLoop::exit, loop, 1));
+    if (loop->exec() == 0) {
+        if (canceled != nullptr) *canceled = false;
+        input->hide();
+        QString response = input->response();
+        input->deleteLater();
+        loop->deleteLater();
+        return response;
+    } else {
+        if (canceled != nullptr) *canceled = true;
+        input->hide();
+        input->deleteLater();
+        loop->deleteLater();
+        return "";
+    }
+}
+
 void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWidget*overlayOn)
 {
     TextInputLineEditHandler* handler = new TextInputLineEditHandler(lineEdit);

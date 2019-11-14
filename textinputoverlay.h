@@ -40,6 +40,7 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
 
         static QString getText(QWidget* parent, QString question, bool* canceled = nullptr, QString defaultText = "", QLineEdit::EchoMode echoMode = QLineEdit::Normal);
         static int getInt(QWidget* parent, QString question, bool* canceled = nullptr, int defaultText = 0, int min = 0, int max = 100, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
+        static QString getTextWithRegex(QWidget* parent, QString question, QRegularExpression regex, bool* canceled = nullptr, QString defaultText = "", QString errorText = "", Qt::InputMethodHints hints = Qt::ImhNone, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
         static void installHandler(QLineEdit* lineEdit, QString question = "", QWidget* overlayOn = nullptr);
 
         void setQuestion(QString question);

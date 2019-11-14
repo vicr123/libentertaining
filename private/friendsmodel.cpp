@@ -136,7 +136,7 @@ QVariant FriendsModel::data(const QModelIndex &index, int role) const
                         return tr("Offline");
                     }
                 } else if (status == "request-incoming") {
-                    return tr("Incoming Request");
+                    return tr("Incoming Friend Request");
                 } else if (status == "request-outgoing") {
                     return tr("Outgoing Friend Request");
                 } else {

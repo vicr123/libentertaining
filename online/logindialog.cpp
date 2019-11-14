@@ -137,6 +137,8 @@ void LoginDialog::on_backButton_2_clicked()
 
 void LoginDialog::on_registerButton_clicked()
 {
+    ui->registerUsernameBox->setText(ui->usernameBox->text());
+    ui->registerPasswordBox->setText(ui->passwordBox->text());
     ui->stackedWidget->setCurrentWidget(ui->registerPage);
 }
 
@@ -186,10 +188,15 @@ void LoginDialog::on_doRegisterButton_clicked()
 
 void LoginDialog::on_loginButton_clicked()
 {
+    attemptLogin(ui->usernameBox->text(), ui->passwordBox->text(), "");
+}
+
+void LoginDialog::attemptLogin(QString username, QString password, QString otpToken)
+{
     QString error = "";
 
-    if (ui->usernameBox->text().isEmpty()) error = tr("Enter your username");
-    if (ui->passwordBox->text().isEmpty()) error = tr("Enter your password");
+    if (username.isEmpty()) error = tr("Enter your username");
+    if (password.isEmpty()) error = tr("Enter your password");
 
     if (!error.isEmpty()) {
         QuestionOverlay* question = new QuestionOverlay(this);
@@ -205,11 +212,42 @@ void LoginDialog::on_loginButton_clicked()
     //Attempt to log the user in
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     OnlineApi::instance()->post("/users/token", {
-                                    {"username", ui->usernameBox->text()},
-                                    {"password", ui->passwordBox->text()}
+                                    {"username", username},
+                                    {"password", password},
+                                    {"otpToken", otpToken}
                                 })->then([=](QJsonDocument response) {
-        d->settings->setValue("online/token", response.object().value("token").toString());
-        emit accepted();
+        QJsonObject obj = response.object();
+        if (obj.contains("error")) {
+            QString error = obj.value("error").toString();
+            if (error == "otp.required") {
+                //Ask for the OTP token
+                bool canceled;
+                QString totpToken = TextInputOverlay::getTextWithRegex(this, tr("Enter your Two Factor Authentication code"), QRegularExpression("\\d{12}|\\d{6}"), &canceled, "", tr("Enter a valid Two Factor Authentication code"), Qt::ImhDigitsOnly);
+                if (canceled) {
+                    ui->stackedWidget->setCurrentWidget(ui->loginPage);
+                } else {
+                    attemptLogin(username, password, totpToken);
+                }
+            } else {
+                QuestionOverlay* question = new QuestionOverlay(this);
+                question->setIcon(QMessageBox::Critical);
+                if (error == "authentication.incorrect") {
+                    question->setTitle(tr("Incorrect Details"));
+                    question->setText(tr("Check your username and password and try again."));
+                } else if (error == "otp.incorrect") {
+                    question->setTitle(tr("Incorrect Details"));
+                    question->setText(tr("Check your Two Factor Authentication code and try again."));
+                }
+                question->setButtons(QMessageBox::Ok);
+                connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+                connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+                ui->stackedWidget->setCurrentWidget(ui->loginPage);
+            }
+        } else {
+            d->settings->setValue("online/token", response.object().value("token").toString());
+            emit accepted();
+        }
     })->error([=](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         if (OnlineApi::httpStatusCodeFromPromiseRejection(error) == 401) {

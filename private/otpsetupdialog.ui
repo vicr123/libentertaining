@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OtpSetupDialog</class>
+ <widget class="QWidget" name="OtpSetupDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>692</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="loaderPage">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>183</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>230</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="tCircularSpinner" name="widget" native="true"/>
+       </item>
+       <item row="1" column="2">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>229</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="1">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>183</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="setupPage">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="backButton">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="go-previous">
+             <normaloff>../../theShell/statuscenter/PulseaudioPane</normaloff>../../theShell/statuscenter/PulseaudioPane</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Set up Two Factor Authentication</string>
+           </property>
+           <property name="margin">
+            <number>9</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QWidget" name="setupPageContainer" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>600</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>9</number>
+            </property>
+            <property name="rightMargin">
+             <number>9</number>
+            </property>
+            <property name="bottomMargin">
+             <number>9</number>
+            </property>
+            <property name="spacing">
+             <number>6</number>
+            </property>
+            <item row="3" column="1">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>To finish setup, enter the code shown on the app.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="FocusBarrier" name="focusBarrier">
+                  <property name="text">
+                   <string notr="true">Barrier</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="enterOtpTokenButton">
+                  <property name="text">
+                   <string>Enter Code</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="FocusBarrier" name="focusBarrier_2">
+                  <property name="text">
+                   <string notr="true">Barrier</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_8">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Grab an authenticator app on your phone. Good apps that you can use include Authy and Google Authenticator.</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_10">
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>After setting up Two Factor Authentication, you'll need to provide both your password and a special one time code that's generated on your phone.</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_11">
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_12">
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>Enter this code into the app</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="keyLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="GamepadHud" name="gamepadHud" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="managePage">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="backButton_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset theme="go-previous">
+             <normaloff>../../theShell/statuscenter/PulseaudioPane</normaloff>../../theShell/statuscenter/PulseaudioPane</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Manage Two Factor Authentication</string>
+           </property>
+           <property name="margin">
+            <number>9</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QWidget" name="managePageContainer" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>600</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item row="7" column="0">
+               <widget class="QLabel" name="backupCode_9">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Two Factor Authentication is currently enabled for your account.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="backupCode_7">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLabel" name="backupCode_2">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QLabel" name="backupCode_10">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="backupCode_5">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="backupCode">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLabel" name="backupCode_6">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLabel" name="backupCode_4">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLabel" name="backupCode_8">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>Your backup codes are displayed below. Keep them in a safe place.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_6">
+                <property name="font">
+                 <font>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>BACKUP CODES</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="backupCode_3">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">TextLabel</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0" colspan="2">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>These backup codes can be used if you lose access to your Two Factor Authentication device, however, they can only be used once. You can generate more backup codes as needed, but this will invalidate the old backup codes.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>ACTIONS</string>
+              </property>
+              <property name="margin">
+               <number>6</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="FocusBarrier" name="focusBarrier_3">
+              <property name="text">
+               <string notr="true">Barrier</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="regenerateBackupCodesButton">
+              <property name="text">
+               <string>Regenerate Backup Codes</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="turnOffTotpButton">
+              <property name="text">
+               <string>Turn off Two Factor Authentication</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="FocusBarrier" name="focusBarrier_4">
+              <property name="text">
+               <string notr="true">Barrier</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="GamepadHud" name="gamepadHud_2" native="true"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GamepadHud</class>
+   <extends>QWidget</extends>
+   <header location="global">gamepadhud.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FocusBarrier</class>
+   <extends>QPushButton</extends>
+   <header location="global">focusbarrier.h</header>
+  </customwidget>
+  <customwidget>
+   <class>tCircularSpinner</class>
+   <extends>QWidget</extends>
+   <header location="global">tcircularspinner.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

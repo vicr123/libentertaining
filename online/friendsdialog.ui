@@ -215,87 +215,6 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_4">
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>PROFILE</string>
-               </property>
-               <property name="margin">
-                <number>9</number>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="FocusBarrier" name="focusBarrier_3">
-               <property name="text">
-                <string notr="true">Barrier</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="changeUsernameButton">
-               <property name="text">
-                <string>Change Username</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="changeEmailButton">
-               <property name="text">
-                <string>Change Email Address</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_5">
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>SECURITY</string>
-               </property>
-               <property name="margin">
-                <number>9</number>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="changePasswordButton">
-               <property name="text">
-                <string>Change Password</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="setup2faButton">
-               <property name="text">
-                <string>Set up Two Factor Authentication</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="logOutButton">
-               <property name="text">
-                <string>Log Out</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="FocusBarrier" name="focusBarrier_4">
-               <property name="text">
-                <string notr="true">Barrier</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <spacer name="verticalSpacer_2">
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
@@ -501,13 +420,6 @@
  </customwidgets>
  <tabstops>
   <tabstop>friendsList</tabstop>
-  <tabstop>focusBarrier_3</tabstop>
-  <tabstop>changeUsernameButton</tabstop>
-  <tabstop>changeEmailButton</tabstop>
-  <tabstop>changePasswordButton</tabstop>
-  <tabstop>setup2faButton</tabstop>
-  <tabstop>logOutButton</tabstop>
-  <tabstop>focusBarrier_4</tabstop>
   <tabstop>focusBarrier</tabstop>
   <tabstop>addFriendByUsernameButton</tabstop>
   <tabstop>focusBarrier_2</tabstop>

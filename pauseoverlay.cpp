@@ -25,12 +25,13 @@
 #include <QGraphicsBlurEffect>
 #include <QStack>
 #include <QTimer>
+#include <QPointer>
 #include <tvariantanimation.h>
 
 struct PauseOverlayPrivate {
     static QMap<QWidget*, PauseOverlay*> overlays;
 
-    QStack<QWidget*> overlayWidget;
+    QStack<QPointer<QWidget>> overlayWidget;
     QWidget* currentOverlayWidget = nullptr;
     QWidget* parentWidget;
 

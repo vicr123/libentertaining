@@ -41,8 +41,6 @@ class LIBENTERTAINING_EXPORT FriendsDialog : public QWidget
 
         void on_addFriendByUsernameButton_clicked();
 
-        void on_logOutButton_clicked();
-
     signals:
         void done();
 

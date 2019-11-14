@@ -89,6 +89,7 @@ SOURCES += \
     musicengine.cpp \
     notificationengine.cpp \
     notifications/notificationpopup.cpp \
+    online/accountdialog.cpp \
     online/friendsdialog.cpp \
     online/logindialog.cpp \
     online/onlineapi.cpp \
@@ -102,6 +103,7 @@ SOURCES += \
     private/gamepadmodel.cpp \
     private/loaddialog.cpp \
     private/loaddialogfileoptions.cpp \
+    private/otpsetupdialog.cpp \
     private/savedialog.cpp \
     private/saveengine.cpp \
     private/savesmodel.cpp \
@@ -135,6 +137,7 @@ HEADERS += \
     musicengine.h \
     notificationengine.h \
     notifications/notificationpopup.h \
+    online/accountdialog.h \
     online/friendsdialog.h \
     online/logindialog.h \
     online/onlineapi.h \
@@ -148,6 +151,7 @@ HEADERS += \
     private/gamepadmodel.h \
     private/loaddialog.h \
     private/loaddialogfileoptions.h \
+    private/otpsetupdialog.h \
     private/savedialog.h \
     private/saveengine.h \
     private/savesmodel.h \
@@ -226,11 +230,13 @@ FORMS += \
     keyboards/layoutselect.ui \
     keyboards/uskeyboard.ui \
     notifications/notificationpopup.ui \
+    online/accountdialog.ui \
     online/friendsdialog.ui \
     online/logindialog.ui \
     private/friendpage.ui \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \
+    private/otpsetupdialog.ui \
     private/savedialog.ui \
     questionoverlay.ui \
     settingwidget.ui \
