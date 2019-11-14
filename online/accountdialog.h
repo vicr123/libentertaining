@@ -20,13 +20,14 @@
 #ifndef ACCOUNTDIALOG_H
 #define ACCOUNTDIALOG_H
 
+#include <libentertaining_global.h>
 #include <QWidget>
 
 namespace Ui {
     class AccountDialog;
 }
 
-class AccountDialog : public QWidget
+class LIBENTERTAINING_EXPORT AccountDialog : public QWidget
 {
         Q_OBJECT
 

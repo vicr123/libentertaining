@@ -53,9 +53,7 @@ FriendsDialog::FriendsDialog(QWidget *parent) :
     connect(ui->friendsList->selectionModel(), &QItemSelectionModel::selectionChanged, this, [=](QItemSelection current, QItemSelection previous) {
         QModelIndex index = current.indexes().first();
         QString pane = index.data(Qt::UserRole).toString();
-        if (pane == "profile") {
-            ui->stackedWidget->setCurrentWidget(ui->profilePage);
-        } else if (pane == "friend-add") {
+        if (pane == "friend-add") {
             ui->stackedWidget->setCurrentWidget(ui->addFriendPage);
         } else if (pane == "friend") {
             ui->friendPage->setActiveUser(index.data(Qt::DisplayRole).toString(), index.data(Qt::UserRole + 2).toString());

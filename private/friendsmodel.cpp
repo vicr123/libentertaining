@@ -50,12 +50,6 @@ FriendsModel::FriendsModel(QObject *parent)
     d = new FriendsModelPrivate();
 
     d->actions.append({
-        QIcon(":/libentertaining/icons/user.svg"),
-        OnlineApi::getLoggedInUsername(),
-        "profile",
-        tr("You")
-    });
-    d->actions.append({
         QIcon(":/libentertaining/icons/list-add.svg"),
         tr("Add Friend"),
         "friend-add",

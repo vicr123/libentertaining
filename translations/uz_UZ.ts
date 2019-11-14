@@ -289,68 +289,68 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="257"/>
+        <location filename="../online/friendsdialog.ui" line="197"/>
         <source>Add Friend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="280"/>
+        <location filename="../online/friendsdialog.ui" line="220"/>
         <source>You can send a friend request to someone by entering their username.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.ui" line="297"/>
+        <location filename="../online/friendsdialog.ui" line="237"/>
         <source>Add Friend by Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="77"/>
+        <location filename="../online/friendsdialog.cpp" line="75"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="78"/>
+        <location filename="../online/friendsdialog.cpp" line="76"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="121"/>
+        <location filename="../online/friendsdialog.cpp" line="119"/>
         <source>What&apos;s your friend&apos;s username?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="133"/>
+        <location filename="../online/friendsdialog.cpp" line="131"/>
         <source>Unknown User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="134"/>
+        <location filename="../online/friendsdialog.cpp" line="132"/>
         <source>That user doesn&apos;t exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="136"/>
+        <location filename="../online/friendsdialog.cpp" line="134"/>
         <source>Already Friends</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="137"/>
+        <location filename="../online/friendsdialog.cpp" line="135"/>
         <source>You&apos;re already friends with that user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="139"/>
-        <location filename="../online/friendsdialog.cpp" line="156"/>
+        <location filename="../online/friendsdialog.cpp" line="137"/>
+        <location filename="../online/friendsdialog.cpp" line="154"/>
         <source>Friend Request Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="144"/>
+        <location filename="../online/friendsdialog.cpp" line="142"/>
         <source>Friend Request Sent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/friendsdialog.cpp" line="145"/>
+        <location filename="../online/friendsdialog.cpp" line="143"/>
         <source>Your friend request to %1 has been sent.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -358,42 +358,37 @@
 <context>
     <name>FriendsModel</name>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="60"/>
+        <location filename="../private/friendsmodel.cpp" line="54"/>
         <source>Add Friend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="62"/>
+        <location filename="../private/friendsmodel.cpp" line="56"/>
         <source>Add a friend to your friends list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="112"/>
+        <location filename="../private/friendsmodel.cpp" line="106"/>
         <source>Friends</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="141"/>
+        <location filename="../private/friendsmodel.cpp" line="135"/>
         <source>Outgoing Friend Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="136"/>
+        <location filename="../private/friendsmodel.cpp" line="130"/>
         <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="56"/>
-        <source>You</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/friendsmodel.cpp" line="139"/>
+        <location filename="../private/friendsmodel.cpp" line="133"/>
         <source>Incoming Friend Request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/friendsmodel.cpp" line="143"/>
+        <location filename="../private/friendsmodel.cpp" line="137"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
