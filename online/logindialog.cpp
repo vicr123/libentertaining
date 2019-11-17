@@ -1,4 +1,4 @@
-/****************************************
+﻿/****************************************
  *
  *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
  *   Copyright (C) 2019 Victor Tran
@@ -30,6 +30,7 @@
 #include "textinputoverlay.h"
 #include "private/entertainingsettings.h"
 #include "pauseoverlay.h"
+#include "onlineerrormessages.h"
 
 struct LoginDialogPrivate {
     QWidget* parent;
@@ -171,8 +172,21 @@ void LoginDialog::on_doRegisterButton_clicked()
                                     {"password", ui->registerPasswordBox->text()},
                                     {"email", ui->registerEmailBox->text()}
                                 })->then([=](QJsonDocument response) {
-        d->settings->setValue("online/token", response.object().value("token").toString());
-        emit accepted();
+        QJsonObject obj = response.object();
+        if (obj.contains("error")) {
+            QuestionOverlay* question = new QuestionOverlay(this);
+            question->setIcon(QMessageBox::Critical);
+            question->setTitle(tr("Registration Failed"));
+            question->setText(OnlineErrorMessages::messageForCode(obj.value("error").toString(), tr("We weren't able to register you. Try again later.")));
+            question->setButtons(QMessageBox::Ok);
+            connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+            connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+            ui->stackedWidget->setCurrentWidget(ui->registerPage);
+        } else {
+            d->settings->setValue("online/token", obj.value("token").toString());
+            emit accepted();
+        }
     })->error([=](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
@@ -231,13 +245,8 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
             } else {
                 QuestionOverlay* question = new QuestionOverlay(this);
                 question->setIcon(QMessageBox::Critical);
-                if (error == "authentication.incorrect") {
-                    question->setTitle(tr("Incorrect Details"));
-                    question->setText(tr("Check your username and password and try again."));
-                } else if (error == "otp.incorrect") {
-                    question->setTitle(tr("Incorrect Details"));
-                    question->setText(tr("Check your Two Factor Authentication code and try again."));
-                }
+                question->setTitle(tr("Login Failed"));
+                question->setText(OnlineErrorMessages::messageForCode(error, tr("Check your details and try again.")));
                 question->setButtons(QMessageBox::Ok);
                 connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
                 connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
@@ -250,15 +259,9 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
         }
     })->error([=](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
-        if (OnlineApi::httpStatusCodeFromPromiseRejection(error) == 401) {
-            question->setIcon(QMessageBox::Warning);
-            question->setTitle(tr("Incorrect Details"));
-            question->setText(tr("Check your username and password and try again."));
-        } else {
-            question->setIcon(QMessageBox::Critical);
-            question->setTitle(tr("Login Failed"));
-            question->setText(OnlineApi::errorFromPromiseRejection(error));
-        }
+        question->setIcon(QMessageBox::Critical);
+        question->setTitle(tr("Login Failed"));
+        question->setText(OnlineApi::errorFromPromiseRejection(error));
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);

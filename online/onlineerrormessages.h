@@ -17,38 +17,20 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ACCOUNTDIALOG_H
-#define ACCOUNTDIALOG_H
+#ifndef ONLINEERRORMESSAGES_H
+#define ONLINEERRORMESSAGES_H
 
-#include <libentertaining_global.h>
-#include <QWidget>
+#include <QString>
 
-namespace Ui {
-    class AccountDialog;
-}
-
-class LIBENTERTAINING_EXPORT AccountDialog : public QWidget
+struct OnlineErrorMessagesPrivate;
+class OnlineErrorMessages
 {
-        Q_OBJECT
+    public:
+        static QString messageForCode(QString code, QString defaultMessage);
 
     public:
-        explicit AccountDialog(QWidget *parent = nullptr);
-        ~AccountDialog();
-
-    private slots:
-        void on_logOutButton_clicked();
-
-        void on_backButton_clicked();
-
-        void on_setup2faButton_clicked();
-
-        void on_changeUsernameButton_clicked();
-
-    signals:
-        void done();
-
-    private:
-        Ui::AccountDialog *ui;
+        OnlineErrorMessages();
+        static OnlineErrorMessagesPrivate* d;
 };
 
-#endif // ACCOUNTDIALOG_H
+#endif // ONLINEERRORMESSAGES_H

@@ -93,6 +93,7 @@ SOURCES += \
     online/friendsdialog.cpp \
     online/logindialog.cpp \
     online/onlineapi.cpp \
+    online/onlineerrormessages.cpp \
     online/onlinewebsocket.cpp \
     pauseoverlay.cpp \
     private/applicationeventfilter.cpp \
@@ -141,6 +142,7 @@ HEADERS += \
     online/friendsdialog.h \
     online/logindialog.h \
     online/onlineapi.h \
+    online/onlineerrormessages.h \
     online/onlinewebsocket.h \
     pauseoverlay.h \
     private/applicationeventfilter.h \

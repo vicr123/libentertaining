@@ -24,6 +24,7 @@
 #include "pauseoverlay.h"
 #include "questionoverlay.h"
 #include "textinputoverlay.h"
+#include "online/onlineerrormessages.h"
 
 struct OtpSetupDialogPrivate {
     QWidget* parent;
@@ -170,11 +171,10 @@ void OtpSetupDialog::on_enterOtpTokenButton_clicked()
                 QString error = doc.object().value("error").toString();
                 if (error == "otp.invalidToken") {
                     question->setTitle(tr("Incorrect Details"));
-                    question->setText(tr("Check the code and try again."));
                 } else {
                     question->setTitle(tr("Enabling OTP Token failed"));
-                    question->setText(error);
                 }
+                question->setText(OnlineErrorMessages::messageForCode(error, tr("Try enabling Two Factor Authentication at a later time.")));
 
                 ui->stackedWidget->setCurrentWidget(ui->setupPage);
                 ui->setupPage->setFocus();
@@ -273,7 +273,7 @@ void OtpSetupDialog::on_regenerateBackupCodesButton_clicked()
                     question->setIcon(QMessageBox::Critical);
                     QString error = doc.object().value("error").toString();
                     question->setTitle(tr("Backup Code Regeneration Failed"));
-                    question->setText(error);
+                    question->setText(OnlineErrorMessages::messageForCode(error, tr("Try regenerating your Two Factor Authentication codes at a later time.")));
                     question->setButtons(QMessageBox::Ok);
 
                     connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
@@ -321,7 +321,7 @@ void OtpSetupDialog::on_turnOffTotpButton_clicked()
                     question->setIcon(QMessageBox::Critical);
                     QString error = doc.object().value("error").toString();
                     question->setTitle(tr("Two Factor Authentication Removal Failed"));
-                    question->setText(error);
+                    question->setText(OnlineErrorMessages::messageForCode(error, tr("Try removing Two Factor Authentication at a later time.")));
                 } else {
                     question->setIcon(QMessageBox::Information);
                     question->setTitle(tr("Two Factor Authentication Disabled"));
