@@ -80,6 +80,7 @@ SOURCES += \
     gamepadevent.cpp \
     gamepadhud.cpp \
     gamepadlabel.cpp \
+    horizontalspinbox.cpp \
     keyboards/keyboard.cpp \
     keyboards/keyboardlayoutsdatabase.cpp \
     keyboards/keyboardlayoutsmodel.cpp \
@@ -128,6 +129,7 @@ HEADERS += \
     gamepadevent.h \
     gamepadhud.h \
     gamepadlabel.h \
+    horizontalspinbox.h \
     keyboards/keyboard.h \
     keyboards/keyboardlayoutsdatabase.h \
     keyboards/keyboardlayoutsmodel.h \
@@ -231,6 +233,7 @@ FORMS += \
     gamepadConfiguration/stickdiagnostics.ui \
     gamepadconfigurationoverlay.ui \
     gamepadhud.ui \
+    horizontalspinbox.ui \
     keyboards/layoutselect.ui \
     keyboards/uskeyboard.ui \
     notifications/notificationpopup.ui \

@@ -585,6 +585,20 @@
     </message>
 </context>
 <context>
+    <name>HorizontalSpinBox</name>
+    <message>
+        <location filename="../horizontalspinbox.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../horizontalspinbox.ui" line="38"/>
+        <location filename="../horizontalspinbox.ui" line="65"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Keyboard</name>
     <message>
         <location filename="../keyboards/keyboard.cpp" line="233"/>
