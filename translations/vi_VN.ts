@@ -117,57 +117,57 @@
         <translation>Tên người dùng của bạn đã bị thay đổi.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="198"/>
+        <location filename="../online/accountdialog.cpp" line="178"/>
         <source>Couldn&apos;t retrieve account information</source>
         <translation>Không thể nhận thông tin về tài khoản</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="222"/>
+        <location filename="../online/accountdialog.cpp" line="202"/>
         <source>Verification Email Resent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="223"/>
+        <location filename="../online/accountdialog.cpp" line="203"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="232"/>
+        <location filename="../online/accountdialog.cpp" line="212"/>
         <source>Couldn&apos;t resend verification email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="246"/>
+        <location filename="../online/accountdialog.cpp" line="226"/>
         <source>Enter the verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="246"/>
+        <location filename="../online/accountdialog.cpp" line="226"/>
         <source>Enter a valid verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="262"/>
+        <location filename="../online/accountdialog.cpp" line="242"/>
         <source>Email Verification Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="263"/>
+        <location filename="../online/accountdialog.cpp" line="243"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="266"/>
+        <location filename="../online/accountdialog.cpp" line="246"/>
         <source>Email Verified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="267"/>
+        <location filename="../online/accountdialog.cpp" line="247"/>
         <source>Your email has been verified. Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="279"/>
+        <location filename="../online/accountdialog.cpp" line="259"/>
         <source>Couldn&apos;t verify your email email</source>
         <translation type="unfinished"></translation>
     </message>
@@ -896,42 +896,42 @@
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="283"/>
+        <location filename="../online/onlineapi.cpp" line="327"/>
         <source>The server is not operating correctly.</source>
         <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="108"/>
+        <location filename="../online/onlineapi.cpp" line="110"/>
         <source>You are not logged in.</source>
         <translation>Bạn chưa đăng nhập.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="118"/>
+        <location filename="../online/onlineapi.cpp" line="120"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ hiện đang bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="123"/>
+        <location filename="../online/onlineapi.cpp" line="125"/>
         <source>The connection was lost because a server error occurred.</source>
         <translation>Kết nối của bạn bị mất tại vì một lỗi tại máy chủ đã xảy ra.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="127"/>
+        <location filename="../online/onlineapi.cpp" line="129"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ không hiểu tin nhắn của chúng tôi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="130"/>
+        <location filename="../online/onlineapi.cpp" line="132"/>
         <source>The connection was lost because too much data was sent.</source>
         <translation>Kết nối của bạn bị mất tại vì quá nhiều dữ liệu bị gửi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="133"/>
+        <location filename="../online/onlineapi.cpp" line="135"/>
         <source>The connection was lost because an internal error occurred.</source>
         <translation>Kết nối của bạn bị mất tại vì một lỗi nội bộ đã xảy ra.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="138"/>
+        <location filename="../online/onlineapi.cpp" line="140"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
@@ -940,32 +940,32 @@ Try connecting again and re-enter your credentials.</source>
 Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="144"/>
+        <location filename="../online/onlineapi.cpp" line="146"/>
         <source>The connection was lost because the server does not support this application.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ không có hỗ trợ ứng dụng này.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="147"/>
+        <location filename="../online/onlineapi.cpp" line="149"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
         <translation>Kết nối của bạn bị mất tại vì bạn cần cập nhật để tiếp tục chơi trực tuyến.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="153"/>
+        <location filename="../online/onlineapi.cpp" line="155"/>
         <source>The connection to the server was lost.</source>
         <translation>Kết nối của bạn bị mất.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="165"/>
+        <location filename="../online/onlineapi.cpp" line="167"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>Máy chủ đã từ chối kết nối của chúng tôi. Nó có thể đang được bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="168"/>
+        <location filename="../online/onlineapi.cpp" line="170"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>Máy chủ DNS không thể tìm địa chỉ IP của máy chủ Entertaining Games.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="171"/>
+        <location filename="../online/onlineapi.cpp" line="173"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -974,17 +974,17 @@ Try again later.</source>
 Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="212"/>
+        <location filename="../online/onlineapi.cpp" line="256"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="214"/>
+        <location filename="../online/onlineapi.cpp" line="258"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="216"/>
+        <location filename="../online/onlineapi.cpp" line="260"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>

@@ -21,6 +21,7 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QPainter>
 #include "onlinewebsocket.h"
 #include "private/entertainingsettings.h"
 
@@ -29,6 +30,7 @@ struct OnlineApiPrivate {
     QSettings* settings = EntertainingSettings::instance();
 
     QString loggedInUsername;
+    QMap<QString, QImage> imageCache;
 };
 
 OnlineApiPrivate* OnlineApi::d = new OnlineApiPrivate();
@@ -186,6 +188,48 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
             delete errorConnection;
 
             res(ws);
+        });
+    });
+}
+
+tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSize)
+{
+    return new tPromise<QImage>([=](std::function<void(QImage)> res, std::function<void(QString)> rej) {
+        auto processImage = [=](QImage image) {
+            QImage displayImage(QSize(pictureSize, pictureSize), QImage::Format_ARGB32_Premultiplied);
+            displayImage.fill(Qt::transparent);
+
+            QPainter painter(&displayImage);
+            painter.setRenderHint(QPainter::Antialiasing);
+            QPainterPath clip;
+            clip.addEllipse(0, 0, pictureSize, pictureSize);
+            painter.setClipPath(clip);
+            painter.drawImage(0, 0, image.scaled(pictureSize, pictureSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+            painter.end();
+
+            res(displayImage);
+        };
+
+        if (d->imageCache.contains(gravatarHash)) {
+            processImage(d->imageCache.value(gravatarHash));
+            return;
+        }
+
+        //Get the profile picture
+        QNetworkAccessManager* mgr = new QNetworkAccessManager();
+        QNetworkReply* reply = mgr->get(QNetworkRequest(QUrl(QStringLiteral("http://gravatar.com/avatar/%1.png?d=404&s=512").arg(gravatarHash))));
+        connect(reply, &QNetworkReply::finished, this, [=] {
+            QImage image;
+            if (reply->error() == QNetworkReply::NoError) {
+                image = QImage::fromData(reply->readAll());
+            } else {
+                image = QIcon(":/libentertaining/icons/user.svg").pixmap(QSize(512, 512)).toImage();
+                theLibsGlobal::tintImage(image, Qt::white);
+            }
+            d->imageCache.insert(gravatarHash, image);
+
+            processImage(image);
+            mgr->deleteLater();
         });
     });
 }

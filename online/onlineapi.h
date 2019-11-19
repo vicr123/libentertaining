@@ -36,6 +36,7 @@ class LIBENTERTAINING_EXPORT OnlineApi : public QObject
         tPromise<QJsonDocument>* post(QString endpoint, QJsonObject body);
         tPromise<QJsonDocument>* get(QString endpoint);
         tPromise<OnlineWebSocket*>* play(QString applicationName, QString applicationVersion, QWidget* parentWidget);
+        tPromise<QImage>* profilePicture(QString gravatarHash, int pictureSize);
 
         void logOut();
 

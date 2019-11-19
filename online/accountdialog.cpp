@@ -163,28 +163,8 @@ void AccountDialog::loadData()
 
         //Get the profile picture
         int pictureSize = ui->profileInnerWidget->sizeHint().height();
-        QNetworkReply* reply = d->mgr.get(QNetworkRequest(QUrl(QStringLiteral("http://gravatar.com/avatar/%1.png?d=404&s=%2").arg(obj.value("gravHash").toString()).arg(pictureSize))));
-        connect(reply, &QNetworkReply::finished, this, [=] {
-            QImage image;
-            if (reply->error() == QNetworkReply::NoError) {
-                image = QImage::fromData(reply->readAll());
-            } else {
-                image = QIcon(":/libentertaining/icons/user.svg").pixmap(QSize(pictureSize, pictureSize)).toImage();
-                theLibsGlobal::tintImage(image, this->palette().color(QPalette::WindowText));
-            }
-
-            QImage displayImage(image.size(), QImage::Format_ARGB32_Premultiplied);
-            displayImage.fill(Qt::transparent);
-
-            QPainter painter(&displayImage);
-            painter.setRenderHint(QPainter::Antialiasing);
-            QPainterPath clip;
-            clip.addEllipse(0, 0, image.width(), image.height());
-            painter.setClipPath(clip);
-            painter.drawImage(0, 0, image);
-            painter.end();
-
-            ui->profilePictureLabel->setPixmap(QPixmap::fromImage(displayImage));
+        OnlineApi::instance()->profilePicture(obj.value("gravHash").toString(), pictureSize)->then([=](QImage image) {
+            ui->profilePictureLabel->setPixmap(QPixmap::fromImage(image));
             ui->usernameLabel->setText(obj.value("username").toString());
             ui->emailLabel->setText(obj.value("email").toString());
             ui->verifyEmailWidget->setVisible(!obj.value("verified").toBool());

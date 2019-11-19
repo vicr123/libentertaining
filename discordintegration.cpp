@@ -20,7 +20,7 @@ typedef void (*DiscordRunCallbacksFunction)(void);
 
 #define TO_CONST_CHAR(string, bufSize) ([=]() -> char* { \
         char* strBuf = new char[bufSize]; \
-        sprintf(strBuf, "%s", qPrintable(string)); \
+        sprintf(strBuf, "%s", string.toUtf8().constData()); \
         d->bufsToDelete.append(strBuf); \
         return strBuf; \
     })()
