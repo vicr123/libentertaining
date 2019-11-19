@@ -29,14 +29,16 @@ struct OnlineErrorMessagesPrivate {
         {"username.tooLong", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That username is too long. Keep it at 32 characters or under.")},
         {"username.bad", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That username is invalid. Stick to alphanumeric characters and spaces.")},
         {"email.taken", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email address has already been taken.")},
+        {"email.bad", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email address is invalid.")},
         {"authentication.incorrect", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your username and password and try again.")},
         {"otp.incorrect", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your Two Factor Authentication code and try again.")},
         {"otp.unavailable", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is unavailable at this time.")},
         {"otp.alreadyEnabled", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is already enabled for your account.")},
         {"otp.alreadyDisabled", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is already disabled for your account.")},
         {"otp.invalidToken", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your Two Factor Authentication code and try again.")},
-        {"authentication.invalid", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your credentials are incorrect. If you are logged in, you'll need to log out and log in again.")}
-
+        {"authentication.invalid", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your credentials are incorrect. If you are logged in, you'll need to log out and log in again.")},
+        {"verification.invalid", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your verification code is incorrect, or the verification code has expired.\n\n"
+                                                                                 "If it's been more than a day since you received the verification email, you'll need to resend the verification email to get a new code.")}
     };
 
     Q_DECLARE_TR_FUNCTIONS(OnlineErrorMessagePrivate)

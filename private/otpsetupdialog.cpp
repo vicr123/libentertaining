@@ -20,6 +20,7 @@
 #include "otpsetupdialog.h"
 #include "ui_otpsetupdialog.h"
 
+#include <QShortcut>
 #include "online/onlineapi.h"
 #include "pauseoverlay.h"
 #include "questionoverlay.h"
@@ -58,6 +59,16 @@ OtpSetupDialog::OtpSetupDialog(QWidget *parent) :
 
     ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
     ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [=] {
+        ui->backButton_2->click();
+    });
+
+    QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), ui->setupPage);
+    connect(backShortcut, &QShortcut::activated, this, [=] {
+        ui->backButton->click();
+    });
+
+    QShortcut* backShortcut_2 = new QShortcut(QKeySequence(Qt::Key_Escape), ui->managePage);
+    connect(backShortcut_2, &QShortcut::activated, this, [=] {
         ui->backButton_2->click();
     });
 

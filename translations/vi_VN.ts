@@ -9,91 +9,166 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="68"/>
-        <source>Account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/accountdialog.ui" line="132"/>
-        <source>PROFILE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/accountdialog.ui" line="142"/>
-        <source>Change Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../online/accountdialog.ui" line="149"/>
+        <source>Account</source>
+        <translation>Tài khoản</translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="285"/>
+        <source>VERIFY YOUR EMAIL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="292"/>
+        <source>Check your email for a code that we sent you. If you can&apos;t find it, try checking your spam folder, and if that doesnt work, try resending a verification email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="320"/>
+        <source>Resend Verification Email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="327"/>
+        <source>Enter Verification Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="345"/>
+        <source>PROFILE</source>
+        <translation>HỒ SƠ</translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="355"/>
+        <source>Change Username</source>
+        <translation>Đổi tên người dùng</translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="362"/>
         <source>Change Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi địa chỉ email</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="162"/>
+        <location filename="../online/accountdialog.ui" line="375"/>
         <source>SECURITY</source>
-        <translation type="unfinished"></translation>
+        <translation>BẢO MẬT</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="172"/>
+        <location filename="../online/accountdialog.ui" line="385"/>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="179"/>
+        <location filename="../online/accountdialog.ui" line="392"/>
         <source>Set up Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Thiết lập Xác Minh Hai Bước</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="186"/>
-        <location filename="../online/accountdialog.cpp" line="70"/>
-        <location filename="../online/accountdialog.cpp" line="72"/>
+        <location filename="../online/accountdialog.ui" line="266"/>
+        <location filename="../online/accountdialog.cpp" line="79"/>
+        <location filename="../online/accountdialog.cpp" line="81"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng xuất</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="41"/>
+        <location filename="../online/accountdialog.cpp" line="47"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="42"/>
+        <location filename="../online/accountdialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="71"/>
+        <location filename="../online/accountdialog.cpp" line="80"/>
         <source>Log out of %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng xuất ra khỏi %1?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="105"/>
+        <location filename="../online/accountdialog.cpp" line="114"/>
         <source>What&apos;s your new username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng mới của bạn là gì?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="108"/>
+        <location filename="../online/accountdialog.cpp" line="117"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Xác minh mật khẩu cho tài khoản của bạn</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="122"/>
-        <location filename="../online/accountdialog.cpp" line="135"/>
+        <location filename="../online/accountdialog.cpp" line="132"/>
+        <location filename="../online/accountdialog.cpp" line="147"/>
         <source>Changing username failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi tên người dùng không thành công</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="123"/>
+        <location filename="../online/accountdialog.cpp" line="133"/>
         <source>Try changing your username at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy thử đổi tên người dùng sau.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="126"/>
+        <location filename="../online/accountdialog.cpp" line="136"/>
         <source>Username changed</source>
+        <translation>Tên người dùng được thay đổi</translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="137"/>
+        <source>Your username has been changed.</source>
+        <translation>Tên người dùng của bạn đã bị thay đổi.</translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="198"/>
+        <source>Couldn&apos;t retrieve account information</source>
+        <translation>Không thể nhận thông tin về tài khoản</translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="222"/>
+        <source>Verification Email Resent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="127"/>
-        <source>Your username has been changed.</source>
+        <location filename="../online/accountdialog.cpp" line="223"/>
+        <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="232"/>
+        <source>Couldn&apos;t resend verification email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="246"/>
+        <source>Enter the verification code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="246"/>
+        <source>Enter a valid verification code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="262"/>
+        <source>Email Verification Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="263"/>
+        <source>We weren&apos;t able to verify your email. Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="266"/>
+        <source>Email Verified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="267"/>
+        <source>Your email has been verified. Thank you!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="279"/>
+        <source>Couldn&apos;t verify your email email</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -107,37 +182,37 @@
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="41"/>
         <source>Button Diagnostics</source>
-        <translation type="unfinished"></translation>
+        <translation>Chẩn đoán các nút</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="51"/>
         <source>Press a button on the gamepad and the symbol for the button will appear here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhấn một nút trên bộ điều khiển, rồi biểu tượng cho nút đó sẽ hiển thị ở đây.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="158"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết thúc</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="180"/>
         <source>You can also hold down any button to end the test.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn cũng có thể giữ xuống một nút để kết thúc chẩn đoán.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="49"/>
         <source>Depending on your setup, the %1 button may not register here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tùy thuộc vào thiết lập của bạn, nút %1 có thể không hoạt động ở đây.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="59"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển bị tháo ra</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="60"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển bạn đang thử đã bị tháo ra</translation>
     </message>
 </context>
 <context>
@@ -163,148 +238,148 @@
     <message>
         <location filename="../private/friendpage.ui" line="91"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>HOẠT ĐỘNG</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="108"/>
         <location filename="../private/friendpage.cpp" line="145"/>
         <source>Remove Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa bạn bè</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="164"/>
         <source>Accept this friend request?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chấp nhận lời kết bạn này?</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="181"/>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Chấp nhận</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="184"/>
         <source>Add this user to your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm người dùng này vào danh sách bạn bè</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="191"/>
         <source>Decline</source>
-        <translation type="unfinished"></translation>
+        <translation>Từ chối</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="194"/>
         <source>Remove this user from your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa người dùng này khỏi danh sách bạn bè</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="270"/>
         <source>Retract Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Rút lại lời kết bạn</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="273"/>
         <source>Cancel the friend request</source>
-        <translation type="unfinished"></translation>
+        <translation>Hủy lời kết bạn</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="118"/>
         <location filename="../private/friendpage.ui" line="204"/>
         <source>Block</source>
-        <translation type="unfinished"></translation>
+        <translation>Chận</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="207"/>
         <source>Remove this user from your friends list and don&apos;t show them again</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa người dùng này khỏi danh sách bạn bè, và không hiển thị nữa</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="65"/>
         <source>We&apos;re awaiting %1&apos;s response.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang chờ chờ phản hồi của %1.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="102"/>
         <location filename="../private/friendpage.cpp" line="160"/>
         <source>Unknown User</source>
-        <translation type="unfinished"></translation>
+        <translation>Người dùng không xác định</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="103"/>
         <location filename="../private/friendpage.cpp" line="161"/>
         <source>That user doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Người đứng đó không tồn tại.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="105"/>
         <location filename="../private/friendpage.cpp" line="132"/>
         <source>Friend Request Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn không thành công</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="111"/>
         <source>Friend Request Accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn đã chấp nhận</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="116"/>
         <source>Friend Request Declined</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn đã bị từ chối</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="117"/>
         <source>The friend request from %1 has been removed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn từ %1 đã bị xóa.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="119"/>
         <source>Friend Request Retracted</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn đã bị rút lại</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="120"/>
         <source>Your friend request to %1 has been retracted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn với %1 đã bị rút lại.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="146"/>
         <source>Remove %1 as a friend?</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa %1 khỏi bạn bè?</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="147"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="163"/>
         <source>Not Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Không phải bạn bè</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="164"/>
         <source>You&apos;re not friends with this user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn không phải bạn bè với người dùng này.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="166"/>
         <location filename="../private/friendpage.cpp" line="183"/>
         <source>Friend Removal Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa bạn bè không thành công</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="171"/>
         <source>Friend Removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn bè đã bị xóa</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="172"/>
         <source>%1 has been removed from your friend list.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 đã bị xóa khỏi danh sách bạn bè.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="112"/>
         <source>The friend request from %1 has been accepted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn từ %1 đã bị chấp nhận.</translation>
     </message>
 </context>
 <context>
@@ -317,73 +392,73 @@
     <message>
         <location filename="../online/friendsdialog.ui" line="122"/>
         <source>Friends and Relations</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn bè và Quan hệ</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="197"/>
         <source>Add Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm bạn bè</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="220"/>
         <source>You can send a friend request to someone by entering their username.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có thể gửi lời kết bạn bè với tên người dùng của họ.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="237"/>
         <source>Add Friend by Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm bạn bằng tên người dùng</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="75"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="76"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="119"/>
         <source>What&apos;s your friend&apos;s username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng của họ là gì?</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="131"/>
         <source>Unknown User</source>
-        <translation type="unfinished"></translation>
+        <translation>Người dùng không xác định</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="132"/>
         <source>That user doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Người đứng đó không tồn tại.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="134"/>
         <source>Already Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã là bạn bè</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="135"/>
         <source>You&apos;re already friends with that user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn là bạn bè với người dùng này rồi.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="137"/>
         <location filename="../online/friendsdialog.cpp" line="154"/>
         <source>Friend Request Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn không thành công</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="142"/>
         <source>Friend Request Sent</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn đã bị gửi</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="143"/>
         <source>Your friend request to %1 has been sent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn với %1 đã bị gửi.</translation>
     </message>
 </context>
 <context>
@@ -391,37 +466,37 @@
     <message>
         <location filename="../private/friendsmodel.cpp" line="54"/>
         <source>Add Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm bạn</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="56"/>
         <source>Add a friend to your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm bạn vào danh sách bạn</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="106"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn bè</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="135"/>
         <source>Outgoing Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn hướng đi</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="130"/>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Ngoại tuyến</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="133"/>
         <source>Incoming Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn hướng đến</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="137"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Người dùng</translation>
     </message>
 </context>
 <context>
@@ -443,57 +518,57 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="68"/>
         <source>Gamepads</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="143"/>
         <source>Configure a gamepad</source>
-        <translation type="unfinished"></translation>
+        <translation>Cấu hình bộ điều khiển</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="153"/>
         <source>Select the gamepad you want to configure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn bộ điều khiển bạn muốn cấu hình.</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="222"/>
         <source>GAMEPAD</source>
-        <translation type="unfinished"></translation>
+        <translation>BỘ ĐIỀU KHIỂN</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="231"/>
         <source>Configure Button Mappings</source>
-        <translation type="unfinished"></translation>
+        <translation>Cấu hình ánh xạ nút</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="238"/>
         <source>Configure Button Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Cấu hình biểu tượng nút</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="278"/>
         <source>DIAGNOSTICS</source>
-        <translation type="unfinished"></translation>
+        <translation>CHẨN ĐOÁN</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="287"/>
         <source>Check Buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Chẩn đoán các nút</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="294"/>
         <source>Check Sticks</source>
-        <translation type="unfinished"></translation>
+        <translation>Chẩn đoán các cây điều khiển</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="58"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
 </context>
 <context>
@@ -501,12 +576,12 @@
     <message>
         <location filename="../private/gamepadlistener.cpp" line="73"/>
         <source>Gamepad Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển bị kết nối</translation>
     </message>
     <message>
         <location filename="../private/gamepadlistener.cpp" line="63"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển bị tháo</translation>
     </message>
 </context>
 <context>
@@ -520,7 +595,7 @@
         <location filename="../keyboards/keyboard.cpp" line="252"/>
         <source>ABC</source>
         <comment>ABC for alphabetic keyboard; use something that makes sense in your locale</comment>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -528,12 +603,12 @@
     <message>
         <location filename="../keyboards/keyboardlayoutsdatabase.cpp" line="36"/>
         <source>English (US)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiếng Anh (US)</translation>
     </message>
     <message>
         <location filename="../keyboards/keyboardlayoutsdatabase.cpp" line="50"/>
         <source>Vietnamese (VN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiếng Việt (VN)</translation>
     </message>
 </context>
 <context>
@@ -541,17 +616,17 @@
     <message>
         <location filename="../keyboards/layoutselect.ui" line="71"/>
         <source>Select Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn bố trí bàn phím</translation>
     </message>
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="37"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
 </context>
 <context>
@@ -581,7 +656,7 @@
         <location filename="../private/loaddialog.cpp" line="82"/>
         <source>o</source>
         <comment>Shortcut key for (O)ptions</comment>
-        <translation type="unfinished"></translation>
+        <translation>t</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="134"/>
@@ -596,17 +671,17 @@
     <message>
         <location filename="../private/loaddialog.cpp" line="151"/>
         <source>Delete this file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Xoá tệp này?</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="152"/>
         <source>Once you delete this file, you can&apos;t get it back.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau khi bạn xóa tệp này, bạn không thể hoàn lại.</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="153"/>
         <source>Delete File</source>
-        <translation type="unfinished"></translation>
+        <translation>Xoá tệp</translation>
     </message>
 </context>
 <context>
@@ -652,12 +727,12 @@
     <message>
         <location filename="../loadoverlay.cpp" line="70"/>
         <source>Corrupt File</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp bị hỏng</translation>
     </message>
     <message>
         <location filename="../loadoverlay.cpp" line="71"/>
         <source>Sorry, that file is corrupt and needs to be deleted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Xin lỗi, tệp đó đã bị hỏng và cần phải bị xóa.</translation>
     </message>
 </context>
 <context>
@@ -669,145 +744,145 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
-        <location filename="../online/logindialog.ui" line="198"/>
+        <location filename="../online/logindialog.ui" line="212"/>
         <location filename="../online/logindialog.cpp" line="66"/>
         <source>Log In</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng nhập</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="139"/>
+        <location filename="../online/logindialog.ui" line="142"/>
         <source>Log in to your Entertaining Games account to play online.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng nhập vào tài khoản Entertaining Games để chơi trực tuyến.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="162"/>
-        <location filename="../online/logindialog.ui" line="371"/>
+        <location filename="../online/logindialog.ui" line="183"/>
+        <location filename="../online/logindialog.ui" line="337"/>
         <location filename="../online/logindialog.cpp" line="59"/>
         <location filename="../online/logindialog.cpp" line="61"/>
         <source>Password</source>
+        <translation>Mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="375"/>
+        <source>Register an account to play online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="169"/>
-        <location filename="../online/logindialog.ui" line="323"/>
+        <location filename="../online/logindialog.ui" line="149"/>
+        <location filename="../online/logindialog.ui" line="419"/>
         <location filename="../online/logindialog.cpp" line="58"/>
         <location filename="../online/logindialog.cpp" line="60"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="264"/>
+        <location filename="../online/logindialog.ui" line="278"/>
         <source>Register an account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/logindialog.ui" line="316"/>
-        <source>Write something here later :)</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng ký tài khoản</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="330"/>
         <location filename="../online/logindialog.cpp" line="63"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ email</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="337"/>
+        <location filename="../online/logindialog.ui" line="344"/>
         <location filename="../online/logindialog.cpp" line="62"/>
         <source>Confirm Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Xác nhận mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="191"/>
-        <location filename="../online/logindialog.ui" line="359"/>
+        <location filename="../online/logindialog.ui" line="205"/>
+        <location filename="../online/logindialog.ui" line="366"/>
         <location filename="../online/logindialog.cpp" line="84"/>
         <source>Register</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng ký</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="65"/>
         <location filename="../online/logindialog.cpp" line="83"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="67"/>
         <location filename="../online/logindialog.cpp" line="85"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
-    </message>
-    <message>
-        <location filename="../online/logindialog.cpp" line="150"/>
-        <source>Enter a new username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/logindialog.cpp" line="151"/>
-        <source>Enter a password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/logindialog.cpp" line="152"/>
-        <source>Confirm your password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/logindialog.cpp" line="153"/>
-        <source>Enter your email address</source>
-        <translation type="unfinished"></translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="155"/>
-        <source>Check that the passwords match</source>
-        <translation type="unfinished"></translation>
+        <source>Enter a new username</source>
+        <translation>Điền vào tên người dùng mới</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="156"/>
+        <source>Enter a password</source>
+        <translation>Điền vào mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="157"/>
+        <source>Confirm your password</source>
+        <translation>Xác minh mật khẩu của bạn</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="158"/>
+        <source>Enter your email address</source>
+        <translation>Điền vào địa chỉ email của bạn</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="160"/>
-        <location filename="../online/logindialog.cpp" line="218"/>
+        <source>Check that the passwords match</source>
+        <translation>Kiểm tra xem mật khẩu đã khớp</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="165"/>
+        <location filename="../online/logindialog.cpp" line="223"/>
         <source>Check your input</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra các trường</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="179"/>
-        <location filename="../online/logindialog.cpp" line="193"/>
+        <location filename="../online/logindialog.cpp" line="184"/>
+        <location filename="../online/logindialog.cpp" line="198"/>
         <source>Registration Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng ký không thành công</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="180"/>
+        <location filename="../online/logindialog.cpp" line="185"/>
         <source>We weren&apos;t able to register you. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chúng tôi không thể đăng ký bạn. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="212"/>
+        <location filename="../online/logindialog.cpp" line="217"/>
         <source>Enter your username</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào tên người dùng của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="213"/>
+        <location filename="../online/logindialog.cpp" line="218"/>
         <source>Enter your password</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào mật khẩu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="239"/>
+        <location filename="../online/logindialog.cpp" line="244"/>
         <source>Enter a valid Two Factor Authentication code</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào một mã Xác Minh Hai Bước hợp lệ</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="239"/>
+        <location filename="../online/logindialog.cpp" line="244"/>
         <source>Enter your Two Factor Authentication code</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào mã Xác Minh Hai Bước</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="249"/>
+        <location filename="../online/logindialog.cpp" line="254"/>
         <source>Check your details and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra chi tiết và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="248"/>
-        <location filename="../online/logindialog.cpp" line="263"/>
+        <location filename="../online/logindialog.cpp" line="253"/>
+        <location filename="../online/logindialog.cpp" line="268"/>
         <source>Login Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng nhập không thành công</translation>
     </message>
 </context>
 <context>
@@ -815,7 +890,7 @@
     <message>
         <location filename="../notificationengine.cpp" line="151"/>
         <source>%1 / %2 to focus</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 để đặt tiêu điểm</translation>
     </message>
 </context>
 <context>
@@ -823,91 +898,95 @@
     <message>
         <location filename="../online/onlineapi.cpp" line="283"/>
         <source>The server is not operating correctly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="108"/>
         <source>You are not logged in.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn chưa đăng nhập.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="118"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì máy chủ hiện đang bảo trì.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="123"/>
         <source>The connection was lost because a server error occurred.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì một lỗi tại máy chủ đã xảy ra.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="127"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì máy chủ không hiểu tin nhắn của chúng tôi.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="130"/>
         <source>The connection was lost because too much data was sent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì quá nhiều dữ liệu bị gửi.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="133"/>
         <source>The connection was lost because an internal error occurred.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì một lỗi nội bộ đã xảy ra.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="138"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì thông tin đăng nhập của bạn đã hết hạn hoặc là sai.
+
+Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="144"/>
         <source>The connection was lost because the server does not support this application.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì máy chủ không có hỗ trợ ứng dụng này.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="147"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất tại vì bạn cần cập nhật để tiếp tục chơi trực tuyến.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="153"/>
         <source>The connection to the server was lost.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="165"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy chủ đã từ chối kết nối của chúng tôi. Nó có thể đang được bảo trì.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="168"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy chủ DNS không thể tìm địa chỉ IP của máy chủ Entertaining Games.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="171"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã hết thời gian kết nối với máy chủ Entertaining Games.
+
+Hãy thử lại giờ khác.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="212"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="214"/>
         <source>You are not authorized to perform this action now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="216"/>
         <source>The server may not support this game because the requested path was not found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>
 </context>
 <context>
@@ -915,57 +994,69 @@ Try again later.</source>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="27"/>
         <source>Some fields are missing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Có trường bị mất.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="28"/>
         <source>That username has already been taken. Set a different username.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng đó đã được sử dụng. Hãy đặt tên người dùng khác.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="29"/>
         <source>That username is too long. Keep it at 32 characters or under.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng do quá dài. Hãy để bàng 32 ký tự hoặc dưới.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="30"/>
         <source>That username is invalid. Stick to alphanumeric characters and spaces.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng do không hợp lệ. Chỉ sử dụng các ký tự chữ, số và dấu cách.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="31"/>
         <source>That email address has already been taken.</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ email đó đã bị sử dụng.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="32"/>
-        <source>Check your username and password and try again.</source>
+        <source>That email address is invalid.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="33"/>
-        <location filename="../online/onlineerrormessages.cpp" line="37"/>
-        <source>Check your Two Factor Authentication code and try again.</source>
-        <translation type="unfinished"></translation>
+        <source>Check your username and password and try again.</source>
+        <translation>Xem lại tên người dùng và mật khẩu và thử lại.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="34"/>
-        <source>Two Factor Authentication is unavailable at this time.</source>
-        <translation type="unfinished"></translation>
+        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <source>Check your Two Factor Authentication code and try again.</source>
+        <translation>Xem lại mã Xác Minh Hai Bước và thử lại.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="35"/>
-        <source>Two Factor Authentication is already enabled for your account.</source>
-        <translation type="unfinished"></translation>
+        <source>Two Factor Authentication is unavailable at this time.</source>
+        <translation>Xác Minh Hai Bước không có sẵn ngay bây giờ.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="36"/>
-        <source>Two Factor Authentication is already disabled for your account.</source>
-        <translation type="unfinished"></translation>
+        <source>Two Factor Authentication is already enabled for your account.</source>
+        <translation>Xác Minh Hai Bước đã bị bật cho tài khoản của bạn.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <location filename="../online/onlineerrormessages.cpp" line="37"/>
+        <source>Two Factor Authentication is already disabled for your account.</source>
+        <translation>Xác Minh Hai Bước đã bị vô hiệu cho tài khoản của bạn.</translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="39"/>
         <source>Your credentials are incorrect. If you are logged in, you&apos;ll need to log out and log in again.</source>
+        <translation>Thông tin đăng nhập của bạn là sai. Nếu bạn đã đăng nhập, bạn cần đăng xuất và đăng nhập lại.</translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <source>Your verification code is incorrect, or the verification code has expired.
+
+If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -974,38 +1065,38 @@ Try again later.</source>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="168"/>
         <source>New Friend Requests</source>
-        <translation type="unfinished"></translation>
+        <translation>Có lời kết bạn mới</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="168"/>
         <source>You have friend requests pending approval</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có lời kết bạn mới đang chờ phản hồi của bạn</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="169"/>
         <location filename="../online/onlinewebsocket.cpp" line="180"/>
         <source>Friends and Relations</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn bè và Quan hệ</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="179"/>
         <source>New Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn mới</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="179"/>
         <source>%1 sent you a friend request</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 mới gửi bạn lời kết bạn mới</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="190"/>
         <source>Friend Request Accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Lời kết bạn đã bị chấp nhận</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="190"/>
         <source>%1 accepted your friend request</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 đã chấp nhận lời kết bạn</translation>
     </message>
 </context>
 <context>
@@ -1018,204 +1109,302 @@ Try again later.</source>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="161"/>
         <source>Set up Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Thiết lập Xác Minh Hai Bước</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="217"/>
         <source>To finish setup, enter the code shown on the app.</source>
-        <translation type="unfinished"></translation>
+        <translation>Để hoàn thành, điền vào mà đang hiển thị trên ứng dụng.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="236"/>
         <source>Enter Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào mã</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="260"/>
         <source>Grab an authenticator app on your phone. Good apps that you can use include Authy and Google Authenticator.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tải ứng dụng Xác Minh Hai Bước trên điện thoại của bạn. Ứng dụng tốt bạn có thể sử dụng là Authy và Google Authenticator.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="275"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="282"/>
         <source>After setting up Two Factor Authentication, you&apos;ll need to provide both your password and a special one time code that&apos;s generated on your phone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau khi bạn thiết lập Xác Minh Hap Bước, bạn cần điền vào cả mật khẩu và một mã sử dụng được một lần đặc biệt sẽ bị táo trên điện thoại của bạn.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="297"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="309"/>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation>3</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="321"/>
         <source>Enter this code into the app</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền mã này vào ứng dụng trên điện thoại</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="415"/>
         <source>Manage Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Quản lý Xác Minh Hai Bước</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="499"/>
         <source>Two Factor Authentication is currently enabled for your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Xác Minh Hai Bước đang bật cho tài khoản của bạn.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="637"/>
         <source>Your backup codes are displayed below. Keep them in a safe place.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mã dự phòng của bạn đang hiện dưới đây. Giứ nó vào một nơi an toàn.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="653"/>
         <source>BACKUP CODES</source>
-        <translation type="unfinished"></translation>
+        <translation>MÃ DỰ PHÒNG</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="676"/>
         <source>These backup codes can be used if you lose access to your Two Factor Authentication device, however, they can only be used once. You can generate more backup codes as needed, but this will invalidate the old backup codes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có thể sử dụng mã dự phòng này nếu bạn mất thiết bị Xác Minh Hai Bước, mà mọi mà có thể bị dùng một lần. Bạn có thể tạo lại thêm mã dự phòng khi bạn cần, mà điều này sẽ vô hiệu mã dự phòng cũ.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="694"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>HOẠT ĐỘNG</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="711"/>
-        <location filename="../private/otpsetupdialog.cpp" line="263"/>
+        <location filename="../private/otpsetupdialog.cpp" line="274"/>
         <source>Regenerate Backup Codes</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo lại mã dự phòng</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="718"/>
-        <location filename="../private/otpsetupdialog.cpp" line="310"/>
+        <location filename="../private/otpsetupdialog.cpp" line="321"/>
         <source>Turn off Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="48"/>
-        <location filename="../private/otpsetupdialog.cpp" line="56"/>
-        <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Tắt Xác Minh Hai Bước</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="49"/>
         <location filename="../private/otpsetupdialog.cpp" line="57"/>
+        <source>Select</source>
+        <translation>Chọn</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="50"/>
+        <location filename="../private/otpsetupdialog.cpp" line="58"/>
+        <source>Back</source>
+        <translation>Lại</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="93"/>
+        <source>Confirm the password for your account</source>
+        <translation>Xác minh mật khẩu cho tài khoản của bạn</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="131"/>
+        <location filename="../private/otpsetupdialog.cpp" line="184"/>
+        <source>Incorrect Details</source>
+        <translation>Chi tiết sai</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="132"/>
+        <source>Check your password and try again.</source>
+        <translation>Xem lại mật khẩu của bạn và thử lại.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="170"/>
+        <source>Enter the code displayed on your phone</source>
+        <translation>Điền vào mã đang hiển thị trên điện thoại</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="170"/>
+        <source>Enter a valid Two Factor Authentication code</source>
+        <translation>Điền vào một mã Xác Minh Hai Bước hợp lệ</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="186"/>
+        <location filename="../private/otpsetupdialog.cpp" line="207"/>
+        <source>Enabling OTP Token failed</source>
+        <translation>Bật mã OTP không thành công</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="188"/>
+        <source>Try enabling Two Factor Authentication at a later time.</source>
+        <translation>Hãy bật mã Xác Minh Hai Bước giờ khác.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="194"/>
+        <source>Two Factor Authentication enabled</source>
+        <translation>Xác Minh Hai Bước đã bị bật</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="195"/>
+        <source>Two Factor Authentication has been enabled for your account.</source>
+        <translation>Xác Minh Hai Bước đã bị bật cho tài khoản của bạn.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="272"/>
+        <source>Regenerate Backup Codes?</source>
+        <translation>Tạo lại mã dự phòng?</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="273"/>
+        <source>After regenerating your backup codes, your old backup codes will be invalidated and you&apos;ll only be able to use the new backup codes.</source>
+        <translation>Sau khi bạn tạo lại mã dù phòng, mã dự phòng cũ sẽ bị vô hiệu, và bạn chỉ có thể dùng mã dự phòng mới.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="286"/>
+        <source>Backup Code Regeneration Failed</source>
+        <translation>Tạo lại mã dự phòng không thành công</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="287"/>
+        <source>Try regenerating your Two Factor Authentication codes at a later time.</source>
+        <translation>Hãy tạo lại mã dự phòng giờ khác.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="319"/>
+        <source>Turn off Two Factor Authentication?</source>
+        <translation>Tắt Xác Minh Hai Bước?</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="320"/>
+        <source>After turning off Two Factor Authentication, you&apos;ll only need to log in with your password.</source>
+        <translation>Sau khi bạn tắt Xác Minh Hai Bước, bạn chỉ cần đăng nhập bởi mật khẩu của bạn.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="301"/>
+        <location filename="../private/otpsetupdialog.cpp" line="334"/>
+        <location filename="../private/otpsetupdialog.cpp" line="353"/>
+        <source>Two Factor Authentication Removal Failed</source>
+        <translation>Tắt Xác Minh Hai Bước không thành công</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="335"/>
+        <source>Try removing Two Factor Authentication at a later time.</source>
+        <translation>Hãy tắt mã Xác Minh Hai Bước giờ khác.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="338"/>
+        <source>Two Factor Authentication Disabled</source>
+        <translation>Xác Minh Hai Bước đã bị tắt</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="339"/>
+        <source>Two Factor Authentication has been disabled for your account.</source>
+        <translation>Xác Minh Hai Bước đã bị tắt cho tài khoản của bạn.</translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="135"/>
+        <source>Retrieval of OTP Token Information failed</source>
+        <translation>Nhận thông tin về OTP không thành công</translation>
+    </message>
+</context>
+<context>
+    <name>PasswordChangeDialog</name>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="90"/>
+        <location filename="../private/passwordchangedialog.ui" line="194"/>
+        <location filename="../private/passwordchangedialog.cpp" line="47"/>
+        <source>Change Password</source>
+        <translation type="unfinished">Đổi mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="139"/>
+        <source>Confirm New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="160"/>
+        <source>After changing your password, we&apos;ll log you out of all your other devices.
+
+Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="203"/>
+        <location filename="../private/passwordchangedialog.cpp" line="43"/>
+        <source>New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="44"/>
+        <source>Confirm Password</source>
+        <translation type="unfinished">Xác nhận mật khẩu</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="46"/>
+        <source>Select</source>
+        <translation type="unfinished">Chọn</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="48"/>
         <source>Back</source>
         <translation type="unfinished">Lại</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="82"/>
+        <location filename="../private/passwordchangedialog.cpp" line="87"/>
+        <source>Enter a new password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="88"/>
+        <source>Confirm your password</source>
+        <translation type="unfinished">Xác minh mật khẩu của bạn</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="90"/>
+        <source>Check that the passwords match</source>
+        <translation type="unfinished">Kiểm tra xem mật khẩu đã khớp</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="95"/>
+        <source>Check your input</source>
+        <translation type="unfinished">Kiểm tra các trường</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="105"/>
         <source>Confirm the password for your account</source>
+        <translation type="unfinished">Xác minh mật khẩu cho tài khoản của bạn</translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="123"/>
+        <source>Chaning Password Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="120"/>
-        <location filename="../private/otpsetupdialog.cpp" line="173"/>
-        <source>Incorrect Details</source>
+        <location filename="../private/passwordchangedialog.cpp" line="124"/>
+        <source>We weren&apos;t able to change your password. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="121"/>
-        <source>Check your password and try again.</source>
+        <location filename="../private/passwordchangedialog.cpp" line="131"/>
+        <source>Password Changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="159"/>
-        <source>Enter the code displayed on your phone</source>
+        <location filename="../private/passwordchangedialog.cpp" line="132"/>
+        <source>Your password has been changed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="159"/>
-        <source>Enter a valid Two Factor Authentication code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="175"/>
-        <location filename="../private/otpsetupdialog.cpp" line="196"/>
-        <source>Enabling OTP Token failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="177"/>
-        <source>Try enabling Two Factor Authentication at a later time.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="183"/>
-        <source>Two Factor Authentication enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="184"/>
-        <source>Two Factor Authentication has been enabled for your account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="261"/>
-        <source>Regenerate Backup Codes?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="262"/>
-        <source>After regenerating your backup codes, your old backup codes will be invalidated and you&apos;ll only be able to use the new backup codes.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="275"/>
-        <source>Backup Code Regeneration Failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="276"/>
-        <source>Try regenerating your Two Factor Authentication codes at a later time.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="308"/>
-        <source>Turn off Two Factor Authentication?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="309"/>
-        <source>After turning off Two Factor Authentication, you&apos;ll only need to log in with your password.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="290"/>
-        <location filename="../private/otpsetupdialog.cpp" line="323"/>
-        <location filename="../private/otpsetupdialog.cpp" line="342"/>
-        <source>Two Factor Authentication Removal Failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="324"/>
-        <source>Try removing Two Factor Authentication at a later time.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="327"/>
-        <source>Two Factor Authentication Disabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="328"/>
-        <source>Two Factor Authentication has been disabled for your account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="124"/>
-        <source>Retrieval of OTP Token Information failed</source>
+        <location filename="../private/passwordchangedialog.cpp" line="146"/>
+        <source>Changing Password Failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1224,82 +1413,82 @@ Try again later.</source>
     <message>
         <location filename="../questionoverlay.cpp" line="105"/>
         <source>Discard</source>
-        <translation type="unfinished"></translation>
+        <translation>Vứt đi</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="106"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="107"/>
         <source>Save</source>
-        <translation type="unfinished">Lưu</translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="108"/>
         <source>Save All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lưu tất cả</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="81"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Có</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="43"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="44"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="109"/>
         <source>Yes To All</source>
-        <translation type="unfinished"></translation>
+        <translation>Có với tất cả</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="110"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Không</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="111"/>
         <source>No To All</source>
-        <translation type="unfinished"></translation>
+        <translation>Không với tất cả</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="112"/>
         <source>Abort</source>
-        <translation type="unfinished"></translation>
+        <translation>Bỏ ngay</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="113"/>
         <source>Retry</source>
-        <translation type="unfinished"></translation>
+        <translation>Thử lại</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="114"/>
         <source>Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>Bỏ qua</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="115"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="116"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="104"/>
         <source>Cancel</source>
-        <translation type="unfinished">Hủy</translation>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -1362,50 +1551,50 @@ Try again later.</source>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="53"/>
         <source>Stick Diagnostics</source>
-        <translation type="unfinished"></translation>
+        <translation>Chẩn đoán cây điều khiển</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="63"/>
         <source>The dot shows the location of the control stick, after normalisation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dấu chấm dưới đây sẽ hiển thị vị trí cây điều khiển, sau khi xử lý.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="73"/>
         <source>The circle shows the point at which we&apos;ll consider the stick to have moved 100% of the way to the edge.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hình vòng tròn sẽ hiện thị điểm khi chúng tôi thấy cây điều khiển đã di chuyển 100% đường tới cạnh.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="83"/>
         <source>Ideally, the dot should move slightly past this point when you move the stick to the edge.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lý tưởng nhất, dấu chấm nên di chuyển một chút qua điểm này khi bạn di chuyển cây điều khiển sang cạnh.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="144"/>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="64"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết thúc</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="40"/>
         <source>L</source>
         <comment>L for (L)eft</comment>
-        <translation type="unfinished"></translation>
+        <translation>T</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="41"/>
         <source>R</source>
         <comment>R for (R)ight</comment>
-        <translation type="unfinished"></translation>
+        <translation>P</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="51"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển bị tháo ra</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="52"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bộ điều khiển bạn đang thử đã bị tháo ra</translation>
     </message>
 </context>
 <context>
@@ -1461,7 +1650,7 @@ Try again later.</source>
     <message>
         <location filename="../keyboards/uskeyboard.cpp" line="46"/>
         <source>English (US)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tiếng Anh (US)</translation>
     </message>
 </context>
 </TS>

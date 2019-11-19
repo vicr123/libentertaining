@@ -17,48 +17,33 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ACCOUNTDIALOG_H
-#define ACCOUNTDIALOG_H
+#ifndef PASSWORDCHANGEDIALOG_H
+#define PASSWORDCHANGEDIALOG_H
 
-#include <libentertaining_global.h>
 #include <QWidget>
 
 namespace Ui {
-    class AccountDialog;
+    class PasswordChangeDialog;
 }
 
-struct AccountDialogPrivate;
-class LIBENTERTAINING_EXPORT AccountDialog : public QWidget
+class PasswordChangeDialog : public QWidget
 {
         Q_OBJECT
 
     public:
-        explicit AccountDialog(QWidget *parent = nullptr);
-        ~AccountDialog();
+        explicit PasswordChangeDialog(QWidget *parent = nullptr);
+        ~PasswordChangeDialog();
 
     private slots:
-        void on_logOutButton_clicked();
-
         void on_backButton_clicked();
 
-        void on_setup2faButton_clicked();
-
-        void on_changeUsernameButton_clicked();
-
         void on_changePasswordButton_clicked();
-
-        void on_resendVerificationButton_clicked();
-
-        void on_enterVerificationButton_clicked();
 
     signals:
         void done();
 
     private:
-        Ui::AccountDialog *ui;
-        AccountDialogPrivate* d;
-
-        void loadData();
+        Ui::PasswordChangeDialog *ui;
 };
 
-#endif // ACCOUNTDIALOG_H
+#endif // PASSWORDCHANGEDIALOG_H

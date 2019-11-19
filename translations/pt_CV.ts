@@ -9,91 +9,166 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="68"/>
+        <location filename="../online/accountdialog.ui" line="149"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="132"/>
+        <location filename="../online/accountdialog.ui" line="285"/>
+        <source>VERIFY YOUR EMAIL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="292"/>
+        <source>Check your email for a code that we sent you. If you can&apos;t find it, try checking your spam folder, and if that doesnt work, try resending a verification email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="320"/>
+        <source>Resend Verification Email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="327"/>
+        <source>Enter Verification Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="345"/>
         <source>PROFILE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="142"/>
+        <location filename="../online/accountdialog.ui" line="355"/>
         <source>Change Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="149"/>
+        <location filename="../online/accountdialog.ui" line="362"/>
         <source>Change Email Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="162"/>
+        <location filename="../online/accountdialog.ui" line="375"/>
         <source>SECURITY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="172"/>
+        <location filename="../online/accountdialog.ui" line="385"/>
         <source>Change Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="179"/>
+        <location filename="../online/accountdialog.ui" line="392"/>
         <source>Set up Two Factor Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.ui" line="186"/>
-        <location filename="../online/accountdialog.cpp" line="70"/>
-        <location filename="../online/accountdialog.cpp" line="72"/>
+        <location filename="../online/accountdialog.ui" line="266"/>
+        <location filename="../online/accountdialog.cpp" line="79"/>
+        <location filename="../online/accountdialog.cpp" line="81"/>
         <source>Log Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="41"/>
+        <location filename="../online/accountdialog.cpp" line="47"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="42"/>
+        <location filename="../online/accountdialog.cpp" line="48"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="71"/>
+        <location filename="../online/accountdialog.cpp" line="80"/>
         <source>Log out of %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="105"/>
+        <location filename="../online/accountdialog.cpp" line="114"/>
         <source>What&apos;s your new username?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="108"/>
+        <location filename="../online/accountdialog.cpp" line="117"/>
         <source>Confirm the password for your account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="122"/>
-        <location filename="../online/accountdialog.cpp" line="135"/>
+        <location filename="../online/accountdialog.cpp" line="132"/>
+        <location filename="../online/accountdialog.cpp" line="147"/>
         <source>Changing username failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="123"/>
+        <location filename="../online/accountdialog.cpp" line="133"/>
         <source>Try changing your username at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="126"/>
+        <location filename="../online/accountdialog.cpp" line="136"/>
         <source>Username changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="127"/>
+        <location filename="../online/accountdialog.cpp" line="137"/>
         <source>Your username has been changed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="198"/>
+        <source>Couldn&apos;t retrieve account information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="222"/>
+        <source>Verification Email Resent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="223"/>
+        <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="232"/>
+        <source>Couldn&apos;t resend verification email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="246"/>
+        <source>Enter the verification code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="246"/>
+        <source>Enter a valid verification code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="262"/>
+        <source>Email Verification Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="263"/>
+        <source>We weren&apos;t able to verify your email. Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="266"/>
+        <source>Email Verified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="267"/>
+        <source>Your email has been verified. Thank you!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="279"/>
+        <source>Couldn&apos;t verify your email email</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -669,40 +744,40 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
-        <location filename="../online/logindialog.ui" line="198"/>
+        <location filename="../online/logindialog.ui" line="212"/>
         <location filename="../online/logindialog.cpp" line="66"/>
         <source>Log In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="139"/>
+        <location filename="../online/logindialog.ui" line="142"/>
         <source>Log in to your Entertaining Games account to play online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="162"/>
-        <location filename="../online/logindialog.ui" line="371"/>
+        <location filename="../online/logindialog.ui" line="183"/>
+        <location filename="../online/logindialog.ui" line="337"/>
         <location filename="../online/logindialog.cpp" line="59"/>
         <location filename="../online/logindialog.cpp" line="61"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="169"/>
-        <location filename="../online/logindialog.ui" line="323"/>
+        <location filename="../online/logindialog.ui" line="375"/>
+        <source>Register an account to play online.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="149"/>
+        <location filename="../online/logindialog.ui" line="419"/>
         <location filename="../online/logindialog.cpp" line="58"/>
         <location filename="../online/logindialog.cpp" line="60"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="264"/>
+        <location filename="../online/logindialog.ui" line="278"/>
         <source>Register an account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../online/logindialog.ui" line="316"/>
-        <source>Write something here later :)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -712,14 +787,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="337"/>
+        <location filename="../online/logindialog.ui" line="344"/>
         <location filename="../online/logindialog.cpp" line="62"/>
         <source>Confirm Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="191"/>
-        <location filename="../online/logindialog.ui" line="359"/>
+        <location filename="../online/logindialog.ui" line="205"/>
+        <location filename="../online/logindialog.ui" line="366"/>
         <location filename="../online/logindialog.cpp" line="84"/>
         <source>Register</source>
         <translation type="unfinished"></translation>
@@ -737,75 +812,75 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="150"/>
+        <location filename="../online/logindialog.cpp" line="155"/>
         <source>Enter a new username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="151"/>
+        <location filename="../online/logindialog.cpp" line="156"/>
         <source>Enter a password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="152"/>
+        <location filename="../online/logindialog.cpp" line="157"/>
         <source>Confirm your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="153"/>
+        <location filename="../online/logindialog.cpp" line="158"/>
         <source>Enter your email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="155"/>
+        <location filename="../online/logindialog.cpp" line="160"/>
         <source>Check that the passwords match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="160"/>
-        <location filename="../online/logindialog.cpp" line="218"/>
+        <location filename="../online/logindialog.cpp" line="165"/>
+        <location filename="../online/logindialog.cpp" line="223"/>
         <source>Check your input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="179"/>
-        <location filename="../online/logindialog.cpp" line="193"/>
+        <location filename="../online/logindialog.cpp" line="184"/>
+        <location filename="../online/logindialog.cpp" line="198"/>
         <source>Registration Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="180"/>
+        <location filename="../online/logindialog.cpp" line="185"/>
         <source>We weren&apos;t able to register you. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="212"/>
+        <location filename="../online/logindialog.cpp" line="217"/>
         <source>Enter your username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="213"/>
+        <location filename="../online/logindialog.cpp" line="218"/>
         <source>Enter your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="239"/>
+        <location filename="../online/logindialog.cpp" line="244"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="239"/>
+        <location filename="../online/logindialog.cpp" line="244"/>
         <source>Enter your Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="249"/>
+        <location filename="../online/logindialog.cpp" line="254"/>
         <source>Check your details and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="248"/>
-        <location filename="../online/logindialog.cpp" line="263"/>
+        <location filename="../online/logindialog.cpp" line="253"/>
+        <location filename="../online/logindialog.cpp" line="268"/>
         <source>Login Failed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -939,33 +1014,45 @@ Try again later.</source>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="32"/>
-        <source>Check your username and password and try again.</source>
+        <source>That email address is invalid.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="33"/>
-        <location filename="../online/onlineerrormessages.cpp" line="37"/>
-        <source>Check your Two Factor Authentication code and try again.</source>
+        <source>Check your username and password and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="34"/>
-        <source>Two Factor Authentication is unavailable at this time.</source>
+        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <source>Check your Two Factor Authentication code and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="35"/>
-        <source>Two Factor Authentication is already enabled for your account.</source>
+        <source>Two Factor Authentication is unavailable at this time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <source>Two Factor Authentication is already enabled for your account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="37"/>
         <source>Two Factor Authentication is already disabled for your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <location filename="../online/onlineerrormessages.cpp" line="39"/>
         <source>Your credentials are incorrect. If you are logged in, you&apos;ll need to log out and log in again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <source>Your verification code is incorrect, or the verification code has expired.
+
+If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1092,130 +1179,228 @@ Try again later.</source>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="711"/>
-        <location filename="../private/otpsetupdialog.cpp" line="263"/>
+        <location filename="../private/otpsetupdialog.cpp" line="274"/>
         <source>Regenerate Backup Codes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="718"/>
-        <location filename="../private/otpsetupdialog.cpp" line="310"/>
+        <location filename="../private/otpsetupdialog.cpp" line="321"/>
         <source>Turn off Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="48"/>
-        <location filename="../private/otpsetupdialog.cpp" line="56"/>
-        <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="49"/>
         <location filename="../private/otpsetupdialog.cpp" line="57"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="50"/>
+        <location filename="../private/otpsetupdialog.cpp" line="58"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="82"/>
+        <location filename="../private/otpsetupdialog.cpp" line="93"/>
         <source>Confirm the password for your account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="120"/>
-        <location filename="../private/otpsetupdialog.cpp" line="173"/>
+        <location filename="../private/otpsetupdialog.cpp" line="131"/>
+        <location filename="../private/otpsetupdialog.cpp" line="184"/>
         <source>Incorrect Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="121"/>
+        <location filename="../private/otpsetupdialog.cpp" line="132"/>
         <source>Check your password and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="159"/>
+        <location filename="../private/otpsetupdialog.cpp" line="170"/>
         <source>Enter the code displayed on your phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="159"/>
+        <location filename="../private/otpsetupdialog.cpp" line="170"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="175"/>
-        <location filename="../private/otpsetupdialog.cpp" line="196"/>
+        <location filename="../private/otpsetupdialog.cpp" line="186"/>
+        <location filename="../private/otpsetupdialog.cpp" line="207"/>
         <source>Enabling OTP Token failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="177"/>
+        <location filename="../private/otpsetupdialog.cpp" line="188"/>
         <source>Try enabling Two Factor Authentication at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="183"/>
+        <location filename="../private/otpsetupdialog.cpp" line="194"/>
         <source>Two Factor Authentication enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="184"/>
+        <location filename="../private/otpsetupdialog.cpp" line="195"/>
         <source>Two Factor Authentication has been enabled for your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="261"/>
+        <location filename="../private/otpsetupdialog.cpp" line="272"/>
         <source>Regenerate Backup Codes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="262"/>
+        <location filename="../private/otpsetupdialog.cpp" line="273"/>
         <source>After regenerating your backup codes, your old backup codes will be invalidated and you&apos;ll only be able to use the new backup codes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="275"/>
+        <location filename="../private/otpsetupdialog.cpp" line="286"/>
         <source>Backup Code Regeneration Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="276"/>
+        <location filename="../private/otpsetupdialog.cpp" line="287"/>
         <source>Try regenerating your Two Factor Authentication codes at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="308"/>
+        <location filename="../private/otpsetupdialog.cpp" line="319"/>
         <source>Turn off Two Factor Authentication?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="309"/>
+        <location filename="../private/otpsetupdialog.cpp" line="320"/>
         <source>After turning off Two Factor Authentication, you&apos;ll only need to log in with your password.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="290"/>
-        <location filename="../private/otpsetupdialog.cpp" line="323"/>
-        <location filename="../private/otpsetupdialog.cpp" line="342"/>
+        <location filename="../private/otpsetupdialog.cpp" line="301"/>
+        <location filename="../private/otpsetupdialog.cpp" line="334"/>
+        <location filename="../private/otpsetupdialog.cpp" line="353"/>
         <source>Two Factor Authentication Removal Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="324"/>
+        <location filename="../private/otpsetupdialog.cpp" line="335"/>
         <source>Try removing Two Factor Authentication at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="327"/>
+        <location filename="../private/otpsetupdialog.cpp" line="338"/>
         <source>Two Factor Authentication Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="328"/>
+        <location filename="../private/otpsetupdialog.cpp" line="339"/>
         <source>Two Factor Authentication has been disabled for your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="124"/>
+        <location filename="../private/otpsetupdialog.cpp" line="135"/>
         <source>Retrieval of OTP Token Information failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PasswordChangeDialog</name>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="90"/>
+        <location filename="../private/passwordchangedialog.ui" line="194"/>
+        <location filename="../private/passwordchangedialog.cpp" line="47"/>
+        <source>Change Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="139"/>
+        <source>Confirm New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="160"/>
+        <source>After changing your password, we&apos;ll log you out of all your other devices.
+
+Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.ui" line="203"/>
+        <location filename="../private/passwordchangedialog.cpp" line="43"/>
+        <source>New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="44"/>
+        <source>Confirm Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="46"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="48"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="87"/>
+        <source>Enter a new password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="88"/>
+        <source>Confirm your password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="90"/>
+        <source>Check that the passwords match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="95"/>
+        <source>Check your input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="105"/>
+        <source>Confirm the password for your account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="123"/>
+        <source>Chaning Password Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="124"/>
+        <source>We weren&apos;t able to change your password. Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="131"/>
+        <source>Password Changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="132"/>
+        <source>Your password has been changed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/passwordchangedialog.cpp" line="146"/>
+        <source>Changing Password Failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

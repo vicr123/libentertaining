@@ -105,6 +105,7 @@ SOURCES += \
     private/loaddialog.cpp \
     private/loaddialogfileoptions.cpp \
     private/otpsetupdialog.cpp \
+    private/passwordchangedialog.cpp \
     private/savedialog.cpp \
     private/saveengine.cpp \
     private/savesmodel.cpp \
@@ -154,6 +155,7 @@ HEADERS += \
     private/loaddialog.h \
     private/loaddialogfileoptions.h \
     private/otpsetupdialog.h \
+    private/passwordchangedialog.h \
     private/savedialog.h \
     private/saveengine.h \
     private/savesmodel.h \
@@ -239,6 +241,7 @@ FORMS += \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \
     private/otpsetupdialog.ui \
+    private/passwordchangedialog.ui \
     private/savedialog.ui \
     questionoverlay.ui \
     settingwidget.ui \

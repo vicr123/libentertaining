@@ -101,6 +101,11 @@ LoginDialog::LoginDialog(QWidget *parent) :
     this->setFocusProxy(ui->usernameBox);
     ui->loginPage->setFocusProxy(ui->usernameBox);
     ui->registerPage->setFocusProxy(ui->registerUsernameBox);
+
+    ui->focusBarrier->setBounceWidget(ui->usernameBox);
+    ui->focusBarrier_2->setBounceWidget(ui->loginButton);
+    ui->focusBarrier_3->setBounceWidget(ui->registerUsernameBox);
+    ui->focusBarrier_4->setBounceWidget(ui->doRegisterButton);
 }
 
 LoginDialog::~LoginDialog()
