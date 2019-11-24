@@ -47,6 +47,9 @@ struct OnlineWebSocketPrivate {
     QTimer pingTimer;
     int lastPingSeq = 0;
     int nextPingSeq = 0;
+
+    QDateTime lastPingTime;
+    int currentPing = -1;
 };
 
 OnlineWebSocket::~OnlineWebSocket()
@@ -67,6 +70,11 @@ void OnlineWebSocket::sendJsonO(QJsonObject json)
 QString OnlineWebSocket::loggedInUsername()
 {
     return d->username;
+}
+
+int OnlineWebSocket::ping()
+{
+    return d->currentPing;
 }
 
 void OnlineWebSocket::actionClicked(quint64 action, QString key)
@@ -93,6 +101,7 @@ OnlineWebSocket::OnlineWebSocket(QString applicationName, QString applicationVer
                       {"seq", d->nextPingSeq}
                   });
 
+        d->lastPingTime = QDateTime::currentDateTimeUtc();
         d->nextPingSeq++;
 
         if (d->nextPingSeq - d->lastPingSeq > 4) {
@@ -157,6 +166,8 @@ void OnlineWebSocket::processSystemMessage(QJsonObject obj)
     QString type = obj.value("type").toString();
     if (type == "clientPingReply") {
         d->lastPingSeq = obj.value("seq").toInt();
+        d->currentPing = static_cast<int>(d->lastPingTime.msecsTo(QDateTime::currentDateTimeUtc()));
+        emit pingChanged();
     } else if (type == "serverPing") {
         //Immediately reply
         sendJsonO({

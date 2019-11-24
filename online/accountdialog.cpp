@@ -141,6 +141,7 @@ void AccountDialog::on_changeUsernameButton_clicked()
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 
         ui->stackedWidget->setCurrentWidget(ui->accountPage);
+        ui->usernameLabel->setText(newUsername);
     })->error([=](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
@@ -257,6 +258,59 @@ void AccountDialog::on_enterVerificationButton_clicked()
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Couldn't verify your email email"));
+        question->setText(OnlineApi::errorFromPromiseRejection(error));
+        question->setButtons(QMessageBox::Ok);
+        connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+        connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        ui->stackedWidget->setCurrentWidget(ui->accountPage);
+    });
+}
+
+void AccountDialog::on_changeEmailButton_clicked()
+{
+    bool canceled;
+
+    QString newEmail;
+    QString password;
+
+    askEmail:
+    newEmail = TextInputOverlay::getText(this, tr("What's your new email address?"), &canceled, newEmail);
+    if (canceled) return;
+
+    password = TextInputOverlay::getText(this, tr("Confirm the password for your account"), &canceled, "", QLineEdit::Password);
+    if (canceled) goto askEmail;
+
+    //Attempt to change the username
+    ui->stackedWidget->setCurrentWidget(ui->loaderPage);
+    OnlineApi::instance()->post("/users/changeEmail", {
+        {"email", newEmail},
+        {"password", password}
+    })->then([=](QJsonDocument doc) {
+        QJsonObject obj = doc.object();
+
+        QuestionOverlay* question = new QuestionOverlay(this);
+        if (doc.object().contains("error")) {
+            question->setIcon(QMessageBox::Critical);
+            QString error = doc.object().value("error").toString();
+            question->setTitle(tr("Changing email failed"));
+            question->setText(OnlineErrorMessages::messageForCode(error, tr("Try changing your email at a later time.")));
+        } else {
+            question->setIcon(QMessageBox::Information);
+            question->setTitle(tr("Email changed"));
+            question->setText(tr("Your email has been changed. Don't forget to check your email for a verification code and verify your email."));
+        }
+        question->setButtons(QMessageBox::Ok);
+        connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+        connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        ui->stackedWidget->setCurrentWidget(ui->accountPage);
+        ui->emailLabel->setText(newEmail);
+        ui->verifyEmailWidget->setVisible(true);
+    })->error([=](QString error) {
+        QuestionOverlay* question = new QuestionOverlay(this);
+        question->setIcon(QMessageBox::Critical);
+        question->setTitle(tr("Changing email failed"));
         question->setText(OnlineApi::errorFromPromiseRejection(error));
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);

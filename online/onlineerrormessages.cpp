@@ -30,6 +30,7 @@ struct OnlineErrorMessagesPrivate {
         {"username.bad", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That username is invalid. Stick to alphanumeric characters and spaces.")},
         {"email.taken", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email address has already been taken.")},
         {"email.bad", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email address is invalid.")},
+        {"email.unchanged", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email is the same as your current email.")},
         {"authentication.incorrect", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your username and password and try again.")},
         {"otp.incorrect", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your Two Factor Authentication code and try again.")},
         {"otp.unavailable", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is unavailable at this time.")},

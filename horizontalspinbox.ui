@@ -38,7 +38,7 @@
       <string>...</string>
      </property>
      <property name="icon">
-      <iconset resource="libentertaining_resources.qrc">
+      <iconset>
        <normaloff>:/libentertaining/icons/go-previous.svg</normaloff>:/libentertaining/icons/go-previous.svg</iconset>
      </property>
     </widget>
@@ -65,15 +65,13 @@
       <string>...</string>
      </property>
      <property name="icon">
-      <iconset resource="libentertaining_resources.qrc">
+      <iconset>
        <normaloff>:/libentertaining/icons/go-next.svg</normaloff>:/libentertaining/icons/go-next.svg</iconset>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="libentertaining_resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

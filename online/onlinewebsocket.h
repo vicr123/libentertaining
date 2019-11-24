@@ -36,8 +36,10 @@ class LIBENTERTAINING_EXPORT OnlineWebSocket : public QWebSocket
         void sendJsonO(QJsonObject json);
 
         QString loggedInUsername();
+        int ping();
 
     signals:
+        void pingChanged();
         void jsonMessageReceived(QJsonDocument json);
         void ready();
 

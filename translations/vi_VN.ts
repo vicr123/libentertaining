@@ -92,12 +92,13 @@
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="117"/>
+        <location filename="../online/accountdialog.cpp" line="281"/>
         <source>Confirm the password for your account</source>
         <translation>Xác minh mật khẩu cho tài khoản của bạn</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="132"/>
-        <location filename="../online/accountdialog.cpp" line="147"/>
+        <location filename="../online/accountdialog.cpp" line="148"/>
         <source>Changing username failed</source>
         <translation>Đổi tên người dùng không thành công</translation>
     </message>
@@ -117,58 +118,84 @@
         <translation>Tên người dùng của bạn đã bị thay đổi.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="178"/>
+        <location filename="../online/accountdialog.cpp" line="179"/>
         <source>Couldn&apos;t retrieve account information</source>
         <translation>Không thể nhận thông tin về tài khoản</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="202"/>
+        <location filename="../online/accountdialog.cpp" line="203"/>
         <source>Verification Email Resent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="203"/>
+        <location filename="../online/accountdialog.cpp" line="204"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="212"/>
+        <location filename="../online/accountdialog.cpp" line="213"/>
         <source>Couldn&apos;t resend verification email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="226"/>
+        <location filename="../online/accountdialog.cpp" line="227"/>
         <source>Enter the verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="226"/>
+        <location filename="../online/accountdialog.cpp" line="227"/>
         <source>Enter a valid verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="242"/>
+        <location filename="../online/accountdialog.cpp" line="243"/>
         <source>Email Verification Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="243"/>
+        <location filename="../online/accountdialog.cpp" line="244"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="246"/>
+        <location filename="../online/accountdialog.cpp" line="247"/>
         <source>Email Verified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="247"/>
+        <location filename="../online/accountdialog.cpp" line="248"/>
         <source>Your email has been verified. Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="259"/>
+        <location filename="../online/accountdialog.cpp" line="260"/>
         <source>Couldn&apos;t verify your email email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="278"/>
+        <source>What&apos;s your new email address?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="296"/>
+        <location filename="../online/accountdialog.cpp" line="313"/>
+        <source>Changing email failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="297"/>
+        <source>Try changing your email at a later time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="300"/>
+        <source>Email changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.cpp" line="301"/>
+        <source>Your email has been changed. Don&apos;t forget to check your email for a verification code and verify your email.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -770,20 +797,25 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="183"/>
-        <location filename="../online/logindialog.ui" line="337"/>
+        <location filename="../online/logindialog.ui" line="412"/>
         <location filename="../online/logindialog.cpp" line="59"/>
         <location filename="../online/logindialog.cpp" line="61"/>
         <source>Password</source>
         <translation>Mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="375"/>
+        <location filename="../online/logindialog.ui" line="405"/>
         <source>Register an account to play online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../online/logindialog.ui" line="434"/>
+        <source>Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../online/logindialog.ui" line="149"/>
-        <location filename="../online/logindialog.ui" line="419"/>
+        <location filename="../online/logindialog.ui" line="375"/>
         <location filename="../online/logindialog.cpp" line="58"/>
         <location filename="../online/logindialog.cpp" line="60"/>
         <source>Username</source>
@@ -795,20 +827,20 @@
         <translation>Đăng ký tài khoản</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="330"/>
+        <location filename="../online/logindialog.ui" line="358"/>
         <location filename="../online/logindialog.cpp" line="63"/>
         <source>Email Address</source>
         <translation>Địa chỉ email</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="344"/>
+        <location filename="../online/logindialog.ui" line="382"/>
         <location filename="../online/logindialog.cpp" line="62"/>
         <source>Confirm Password</source>
         <translation>Xác nhận mật khẩu</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="205"/>
-        <location filename="../online/logindialog.ui" line="366"/>
+        <location filename="../online/logindialog.ui" line="349"/>
         <location filename="../online/logindialog.cpp" line="84"/>
         <source>Register</source>
         <translation>Đăng ký</translation>
@@ -1037,37 +1069,42 @@ Hãy thử lại giờ khác.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="33"/>
+        <source>That email is the same as your current email.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="34"/>
         <source>Check your username and password and try again.</source>
         <translation>Xem lại tên người dùng và mật khẩu và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="34"/>
-        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <location filename="../online/onlineerrormessages.cpp" line="35"/>
+        <location filename="../online/onlineerrormessages.cpp" line="39"/>
         <source>Check your Two Factor Authentication code and try again.</source>
         <translation>Xem lại mã Xác Minh Hai Bước và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="35"/>
+        <location filename="../online/onlineerrormessages.cpp" line="36"/>
         <source>Two Factor Authentication is unavailable at this time.</source>
         <translation>Xác Minh Hai Bước không có sẵn ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <location filename="../online/onlineerrormessages.cpp" line="37"/>
         <source>Two Factor Authentication is already enabled for your account.</source>
         <translation>Xác Minh Hai Bước đã bị bật cho tài khoản của bạn.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="37"/>
+        <location filename="../online/onlineerrormessages.cpp" line="38"/>
         <source>Two Factor Authentication is already disabled for your account.</source>
         <translation>Xác Minh Hai Bước đã bị vô hiệu cho tài khoản của bạn.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="39"/>
+        <location filename="../online/onlineerrormessages.cpp" line="40"/>
         <source>Your credentials are incorrect. If you are logged in, you&apos;ll need to log out and log in again.</source>
         <translation>Thông tin đăng nhập của bạn là sai. Nếu bạn đã đăng nhập, bạn cần đăng xuất và đăng nhập lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="41"/>
         <source>Your verification code is incorrect, or the verification code has expired.
 
 If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
@@ -1077,38 +1114,38 @@ If it&apos;s been more than a day since you received the verification email, you
 <context>
     <name>OnlineWebSocket</name>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="168"/>
+        <location filename="../online/onlinewebsocket.cpp" line="179"/>
         <source>New Friend Requests</source>
         <translation>Có lời kết bạn mới</translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="168"/>
+        <location filename="../online/onlinewebsocket.cpp" line="179"/>
         <source>You have friend requests pending approval</source>
         <translation>Bạn có lời kết bạn mới đang chờ phản hồi của bạn</translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="169"/>
         <location filename="../online/onlinewebsocket.cpp" line="180"/>
+        <location filename="../online/onlinewebsocket.cpp" line="191"/>
         <source>Friends and Relations</source>
         <translation>Bạn bè và Quan hệ</translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="179"/>
+        <location filename="../online/onlinewebsocket.cpp" line="190"/>
         <source>New Friend Request</source>
         <translation>Lời kết bạn mới</translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="179"/>
+        <location filename="../online/onlinewebsocket.cpp" line="190"/>
         <source>%1 sent you a friend request</source>
         <translation>%1 mới gửi bạn lời kết bạn mới</translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="190"/>
+        <location filename="../online/onlinewebsocket.cpp" line="201"/>
         <source>Friend Request Accepted</source>
         <translation>Lời kết bạn đã bị chấp nhận</translation>
     </message>
     <message>
-        <location filename="../online/onlinewebsocket.cpp" line="190"/>
+        <location filename="../online/onlinewebsocket.cpp" line="201"/>
         <source>%1 accepted your friend request</source>
         <translation>%1 đã chấp nhận lời kết bạn</translation>
     </message>

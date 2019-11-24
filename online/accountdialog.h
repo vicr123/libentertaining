@@ -51,6 +51,8 @@ class LIBENTERTAINING_EXPORT AccountDialog : public QWidget
 
         void on_enterVerificationButton_clicked();
 
+        void on_changeEmailButton_clicked();
+
     signals:
         void done();
 
