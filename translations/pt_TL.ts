@@ -1150,68 +1150,84 @@ If it&apos;s been more than a day since you received the verification email, you
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="83"/>
+        <location filename="../online/onlineterms.cpp" line="115"/>
         <source>The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you&apos;ll need to read and agree to the new documents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="135"/>
+        <location filename="../online/onlineterms.ui" line="163"/>
+        <location filename="../online/onlineterms.ui" line="173"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="189"/>
         <source>View Community Guidelines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="138"/>
+        <location filename="../online/onlineterms.ui" line="192"/>
         <source>View the updated Community Guidelines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="161"/>
+        <location filename="../online/onlineterms.ui" line="215"/>
         <source>Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="164"/>
+        <location filename="../online/onlineterms.ui" line="218"/>
         <source>Accept the new Terms and Community Guidelines and connect to Entertaining Games Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="171"/>
+        <location filename="../online/onlineterms.ui" line="225"/>
         <source>Log Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="174"/>
+        <location filename="../online/onlineterms.ui" line="228"/>
         <source>Log out of your current account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="256"/>
+        <location filename="../online/onlineterms.ui" line="310"/>
         <source>Community Guidelines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="77"/>
+        <location filename="../online/onlineterms.cpp" line="80"/>
         <source>Encountered an error trying to load the community guidelines. Read them online at &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="86"/>
+        <location filename="../online/onlineterms.cpp" line="93"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="100"/>
+        <source>The presiding translation for these documents is English; only the English version of these documents will be taken into account should any discreapency occur. However, should a translation be available, we will show it for your convenience, in the hope that you&apos;ll be able to understand the translation better.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="118"/>
         <source>The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="101"/>
+        <location filename="../online/onlineterms.cpp" line="133"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="102"/>
-        <location filename="../online/onlineterms.cpp" line="109"/>
+        <location filename="../online/onlineterms.cpp" line="134"/>
+        <location filename="../online/onlineterms.cpp" line="141"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="133"/>
+        <location filename="../online/onlineterms.cpp" line="165"/>
         <source>Acceptance Failed</source>
         <translation type="unfinished"></translation>
     </message>

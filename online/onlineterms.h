@@ -48,6 +48,8 @@ class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
 
         void on_logoutButton_clicked();
 
+        void on_communityGuidelinesTextBrowser_anchorClicked(const QUrl &arg1);
+
     signals:
         void rejected();
         void accepted();

@@ -20,6 +20,7 @@
 #include "onlineterms.h"
 #include "ui_onlineterms.h"
 
+#include <QDesktopServices>
 #include "onlineapi.h"
 #include "pauseoverlay.h"
 #include "questionoverlay.h"
@@ -69,7 +70,9 @@ void OnlineTerms::init()
 {
     ui->setupUi(this);
 
-    QNetworkReply* cgReply = d->mgr.get(QNetworkRequest(OnlineApi::instance()->urlForPath("/info/communityguidelines")));
+    QNetworkRequest cgRequest(OnlineApi::instance()->urlForPath("/info/communityguidelines"));
+    cgRequest.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
+    QNetworkReply* cgReply = d->mgr.get(cgRequest);
     connect(cgReply, &QNetworkReply::finished, this, [=] {
         if (cgReply->error() == QNetworkReply::NoError) {
             ui->communityGuidelinesTextBrowser->setHtml(cgReply->readAll());
@@ -78,6 +81,35 @@ void OnlineTerms::init()
                                                         .arg(OnlineApi::instance()->urlForPath("/info/communityguidelines").toString()));
         }
     });
+
+    if (QLocale().language() == QLocale::English || QLocale().language() == QLocale::C) {
+        ui->localeWarning->setVisible(false);
+    } else {
+        QPalette pal = ui->localeWarningFrame->palette();
+        pal.setColor(QPalette::Window, QColor(255, 100, 0));
+        pal.setColor(QPalette::WindowText, Qt::white);
+        ui->localeWarningFrame->setPalette(pal);
+
+        QString locWarning = tr("Warning").toUpper();
+        if (locWarning == "WARNING") {
+            ui->localeWarningTitle->setText("WARNING");
+        } else {
+            ui->localeWarningTitle->setText("WARNING / " + locWarning);
+        }
+
+        const char* localeWarningText = QT_TR_NOOP("The presiding translation for these documents is English; "
+                                                   "only the English version of these documents will be taken into account should any discreapency occur. "
+                                                   "However, should a translation be available, we will show it for your convenience, in the hope that you'll "
+                                                   "be able to understand the translation better.");
+
+        ui->localeWarningEnglish->setText(localeWarningText);
+
+        if (localeWarningText == tr(localeWarningText)) {
+            ui->localeWarningOther->setVisible(false);
+        } else {
+            ui->localeWarningOther->setText(tr(localeWarningText));
+        }
+    }
 
     if (d->isTermsChanged) {
         ui->descriptionLabel->setText(tr("The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you'll need to read and agree to the new documents."));
@@ -142,4 +174,9 @@ void OnlineTerms::on_logoutButton_clicked()
 {
     OnlineApi::instance()->logOut();
     ui->backButton->click();
+}
+
+void OnlineTerms::on_communityGuidelinesTextBrowser_anchorClicked(const QUrl &arg1)
+{
+    QDesktopServices::openUrl(arg1);
 }
