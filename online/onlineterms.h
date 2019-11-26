@@ -21,6 +21,7 @@
 #define ONLINETERMS_H
 
 #include <QWidget>
+#include "libentertaining_global.h"
 
 namespace Ui {
     class OnlineTerms;
@@ -28,7 +29,7 @@ namespace Ui {
 
 class OnlineApi;
 struct OnlineTermsPrivate;
-class OnlineTerms : public QWidget
+class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
 {
         Q_OBJECT
 

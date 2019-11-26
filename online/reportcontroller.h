@@ -22,9 +22,10 @@
 
 #include <QObject>
 #include <QVariantMap>
+#include "libentertaining_global.h"
 
 struct ReportControllerPrivate;
-class ReportController : public QObject
+class LIBENTERTAINING_EXPORT ReportController : public QObject
 {
         Q_OBJECT
     public:

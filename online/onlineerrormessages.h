@@ -21,9 +21,10 @@
 #define ONLINEERRORMESSAGES_H
 
 #include <QString>
+#include "libentertaining_global.h"
 
 struct OnlineErrorMessagesPrivate;
-class OnlineErrorMessages
+class LIBENTERTAINING_EXPORT OnlineErrorMessages
 {
     public:
         static QString messageForCode(QString code, QString defaultMessage);
