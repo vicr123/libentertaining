@@ -189,7 +189,7 @@ int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, in
     input->setQuestion(question);
     input->setResponse(QString::number(defaultText));
     input->setEchoMode(echoMode);
-    input->setInputMethodHints(Qt::ImhDigitsOnly);
+    input->setInputMethodHints(Qt::ImhDigitsOnly | Qt::ImhPreferNumbers);
     input->setValidator(&validator, tr("Enter a number between %1 and %2").arg(min).arg(max));
     input->show();
     connect(input, &TextInputOverlay::accepted, loop, std::bind(&QEventLoop::exit, loop, 0));
@@ -313,6 +313,12 @@ void TextInputOverlay::show()
     ui->responseBox->selectAll();
 
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
+
+    #ifdef Q_OS_ANDROID
+        //Use the built in system keyboard on Android
+        ui->keyboardWidget->setVisible(false);
+        QApplication::inputMethod()->show();
+    #endif
 }
 
 void TextInputOverlay::paintEvent(QPaintEvent*event)

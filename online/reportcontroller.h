@@ -17,19 +17,29 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#include "entertainingsettings.h"
+#ifndef REPORTCONTROLLER_H
+#define REPORTCONTROLLER_H
 
-#include <QStandardPaths>
+#include <QObject>
+#include <QVariantMap>
 
-QSettings* EntertainingSettings::i = nullptr;
-
-QSettings*EntertainingSettings::instance()
+struct ReportControllerPrivate;
+class ReportController : public QObject
 {
-    if (i == nullptr) {
-        #ifdef Q_OS_ANDROID
-            QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation));
-        #endif
-        i = new QSettings(SETTINGS_ORGANISATION, SETTINGS_APPLICATION);
-    }
-    return i;
-}
+        Q_OBJECT
+    public:
+        static void setAutomaticReportingEnabled(QWidget* parent, bool reportingEnabled);
+        static void setReportDetails(QWidget* parent, QVariantMap details);
+        static void beginScreenReport(QWidget* parent);
+
+    signals:
+
+    public slots:
+
+    private:
+        explicit ReportController(QObject *parent = nullptr);
+
+        ReportControllerPrivate* d;
+};
+
+#endif // REPORTCONTROLLER_H

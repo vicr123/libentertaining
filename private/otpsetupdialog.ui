@@ -139,8 +139,8 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="go-previous">
-             <normaloff>../../theShell/statuscenter/PulseaudioPane</normaloff>../../theShell/statuscenter/PulseaudioPane</iconset>
+            <iconset resource="../libentertaining_resources.qrc">
+             <normaloff>:/libentertaining/icons/go-previous.svg</normaloff>:/libentertaining/icons/go-previous.svg</iconset>
            </property>
           </widget>
          </item>
@@ -393,8 +393,8 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="go-previous">
-             <normaloff>../../theShell/statuscenter/PulseaudioPane</normaloff>../../theShell/statuscenter/PulseaudioPane</iconset>
+            <iconset resource="../libentertaining_resources.qrc">
+             <normaloff>:/libentertaining/icons/go-previous.svg</normaloff>:/libentertaining/icons/go-previous.svg</iconset>
            </property>
           </widget>
          </item>
@@ -772,6 +772,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../libentertaining_resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

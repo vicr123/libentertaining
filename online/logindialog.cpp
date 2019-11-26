@@ -190,6 +190,7 @@ void LoginDialog::on_doRegisterButton_clicked()
             ui->stackedWidget->setCurrentWidget(ui->registerPage);
         } else {
             d->settings->setValue("online/token", obj.value("token").toString());
+            d->settings->sync();
             emit accepted();
         }
     })->error([=](QString error) {

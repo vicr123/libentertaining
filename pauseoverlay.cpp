@@ -113,6 +113,7 @@ void PauseOverlay::showOverlay()
     });
     anim->start();
 
+#ifndef Q_OS_ANDROID
     d->blur->setEnabled(true);
     tVariantAnimation* blurAnim = new tVariantAnimation(this);
     blurAnim->setStartValue(0.0);
@@ -127,6 +128,7 @@ void PauseOverlay::showOverlay()
         d->blur->setBlurHints(QGraphicsBlurEffect::QualityHint);
     });
     blurAnim->start();
+#endif
 }
 
 void PauseOverlay::hideOverlay()

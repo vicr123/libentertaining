@@ -884,13 +884,13 @@
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="165"/>
-        <location filename="../online/logindialog.cpp" line="223"/>
+        <location filename="../online/logindialog.cpp" line="224"/>
         <source>Check your input</source>
         <translation>Kiểm tra các trường</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="184"/>
-        <location filename="../online/logindialog.cpp" line="198"/>
+        <location filename="../online/logindialog.cpp" line="199"/>
         <source>Registration Failed</source>
         <translation>Đăng ký không thành công</translation>
     </message>
@@ -900,33 +900,33 @@
         <translation>Chúng tôi không thể đăng ký bạn. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="217"/>
+        <location filename="../online/logindialog.cpp" line="218"/>
         <source>Enter your username</source>
         <translation>Điền vào tên người dùng của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="218"/>
+        <location filename="../online/logindialog.cpp" line="219"/>
         <source>Enter your password</source>
         <translation>Điền vào mật khẩu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="244"/>
+        <location filename="../online/logindialog.cpp" line="245"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation>Điền vào một mã Xác Minh Hai Bước hợp lệ</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="244"/>
+        <location filename="../online/logindialog.cpp" line="245"/>
         <source>Enter your Two Factor Authentication code</source>
         <translation>Điền vào mã Xác Minh Hai Bước</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="254"/>
+        <location filename="../online/logindialog.cpp" line="255"/>
         <source>Check your details and try again.</source>
         <translation>Kiểm tra chi tiết và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="253"/>
-        <location filename="../online/logindialog.cpp" line="268"/>
+        <location filename="../online/logindialog.cpp" line="254"/>
+        <location filename="../online/logindialog.cpp" line="269"/>
         <source>Login Failed</source>
         <translation>Đăng nhập không thành công</translation>
     </message>
@@ -942,7 +942,7 @@
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="327"/>
+        <location filename="../online/onlineapi.cpp" line="328"/>
         <source>The server is not operating correctly.</source>
         <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
@@ -1020,17 +1020,17 @@ Try again later.</source>
 Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="256"/>
+        <location filename="../online/onlineapi.cpp" line="257"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="258"/>
+        <location filename="../online/onlineapi.cpp" line="259"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="260"/>
+        <location filename="../online/onlineapi.cpp" line="261"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>
@@ -1543,6 +1543,83 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     </message>
 </context>
 <context>
+    <name>ReportWidget</name>
+    <message>
+        <location filename="../private/reportwidget.ui" line="93"/>
+        <source>File a content report</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="136"/>
+        <source>A report is only to be used when you encounter content that violates the community guidelines.
+
+Do not use this tool for reporting content that you simply don&apos;t like.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="163"/>
+        <source>Got it!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="255"/>
+        <source>Provide Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="360"/>
+        <source>INFRINGING CONTENT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="367"/>
+        <source>Here&apos;s a screenshot that will be sent along with this report.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="400"/>
+        <source>It contains unfortunate content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="413"/>
+        <source>EXPLAIN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="420"/>
+        <source>What&apos;s wrong with this content?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="427"/>
+        <source>It contains anime</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="436"/>
+        <source>Reporting is not currently implemented. If there are any issues, shoot an email to hello@entertaining.games and we&apos;ll take a look.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="452"/>
+        <location filename="../private/reportwidget.cpp" line="64"/>
+        <source>Submit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="55"/>
+        <source>Select</source>
+        <translation type="unfinished">Chọn</translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="56"/>
+        <location filename="../private/reportwidget.cpp" line="65"/>
+        <source>Back</source>
+        <translation type="unfinished">Lại</translation>
+    </message>
+</context>
+<context>
     <name>SaveDialog</name>
     <message>
         <location filename="../private/savedialog.ui" line="71"/>
@@ -1653,7 +1730,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../textinputoverlay.ui" line="124"/>
         <location filename="../textinputoverlay.cpp" line="121"/>
-        <location filename="../textinputoverlay.cpp" line="359"/>
+        <location filename="../textinputoverlay.cpp" line="365"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
@@ -1691,7 +1768,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     </message>
     <message>
         <location filename="../textinputoverlay.cpp" line="123"/>
-        <location filename="../textinputoverlay.cpp" line="361"/>
+        <location filename="../textinputoverlay.cpp" line="367"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>

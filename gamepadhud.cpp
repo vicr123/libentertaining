@@ -142,6 +142,21 @@ bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
             e->accept();
             return true;
         }
+    } else if (watched == d->parent && event->type() == QEvent::KeyRelease) {
+        QKeyEvent* e = static_cast<QKeyEvent*>(event);
+        #ifdef Q_OS_ANDROID
+            if (e->key() == Qt::Key_Back) {
+                if (d->buttonActions.contains(QGamepadManager::ButtonB)) {
+                    //Run the back action
+                    d->buttonActions.value(QGamepadManager::ButtonB)();
+                } else if (d->buttonActions.contains(QGamepadManager::ButtonStart)) {
+                    //Run the pause action
+                    d->buttonActions.value(QGamepadManager::ButtonStart)();
+                }
+                event->accept();
+                return true;
+            }
+        #endif
     }
     return false;
 }

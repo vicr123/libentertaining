@@ -100,8 +100,8 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset theme="go-previous">
-                  <normaloff>../../theShell/statuscenter/PulseaudioPane</normaloff>../../theShell/statuscenter/PulseaudioPane</iconset>
+                 <iconset resource="../libentertaining_resources.qrc">
+                  <normaloff>:/libentertaining/icons/go-previous.svg</normaloff>:/libentertaining/icons/go-previous.svg</iconset>
                 </property>
                </widget>
               </item>
@@ -346,15 +346,15 @@
    <header location="global">focusbarrier.h</header>
   </customwidget>
   <customwidget>
-   <class>FriendPage</class>
-   <extends>QWidget</extends>
-   <header>private/friendpage.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>tCircularSpinner</class>
    <extends>QWidget</extends>
    <header location="global">tcircularspinner.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FriendPage</class>
+   <extends>QWidget</extends>
+   <header>private/friendpage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -365,6 +365,8 @@
   <tabstop>focusBarrier_2</tabstop>
   <tabstop>backButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../libentertaining_resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

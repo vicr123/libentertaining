@@ -23,10 +23,15 @@
 #include <the-libs_global.h>
 #include <QTranslator>
 #include <QFontDatabase>
+#include <QSettings>
+#include <QStandardPaths>
+#include "private/entertainingsettings.h"
 #include "private/applicationeventfilter.h"
 
 void Entertaining::initialize()
 {
+    Entertaining* e = new Entertaining();
+
     Q_INIT_RESOURCE(libentertaining_resources);
     Q_INIT_RESOURCE(libentertaining_translations);
     new GamepadListener();
@@ -63,6 +68,8 @@ void Entertaining::initialize()
     QApplication::setPalette(pal);
 
     QApplication::instance()->installEventFilter(new ApplicationEventFilter());
+
+    EntertainingSettings::instance();
 }
 
 Entertaining::Entertaining() {

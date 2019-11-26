@@ -237,6 +237,7 @@ tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSiz
 void OnlineApi::logOut()
 {
     d->settings->remove("online/token");
+    d->settings->sync();
     emit loggedOut();
 }
 

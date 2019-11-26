@@ -7,10 +7,9 @@ DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST="\\\"entertaining.games\\\""
 DEFINES += DEFAULT_ENTERTAINING_ONLINE_HOST_IS_SECURE="true"
 
 #Determine whether to build Discord
-no-discord {
+no-discord || android {
     #Don't build Discord
 } else {
-
     macx {
         DISCORD_STATIC_PATH = /usr/local/lib/libdiscord-rpc.a
 
@@ -96,6 +95,7 @@ SOURCES += \
     online/onlineapi.cpp \
     online/onlineerrormessages.cpp \
     online/onlinewebsocket.cpp \
+    online/reportcontroller.cpp \
     pauseoverlay.cpp \
     private/applicationeventfilter.cpp \
     private/entertainingsettings.cpp \
@@ -107,6 +107,7 @@ SOURCES += \
     private/loaddialogfileoptions.cpp \
     private/otpsetupdialog.cpp \
     private/passwordchangedialog.cpp \
+    private/reportwidget.cpp \
     private/savedialog.cpp \
     private/saveengine.cpp \
     private/savesmodel.cpp \
@@ -147,6 +148,7 @@ HEADERS += \
     online/onlineapi.h \
     online/onlineerrormessages.h \
     online/onlinewebsocket.h \
+    online/reportcontroller.h \
     pauseoverlay.h \
     private/applicationeventfilter.h \
     private/entertainingsettings.h \
@@ -158,6 +160,7 @@ HEADERS += \
     private/loaddialogfileoptions.h \
     private/otpsetupdialog.h \
     private/passwordchangedialog.h \
+    private/reportwidget.h \
     private/savedialog.h \
     private/saveengine.h \
     private/savesmodel.h \
@@ -179,7 +182,7 @@ unix {
     module.files = qt_libentertaining.pri
 }
 
-unix:!macx {
+unix:!macx:!android {
     #Include required build tools
     include(/usr/share/the-libs/pri/gentranslations.pri)
 
@@ -221,6 +224,19 @@ win32 {
     target.path = "C:/Program Files/libentertaining/lib"
 }
 
+android {
+    #Include required build tools
+    include(/opt/thesuite-android/share/the-libs/pri/gentranslations.pri)
+
+    INCLUDEPATH += "/opt/thesuite-android/include/the-libs"
+    LIBS += -L/opt/thesuite-android/libs/armeabi-v7a -lthe-libs
+
+    target.path = /libs/armeabi-v7a
+    header.path = /include/libentertaining
+    onlineheader.path = /include/libentertaining/online
+    module.files = qt_libentertaining.pri
+}
+
 INSTALLS += target module header onlineheader
 
 RESOURCES += \
@@ -245,6 +261,7 @@ FORMS += \
     private/loaddialogfileoptions.ui \
     private/otpsetupdialog.ui \
     private/passwordchangedialog.ui \
+    private/reportwidget.ui \
     private/savedialog.ui \
     questionoverlay.ui \
     settingwidget.ui \
