@@ -38,6 +38,8 @@ class LIBENTERTAINING_EXPORT OnlineApi : public QObject
         tPromise<OnlineWebSocket*>* play(QString applicationName, QString applicationVersion, QWidget* parentWidget);
         tPromise<QImage>* profilePicture(QString gravatarHash, int pictureSize);
 
+        QUrl urlForPath(QString path);
+
         void logOut();
 
         static int httpStatusCodeFromPromiseRejection(QString rejection);

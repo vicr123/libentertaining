@@ -17,52 +17,49 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef ACCOUNTDIALOG_H
-#define ACCOUNTDIALOG_H
+#ifndef ONLINETERMS_H
+#define ONLINETERMS_H
 
-#include <libentertaining_global.h>
 #include <QWidget>
 
 namespace Ui {
-    class AccountDialog;
+    class OnlineTerms;
 }
 
-struct AccountDialogPrivate;
-class LIBENTERTAINING_EXPORT AccountDialog : public QWidget
+class OnlineApi;
+struct OnlineTermsPrivate;
+class OnlineTerms : public QWidget
 {
         Q_OBJECT
 
     public:
-        explicit AccountDialog(QWidget *parent = nullptr);
-        ~AccountDialog();
+        explicit OnlineTerms(QWidget *parent);
+        ~OnlineTerms();
 
     private slots:
-        void on_logOutButton_clicked();
+        void on_viewCommunityGuidelinesButton_clicked();
+
+        void on_backButton_2_clicked();
 
         void on_backButton_clicked();
 
-        void on_setup2faButton_clicked();
+        void on_acceptButton_clicked();
 
-        void on_changeUsernameButton_clicked();
-
-        void on_changePasswordButton_clicked();
-
-        void on_resendVerificationButton_clicked();
-
-        void on_enterVerificationButton_clicked();
-
-        void on_changeEmailButton_clicked();
-
-        void on_viewTermsAndCommunityGuidelines_clicked();
+        void on_logoutButton_clicked();
 
     signals:
-        void done();
+        void rejected();
+        void accepted();
+
+    protected:
+        friend OnlineApi;
+        explicit OnlineTerms(QWidget *parent, bool isTermsChanged);
 
     private:
-        Ui::AccountDialog *ui;
-        AccountDialogPrivate* d;
+        Ui::OnlineTerms *ui;
+        OnlineTermsPrivate* d;
 
-        void loadData();
+        void init();
 };
 
-#endif // ACCOUNTDIALOG_H
+#endif // ONLINETERMS_H

@@ -28,6 +28,7 @@
 #include "private/otpsetupdialog.h"
 #include "private/passwordchangedialog.h"
 #include "textinputoverlay.h"
+#include "onlineterms.h"
 
 struct AccountDialogPrivate {
     QNetworkAccessManager mgr;
@@ -59,7 +60,7 @@ AccountDialog::AccountDialog(QWidget *parent) :
     });
 
     ui->focusBarrier->setBounceWidget(ui->logOutButton);
-    ui->focusBarrier_2->setBounceWidget(ui->setup2faButton);
+    ui->focusBarrier_2->setBounceWidget(ui->viewTermsAndCommunityGuidelines);
 
     PauseOverlay::overlayForWindow(parent)->pushOverlayWidget(this);
 
@@ -317,5 +318,13 @@ void AccountDialog::on_changeEmailButton_clicked()
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 
         ui->stackedWidget->setCurrentWidget(ui->accountPage);
+    });
+}
+
+void AccountDialog::on_viewTermsAndCommunityGuidelines_clicked()
+{
+    OnlineTerms* t = new OnlineTerms(this);
+    connect(t, &OnlineTerms::rejected, this, [=] {
+        t->deleteLater();
     });
 }

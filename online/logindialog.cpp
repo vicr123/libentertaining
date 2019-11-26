@@ -31,6 +31,7 @@
 #include "private/entertainingsettings.h"
 #include "pauseoverlay.h"
 #include "onlineerrormessages.h"
+#include "online/onlineterms.h"
 
 struct LoginDialogPrivate {
     QWidget* parent;
@@ -139,6 +140,7 @@ void LoginDialog::on_backButton_clicked()
 void LoginDialog::on_backButton_2_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->loginPage);
+    this->setFocusProxy(ui->usernameBox);
 }
 
 void LoginDialog::on_registerButton_clicked()
@@ -146,6 +148,7 @@ void LoginDialog::on_registerButton_clicked()
     ui->registerUsernameBox->setText(ui->usernameBox->text());
     ui->registerPasswordBox->setText(ui->passwordBox->text());
     ui->stackedWidget->setCurrentWidget(ui->registerPage);
+    this->setFocusProxy(ui->registerUsernameBox);
 }
 
 void LoginDialog::on_doRegisterButton_clicked()
@@ -273,5 +276,13 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 
         ui->stackedWidget->setCurrentWidget(ui->loginPage);
+    });
+}
+
+void LoginDialog::on_viewTermsAndCommunityGuidelines_clicked()
+{
+    OnlineTerms* t = new OnlineTerms(this);
+    connect(t, &OnlineTerms::rejected, this, [=] {
+        t->deleteLater();
     });
 }

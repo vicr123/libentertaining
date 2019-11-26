@@ -23,6 +23,7 @@
 #include <QNetworkReply>
 #include <QPainter>
 #include "onlinewebsocket.h"
+#include "online/onlineterms.h"
 #include "private/entertainingsettings.h"
 
 struct OnlineApiPrivate {
@@ -114,8 +115,6 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
         *disconnectedConnection = connect(ws, &OnlineWebSocket::disconnected, this, [=] {
             QString error;
             switch (static_cast<int>(ws->closeCode())) {
-                case QWebSocketProtocol::CloseCodeNormal:
-                    break;
                 case QWebSocketProtocol::CloseCodeGoingAway:
                     error = tr("The connection was lost because the server is now undergoing maintenance.");
                     break;
@@ -147,6 +146,22 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
                     break;
                 case 4002: //Bad Version
                     error = tr("The connection was lost because an update is required to continue playing online.");
+                    break;
+                case 4003: { //Terms Update Required
+                    OnlineTerms* t = new OnlineTerms(parentWidget, true);
+                    connect(t, &OnlineTerms::accepted, this, [=] {
+                        //Attempt to log in again
+                        t->deleteLater();
+                        this->play(applicationName, applicationVersion, parentWidget)->then(res)->error(rej);
+                    });
+                    connect(t, &OnlineTerms::rejected, this, [=] {
+                        t->deleteLater();
+                        rej("disconnect");
+                    });
+                    return;
+                }
+                case 4004: //Account Suspension
+                    error = tr("The connection was lost because your account has been suspended from online play.");
                     break;
 
                 case QWebSocketProtocol::CloseCodeAbnormalDisconnection:
@@ -232,6 +247,14 @@ tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSiz
             mgr->deleteLater();
         });
     });
+}
+
+QUrl OnlineApi::urlForPath(QString path)
+{
+    QUrl url("http://" + serverHost());
+    url.setScheme(isServerSecure() ? "https" : "http");
+    url.setPath(path);
+    return url;
 }
 
 void OnlineApi::logOut()

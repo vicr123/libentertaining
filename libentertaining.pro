@@ -94,6 +94,7 @@ SOURCES += \
     online/logindialog.cpp \
     online/onlineapi.cpp \
     online/onlineerrormessages.cpp \
+    online/onlineterms.cpp \
     online/onlinewebsocket.cpp \
     online/reportcontroller.cpp \
     pauseoverlay.cpp \
@@ -147,6 +148,7 @@ HEADERS += \
     online/logindialog.h \
     online/onlineapi.h \
     online/onlineerrormessages.h \
+    online/onlineterms.h \
     online/onlinewebsocket.h \
     online/reportcontroller.h \
     pauseoverlay.h \
@@ -256,6 +258,7 @@ FORMS += \
     online/accountdialog.ui \
     online/friendsdialog.ui \
     online/logindialog.ui \
+    online/onlineterms.ui \
     private/friendpage.ui \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \

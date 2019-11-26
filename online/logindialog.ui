@@ -321,14 +321,28 @@
          <property name="spacing">
           <number>6</number>
          </property>
-         <item row="7" column="0" colspan="2">
+         <item row="9" column="0" colspan="2">
+          <widget class="QPushButton" name="viewTermsAndCommunityGuidelines">
+           <property name="text">
+            <string>Terms and Community Guidelines</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Confirm Password</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0" colspan="2">
           <widget class="FocusBarrier" name="focusBarrier_4">
            <property name="text">
             <string notr="true">Barrier</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="0" colspan="2">
+         <item row="10" column="0" colspan="2">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
             <spacer name="horizontalSpacer_2">
@@ -352,75 +366,34 @@
            </item>
           </layout>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_10">
-           <property name="text">
-            <string>Email Address</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="registerUsernameBox"/>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="registerPasswordBox">
-           <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>Username</string>
-           </property>
-          </widget>
-         </item>
          <item row="5" column="0">
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>Confirm Password</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="registerEmailBox"/>
-         </item>
-         <item row="0" column="0" colspan="2">
-          <widget class="QLabel" name="label_6">
-           <property name="text">
-            <string>Register an account to play online.</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
           <widget class="QLabel" name="label_8">
            <property name="text">
             <string>Password</string>
            </property>
           </widget>
          </item>
+         <item row="8" column="0" colspan="2">
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>You shoud view the Terms and the Community Guidelines as these documents govern your use of the services, and by creating an account and using the services, you indicate acceptance of these documents.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
          <item row="5" column="1">
-          <widget class="QLineEdit" name="registerPasswordConfirmBox">
+          <widget class="QLineEdit" name="registerPasswordBox">
            <property name="echoMode">
             <enum>QLineEdit::Password</enum>
            </property>
           </widget>
          </item>
-         <item row="3" column="0" colspan="2">
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="registerEmailBox"/>
+         </item>
+         <item row="4" column="0" colspan="2">
           <layout class="QHBoxLayout" name="horizontalLayout_5">
            <property name="topMargin">
             <number>6</number>
@@ -436,6 +409,76 @@
             </widget>
            </item>
           </layout>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Username</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Email Address</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_13">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>ACCOUNT INFORMATION</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="registerUsernameBox"/>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Register an account to play online.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="registerPasswordConfirmBox">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="7" column="0" colspan="2">
+          <widget class="QLabel" name="label_14">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>TERMS AND COMMUNITY GUIDELINES</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -538,6 +581,7 @@
   <tabstop>registerEmailBox</tabstop>
   <tabstop>registerPasswordBox</tabstop>
   <tabstop>registerPasswordConfirmBox</tabstop>
+  <tabstop>viewTermsAndCommunityGuidelines</tabstop>
   <tabstop>doRegisterButton</tabstop>
   <tabstop>focusBarrier_4</tabstop>
   <tabstop>backButton</tabstop>

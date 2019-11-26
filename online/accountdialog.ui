@@ -394,6 +394,29 @@
              </widget>
             </item>
             <item>
+             <widget class="QLabel" name="label_6">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>SERVICES</string>
+              </property>
+              <property name="margin">
+               <number>9</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="viewTermsAndCommunityGuidelines">
+              <property name="text">
+               <string>View Terms and Community Guidelines</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="FocusBarrier" name="focusBarrier_2">
               <property name="text">
                <string notr="true">Barrier</string>
@@ -455,6 +478,7 @@
   <tabstop>changeEmailButton</tabstop>
   <tabstop>changePasswordButton</tabstop>
   <tabstop>setup2faButton</tabstop>
+  <tabstop>viewTermsAndCommunityGuidelines</tabstop>
   <tabstop>focusBarrier_2</tabstop>
   <tabstop>backButton</tabstop>
  </tabstops>

@@ -64,137 +64,147 @@
         <translation>Thiết lập Xác Minh Hai Bước</translation>
     </message>
     <message>
+        <location filename="../online/accountdialog.ui" line="405"/>
+        <source>SERVICES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/accountdialog.ui" line="415"/>
+        <source>View Terms and Community Guidelines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../online/accountdialog.ui" line="266"/>
-        <location filename="../online/accountdialog.cpp" line="79"/>
-        <location filename="../online/accountdialog.cpp" line="81"/>
+        <location filename="../online/accountdialog.cpp" line="80"/>
+        <location filename="../online/accountdialog.cpp" line="82"/>
         <source>Log Out</source>
         <translation>Đăng xuất</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="47"/>
+        <location filename="../online/accountdialog.cpp" line="48"/>
         <source>Select</source>
         <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="48"/>
+        <location filename="../online/accountdialog.cpp" line="49"/>
         <source>Back</source>
         <translation>Lại</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="80"/>
+        <location filename="../online/accountdialog.cpp" line="81"/>
         <source>Log out of %1?</source>
         <translation>Đăng xuất ra khỏi %1?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="114"/>
+        <location filename="../online/accountdialog.cpp" line="115"/>
         <source>What&apos;s your new username?</source>
         <translation>Tên người dùng mới của bạn là gì?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="117"/>
-        <location filename="../online/accountdialog.cpp" line="281"/>
+        <location filename="../online/accountdialog.cpp" line="118"/>
+        <location filename="../online/accountdialog.cpp" line="282"/>
         <source>Confirm the password for your account</source>
         <translation>Xác minh mật khẩu cho tài khoản của bạn</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="132"/>
-        <location filename="../online/accountdialog.cpp" line="148"/>
+        <location filename="../online/accountdialog.cpp" line="133"/>
+        <location filename="../online/accountdialog.cpp" line="149"/>
         <source>Changing username failed</source>
         <translation>Đổi tên người dùng không thành công</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="133"/>
+        <location filename="../online/accountdialog.cpp" line="134"/>
         <source>Try changing your username at a later time.</source>
         <translation>Hãy thử đổi tên người dùng sau.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="136"/>
+        <location filename="../online/accountdialog.cpp" line="137"/>
         <source>Username changed</source>
         <translation>Tên người dùng được thay đổi</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="137"/>
+        <location filename="../online/accountdialog.cpp" line="138"/>
         <source>Your username has been changed.</source>
         <translation>Tên người dùng của bạn đã bị thay đổi.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="179"/>
+        <location filename="../online/accountdialog.cpp" line="180"/>
         <source>Couldn&apos;t retrieve account information</source>
         <translation>Không thể nhận thông tin về tài khoản</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="203"/>
+        <location filename="../online/accountdialog.cpp" line="204"/>
         <source>Verification Email Resent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="204"/>
+        <location filename="../online/accountdialog.cpp" line="205"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="213"/>
+        <location filename="../online/accountdialog.cpp" line="214"/>
         <source>Couldn&apos;t resend verification email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="227"/>
+        <location filename="../online/accountdialog.cpp" line="228"/>
         <source>Enter the verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="227"/>
+        <location filename="../online/accountdialog.cpp" line="228"/>
         <source>Enter a valid verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="243"/>
+        <location filename="../online/accountdialog.cpp" line="244"/>
         <source>Email Verification Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="244"/>
+        <location filename="../online/accountdialog.cpp" line="245"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="247"/>
+        <location filename="../online/accountdialog.cpp" line="248"/>
         <source>Email Verified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="248"/>
+        <location filename="../online/accountdialog.cpp" line="249"/>
         <source>Your email has been verified. Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="260"/>
+        <location filename="../online/accountdialog.cpp" line="261"/>
         <source>Couldn&apos;t verify your email email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="278"/>
+        <location filename="../online/accountdialog.cpp" line="279"/>
         <source>What&apos;s your new email address?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="296"/>
-        <location filename="../online/accountdialog.cpp" line="313"/>
+        <location filename="../online/accountdialog.cpp" line="297"/>
+        <location filename="../online/accountdialog.cpp" line="314"/>
         <source>Changing email failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="297"/>
+        <location filename="../online/accountdialog.cpp" line="298"/>
         <source>Try changing your email at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="300"/>
+        <location filename="../online/accountdialog.cpp" line="301"/>
         <source>Email changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="301"/>
+        <location filename="../online/accountdialog.cpp" line="302"/>
         <source>Your email has been changed. Don&apos;t forget to check your email for a verification code and verify your email.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -786,7 +796,7 @@
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
         <location filename="../online/logindialog.ui" line="212"/>
-        <location filename="../online/logindialog.cpp" line="66"/>
+        <location filename="../online/logindialog.cpp" line="67"/>
         <source>Log In</source>
         <translation>Đăng nhập</translation>
     </message>
@@ -797,27 +807,42 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="183"/>
-        <location filename="../online/logindialog.ui" line="412"/>
-        <location filename="../online/logindialog.cpp" line="59"/>
-        <location filename="../online/logindialog.cpp" line="61"/>
+        <location filename="../online/logindialog.ui" line="372"/>
+        <location filename="../online/logindialog.cpp" line="60"/>
+        <location filename="../online/logindialog.cpp" line="62"/>
         <source>Password</source>
         <translation>Mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="405"/>
+        <location filename="../online/logindialog.ui" line="436"/>
+        <source>ACCOUNT INFORMATION</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="479"/>
+        <source>TERMS AND COMMUNITY GUIDELINES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="446"/>
         <source>Register an account to play online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="434"/>
+        <location filename="../online/logindialog.ui" line="327"/>
+        <source>Terms and Community Guidelines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="407"/>
         <source>Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="149"/>
-        <location filename="../online/logindialog.ui" line="375"/>
-        <location filename="../online/logindialog.cpp" line="58"/>
-        <location filename="../online/logindialog.cpp" line="60"/>
+        <location filename="../online/logindialog.ui" line="416"/>
+        <location filename="../online/logindialog.cpp" line="59"/>
+        <location filename="../online/logindialog.cpp" line="61"/>
         <source>Username</source>
         <translation>Tên người dùng</translation>
     </message>
@@ -827,106 +852,111 @@
         <translation>Đăng ký tài khoản</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="358"/>
-        <location filename="../online/logindialog.cpp" line="63"/>
+        <location filename="../online/logindialog.ui" line="379"/>
+        <source>You shoud view the Terms and the Community Guidelines as these documents govern your use of the services, and by creating an account and using the services, you indicate acceptance of these documents.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="423"/>
+        <location filename="../online/logindialog.cpp" line="64"/>
         <source>Email Address</source>
         <translation>Địa chỉ email</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="382"/>
-        <location filename="../online/logindialog.cpp" line="62"/>
+        <location filename="../online/logindialog.ui" line="334"/>
+        <location filename="../online/logindialog.cpp" line="63"/>
         <source>Confirm Password</source>
         <translation>Xác nhận mật khẩu</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="205"/>
-        <location filename="../online/logindialog.ui" line="349"/>
-        <location filename="../online/logindialog.cpp" line="84"/>
+        <location filename="../online/logindialog.ui" line="363"/>
+        <location filename="../online/logindialog.cpp" line="85"/>
         <source>Register</source>
         <translation>Đăng ký</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="65"/>
-        <location filename="../online/logindialog.cpp" line="83"/>
+        <location filename="../online/logindialog.cpp" line="66"/>
+        <location filename="../online/logindialog.cpp" line="84"/>
         <source>Select</source>
         <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="67"/>
-        <location filename="../online/logindialog.cpp" line="85"/>
+        <location filename="../online/logindialog.cpp" line="68"/>
+        <location filename="../online/logindialog.cpp" line="86"/>
         <source>Back</source>
         <translation>Lại</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="155"/>
+        <location filename="../online/logindialog.cpp" line="158"/>
         <source>Enter a new username</source>
         <translation>Điền vào tên người dùng mới</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="156"/>
+        <location filename="../online/logindialog.cpp" line="159"/>
         <source>Enter a password</source>
         <translation>Điền vào mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="157"/>
+        <location filename="../online/logindialog.cpp" line="160"/>
         <source>Confirm your password</source>
         <translation>Xác minh mật khẩu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="158"/>
+        <location filename="../online/logindialog.cpp" line="161"/>
         <source>Enter your email address</source>
         <translation>Điền vào địa chỉ email của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="160"/>
+        <location filename="../online/logindialog.cpp" line="163"/>
         <source>Check that the passwords match</source>
         <translation>Kiểm tra xem mật khẩu đã khớp</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="165"/>
-        <location filename="../online/logindialog.cpp" line="224"/>
+        <location filename="../online/logindialog.cpp" line="168"/>
+        <location filename="../online/logindialog.cpp" line="227"/>
         <source>Check your input</source>
         <translation>Kiểm tra các trường</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="184"/>
-        <location filename="../online/logindialog.cpp" line="199"/>
+        <location filename="../online/logindialog.cpp" line="187"/>
+        <location filename="../online/logindialog.cpp" line="202"/>
         <source>Registration Failed</source>
         <translation>Đăng ký không thành công</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="185"/>
+        <location filename="../online/logindialog.cpp" line="188"/>
         <source>We weren&apos;t able to register you. Try again later.</source>
         <translation>Chúng tôi không thể đăng ký bạn. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="218"/>
+        <location filename="../online/logindialog.cpp" line="221"/>
         <source>Enter your username</source>
         <translation>Điền vào tên người dùng của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="219"/>
+        <location filename="../online/logindialog.cpp" line="222"/>
         <source>Enter your password</source>
         <translation>Điền vào mật khẩu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="245"/>
+        <location filename="../online/logindialog.cpp" line="248"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation>Điền vào một mã Xác Minh Hai Bước hợp lệ</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="245"/>
+        <location filename="../online/logindialog.cpp" line="248"/>
         <source>Enter your Two Factor Authentication code</source>
         <translation>Điền vào mã Xác Minh Hai Bước</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="255"/>
+        <location filename="../online/logindialog.cpp" line="258"/>
         <source>Check your details and try again.</source>
         <translation>Kiểm tra chi tiết và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="254"/>
-        <location filename="../online/logindialog.cpp" line="269"/>
+        <location filename="../online/logindialog.cpp" line="257"/>
+        <location filename="../online/logindialog.cpp" line="272"/>
         <source>Login Failed</source>
         <translation>Đăng nhập không thành công</translation>
     </message>
@@ -942,42 +972,42 @@
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="328"/>
+        <location filename="../online/onlineapi.cpp" line="351"/>
         <source>The server is not operating correctly.</source>
         <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="110"/>
+        <location filename="../online/onlineapi.cpp" line="111"/>
         <source>You are not logged in.</source>
         <translation>Bạn chưa đăng nhập.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="120"/>
+        <location filename="../online/onlineapi.cpp" line="119"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ hiện đang bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="125"/>
+        <location filename="../online/onlineapi.cpp" line="124"/>
         <source>The connection was lost because a server error occurred.</source>
         <translation>Kết nối của bạn bị mất tại vì một lỗi tại máy chủ đã xảy ra.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="129"/>
+        <location filename="../online/onlineapi.cpp" line="128"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ không hiểu tin nhắn của chúng tôi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="132"/>
+        <location filename="../online/onlineapi.cpp" line="131"/>
         <source>The connection was lost because too much data was sent.</source>
         <translation>Kết nối của bạn bị mất tại vì quá nhiều dữ liệu bị gửi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="135"/>
+        <location filename="../online/onlineapi.cpp" line="134"/>
         <source>The connection was lost because an internal error occurred.</source>
         <translation>Kết nối của bạn bị mất tại vì một lỗi nội bộ đã xảy ra.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="140"/>
+        <location filename="../online/onlineapi.cpp" line="139"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
@@ -986,32 +1016,37 @@ Try connecting again and re-enter your credentials.</source>
 Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="146"/>
+        <location filename="../online/onlineapi.cpp" line="145"/>
         <source>The connection was lost because the server does not support this application.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ không có hỗ trợ ứng dụng này.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="149"/>
+        <location filename="../online/onlineapi.cpp" line="148"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
         <translation>Kết nối của bạn bị mất tại vì bạn cần cập nhật để tiếp tục chơi trực tuyến.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="155"/>
+        <location filename="../online/onlineapi.cpp" line="164"/>
+        <source>The connection was lost because your account has been suspended from online play.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineapi.cpp" line="170"/>
         <source>The connection to the server was lost.</source>
         <translation>Kết nối của bạn bị mất.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="167"/>
+        <location filename="../online/onlineapi.cpp" line="182"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>Máy chủ đã từ chối kết nối của chúng tôi. Nó có thể đang được bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="170"/>
+        <location filename="../online/onlineapi.cpp" line="185"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>Máy chủ DNS không thể tìm địa chỉ IP của máy chủ Entertaining Games.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="173"/>
+        <location filename="../online/onlineapi.cpp" line="188"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -1020,17 +1055,17 @@ Try again later.</source>
 Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="257"/>
+        <location filename="../online/onlineapi.cpp" line="280"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="259"/>
+        <location filename="../online/onlineapi.cpp" line="282"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="261"/>
+        <location filename="../online/onlineapi.cpp" line="284"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>
@@ -1108,6 +1143,80 @@ Hãy thử lại giờ khác.</translation>
         <source>Your verification code is incorrect, or the verification code has expired.
 
 If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OnlineTerms</name>
+    <message>
+        <location filename="../online/onlineterms.ui" line="90"/>
+        <source>Terms and Community Guidelines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="83"/>
+        <source>The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you&apos;ll need to read and agree to the new documents.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="135"/>
+        <source>View Community Guidelines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="138"/>
+        <source>View the updated Community Guidelines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="161"/>
+        <source>Accept</source>
+        <translation type="unfinished">Chấp nhận</translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="164"/>
+        <source>Accept the new Terms and Community Guidelines and connect to Entertaining Games Online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="171"/>
+        <source>Log Out</source>
+        <translation type="unfinished">Đăng xuất</translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="174"/>
+        <source>Log out of your current account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.ui" line="256"/>
+        <source>Community Guidelines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="77"/>
+        <source>Encountered an error trying to load the community guidelines. Read them online at &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="86"/>
+        <source>The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="101"/>
+        <source>Select</source>
+        <translation type="unfinished">Chọn</translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="102"/>
+        <location filename="../online/onlineterms.cpp" line="109"/>
+        <source>Back</source>
+        <translation type="unfinished">Lại</translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="133"/>
+        <source>Acceptance Failed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

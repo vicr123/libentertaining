@@ -53,6 +53,8 @@ class LIBENTERTAINING_EXPORT LoginDialog : public QWidget
 
         void on_loginButton_clicked();
 
+        void on_viewTermsAndCommunityGuidelines_clicked();
+
     private:
         Ui::LoginDialog *ui;
         LoginDialogPrivate* d;
