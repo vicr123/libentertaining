@@ -972,7 +972,7 @@
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="351"/>
+        <location filename="../online/onlineapi.cpp" line="354"/>
         <source>The server is not operating correctly.</source>
         <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
@@ -1031,22 +1031,22 @@ Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="170"/>
+        <location filename="../online/onlineapi.cpp" line="173"/>
         <source>The connection to the server was lost.</source>
         <translation>Kết nối của bạn bị mất.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="182"/>
+        <location filename="../online/onlineapi.cpp" line="185"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>Máy chủ đã từ chối kết nối của chúng tôi. Nó có thể đang được bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="185"/>
+        <location filename="../online/onlineapi.cpp" line="188"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>Máy chủ DNS không thể tìm địa chỉ IP của máy chủ Entertaining Games.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="188"/>
+        <location filename="../online/onlineapi.cpp" line="191"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -1055,17 +1055,17 @@ Try again later.</source>
 Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="280"/>
+        <location filename="../online/onlineapi.cpp" line="283"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="282"/>
+        <location filename="../online/onlineapi.cpp" line="285"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="284"/>
+        <location filename="../online/onlineapi.cpp" line="287"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>

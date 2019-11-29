@@ -139,7 +139,7 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
                     error = tr("The connection was lost because your credentials have expired or are incorrect.\n\nTry connecting again and re-enter your credentials.");
 
                     //Log the user out because this token is no longer valid
-                    d->settings->remove("online/token");
+                    this->logOut();
                     break;
                 case 4001: //Unknown Application
                     error = tr("The connection was lost because the server does not support this application.");
@@ -162,6 +162,9 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
                 }
                 case 4004: //Account Suspension
                     error = tr("The connection was lost because your account has been suspended from online play.");
+
+                    //Log the user out otherwise there is no way to log out
+                    this->logOut();
                     break;
 
                 case QWebSocketProtocol::CloseCodeAbnormalDisconnection:

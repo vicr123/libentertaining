@@ -228,12 +228,12 @@ bool FocusPointer::eventFilter(QObject*watched, QEvent*event)
         }
     }
 
-    if (watched == d->activeWidget) {
-        if (event->type() == QEvent::Resize || event->type() == QEvent::Move) {
+    if (event->type() == QEvent::Resize || event->type() == QEvent::Move) {
+        if (watched == d->activeWidget) {
             updateFocusedWidget();
         }
-    } else if (d->filteredWidgets.contains(QPointer<QWidget>(qobject_cast<QWidget*>(watched)))) {
-        if (event->type() == QEvent::Move) {
+
+        if (event->type() == QEvent::Move && d->filteredWidgets.contains(QPointer<QWidget>(qobject_cast<QWidget*>(watched)))) {
             updateFocusedWidget();
         }
     }
