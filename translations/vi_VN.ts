@@ -16,22 +16,22 @@
     <message>
         <location filename="../online/accountdialog.ui" line="285"/>
         <source>VERIFY YOUR EMAIL</source>
-        <translation type="unfinished"></translation>
+        <translation>XÁC NHẬN EMAIL</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="292"/>
         <source>Check your email for a code that we sent you. If you can&apos;t find it, try checking your spam folder, and if that doesnt work, try resending a verification email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra email của bạn cho mã chúng tôi đã gửi. Nếu bạn không thể tìm thấy, hãy xem thư mục rác, rồi nếu đó không có gì, hãy gửi email xác nhận lại.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="320"/>
         <source>Resend Verification Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Gửi Email Xác Nhận Lại</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="327"/>
         <source>Enter Verification Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền Vào Mã Xác Nhận</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="345"/>
@@ -66,12 +66,12 @@
     <message>
         <location filename="../online/accountdialog.ui" line="405"/>
         <source>SERVICES</source>
-        <translation type="unfinished"></translation>
+        <translation>DỊCH VỤ</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="415"/>
         <source>View Terms and Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem điều khoản và nguyên tắc công cộng</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="266"/>
@@ -135,47 +135,47 @@
     <message>
         <location filename="../online/accountdialog.cpp" line="204"/>
         <source>Verification Email Resent</source>
-        <translation type="unfinished"></translation>
+        <translation>Email Xác Nhận được gửi lại</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="205"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiểm tra hộp thư cho mã xác nhận. Bạn có thể phải xem thư mục rác.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="214"/>
         <source>Couldn&apos;t resend verification email</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể gửi Email Xác Nhận lại</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="228"/>
         <source>Enter the verification code</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy điền vào mã xác nhận</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="228"/>
         <source>Enter a valid verification code</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào mã xác nhận hợp lệ</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="244"/>
         <source>Email Verification Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Xác nhận email thất bại</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="245"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chúng tôi không có thể xác nhận email của bạn. Hãy thử lại sau.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="248"/>
         <source>Email Verified</source>
-        <translation type="unfinished"></translation>
+        <translation>Email được xác nhận</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="249"/>
         <source>Your email has been verified. Thank you!</source>
-        <translation type="unfinished"></translation>
+        <translation>Email của bạn được xác nhận. Cảm ơn nhiều!</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="261"/>
@@ -185,28 +185,28 @@
     <message>
         <location filename="../online/accountdialog.cpp" line="279"/>
         <source>What&apos;s your new email address?</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ email mới của bạn là gì?</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="297"/>
         <location filename="../online/accountdialog.cpp" line="314"/>
         <source>Changing email failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi email thất bại</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="298"/>
         <source>Try changing your email at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy đổi email của bạn lúc khác.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="301"/>
         <source>Email changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ email được đổi</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="302"/>
         <source>Your email has been changed. Don&apos;t forget to check your email for a verification code and verify your email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ email của bạn đã bị đổi. Đừng quên kiểm tra email của bạn cho mã xác nhận và xác nhận email của bạn.</translation>
     </message>
 </context>
 <context>
@@ -249,7 +249,7 @@
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="60"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation>Bộ điều khiển bạn đang thử đã bị tháo ra</translation>
+        <translation>Bộ điều khiển bạn đang thử đã bị tháo ra.</translation>
     </message>
 </context>
 <context>
@@ -816,27 +816,27 @@
     <message>
         <location filename="../online/logindialog.ui" line="436"/>
         <source>ACCOUNT INFORMATION</source>
-        <translation type="unfinished"></translation>
+        <translation>THÔNG TIN VỀ TÀI KHOẢN</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="479"/>
         <source>TERMS AND COMMUNITY GUIDELINES</source>
-        <translation type="unfinished"></translation>
+        <translation>ĐIỀU KHOẢN VÀ NGUYÊN TẮC CÔNG CỘNG</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="446"/>
         <source>Register an account to play online.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng ký một tài khoản để chơi trực tuyến.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="327"/>
         <source>Terms and Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Điều khoản và nguyên tắc công cộng</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="407"/>
         <source>Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm mật khẩu tốt và lưu riêng cho tài khoản này. Bạn nên không muốn dùng mật khẩu này lại.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="149"/>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../online/logindialog.ui" line="379"/>
         <source>You shoud view the Terms and the Community Guidelines as these documents govern your use of the services, and by creating an account and using the services, you indicate acceptance of these documents.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn nên xem Điều Khoản và Nguyên Tắc Cộng Đồng vì tài liệu này chi phối việc sử dụng các dịch vụ, và khi bạn tạo tài khoản và dùng các dịch vụ, bạn cho biết chấp nhận các tài liệu này.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="423"/>
@@ -1028,7 +1028,7 @@ Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</t
     <message>
         <location filename="../online/onlineapi.cpp" line="164"/>
         <source>The connection was lost because your account has been suspended from online play.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn bị mất vì tài khoản của bạn đã bị đình chỉ chơi trực tuyến.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="173"/>
@@ -1100,12 +1100,12 @@ Hãy thử lại giờ khác.</translation>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="32"/>
         <source>That email address is invalid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Địa chỉ email do không hợp lệ.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="33"/>
         <source>That email is the same as your current email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Email đó giống với email hiện tại của bạn.</translation>
     </message>
     <message>
         <location filename="../online/onlineerrormessages.cpp" line="34"/>
@@ -1143,7 +1143,9 @@ Hãy thử lại giờ khác.</translation>
         <source>Your verification code is incorrect, or the verification code has expired.
 
 If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mã xác nhận của bạn sai, hoặc nó đã hết hạn.
+
+Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhận, bạn sẽ cần gửi lại email xác nhận để nhận mã mới.</translation>
     </message>
 </context>
 <context>
@@ -1151,12 +1153,12 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="90"/>
         <source>Terms and Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Điều khoản và nguyên tắc công cộng</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="115"/>
         <source>The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you&apos;ll need to read and agree to the new documents.</source>
-        <translation type="unfinished"></translation>
+        <translation>Điều khoản hoặc nguyên tắc công cộng đã bị cập nhật. Để tiếp tục chơi trực tuyến, bạn cần đọc và chấp nhận tài liệu mới.</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="163"/>
@@ -1167,17 +1169,17 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="189"/>
         <source>View Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem Nguyên Tắc Công Cộng</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="192"/>
         <source>View the updated Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem Nguyên Tắc Công Cộng đã được cập nhật</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="215"/>
         <source>Accept</source>
-        <translation type="unfinished">Chấp nhận</translation>
+        <translation>Chấp nhận</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="218"/>
@@ -1187,7 +1189,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="225"/>
         <source>Log Out</source>
-        <translation type="unfinished">Đăng xuất</translation>
+        <translation>Đăng xuất</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="228"/>
@@ -1197,12 +1199,12 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="310"/>
         <source>Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Nguyên Tắc Công Cộng</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="80"/>
         <source>Encountered an error trying to load the community guidelines. Read them online at &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã xảy ra lỗi khi tải nguyên tắc công cộng. Xem nó tại &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="93"/>
@@ -1222,13 +1224,13 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.cpp" line="133"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="134"/>
         <location filename="../online/onlineterms.cpp" line="141"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="165"/>
@@ -1847,7 +1849,7 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="52"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation>Bộ điều khiển bạn đang thử đã bị tháo ra</translation>
+        <translation>Bộ điều khiển bạn đang thử đã bị tháo ra.</translation>
     </message>
 </context>
 <context>
