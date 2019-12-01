@@ -184,7 +184,7 @@ bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
         Qt::Key key = static_cast<Qt::Key>(e->key() | e->modifiers());
         QKeySequence keySeq(key);
 
-        if (d->keyBinds.contains(keySeq)) {
+        if (d->keyBinds.contains(keySeq) && d->buttonActions.contains(d->keyBinds.value(keySeq))) {
             //Run the button action
             d->buttonActions.value(d->keyBinds.value(keySeq))();
 
