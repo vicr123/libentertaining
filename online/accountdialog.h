@@ -55,6 +55,8 @@ class LIBENTERTAINING_EXPORT AccountDialog : public QWidget
 
         void on_viewTermsAndCommunityGuidelines_clicked();
 
+        void on_changeProfilePictureButton_clicked();
+
     signals:
         void done();
 

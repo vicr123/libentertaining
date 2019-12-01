@@ -50,6 +50,7 @@ LoadDialog::LoadDialog(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Load"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonX, tr("Options"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
+    ui->gamepadHud->bindKey(QKeySequence(tr("o", "Shortcut key for (O)ptions")), QGamepadManager::ButtonX);
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [=] {
         on_loadView_activated(ui->loadView->currentIndex());

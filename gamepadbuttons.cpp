@@ -104,13 +104,12 @@ QString GamepadButtons::stringForButton(QGamepadManager::GamepadButton button)
 
 QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
 {
-
     QFontMetrics metrics(font);
     QString sequence = key.toString(QKeySequence::NativeText);
     QStringList chordParts = sequence.split(", ", QString::SkipEmptyParts);
     if (chordParts.count() == 0) {
         QRect textRect;
-        textRect.setWidth(metrics.width(tr("No Shortcut")) + 1);
+        textRect.setWidth(metrics.horizontalAdvance(tr("No Shortcut")) + 1);
         textRect.setHeight(metrics.height());
         textRect.moveLeft(0);
         textRect.moveTop(0);
@@ -134,7 +133,7 @@ QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
             }
 
             if (chordParts.count() > i + 1) {
-                width += metrics.width(",") + 1 + SC_DPI(4);
+                width += metrics.horizontalAdvance(",") + 1 + SC_DPI(4);
             }
         }
         width -= SC_DPI(4);
@@ -144,19 +143,25 @@ QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
         QPainter painter(&pixmap);
         painter.setPen(pal.color(QPalette::WindowText));
         int currentX = 0;
+        bool cropTo16 = true;
 
         for (int i = 0; i < chordParts.count(); i++) {
             QStringList keys = chordParts.at(i).split("+", QString::SkipEmptyParts);
 
             for (QString key : keys) {
                 QPixmap icon = getKeyIcon(key, font, pal);
-                painter.drawPixmap(currentX, SC_DPI(4), icon);
+                if (icon.width() == SC_DPI(16)) {
+                    painter.drawPixmap(currentX, 0, icon);
+                } else {
+                    cropTo16 = false;
+                    painter.drawPixmap(currentX, SC_DPI(4), icon);
+                }
                 currentX += icon.width() + SC_DPI(4);
             }
 
             if (chordParts.count() > i + 1) {
                 QRect textRect;
-                textRect.setWidth(metrics.width(",") + 1);
+                textRect.setWidth(metrics.horizontalAdvance(",") + 1);
                 textRect.setHeight(metrics.height());
                 textRect.moveLeft(currentX);
                 textRect.moveTop(pixmap.height() / 2 - textRect.height() / 2);
@@ -165,6 +170,11 @@ QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
             }
         }
 
+        painter.end();
+
+        if (cropTo16) {
+            pixmap = pixmap.copy(0, 0, pixmap.width(), SC_DPI(16));
+        }
         return pixmap;
     }
 }
@@ -269,6 +279,10 @@ QPixmap GamepadButtons::getKeyIcon(QString key, QFont font, QPalette pal)
     //Special Cases
     if (key == "Meta") key = "Super";
     if (key == "Print") key = "PrtSc";
+    if (key == "Enter") key = "↵";
+    if (key == "Return") key = "↵";
+    if (key == "Space") key = "⌴";
+//    if (key == "Esc") key = "⎋";
 
     QPixmap squarePx(SC_DPI_T(QSize(16, 16), QSize));
     squarePx.fill(Qt::transparent);
@@ -289,7 +303,7 @@ QPixmap GamepadButtons::getKeyIcon(QString key, QFont font, QPalette pal)
 
     QSize pixmapSize;
     pixmapSize.setHeight(SC_DPI(16));
-    pixmapSize.setWidth(qMax(fontMetrics.width(key) + SC_DPI(6), SC_DPI(16)));
+    pixmapSize.setWidth(qMax(fontMetrics.horizontalAdvance(key) + SC_DPI(6), SC_DPI(16)));
 
     QPixmap px(pixmapSize);
     px.fill(Qt::transparent);
@@ -301,11 +315,12 @@ QPixmap GamepadButtons::getKeyIcon(QString key, QFont font, QPalette pal)
     painter.drawRoundedRect(QRect(QPoint(0, 0), px.size()), 4 * theLibsGlobal::getDPIScaling(), 4 * theLibsGlobal::getDPIScaling());
 
     painter.setFont(font);
-    painter.setPen(pal.color(QPalette::Window));
+    painter.setPen(Qt::black);
+    painter.setCompositionMode(QPainter::CompositionMode_DestinationOut);
 
     QRect textRect;
     textRect.setHeight(fontMetrics.height());
-    textRect.setWidth(fontMetrics.width(key));
+    textRect.setWidth(fontMetrics.horizontalAdvance(key) + 1);
     textRect.moveCenter(QPoint(pixmapSize.width() / 2, pixmapSize.height() / 2));
 
     painter.drawText(textRect, Qt::AlignCenter, key);

@@ -39,9 +39,11 @@ struct PauseOverlayPrivate {
 
     QBoxLayout* layout;
 
-    QGraphicsOpacityEffect* opacity;
+//    QGraphicsOpacityEffect* opacity;
+    qreal opacity = 0;
     QGraphicsOpacityEffect* overlayOpacity;
     QGraphicsBlurEffect* blur;
+    QWidget* blurOver;
 
     bool animatingPop = false;
     bool animatingHide = false;
@@ -59,14 +61,15 @@ PauseOverlay::PauseOverlay(QWidget*blurOver, QWidget *parent) : QWidget(parent)
     d->layout = new QBoxLayout(QBoxLayout::LeftToRight, this);
     d->layout->setContentsMargins(0, 0, 0, 0);
 
-    d->opacity = new QGraphicsOpacityEffect(this);
-    d->opacity->setOpacity(0);
-    this->setGraphicsEffect(d->opacity);
+//    d->opacity = new QGraphicsOpacityEffect(this);
+//    d->opacity->setOpacity(0);
+//    this->setGraphicsEffect(d->opacity);
 
     d->blur = new QGraphicsBlurEffect(this);
-    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
+//    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
     d->blur->setEnabled(false);
     blurOver->setGraphicsEffect(d->blur);
+    d->blurOver = blurOver;
 
     this->setAttribute(Qt::WA_TranslucentBackground);
 
@@ -105,11 +108,13 @@ void PauseOverlay::showOverlay()
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
-        d->opacity->setOpacity(value.toDouble());
+//        d->opacity->setOpacity(value.toDouble());
+        d->opacity = value.toReal();
+        this->update();
     });
     connect(anim, &tVariantAnimation::finished, this, [=] {
         anim->deleteLater();
-        d->opacity->setEnabled(false);
+//        d->opacity->setEnabled(false);
         setNewOverlayWidget(d->overlayWidget.top());
     });
     anim->start();
@@ -126,7 +131,7 @@ void PauseOverlay::showOverlay()
     });
     connect(blurAnim, &tVariantAnimation::finished, this, [=] {
         blurAnim->deleteLater();
-        d->blur->setBlurHints(QGraphicsBlurEffect::QualityHint);
+//        d->blur->setBlurHints(QGraphicsBlurEffect::QualityHint);
     });
     blurAnim->start();
 #endif
@@ -136,37 +141,43 @@ void PauseOverlay::hideOverlay()
 {
     d->animatingHide = true;
 
-    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
+//    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
     tVariantAnimation* anim = new tVariantAnimation(this);
     anim->setStartValue(1.0);
     anim->setEndValue(0.0);
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
-        d->opacity->setOpacity(value.toDouble());
+        d->opacity = value.toReal();
+        this->update();
     });
     connect(anim, &tVariantAnimation::finished, this, [=] {
         anim->deleteLater();
         this->hide();
         d->animatingHide = false;
-
-//        tVariantAnimation* blurAnim = new tVariantAnimation(this);
-//        blurAnim->setStartValue(20.0);
-//        blurAnim->setEndValue(0.0);
-//        blurAnim->setDuration(250);
-//        blurAnim->setEasingCurve(QEasingCurve::OutCubic);
-//        connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
-//            d->blur->setBlurRadius(value.toReal());
-//        });
-//        connect(blurAnim, &tVariantAnimation::finished, this, [=] {
-//            d->blur->setEnabled(false);
-//            blurAnim->deleteLater();
-//        });
-//        blurAnim->start();
-        d->blur->setEnabled(false);
-
     });
     anim->start();
+
+#ifndef Q_OS_ANDROID
+    tVariantAnimation* blurAnim = new tVariantAnimation(this);
+    blurAnim->setStartValue(20.0);
+    blurAnim->setEndValue(0.0);
+    blurAnim->setDuration(250);
+    blurAnim->setEasingCurve(QEasingCurve::OutCubic);
+    connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+        d->blur->setBlurRadius(value.toReal());
+
+        //HACK HACK force the blur effect to update
+        d->blurOver->move(d->blurOver->geometry().topLeft() + QPoint(1, 1));
+        d->blurOver->move(d->blurOver->geometry().topLeft() - QPoint(1, 1));
+
+    });
+    connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+        d->blur->setEnabled(false);
+        blurAnim->deleteLater();
+    });
+    blurAnim->start();
+#endif
 }
 
 void PauseOverlay::setOverlayWidget(QWidget*overlayWidget)
@@ -248,7 +259,7 @@ bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
 void PauseOverlay::paintEvent(QPaintEvent*event)
 {
     QPainter painter(this);
-    painter.setBrush(QColor(0, 0, 0, 200));
+    painter.setBrush(QColor(0, 0, 0, 200 * d->opacity));
     painter.setPen(Qt::transparent);
     painter.drawRect(0, 0, this->width(), this->height());
 }

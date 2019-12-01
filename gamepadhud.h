@@ -49,6 +49,8 @@ class LIBENTERTAINING_EXPORT GamepadHud : public QWidget
         void setButtonAction(QGamepadManager::GamepadButton button, std::function<void()> action);
         void removeText(QGamepadManager::GamepadButton button);
         void removeButtonAction(QGamepadManager::GamepadButton button);
+        void bindKey(QKeySequence key, QGamepadManager::GamepadButton button);
+        void unbindKey(QKeySequence key);
 
         static std::function<void()> standardAction(StandardAction action);
 
@@ -57,6 +59,7 @@ class LIBENTERTAINING_EXPORT GamepadHud : public QWidget
         GamepadHudPrivate* d;
 
         bool eventFilter(QObject* watched, QEvent* event);
+        void setShowGamepadButtons(bool showGamepadButtons);
 };
 
 #endif // GAMEPADHUD_H

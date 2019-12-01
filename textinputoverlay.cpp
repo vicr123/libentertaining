@@ -71,6 +71,8 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [=] {
         tryAccept();
     });
+    ui->gamepadHud->bindKey(Qt::Key_Space, QGamepadManager::ButtonX);
+    ui->gamepadHud->bindKey(Qt::Key_Shift, QGamepadManager::ButtonY);
 
     QPalette pal = ui->responseBox->palette();
     pal.setColor(QPalette::Window, Qt::transparent);

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>598</width>
-    <height>493</height>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -357,6 +357,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="changeProfilePictureButton">
+              <property name="text">
+               <string>Change Profile Picture</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="changeEmailButton">
               <property name="text">
                <string>Change Email Address</string>
@@ -475,6 +482,7 @@
   <tabstop>resendVerificationButton</tabstop>
   <tabstop>enterVerificationButton</tabstop>
   <tabstop>changeUsernameButton</tabstop>
+  <tabstop>changeProfilePictureButton</tabstop>
   <tabstop>changeEmailButton</tabstop>
   <tabstop>changePasswordButton</tabstop>
   <tabstop>setup2faButton</tabstop>

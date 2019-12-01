@@ -28,8 +28,14 @@
 struct GamepadHudPrivate {
     QMap<QGamepadManager::GamepadButton, QToolButton*> hudItems;
     QMap<QGamepadManager::GamepadButton, std::function<void()>> buttonActions;
+    QMap<QKeySequence, QGamepadManager::GamepadButton> keyBinds = {
+        {Qt::Key_Return, QGamepadManager::ButtonA},
+        {Qt::Key_Escape, QGamepadManager::ButtonB}
+    };
 
     QWidget* parent = nullptr;
+
+    bool isShowingGamepadButtons = false;
 };
 
 GamepadHud::GamepadHud(QWidget *parent) :
@@ -40,6 +46,10 @@ GamepadHud::GamepadHud(QWidget *parent) :
     d = new GamepadHudPrivate();
 
     this->setParent(parent);
+    connect(static_cast<QApplication*>(QApplication::instance()), &QApplication::focusChanged, this, [=](QWidget* oldFocus, QWidget* newFocus) {
+        if (oldFocus) oldFocus->removeEventFilter(this);
+        if (newFocus) newFocus->installEventFilter(this);
+    });
 }
 
 GamepadHud::~GamepadHud()
@@ -82,7 +92,12 @@ void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString te
         item->setAutoRaise(true);
         item->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         item->setFocusPolicy(Qt::NoFocus);
-        item->setIcon(GamepadButtons::iconForButton(button, this->palette().color(QPalette::WindowText)));
+        if (d->isShowingGamepadButtons || !d->keyBinds.values().contains(button)) {
+            item->setIcon(GamepadButtons::iconForButton(button, this->palette().color(QPalette::WindowText)));
+        } else {
+            item->setIcon(GamepadButtons::iconForKey(d->keyBinds.key(button), this->font(), this->palette()));
+        }
+
         connect(item, &QToolButton::clicked, this, [=] {
             if (d->buttonActions.contains(button)) {
                 d->buttonActions.value(button)();
@@ -116,6 +131,22 @@ void GamepadHud::removeButtonAction(QGamepadManager::GamepadButton button)
     d->buttonActions.remove(button);
 }
 
+void GamepadHud::bindKey(QKeySequence key, QGamepadManager::GamepadButton button)
+{
+    d->keyBinds.insert(key, button);
+    if (!d->isShowingGamepadButtons) {
+        QToolButton* item = d->hudItems.value(button);
+        if (item) item->setIcon(GamepadButtons::iconForKey(key, this->font(), this->palette()));
+    }
+}
+
+void GamepadHud::unbindKey(QKeySequence key)
+{
+    QToolButton* item = d->hudItems.value(d->keyBinds.value(key));
+    if (item) item->setIcon(GamepadButtons::iconForButton(d->keyBinds.value(key), this->palette().color(QPalette::WindowText)));
+    d->keyBinds.remove(key);
+}
+
 std::function<void ()> GamepadHud::standardAction(GamepadHud::StandardAction action)
 {
     switch (action) {
@@ -132,11 +163,30 @@ std::function<void ()> GamepadHud::standardAction(GamepadHud::StandardAction act
 
 bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
 {
-    if (watched == d->parent && event->type() == GamepadEvent::type()) {
+    if (watched == QApplication::focusWidget()) {
+        if (event->spontaneous() && event->type() == QEvent::KeyPress && d->isShowingGamepadButtons) {
+            setShowGamepadButtons(false);
+        } else if (event->type() == GamepadEvent::type() && !d->isShowingGamepadButtons) {
+            setShowGamepadButtons(true);
+        }
+    } else if (watched == d->parent && event->type() == GamepadEvent::type()) {
         GamepadEvent* e = static_cast<GamepadEvent*>(event);
         if (e->isButtonEvent() && e->buttonPressed() && d->buttonActions.contains(e->button())) {
             //Run the button action
             d->buttonActions.value(e->button())();
+
+            //Prevent propagation
+            e->accept();
+            return true;
+        }
+    } else if (watched == d->parent && event->type() == QEvent::KeyPress) {
+        QKeyEvent* e = static_cast<QKeyEvent*>(event);
+        Qt::Key key = static_cast<Qt::Key>(e->key() | e->modifiers());
+        QKeySequence keySeq(key);
+
+        if (d->keyBinds.contains(keySeq)) {
+            //Run the button action
+            d->buttonActions.value(d->keyBinds.value(keySeq))();
 
             //Prevent propagation
             e->accept();
@@ -159,5 +209,18 @@ bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
         #endif
     }
     return false;
+}
+
+void GamepadHud::setShowGamepadButtons(bool showGamepadButtons)
+{
+    d->isShowingGamepadButtons = showGamepadButtons;
+    for (QGamepadManager::GamepadButton btn : d->hudItems.keys()) {
+        QToolButton* button = d->hudItems.value(btn);
+        if (showGamepadButtons || !d->keyBinds.values().contains(btn)) {
+            button->setIcon(GamepadButtons::iconForButton(btn, this->palette().color(QPalette::WindowText)));
+        } else {
+            button->setIcon(GamepadButtons::iconForKey(d->keyBinds.key(btn), this->font(), this->palette()));
+        }
+    }
 }
 

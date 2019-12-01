@@ -20,6 +20,7 @@
 #include "accountdialog.h"
 #include "ui_accountdialog.h"
 
+#include <QDesktopServices>
 #include <QShortcut>
 #include "onlineerrormessages.h"
 #include "onlineapi.h"
@@ -327,4 +328,9 @@ void AccountDialog::on_viewTermsAndCommunityGuidelines_clicked()
     connect(t, &OnlineTerms::rejected, this, [=] {
         t->deleteLater();
     });
+}
+
+void AccountDialog::on_changeProfilePictureButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://en.gravatar.com/gravatars/new/"));
 }
