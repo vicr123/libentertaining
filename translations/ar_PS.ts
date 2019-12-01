@@ -940,23 +940,55 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="248"/>
+        <location filename="../online/logindialog.cpp" line="249"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="248"/>
+        <location filename="../online/logindialog.cpp" line="249"/>
         <source>Enter your Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="258"/>
+        <location filename="../online/logindialog.cpp" line="264"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="265"/>
+        <source>You&apos;ll need to set a new password for your account.
+
+Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="267"/>
+        <source>Set New Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="277"/>
+        <source>Enter a new password for your account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="283"/>
+        <source>Enter the same password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="283"/>
+        <source>Confirm the new password for your account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="300"/>
         <source>Check your details and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="257"/>
-        <location filename="../online/logindialog.cpp" line="272"/>
+        <location filename="../online/logindialog.cpp" line="299"/>
+        <location filename="../online/logindialog.cpp" line="314"/>
         <source>Login Failed</source>
         <translation type="unfinished"></translation>
     </message>

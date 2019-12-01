@@ -59,7 +59,7 @@ class LIBENTERTAINING_EXPORT LoginDialog : public QWidget
         Ui::LoginDialog *ui;
         LoginDialogPrivate* d;
 
-        void attemptLogin(QString username, QString password, QString otpToken);
+        void attemptLogin(QString username, QString password, QString otpToken, QString newPassword);
 };
 
 #endif // LOGINDIALOG_H

@@ -211,10 +211,10 @@ void LoginDialog::on_doRegisterButton_clicked()
 
 void LoginDialog::on_loginButton_clicked()
 {
-    attemptLogin(ui->usernameBox->text(), ui->passwordBox->text(), "");
+    attemptLogin(ui->usernameBox->text(), ui->passwordBox->text(), "", "");
 }
 
-void LoginDialog::attemptLogin(QString username, QString password, QString otpToken)
+void LoginDialog::attemptLogin(QString username, QString password, QString otpToken, QString newPassword)
 {
     QString error = "";
 
@@ -237,7 +237,8 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
     OnlineApi::instance()->post("/users/token", {
                                     {"username", username},
                                     {"password", password},
-                                    {"otpToken", otpToken}
+                                    {"otpToken", otpToken},
+                                    {"newPassword", newPassword}
                                 })->then([=](QJsonDocument response) {
         QJsonObject obj = response.object();
         if (obj.contains("error")) {
@@ -249,8 +250,49 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                 if (canceled) {
                     ui->stackedWidget->setCurrentWidget(ui->loginPage);
                 } else {
-                    attemptLogin(username, password, totpToken);
+                    QString currentPassword = password;
+
+                    //Check to see if this is after a password reset
+                    //At this point, the password has already been changed
+                    if (!newPassword.isEmpty()) currentPassword = newPassword;
+                    attemptLogin(username, password, totpToken, "");
                 }
+            } else if (error == "authentication.changePassword") {
+                //Ask the user for a new password
+                QuestionOverlay* question = new QuestionOverlay(this);
+                question->setIcon(QMessageBox::Information);
+                question->setTitle(tr("Reset Password"));
+                question->setText(tr("You'll need to set a new password for your account.\n\n"
+                                     "Make it a good password and save it for this account. You don't want to be reusing this password."));
+                question->setButtons(QMessageBox::Ok | QMessageBox::Cancel, tr("Set New Password"));
+                connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+                    if (button == QMessageBox::Ok) {
+                        question->deleteLater();
+
+                        QTimer::singleShot(1000, this, [=] {
+                            QString newPassword = "";
+                            bool canceled;
+
+                            promptPassword:
+                            newPassword = TextInputOverlay::getText(this, tr("Enter a new password for your account"), &canceled, "", QLineEdit::Password);
+                            if (canceled) {
+                                ui->stackedWidget->setCurrentWidget(ui->loginPage);
+                                return;
+                            }
+
+                            TextInputOverlay::getTextWithRegex(this, tr("Confirm the new password for your account"), QRegularExpression(newPassword), &canceled, "", tr("Enter the same password"), Qt::ImhNone, QLineEdit::Password);
+                            if (canceled) goto promptPassword;
+
+                            //Attempt to reset the password
+                            attemptLogin(username, password, otpToken, newPassword);
+                        });
+                    }
+                });
+                connect(question, &QuestionOverlay::rejected, this, [=] {
+                    question->deleteLater();
+
+                    ui->stackedWidget->setCurrentWidget(ui->loginPage);
+                });
             } else {
                 QuestionOverlay* question = new QuestionOverlay(this);
                 question->setIcon(QMessageBox::Critical);

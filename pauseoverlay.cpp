@@ -44,6 +44,7 @@ struct PauseOverlayPrivate {
     QGraphicsBlurEffect* blur;
 
     bool animatingPop = false;
+    bool animatingHide = false;
 };
 
 QMap<QWidget*, PauseOverlay*> PauseOverlayPrivate::overlays = QMap<QWidget*, PauseOverlay*>();
@@ -133,6 +134,8 @@ void PauseOverlay::showOverlay()
 
 void PauseOverlay::hideOverlay()
 {
+    d->animatingHide = true;
+
     d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
     tVariantAnimation* anim = new tVariantAnimation(this);
     anim->setStartValue(1.0);
@@ -145,6 +148,7 @@ void PauseOverlay::hideOverlay()
     connect(anim, &tVariantAnimation::finished, this, [=] {
         anim->deleteLater();
         this->hide();
+        d->animatingHide = false;
 
 //        tVariantAnimation* blurAnim = new tVariantAnimation(this);
 //        blurAnim->setStartValue(20.0);
@@ -173,6 +177,13 @@ void PauseOverlay::setOverlayWidget(QWidget*overlayWidget)
 
 void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
 {
+    if (d->animatingHide) {
+        //Wait for the hide animation to finish
+        QTimer::singleShot(300, this, [=] {
+            this->pushOverlayWidget(overlayWidget);
+        });
+        return;
+    }
     d->overlayWidget.push(overlayWidget);
 
     //Don't do anything if we're currently animating a pop
@@ -210,10 +221,6 @@ void PauseOverlay::popOverlayWidget(std::function<void ()> after)
     QWidget* topWidget = d->overlayWidget.pop();
 
     animateCurrentOut([=] {
-        topWidget->setGraphicsEffect(nullptr);
-        after();
-        emit widgetPopped();
-
         QTimer::singleShot(0, this, [=] {
             d->animatingPop = false;
 
@@ -223,6 +230,10 @@ void PauseOverlay::popOverlayWidget(std::function<void ()> after)
                 this->hideOverlay();
             }
         });
+
+        topWidget->setGraphicsEffect(nullptr);
+        emit widgetPopped();
+        after();
     });
 }
 
