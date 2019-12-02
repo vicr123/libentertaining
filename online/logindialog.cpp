@@ -36,6 +36,8 @@
 struct LoginDialogPrivate {
     QWidget* parent;
     QSettings* settings = EntertainingSettings::instance();
+
+    QString recoveryUsername;
 };
 
 LoginDialog::LoginDialog(QWidget *parent) :
@@ -55,6 +57,7 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->registerPasswordBox->setPalette(pal);
     ui->registerPasswordConfirmBox->setPalette(pal);
     ui->registerEmailBox->setPalette(pal);
+    ui->frame->setPalette(pal);
 
     TextInputOverlay::installHandler(ui->usernameBox, tr("Username"));
     TextInputOverlay::installHandler(ui->passwordBox, tr("Password"));
@@ -99,14 +102,31 @@ LoginDialog::LoginDialog(QWidget *parent) :
         ui->backButton_2->click();
     });
 
+    ui->gamepadHud3->setButtonText(QGamepadManager::ButtonA, tr("Select"));
+    ui->gamepadHud3->setButtonText(QGamepadManager::ButtonB, tr("Back"));
+
+    ui->gamepadHud3->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
+    ui->gamepadHud3->setButtonAction(QGamepadManager::ButtonB, [=] {
+        MusicEngine::playSoundEffect(MusicEngine::Backstep);
+        ui->backButton_3->click();
+    });
+
+    QShortcut* backShortcut3 = new QShortcut(QKeySequence(Qt::Key_Escape), ui->registerPage);
+    connect(backShortcut3, &QShortcut::activated, this, [=] {
+        ui->backButton_3->click();
+    });
+
     this->setFocusProxy(ui->usernameBox);
     ui->loginPage->setFocusProxy(ui->usernameBox);
     ui->registerPage->setFocusProxy(ui->registerUsernameBox);
+    ui->recoveryPage->setFocusProxy(ui->recoveryEmailButton);
 
     ui->focusBarrier->setBounceWidget(ui->usernameBox);
     ui->focusBarrier_2->setBounceWidget(ui->loginButton);
     ui->focusBarrier_3->setBounceWidget(ui->registerUsernameBox);
     ui->focusBarrier_4->setBounceWidget(ui->doRegisterButton);
+    ui->focusBarrier_5->setBounceWidget(ui->recoveryEmailButton);
+    ui->focusBarrier_6->setBounceWidget(ui->recoveryEmailButton);
 }
 
 LoginDialog::~LoginDialog()
@@ -266,9 +286,8 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                                      "Make it a good password and save it for this account. You don't want to be reusing this password."));
                 question->setButtons(QMessageBox::Ok | QMessageBox::Cancel, tr("Set New Password"));
                 connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+                    question->deleteLater();
                     if (button == QMessageBox::Ok) {
-                        question->deleteLater();
-
                         QTimer::singleShot(1000, this, [=] {
                             QString newPassword = "";
                             bool canceled;
@@ -286,6 +305,8 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                             //Attempt to reset the password
                             attemptLogin(username, password, otpToken, newPassword);
                         });
+                    } else {
+                        ui->stackedWidget->setCurrentWidget(ui->loginPage);
                     }
                 });
                 connect(question, &QuestionOverlay::rejected, this, [=] {
@@ -326,5 +347,104 @@ void LoginDialog::on_viewTermsAndCommunityGuidelines_clicked()
     OnlineTerms* t = new OnlineTerms(this);
     connect(t, &OnlineTerms::rejected, this, [=] {
         t->deleteLater();
+    });
+}
+
+void LoginDialog::on_forgotPasswordButton_clicked()
+{
+    bool canceled;
+    d->recoveryUsername = TextInputOverlay::getText(this, tr("What's your username?"), &canceled, ui->usernameBox->text());
+    if (canceled) return;
+
+    ui->usernameBox->setText(d->recoveryUsername);
+
+    //Prepare password recovery
+    ui->stackedWidget->setCurrentWidget(ui->loaderPage);
+    OnlineApi::instance()->post("/users/recoverPassword", {
+                                    {"username", d->recoveryUsername}
+                                })->then([=](QJsonDocument response) {
+        QJsonObject obj = response.object();
+        if (obj.contains("error")) {
+            QString error = obj.value("error").toString();
+            QuestionOverlay* question = new QuestionOverlay(this);
+            question->setIcon(QMessageBox::Critical);
+            question->setTitle(tr("Password Recovery Failed"));
+            question->setButtons(QMessageBox::Ok);
+            connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+            connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+            if (error == "authentication.incorrect") {
+                question->setText(tr("That username is incorrect."));
+            } else {
+                question->setText(OnlineErrorMessages::messageForCode(error, tr("Try again later.")));
+            }
+
+            ui->stackedWidget->setCurrentWidget(ui->loginPage);
+        } else {
+            ui->recoveryEmailButton->setText(tr("Send an email to %1").arg(obj.value("email").toString()));
+            ui->stackedWidget->setCurrentWidget(ui->recoveryPage);
+            this->setFocusProxy(ui->recoveryPage);
+        }
+    })->error([=](QString error) {
+        QuestionOverlay* question = new QuestionOverlay(this);
+        question->setIcon(QMessageBox::Critical);
+        question->setTitle(tr("Password Recovery Failed"));
+        question->setText(OnlineApi::errorFromPromiseRejection(error));
+        question->setButtons(QMessageBox::Ok);
+        connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+        connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        ui->stackedWidget->setCurrentWidget(ui->loginPage);
+    });
+}
+
+void LoginDialog::on_backButton_3_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->loginPage);
+    this->setFocusProxy(ui->loginPage);
+}
+
+void LoginDialog::on_recoveryEmailButton_clicked()
+{
+    bool canceled;
+    QString email = TextInputOverlay::getText(this, tr("Complete the email we have on file"), &canceled);
+    if (canceled) return;
+
+    //Attempt password recovery
+    ui->stackedWidget->setCurrentWidget(ui->loaderPage);
+    OnlineApi::instance()->post("/users/recoverPassword", {
+                                    {"username", d->recoveryUsername},
+                                    {"email", email}
+                                })->then([=](QJsonDocument response) {
+        QJsonObject obj = response.object();
+
+        QuestionOverlay* question = new QuestionOverlay(this);
+        question->setButtons(QMessageBox::Ok);
+        connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+        connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        if (obj.contains("error")) {
+            QString error = obj.value("error").toString();
+            question->setIcon(QMessageBox::Critical);
+            question->setTitle(tr("Password Recovery Failed"));
+            question->setText(OnlineErrorMessages::messageForCode(error, tr("Try again at a later time.")));
+        } else {
+            question->setIcon(QMessageBox::Information);
+            question->setTitle(tr("Password Recovery"));
+            question->setText(tr("If %1 matches the email we've got on file for your account, you'll receive an email with further instructions.").arg(email));
+            ui->stackedWidget->setCurrentWidget(ui->loginPage);
+            this->setFocusProxy(ui->loginPage);
+        }
+    })->error([=](QString error) {
+        QuestionOverlay* question = new QuestionOverlay(this);
+        question->setIcon(QMessageBox::Critical);
+        question->setTitle(tr("Password Recovery Failed"));
+        question->setText(OnlineApi::errorFromPromiseRejection(error));
+        question->setButtons(QMessageBox::Ok);
+        connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
+        connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        ui->stackedWidget->setCurrentWidget(ui->loginPage);
+        this->setFocusProxy(ui->loginPage);
     });
 }

@@ -801,8 +801,8 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
-        <location filename="../online/logindialog.ui" line="212"/>
-        <location filename="../online/logindialog.cpp" line="67"/>
+        <location filename="../online/logindialog.ui" line="219"/>
+        <location filename="../online/logindialog.cpp" line="70"/>
         <source>Log In</source>
         <translation type="unfinished"></translation>
     </message>
@@ -813,188 +813,268 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="183"/>
-        <location filename="../online/logindialog.ui" line="372"/>
-        <location filename="../online/logindialog.cpp" line="60"/>
-        <location filename="../online/logindialog.cpp" line="62"/>
+        <location filename="../online/logindialog.ui" line="379"/>
+        <location filename="../online/logindialog.cpp" line="63"/>
+        <location filename="../online/logindialog.cpp" line="65"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="436"/>
+        <location filename="../online/logindialog.ui" line="192"/>
+        <source>Forgot Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="443"/>
         <source>ACCOUNT INFORMATION</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="479"/>
+        <location filename="../online/logindialog.ui" line="486"/>
         <source>TERMS AND COMMUNITY GUIDELINES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="446"/>
+        <location filename="../online/logindialog.ui" line="550"/>
+        <source>Recovery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="599"/>
+        <source>Choose a method to obtain a recovery password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="624"/>
+        <source>EMAIL ADDRESS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="631"/>
+        <source>You&apos;ll receive an email with additional instructions on how to recover your account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="651"/>
+        <source>If you don&apos;t have access to any of these recovery methods, or you require further assistance, send us an email and we&apos;ll help you out.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="453"/>
         <source>Register an account to play online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="327"/>
+        <location filename="../online/logindialog.ui" line="334"/>
         <source>Terms and Community Guidelines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="407"/>
+        <location filename="../online/logindialog.ui" line="414"/>
         <source>Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="149"/>
-        <location filename="../online/logindialog.ui" line="416"/>
-        <location filename="../online/logindialog.cpp" line="59"/>
-        <location filename="../online/logindialog.cpp" line="61"/>
+        <location filename="../online/logindialog.ui" line="423"/>
+        <location filename="../online/logindialog.cpp" line="62"/>
+        <location filename="../online/logindialog.cpp" line="64"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="278"/>
+        <location filename="../online/logindialog.ui" line="285"/>
         <source>Register an account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="379"/>
+        <location filename="../online/logindialog.ui" line="386"/>
         <source>You shoud view the Terms and the Community Guidelines as these documents govern your use of the services, and by creating an account and using the services, you indicate acceptance of these documents.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="423"/>
-        <location filename="../online/logindialog.cpp" line="64"/>
+        <location filename="../online/logindialog.ui" line="430"/>
+        <location filename="../online/logindialog.cpp" line="67"/>
         <source>Email Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="334"/>
-        <location filename="../online/logindialog.cpp" line="63"/>
+        <location filename="../online/logindialog.ui" line="341"/>
+        <location filename="../online/logindialog.cpp" line="66"/>
         <source>Confirm Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="205"/>
-        <location filename="../online/logindialog.ui" line="363"/>
-        <location filename="../online/logindialog.cpp" line="85"/>
+        <location filename="../online/logindialog.ui" line="212"/>
+        <location filename="../online/logindialog.ui" line="370"/>
+        <location filename="../online/logindialog.cpp" line="88"/>
         <source>Register</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="66"/>
-        <location filename="../online/logindialog.cpp" line="84"/>
+        <location filename="../online/logindialog.cpp" line="69"/>
+        <location filename="../online/logindialog.cpp" line="87"/>
+        <location filename="../online/logindialog.cpp" line="105"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="68"/>
-        <location filename="../online/logindialog.cpp" line="86"/>
+        <location filename="../online/logindialog.cpp" line="71"/>
+        <location filename="../online/logindialog.cpp" line="89"/>
+        <location filename="../online/logindialog.cpp" line="106"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="158"/>
+        <location filename="../online/logindialog.cpp" line="178"/>
         <source>Enter a new username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="159"/>
+        <location filename="../online/logindialog.cpp" line="179"/>
         <source>Enter a password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="160"/>
+        <location filename="../online/logindialog.cpp" line="180"/>
         <source>Confirm your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="161"/>
+        <location filename="../online/logindialog.cpp" line="181"/>
         <source>Enter your email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="163"/>
+        <location filename="../online/logindialog.cpp" line="183"/>
         <source>Check that the passwords match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="168"/>
-        <location filename="../online/logindialog.cpp" line="227"/>
+        <location filename="../online/logindialog.cpp" line="188"/>
+        <location filename="../online/logindialog.cpp" line="247"/>
         <source>Check your input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="187"/>
-        <location filename="../online/logindialog.cpp" line="202"/>
+        <location filename="../online/logindialog.cpp" line="207"/>
+        <location filename="../online/logindialog.cpp" line="222"/>
         <source>Registration Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="188"/>
+        <location filename="../online/logindialog.cpp" line="208"/>
         <source>We weren&apos;t able to register you. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="221"/>
+        <location filename="../online/logindialog.cpp" line="241"/>
         <source>Enter your username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="222"/>
+        <location filename="../online/logindialog.cpp" line="242"/>
         <source>Enter your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="249"/>
+        <location filename="../online/logindialog.cpp" line="269"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="249"/>
+        <location filename="../online/logindialog.cpp" line="269"/>
         <source>Enter your Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="264"/>
+        <location filename="../online/logindialog.cpp" line="284"/>
         <source>Reset Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="265"/>
+        <location filename="../online/logindialog.cpp" line="285"/>
         <source>You&apos;ll need to set a new password for your account.
 
 Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="267"/>
+        <location filename="../online/logindialog.cpp" line="287"/>
         <source>Set New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="277"/>
+        <location filename="../online/logindialog.cpp" line="296"/>
         <source>Enter a new password for your account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="283"/>
+        <location filename="../online/logindialog.cpp" line="302"/>
         <source>Enter the same password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="283"/>
+        <location filename="../online/logindialog.cpp" line="302"/>
         <source>Confirm the new password for your account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="300"/>
+        <location filename="../online/logindialog.cpp" line="321"/>
         <source>Check your details and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="299"/>
-        <location filename="../online/logindialog.cpp" line="314"/>
+        <location filename="../online/logindialog.cpp" line="356"/>
+        <source>What&apos;s your username?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="371"/>
+        <location filename="../online/logindialog.cpp" line="391"/>
+        <location filename="../online/logindialog.cpp" line="429"/>
+        <location filename="../online/logindialog.cpp" line="441"/>
+        <source>Password Recovery Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="377"/>
+        <source>That username is incorrect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="379"/>
+        <source>Try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="384"/>
+        <source>Send an email to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="410"/>
+        <source>Complete the email we have on file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="430"/>
+        <source>Try again at a later time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="433"/>
+        <source>Password Recovery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="434"/>
+        <source>If %1 matches the email we&apos;ve got on file for your account, you&apos;ll receive an email with further instructions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="320"/>
+        <location filename="../online/logindialog.cpp" line="335"/>
         <source>Login Failed</source>
         <translation type="unfinished"></translation>
     </message>

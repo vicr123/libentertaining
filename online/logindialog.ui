@@ -187,6 +187,13 @@
          <item row="3" column="0" colspan="2">
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
+            <widget class="QPushButton" name="forgotPasswordButton">
+             <property name="text">
+              <string>Forgot Password</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -487,6 +494,194 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="recoveryPage">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="backButton_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="../libentertaining_resources.qrc">
+             <normaloff>:/libentertaining/icons/go-previous.svg</normaloff>:/libentertaining/icons/go-previous.svg</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Recovery</string>
+           </property>
+           <property name="margin">
+            <number>9</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_3">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="FocusBarrier" name="focusBarrier_5">
+         <property name="text">
+          <string notr="true">Barrier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>9</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>Choose a method to obtain a recovery password</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>EMAIL ADDRESS</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>You'll receive an email with additional instructions on how to recover your account.</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="recoveryEmailButton">
+              <property name="text">
+               <string notr="true">Email ***</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>If you don't have access to any of these recovery methods, or you require further assistance, send us an email and we'll help you out.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="FocusBarrier" name="focusBarrier_6">
+         <property name="text">
+          <string notr="true">Barrier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="GamepadHud" name="gamepadHud3" native="true"/>
+       </item>
+      </layout>
+     </widget>
      <widget class="QWidget" name="loaderPage">
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="1">
@@ -575,6 +770,7 @@
   <tabstop>passwordBox</tabstop>
   <tabstop>registerButton</tabstop>
   <tabstop>loginButton</tabstop>
+  <tabstop>forgotPasswordButton</tabstop>
   <tabstop>focusBarrier_2</tabstop>
   <tabstop>focusBarrier_3</tabstop>
   <tabstop>registerUsernameBox</tabstop>
@@ -586,6 +782,10 @@
   <tabstop>focusBarrier_4</tabstop>
   <tabstop>backButton</tabstop>
   <tabstop>backButton_2</tabstop>
+  <tabstop>backButton_3</tabstop>
+  <tabstop>focusBarrier_5</tabstop>
+  <tabstop>recoveryEmailButton</tabstop>
+  <tabstop>focusBarrier_6</tabstop>
  </tabstops>
  <resources>
   <include location="../libentertaining_resources.qrc"/>
