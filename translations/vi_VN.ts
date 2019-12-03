@@ -603,12 +603,17 @@
         <translation>Chẩn đoán các cây điều khiển</translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="58"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="44"/>
+        <source>Gamepad ID: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
         <source>Select</source>
         <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="60"/>
         <source>Back</source>
         <translation>Lại</translation>
     </message>

@@ -603,12 +603,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="58"/>
-        <source>Select</source>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="44"/>
+        <source>Gamepad ID: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="60"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>

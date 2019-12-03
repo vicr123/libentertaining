@@ -41,6 +41,7 @@ GamepadConfigurationOverlay::GamepadConfigurationOverlay(QWidget *parent) :
             ui->stackedWidget->setCurrentWidget(ui->selectGamepadPage);
         } else {
             ui->stackedWidget->setCurrentWidget(ui->gamepadConfigurationPage);
+            ui->gamepadIdLabel->setText(tr("Gamepad ID: %1").arg(current.indexes().first().data(Qt::UserRole).toInt()));
         }
     });
     if (ui->gamepadsWidget->model()->rowCount() > 0) ui->gamepadsWidget->selectionModel()->select(ui->gamepadsWidget->model()->index(0, 0), QItemSelectionModel::SelectCurrent);
