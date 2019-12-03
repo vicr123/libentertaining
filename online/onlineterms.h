@@ -48,7 +48,9 @@ class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
 
         void on_logoutButton_clicked();
 
-        void on_communityGuidelinesTextBrowser_anchorClicked(const QUrl &arg1);
+        void on_viewPrivacyPolicyButton_clicked();
+
+        void on_viewPageTextBrowser_anchorClicked(const QUrl &arg1);
 
     signals:
         void rejected();
@@ -63,6 +65,7 @@ class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
         OnlineTermsPrivate* d;
 
         void init();
+        void view(QString title, QString document);
 };
 
 #endif // ONLINETERMS_H

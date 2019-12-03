@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QPointer>
 #include <tvariantanimation.h>
+#include <QRandomGenerator>
 
 struct PauseOverlayPrivate {
     static QMap<QWidget*, PauseOverlay*> overlays;
@@ -44,6 +45,8 @@ struct PauseOverlayPrivate {
     QGraphicsOpacityEffect* overlayOpacity;
     QGraphicsBlurEffect* blur;
     QWidget* blurOver;
+
+    QList<QPair<QRect, QColor>> circles;
 
     bool animatingPop = false;
     bool animatingHide = false;
@@ -77,6 +80,24 @@ PauseOverlay::PauseOverlay(QWidget*blurOver, QWidget *parent) : QWidget(parent)
     parent->installEventFilter(this);
     this->setGeometry(0, 0, parent->width(), parent->height());
     this->hide();
+
+//    QTimer* t = new QTimer();
+//    t->setInterval(1000);
+//    connect(t, &QTimer::timeout, this, [=] {
+//        d->circles.clear();
+
+//        QRandomGenerator* gen = QRandomGenerator::global();
+//        while (d->circles.count() < 5 || gen->bounded(10) != 5) {
+//            QColor col = QRgb(gen->generate());
+//            col.setAlpha(127);
+
+//            int size = gen->bounded(SC_DPI(500));
+//            QRect rect(gen->bounded(this->width()), gen->bounded(this->height()), size, size);
+//            d->circles.append({rect, col});
+//        }
+//        this->update();
+//    });
+//    t->start();
 }
 
 void PauseOverlay::registerOverlayForWindow(QWidget*window, QWidget*blurOver)
@@ -259,9 +280,15 @@ bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
 void PauseOverlay::paintEvent(QPaintEvent*event)
 {
     QPainter painter(this);
-    painter.setBrush(QColor(0, 0, 0, 200 * d->opacity));
+    painter.setOpacity(d->opacity);
+    painter.setBrush(QColor(0, 0, 0, 200));
     painter.setPen(Qt::transparent);
     painter.drawRect(0, 0, this->width(), this->height());
+
+    for (QPair<QRect, QColor> circle : d->circles) {
+        painter.setBrush(circle.second);
+        painter.drawEllipse(circle.first);
+    }
 }
 
 void PauseOverlay::animateCurrentOut(std::function<void ()> after)

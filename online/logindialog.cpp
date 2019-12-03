@@ -38,6 +38,7 @@ struct LoginDialogPrivate {
     QSettings* settings = EntertainingSettings::instance();
 
     QString recoveryUsername;
+    QVariantMap recoveryChallenges;
 };
 
 LoginDialog::LoginDialog(QWidget *parent) :
@@ -275,7 +276,7 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                     //Check to see if this is after a password reset
                     //At this point, the password has already been changed
                     if (!newPassword.isEmpty()) currentPassword = newPassword;
-                    attemptLogin(username, password, totpToken, "");
+                    attemptLogin(username, currentPassword, totpToken, "");
                 }
             } else if (error == "authentication.changePassword") {
                 //Ask the user for a new password
@@ -299,7 +300,7 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                                 return;
                             }
 
-                            TextInputOverlay::getTextWithRegex(this, tr("Confirm the new password for your account"), QRegularExpression(newPassword), &canceled, "", tr("Enter the same password"), Qt::ImhNone, QLineEdit::Password);
+                            TextInputOverlay::getTextWithRegex(this, tr("Confirm the new password for your account"), QRegularExpression(QRegularExpression::escape(newPassword)), &canceled, "", tr("Enter the same password"), Qt::ImhNone, QLineEdit::Password);
                             if (canceled) goto promptPassword;
 
                             //Attempt to reset the password
@@ -381,6 +382,7 @@ void LoginDialog::on_forgotPasswordButton_clicked()
 
             ui->stackedWidget->setCurrentWidget(ui->loginPage);
         } else {
+            d->recoveryChallenges.insert("email", obj.value("email").toString());
             ui->recoveryEmailButton->setText(tr("Send an email to %1").arg(obj.value("email").toString()));
             ui->stackedWidget->setCurrentWidget(ui->recoveryPage);
             this->setFocusProxy(ui->recoveryPage);
@@ -407,7 +409,7 @@ void LoginDialog::on_backButton_3_clicked()
 void LoginDialog::on_recoveryEmailButton_clicked()
 {
     bool canceled;
-    QString email = TextInputOverlay::getText(this, tr("Complete the email we have on file"), &canceled);
+    QString email = TextInputOverlay::getTextWithRegex(this, tr("Enter the full email address"), QRegularExpression(QRegularExpression::escape(d->recoveryChallenges.value("email").toString()).replace("\\∙\\∙\\∙", ".*")), &canceled, "", tr("Use the email address %1").arg(d->recoveryChallenges.value("email").toString()));
     if (canceled) return;
 
     //Attempt password recovery

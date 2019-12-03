@@ -49,7 +49,7 @@ OnlineTerms::~OnlineTerms()
 
 void OnlineTerms::on_viewCommunityGuidelinesButton_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->communityGuidelinesPage);
+    view(tr("Community Guidelines"), "communityguidelines");
 }
 
 void OnlineTerms::on_backButton_2_clicked()
@@ -70,17 +70,8 @@ void OnlineTerms::init()
 {
     ui->setupUi(this);
 
-    QNetworkRequest cgRequest(OnlineApi::instance()->urlForPath("/info/communityguidelines"));
-    cgRequest.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
-    QNetworkReply* cgReply = d->mgr.get(cgRequest);
-    connect(cgReply, &QNetworkReply::finished, this, [=] {
-        if (cgReply->error() == QNetworkReply::NoError) {
-            ui->communityGuidelinesTextBrowser->setHtml(cgReply->readAll());
-        } else {
-            ui->communityGuidelinesTextBrowser->setText(tr("Encountered an error trying to load the community guidelines. Read them online at <a href=\"%1\">%1</a>")
-                                                        .arg(OnlineApi::instance()->urlForPath("/info/communityguidelines").toString()));
-        }
-    });
+    ui->mainWidget->setMaximumWidth(SC_DPI(600));
+    ui->viewPageTextBrowser->setMaximumWidth(SC_DPI(600));
 
     if (QLocale().language() == QLocale::English || QLocale().language() == QLocale::C) {
         ui->localeWarning->setVisible(false);
@@ -118,17 +109,17 @@ void OnlineTerms::init()
         ui->descriptionLabel->setText(tr("The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents."));
         ui->acceptButton->setVisible(false);
         ui->logoutButton->setVisible(false);
-        ui->focusBarrier_2->setBounceWidget(ui->viewCommunityGuidelinesButton);
+        ui->focusBarrier_2->setBounceWidget(ui->viewPrivacyPolicyButton);
     }
 
     this->setFocusProxy(ui->viewCommunityGuidelinesButton);
     ui->mainPage->setFocusProxy(ui->viewCommunityGuidelinesButton);
-    ui->communityGuidelinesPage->setFocusProxy(ui->communityGuidelinesTextBrowser);
+    ui->viewPage->setFocusProxy(ui->viewPageTextBrowser);
     ui->logoutButton->setProperty("type", "destructive");
 
     ui->focusBarrier->setBounceWidget(ui->viewCommunityGuidelinesButton);
-    ui->focusBarrier_3->setBounceWidget(ui->communityGuidelinesTextBrowser);
-    ui->focusBarrier_4->setBounceWidget(ui->communityGuidelinesTextBrowser);
+    ui->focusBarrier_3->setBounceWidget(ui->viewPageTextBrowser);
+    ui->focusBarrier_4->setBounceWidget(ui->viewPageTextBrowser);
 
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Select"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
@@ -146,6 +137,27 @@ void OnlineTerms::init()
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 }
 
+void OnlineTerms::view(QString title, QString document)
+{
+    ui->stackedWidget->setCurrentWidget(ui->loaderPage);
+    ui->viewPageTitle->setText(title);
+
+    QNetworkRequest cgRequest(OnlineApi::instance()->urlForPath(QStringLiteral("/info/%1").arg(document)));
+    cgRequest.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
+    QNetworkReply* cgReply = d->mgr.get(cgRequest);
+    connect(cgReply, &QNetworkReply::finished, this, [=] {
+        if (cgReply->error() == QNetworkReply::NoError) {
+            ui->viewPageTextBrowser->setHtml(cgReply->readAll());
+        } else {
+            ui->viewPageTextBrowser->setText(tr("Encountered an error trying to load the community guidelines. Read them online at <a href=\"%1\">%1</a>")
+                                                        .arg(OnlineApi::instance()->urlForPath("/info/communityguidelines").toString()));
+        }
+
+        ui->stackedWidget->setCurrentWidget(ui->viewPage);
+        ui->viewPageTextBrowser->setFocus();
+    });
+}
+
 void OnlineTerms::on_backButton_clicked()
 {
     PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
@@ -155,6 +167,7 @@ void OnlineTerms::on_backButton_clicked()
 
 void OnlineTerms::on_acceptButton_clicked()
 {
+    ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     OnlineApi::instance()->post("/users/acceptTerms", {})->then([=](QJsonDocument reply) {
         PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
             emit accepted();
@@ -167,6 +180,8 @@ void OnlineTerms::on_acceptButton_clicked()
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
+
+        ui->stackedWidget->setCurrentWidget(ui->mainPage);
     });
 }
 
@@ -176,7 +191,12 @@ void OnlineTerms::on_logoutButton_clicked()
     ui->backButton->click();
 }
 
-void OnlineTerms::on_communityGuidelinesTextBrowser_anchorClicked(const QUrl &arg1)
+void OnlineTerms::on_viewPrivacyPolicyButton_clicked()
+{
+    view(tr("Privacy Policy"), "privacy");
+}
+
+void OnlineTerms::on_viewPageTextBrowser_anchorClicked(const QUrl &arg1)
 {
     QDesktopServices::openUrl(arg1);
 }
