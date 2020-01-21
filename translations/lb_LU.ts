@@ -4,11 +4,6 @@
 <context>
     <name>AccountDialog</name>
     <message>
-        <location filename="../online/accountdialog.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../online/accountdialog.ui" line="149"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
@@ -217,11 +212,6 @@
 <context>
     <name>ButtonDiagnostics</name>
     <message>
-        <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="41"/>
         <source>Button Diagnostics</source>
         <translation type="unfinished"></translation>
@@ -267,16 +257,6 @@
 </context>
 <context>
     <name>FriendPage</name>
-    <message>
-        <location filename="../private/friendpage.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/friendpage.ui" line="40"/>
-        <source>Title</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../private/friendpage.ui" line="91"/>
         <source>ACTIONS</source>
@@ -426,11 +406,6 @@
 </context>
 <context>
     <name>FriendsDialog</name>
-    <message>
-        <location filename="../online/friendsdialog.ui" line="17"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="122"/>
         <source>Friends and Relations</source>
@@ -749,11 +724,6 @@
 <context>
     <name>LoadDialogFileOptions</name>
     <message>
-        <location filename="../private/loaddialogfileoptions.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../private/loaddialogfileoptions.ui" line="71"/>
         <source>File Options</source>
         <translation type="unfinished"></translation>
@@ -799,11 +769,6 @@
 </context>
 <context>
     <name>LoginDialog</name>
-    <message>
-        <location filename="../online/logindialog.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
         <location filename="../online/logindialog.ui" line="219"/>
@@ -1283,12 +1248,6 @@ If it&apos;s been more than a day since you received the verification email, you
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.ui" line="183"/>
-        <location filename="../online/onlineterms.ui" line="193"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../online/onlineterms.ui" line="209"/>
         <source>View Community Guidelines</source>
         <translation type="unfinished"></translation>
@@ -1416,11 +1375,6 @@ If it&apos;s been more than a day since you received the verification email, you
 </context>
 <context>
     <name>OtpSetupDialog</name>
-    <message>
-        <location filename="../private/otpsetupdialog.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="161"/>
         <source>Set up Two Factor Authentication</source>
@@ -1627,11 +1581,6 @@ If it&apos;s been more than a day since you received the verification email, you
 </context>
 <context>
     <name>PasswordChangeDialog</name>
-    <message>
-        <location filename="../private/passwordchangedialog.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="90"/>
         <location filename="../private/passwordchangedialog.ui" line="194"/>
@@ -1935,11 +1884,6 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
 </context>
 <context>
     <name>StickDiagnostics</name>
-    <message>
-        <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="53"/>
         <source>Stick Diagnostics</source>
