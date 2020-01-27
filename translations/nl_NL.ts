@@ -271,96 +271,96 @@
     <message>
         <location filename="../private/friendpage.ui" line="164"/>
         <source>Accept this friend request?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wil je dit vriendschapsverzoek accepteren?</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="181"/>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Accepteren</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="184"/>
         <source>Add this user to your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze gebruiker aan je lijst met vrienden toevoegen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="191"/>
         <source>Decline</source>
-        <translation type="unfinished"></translation>
+        <translation>Afwijzen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="194"/>
         <source>Remove this user from your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze gebruiker weghalen van je lijst met vrienden</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="270"/>
         <source>Retract Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Terugtrekken</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="273"/>
         <source>Cancel the friend request</source>
-        <translation type="unfinished"></translation>
+        <translation>Het vriendschapsverzoek annuleren</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="118"/>
         <location filename="../private/friendpage.ui" line="204"/>
         <source>Block</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokkeren</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="207"/>
         <source>Remove this user from your friends list and don&apos;t show them again</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze gebruiker van je lijst met vrienden weghalen en hem niet meer laten zien</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="65"/>
         <source>We&apos;re awaiting %1&apos;s response.</source>
-        <translation type="unfinished"></translation>
+        <translation>We wachten op de reactie van %1.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="102"/>
         <location filename="../private/friendpage.cpp" line="160"/>
         <source>Unknown User</source>
-        <translation type="unfinished"></translation>
+        <translation>Onbekende Gebruiker</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="103"/>
         <location filename="../private/friendpage.cpp" line="161"/>
         <source>That user doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die gebruiker bestaat niet.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="105"/>
         <location filename="../private/friendpage.cpp" line="132"/>
         <source>Friend Request Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Mislukt</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="111"/>
         <source>Friend Request Accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Geaccepteerd</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="116"/>
         <source>Friend Request Declined</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek afgewezen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="117"/>
         <source>The friend request from %1 has been removed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het vriendschapsverzoek van %1 is verwijderd.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="119"/>
         <source>Friend Request Retracted</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Teruggetrokken</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="120"/>
         <source>Your friend request to %1 has been retracted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je vriendschapsverzoek aan %1 is teruggetrokken.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="146"/>
