@@ -75,136 +75,136 @@
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="266"/>
-        <location filename="../online/accountdialog.cpp" line="81"/>
-        <location filename="../online/accountdialog.cpp" line="83"/>
+        <location filename="../online/accountdialog.cpp" line="78"/>
+        <location filename="../online/accountdialog.cpp" line="80"/>
         <source>Log Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="49"/>
+        <location filename="../online/accountdialog.cpp" line="48"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="50"/>
+        <location filename="../online/accountdialog.cpp" line="49"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="82"/>
+        <location filename="../online/accountdialog.cpp" line="79"/>
         <source>Log out of %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="116"/>
+        <location filename="../online/accountdialog.cpp" line="110"/>
         <source>What&apos;s your new username?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="119"/>
-        <location filename="../online/accountdialog.cpp" line="283"/>
+        <location filename="../online/accountdialog.cpp" line="113"/>
+        <location filename="../online/accountdialog.cpp" line="272"/>
         <source>Confirm the password for your account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="134"/>
-        <location filename="../online/accountdialog.cpp" line="150"/>
+        <location filename="../online/accountdialog.cpp" line="128"/>
+        <location filename="../online/accountdialog.cpp" line="144"/>
         <source>Changing username failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="135"/>
+        <location filename="../online/accountdialog.cpp" line="129"/>
         <source>Try changing your username at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="138"/>
+        <location filename="../online/accountdialog.cpp" line="132"/>
         <source>Username changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="139"/>
+        <location filename="../online/accountdialog.cpp" line="133"/>
         <source>Your username has been changed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="181"/>
+        <location filename="../online/accountdialog.cpp" line="174"/>
         <source>Couldn&apos;t retrieve account information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="205"/>
+        <location filename="../online/accountdialog.cpp" line="196"/>
         <source>Verification Email Resent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="206"/>
+        <location filename="../online/accountdialog.cpp" line="197"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="215"/>
+        <location filename="../online/accountdialog.cpp" line="206"/>
         <source>Couldn&apos;t resend verification email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="229"/>
+        <location filename="../online/accountdialog.cpp" line="219"/>
         <source>Enter the verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="229"/>
+        <location filename="../online/accountdialog.cpp" line="219"/>
         <source>Enter a valid verification code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="245"/>
+        <location filename="../online/accountdialog.cpp" line="235"/>
         <source>Email Verification Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="246"/>
+        <location filename="../online/accountdialog.cpp" line="236"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="249"/>
+        <location filename="../online/accountdialog.cpp" line="239"/>
         <source>Email Verified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="250"/>
+        <location filename="../online/accountdialog.cpp" line="240"/>
         <source>Your email has been verified. Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="262"/>
-        <source>Couldn&apos;t verify your email email</source>
+        <location filename="../online/accountdialog.cpp" line="252"/>
+        <source>Couldn&apos;t verify your email.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="280"/>
+        <location filename="../online/accountdialog.cpp" line="269"/>
         <source>What&apos;s your new email address?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="298"/>
-        <location filename="../online/accountdialog.cpp" line="315"/>
+        <location filename="../online/accountdialog.cpp" line="287"/>
+        <location filename="../online/accountdialog.cpp" line="304"/>
         <source>Changing email failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="299"/>
+        <location filename="../online/accountdialog.cpp" line="288"/>
         <source>Try changing your email at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="302"/>
+        <location filename="../online/accountdialog.cpp" line="291"/>
         <source>Email changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="303"/>
+        <location filename="../online/accountdialog.cpp" line="292"/>
         <source>Your email has been changed. Don&apos;t forget to check your email for a verification code and verify your email.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -244,14 +244,6 @@
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="60"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DialogueOverlay</name>
-    <message>
-        <location filename="../dialogueoverlay.ui" line="75"/>
-        <source>Dialog Text goes here</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -528,11 +520,6 @@
 <context>
     <name>GamepadConfigurationOverlay</name>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="68"/>
         <source>Gamepads</source>
         <translation type="unfinished"></translation>
@@ -603,20 +590,6 @@
     <message>
         <location filename="../private/gamepadlistener.cpp" line="63"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HorizontalSpinBox</name>
-    <message>
-        <location filename="../horizontalspinbox.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../horizontalspinbox.ui" line="38"/>
-        <location filename="../horizontalspinbox.ui" line="65"/>
-        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

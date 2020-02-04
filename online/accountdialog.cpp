@@ -35,10 +35,9 @@ struct AccountDialogPrivate {
     QNetworkAccessManager mgr;
 };
 
-AccountDialog::AccountDialog(QWidget *parent) :
+AccountDialog::AccountDialog(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::AccountDialog)
-{
+    ui(new Ui::AccountDialog) {
     ui->setupUi(this);
     d = new AccountDialogPrivate();
 
@@ -50,13 +49,13 @@ AccountDialog::AccountDialog(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         ui->backButton->click();
     });
 
 
     QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
-    connect(backShortcut, &QShortcut::activated, this, [=] {
+    connect(backShortcut, &QShortcut::activated, this, [ = ] {
         ui->backButton->click();
     });
 
@@ -68,20 +67,18 @@ AccountDialog::AccountDialog(QWidget *parent) :
     loadData();
 }
 
-AccountDialog::~AccountDialog()
-{
+AccountDialog::~AccountDialog() {
     delete ui;
     delete d;
 }
 
-void AccountDialog::on_logOutButton_clicked()
-{
+void AccountDialog::on_logOutButton_clicked() {
     QuestionOverlay* question = new QuestionOverlay(this);
     question->setIcon(QMessageBox::Question);
     question->setTitle(tr("Log Out"));
     question->setText(tr("Log out of %1?").arg(OnlineApi::instance()->getLoggedInUsername()));
     question->setButtons(QMessageBox::Yes | QMessageBox::Cancel, tr("Log Out"), true);
-    connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+    connect(question, &QuestionOverlay::accepted, this, [ = ](QMessageBox::StandardButton button) {
         if (button == QMessageBox::Yes) {
             //Log out of the account
             ui->backButton->click();
@@ -91,28 +88,25 @@ void AccountDialog::on_logOutButton_clicked()
     connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 }
 
-void AccountDialog::on_backButton_clicked()
-{
-    PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
+void AccountDialog::on_backButton_clicked() {
+    PauseOverlay::overlayForWindow(this)->popOverlayWidget([ = ] {
         emit done();
     });
 }
 
-void AccountDialog::on_setup2faButton_clicked()
-{
+void AccountDialog::on_setup2faButton_clicked() {
     OtpSetupDialog* d = new OtpSetupDialog(this);
     connect(d, &OtpSetupDialog::done, d, &OtpSetupDialog::deleteLater);
     d->show();
 }
 
-void AccountDialog::on_changeUsernameButton_clicked()
-{
+void AccountDialog::on_changeUsernameButton_clicked() {
     bool canceled;
 
     QString newUsername;
     QString password;
 
-    askUsername:
+askUsername:
     newUsername = TextInputOverlay::getText(this, tr("What's your new username?"), &canceled, newUsername);
     if (canceled) return;
 
@@ -124,7 +118,7 @@ void AccountDialog::on_changeUsernameButton_clicked()
     OnlineApi::instance()->post("/users/changeUsername", {
         {"username", newUsername},
         {"password", password}
-    })->then([=](QJsonDocument doc) {
+    })->then([ = ](QJsonDocument doc) {
         QJsonObject obj = doc.object();
 
         QuestionOverlay* question = new QuestionOverlay(this);
@@ -144,7 +138,7 @@ void AccountDialog::on_changeUsernameButton_clicked()
 
         ui->stackedWidget->setCurrentWidget(ui->accountPage);
         ui->usernameLabel->setText(newUsername);
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Changing username failed"));
@@ -157,16 +151,15 @@ void AccountDialog::on_changeUsernameButton_clicked()
     });
 }
 
-void AccountDialog::loadData()
-{
+void AccountDialog::loadData() {
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     //Load data from the server
-    OnlineApi::instance()->get("/users/profile")->then([=](QJsonDocument doc) {
+    OnlineApi::instance()->get("/users/profile")->then([ = ](QJsonDocument doc) {
         QJsonObject obj = doc.object().value("user").toObject();
 
         //Get the profile picture
         int pictureSize = ui->profileInnerWidget->sizeHint().height();
-        OnlineApi::instance()->profilePicture(obj.value("gravHash").toString(), pictureSize)->then([=](QImage image) {
+        OnlineApi::instance()->profilePicture(obj.value("gravHash").toString(), pictureSize)->then([ = ](QImage image) {
             ui->profilePictureLabel->setPixmap(QPixmap::fromImage(image));
             ui->usernameLabel->setText(obj.value("username").toString());
             ui->emailLabel->setText(obj.value("email").toString());
@@ -175,7 +168,7 @@ void AccountDialog::loadData()
             ui->stackedWidget->setCurrentWidget(ui->accountPage);
             this->setFocusProxy(ui->changeUsernameButton);
         });
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Couldn't retrieve account information"));
@@ -189,17 +182,15 @@ void AccountDialog::loadData()
     });
 }
 
-void AccountDialog::on_changePasswordButton_clicked()
-{
+void AccountDialog::on_changePasswordButton_clicked() {
     PasswordChangeDialog* d = new PasswordChangeDialog(this);
     connect(d, &PasswordChangeDialog::done, d, &PasswordChangeDialog::deleteLater);
 }
 
-void AccountDialog::on_resendVerificationButton_clicked()
-{
+void AccountDialog::on_resendVerificationButton_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     //Resend the verification email
-    OnlineApi::instance()->post("/users/resendVerification", {})->then([=](QJsonDocument doc) {
+    OnlineApi::instance()->post("/users/resendVerification", {})->then([ = ](QJsonDocument doc) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Information);
         question->setTitle(tr("Verification Email Resent"));
@@ -209,7 +200,7 @@ void AccountDialog::on_resendVerificationButton_clicked()
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 
         ui->stackedWidget->setCurrentWidget(ui->accountPage);
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Couldn't resend verification email"));
@@ -222,8 +213,7 @@ void AccountDialog::on_resendVerificationButton_clicked()
     });
 }
 
-void AccountDialog::on_enterVerificationButton_clicked()
-{
+void AccountDialog::on_enterVerificationButton_clicked() {
     //Ask for the verification code
     bool canceled;
     QString verificationCode = TextInputOverlay::getTextWithRegex(this, tr("Enter the verification code"), QRegularExpression("\\d{6}"), &canceled, "", tr("Enter a valid verification code"), Qt::ImhDigitsOnly);
@@ -235,7 +225,7 @@ void AccountDialog::on_enterVerificationButton_clicked()
     //Verify the email
     OnlineApi::instance()->post("/users/verifyEmail", {
         {"verificationCode", verificationCode}
-    })->then([=](QJsonDocument doc) {
+    })->then([ = ](QJsonDocument doc) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setButtons(QMessageBox::Ok);
 
@@ -256,10 +246,10 @@ void AccountDialog::on_enterVerificationButton_clicked()
         connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 
         ui->stackedWidget->setCurrentWidget(ui->accountPage);
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
-        question->setTitle(tr("Couldn't verify your email email"));
+        question->setTitle(tr("Couldn't verify your email."));
         question->setText(OnlineApi::errorFromPromiseRejection(error));
         question->setButtons(QMessageBox::Ok);
         connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
@@ -269,14 +259,13 @@ void AccountDialog::on_enterVerificationButton_clicked()
     });
 }
 
-void AccountDialog::on_changeEmailButton_clicked()
-{
+void AccountDialog::on_changeEmailButton_clicked() {
     bool canceled;
 
     QString newEmail;
     QString password;
 
-    askEmail:
+askEmail:
     newEmail = TextInputOverlay::getText(this, tr("What's your new email address?"), &canceled, newEmail);
     if (canceled) return;
 
@@ -288,7 +277,7 @@ void AccountDialog::on_changeEmailButton_clicked()
     OnlineApi::instance()->post("/users/changeEmail", {
         {"email", newEmail},
         {"password", password}
-    })->then([=](QJsonDocument doc) {
+    })->then([ = ](QJsonDocument doc) {
         QJsonObject obj = doc.object();
 
         QuestionOverlay* question = new QuestionOverlay(this);
@@ -309,7 +298,7 @@ void AccountDialog::on_changeEmailButton_clicked()
         ui->stackedWidget->setCurrentWidget(ui->accountPage);
         ui->emailLabel->setText(newEmail);
         ui->verifyEmailWidget->setVisible(true);
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Changing email failed"));
@@ -322,15 +311,13 @@ void AccountDialog::on_changeEmailButton_clicked()
     });
 }
 
-void AccountDialog::on_viewTermsAndCommunityGuidelines_clicked()
-{
+void AccountDialog::on_viewTermsAndCommunityGuidelines_clicked() {
     OnlineTerms* t = new OnlineTerms(this);
-    connect(t, &OnlineTerms::rejected, this, [=] {
+    connect(t, &OnlineTerms::rejected, this, [ = ] {
         t->deleteLater();
     });
 }
 
-void AccountDialog::on_changeProfilePictureButton_clicked()
-{
+void AccountDialog::on_changeProfilePictureButton_clicked() {
     QDesktopServices::openUrl(QUrl("https://en.gravatar.com/gravatars/new/"));
 }

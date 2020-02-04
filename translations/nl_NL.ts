@@ -75,136 +75,136 @@
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="266"/>
-        <location filename="../online/accountdialog.cpp" line="81"/>
-        <location filename="../online/accountdialog.cpp" line="83"/>
+        <location filename="../online/accountdialog.cpp" line="78"/>
+        <location filename="../online/accountdialog.cpp" line="80"/>
         <source>Log Out</source>
         <translation>Uitloggen</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="49"/>
+        <location filename="../online/accountdialog.cpp" line="48"/>
         <source>Select</source>
         <translation>Selecteren</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="50"/>
+        <location filename="../online/accountdialog.cpp" line="49"/>
         <source>Back</source>
         <translation>Terug</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="82"/>
+        <location filename="../online/accountdialog.cpp" line="79"/>
         <source>Log out of %1?</source>
         <translation>Uitloggen van %1?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="116"/>
+        <location filename="../online/accountdialog.cpp" line="110"/>
         <source>What&apos;s your new username?</source>
         <translation>Wat is je nieuwe gebruikersnaam?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="119"/>
-        <location filename="../online/accountdialog.cpp" line="283"/>
+        <location filename="../online/accountdialog.cpp" line="113"/>
+        <location filename="../online/accountdialog.cpp" line="272"/>
         <source>Confirm the password for your account</source>
         <translation>Bevestig het wachtwoord voor je account</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="134"/>
-        <location filename="../online/accountdialog.cpp" line="150"/>
+        <location filename="../online/accountdialog.cpp" line="128"/>
+        <location filename="../online/accountdialog.cpp" line="144"/>
         <source>Changing username failed</source>
         <translation>Gebruikersnaam wijzigen mislukt</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="135"/>
+        <location filename="../online/accountdialog.cpp" line="129"/>
         <source>Try changing your username at a later time.</source>
         <translation>Probeer je gebruikersnaam later nog een keer te veranderen.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="138"/>
+        <location filename="../online/accountdialog.cpp" line="132"/>
         <source>Username changed</source>
         <translation>Gebruikersnaam veranderd</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="139"/>
+        <location filename="../online/accountdialog.cpp" line="133"/>
         <source>Your username has been changed.</source>
         <translation>Je gebruikersnaam is veranderd.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="181"/>
+        <location filename="../online/accountdialog.cpp" line="174"/>
         <source>Couldn&apos;t retrieve account information</source>
         <translation>Kon accountinformatie niet ophalen</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="205"/>
+        <location filename="../online/accountdialog.cpp" line="196"/>
         <source>Verification Email Resent</source>
         <translation>Verificatie-email Verstuurd</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="206"/>
+        <location filename="../online/accountdialog.cpp" line="197"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
         <translation>Kijk in je mailbox voor de verificatiecode. Misschien moet je in je spam-map kijken.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="215"/>
+        <location filename="../online/accountdialog.cpp" line="206"/>
         <source>Couldn&apos;t resend verification email</source>
         <translation>Kon de verificatie-email niet opnieuw versturen</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="229"/>
+        <location filename="../online/accountdialog.cpp" line="219"/>
         <source>Enter the verification code</source>
         <translation>Voer de verificatiecode in</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="229"/>
+        <location filename="../online/accountdialog.cpp" line="219"/>
         <source>Enter a valid verification code</source>
         <translation>Voer een geldige verificatiecode in</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="245"/>
+        <location filename="../online/accountdialog.cpp" line="235"/>
         <source>Email Verification Failed</source>
         <translation>Emailverificatie Mislukt</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="246"/>
+        <location filename="../online/accountdialog.cpp" line="236"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
         <translation>We konden je emailadres niet verifiëren. Probeer het later opnieuw.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="249"/>
+        <location filename="../online/accountdialog.cpp" line="239"/>
         <source>Email Verified</source>
         <translation>Emailadres Geverifiëerd</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="250"/>
+        <location filename="../online/accountdialog.cpp" line="240"/>
         <source>Your email has been verified. Thank you!</source>
         <translation>Je emailadres is geverifiëerd. Dankjewel!</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="262"/>
-        <source>Couldn&apos;t verify your email email</source>
-        <translation>Kon je emailadres niet verifiëren</translation>
+        <location filename="../online/accountdialog.cpp" line="252"/>
+        <source>Couldn&apos;t verify your email.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="280"/>
+        <location filename="../online/accountdialog.cpp" line="269"/>
         <source>What&apos;s your new email address?</source>
         <translation>Wat is je nieuwe emailadres?</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="298"/>
-        <location filename="../online/accountdialog.cpp" line="315"/>
+        <location filename="../online/accountdialog.cpp" line="287"/>
+        <location filename="../online/accountdialog.cpp" line="304"/>
         <source>Changing email failed</source>
         <translation>Emailadres Veranderen Mislukt</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="299"/>
+        <location filename="../online/accountdialog.cpp" line="288"/>
         <source>Try changing your email at a later time.</source>
         <translation>Probeer je emailadres later nog een keer te veranderen.</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="302"/>
+        <location filename="../online/accountdialog.cpp" line="291"/>
         <source>Email changed</source>
         <translation>Emailadres Veranderd</translation>
     </message>
     <message>
-        <location filename="../online/accountdialog.cpp" line="303"/>
+        <location filename="../online/accountdialog.cpp" line="292"/>
         <source>Your email has been changed. Don&apos;t forget to check your email for a verification code and verify your email.</source>
         <translation>Je emailadres is veranderd. Vergeet niet je emailadres te controleren op een verificatiecode en je emailadres te verifiëren.</translation>
     </message>
@@ -245,14 +245,6 @@
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="60"/>
         <source>The gamepad that you were testing was disconnected.</source>
         <translation>De gamepad die je aan het testen was is niet meer verbonden.</translation>
-    </message>
-</context>
-<context>
-    <name>DialogueOverlay</name>
-    <message>
-        <location filename="../dialogueoverlay.ui" line="75"/>
-        <source>Dialog Text goes here</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -429,12 +421,12 @@
     <message>
         <location filename="../online/friendsdialog.cpp" line="75"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="76"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="119"/>
@@ -444,12 +436,12 @@
     <message>
         <location filename="../online/friendsdialog.cpp" line="131"/>
         <source>Unknown User</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Onbekende Gebruiker</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="132"/>
         <source>That user doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Die gebruiker bestaat niet.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="134"/>
@@ -465,7 +457,7 @@
         <location filename="../online/friendsdialog.cpp" line="137"/>
         <location filename="../online/friendsdialog.cpp" line="154"/>
         <source>Friend Request Failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vriendschapsverzoek Mislukt</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="142"/>
@@ -528,11 +520,6 @@
 <context>
     <name>GamepadConfigurationOverlay</name>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="68"/>
         <source>Gamepads</source>
         <translation type="unfinished"></translation>
@@ -585,12 +572,12 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="60"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -603,21 +590,7 @@
     <message>
         <location filename="../private/gamepadlistener.cpp" line="63"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HorizontalSpinBox</name>
-    <message>
-        <location filename="../horizontalspinbox.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../horizontalspinbox.ui" line="38"/>
-        <location filename="../horizontalspinbox.ui" line="65"/>
-        <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verbinding met de Gamepad Verbroken</translation>
     </message>
 </context>
 <context>
@@ -657,12 +630,12 @@
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="37"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -686,7 +659,7 @@
     <message>
         <location filename="../private/loaddialog.cpp" line="52"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="53"/>
@@ -746,12 +719,12 @@
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="35"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="36"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -886,14 +859,14 @@
         <location filename="../online/logindialog.cpp" line="88"/>
         <location filename="../online/logindialog.cpp" line="106"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="72"/>
         <location filename="../online/logindialog.cpp" line="90"/>
         <location filename="../online/logindialog.cpp" line="107"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="179"/>
@@ -1260,7 +1233,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="245"/>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Accepteren</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="248"/>
@@ -1270,7 +1243,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="255"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Uitloggen</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="258"/>
@@ -1315,13 +1288,13 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.cpp" line="124"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="125"/>
         <location filename="../online/onlineterms.cpp" line="132"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="178"/>
@@ -1365,7 +1338,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="201"/>
         <source>Friend Request Accepted</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vriendschapsverzoek Geaccepteerd</translation>
     </message>
     <message>
         <location filename="../online/onlinewebsocket.cpp" line="201"/>
@@ -1378,7 +1351,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../private/otpsetupdialog.ui" line="161"/>
         <source>Set up Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Twee-factorauthenticatie Instellen</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="217"/>
@@ -1449,7 +1422,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../private/otpsetupdialog.ui" line="694"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ACTIES</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="711"/>
@@ -1473,18 +1446,18 @@ If it&apos;s been more than a day since you received the verification email, you
         <location filename="../private/otpsetupdialog.cpp" line="53"/>
         <location filename="../private/otpsetupdialog.cpp" line="61"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="54"/>
         <location filename="../private/otpsetupdialog.cpp" line="62"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="95"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bevestig het wachtwoord voor je account</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="133"/>
@@ -1628,7 +1601,7 @@ If it&apos;s been more than a day since you received the verification email, you
         <location filename="../private/passwordchangedialog.ui" line="194"/>
         <location filename="../private/passwordchangedialog.cpp" line="47"/>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wachtwoord Veranderen</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="139"/>
@@ -1656,12 +1629,12 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="46"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="87"/>
@@ -1686,7 +1659,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="105"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bevestig het wachtwoord voor je account</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="123"/>
@@ -1744,12 +1717,12 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../questionoverlay.cpp" line="43"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="44"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="109"/>
@@ -1865,13 +1838,13 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../private/reportwidget.cpp" line="55"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="56"/>
         <location filename="../private/reportwidget.cpp" line="65"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
 </context>
 <context>
@@ -1895,7 +1868,7 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../private/savedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Terug</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="98"/>
@@ -1950,7 +1923,7 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="144"/>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="64"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Klaar</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="40"/>
@@ -1967,12 +1940,12 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="51"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verbinding met de Gamepad Verbroken</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="52"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">De gamepad die je aan het testen was is niet meer verbonden.</translation>
     </message>
 </context>
 <context>

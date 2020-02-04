@@ -72,7 +72,7 @@
         <item>
          <widget class="QLabel" name="dialogText">
           <property name="text">
-           <string>Dialog Text goes here</string>
+           <string notr="true">Dialog Text goes here</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
