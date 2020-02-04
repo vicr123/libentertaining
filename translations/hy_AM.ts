@@ -1563,7 +1563,7 @@ If it&apos;s been more than a day since you received the verification email, you
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="495"/>
-        <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do.</source>
+        <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do so.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

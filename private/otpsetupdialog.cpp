@@ -493,7 +493,7 @@ void OtpSetupDialog::on_printButton_clicked() {
 
         currentY = printText(tr("Need more codes?").toUpper(), subtitleFont, currentY + 9);
         currentY = printText(tr("Generate more codes in any Entertaining Games application. "
-                    "These codes will be invalidated when you do."),
+                    "These codes will be invalidated when you do so."),
                 bodyFont, currentY + 9);
 
         painter->end();
