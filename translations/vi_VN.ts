@@ -41,7 +41,7 @@
     <message>
         <location filename="../online/accountdialog.ui" line="362"/>
         <source>Change Profile Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi ảnh đại diện</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="369"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../online/accountdialog.cpp" line="252"/>
         <source>Couldn&apos;t verify your email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể xác minh email của bạn.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="269"/>
@@ -514,7 +514,7 @@
         <location filename="../gamepadbuttons.cpp" line="112"/>
         <location filename="../gamepadbuttons.cpp" line="122"/>
         <source>No Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có lối tắt</translation>
     </message>
 </context>
 <context>
@@ -567,7 +567,7 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="44"/>
         <source>Gamepad ID: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ID Bộ Điều Khiển: %1</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
@@ -765,7 +765,7 @@
     <message>
         <location filename="../online/logindialog.ui" line="192"/>
         <source>Forgot Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Quên mật khẩu</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="443"/>
@@ -780,27 +780,27 @@
     <message>
         <location filename="../online/logindialog.ui" line="550"/>
         <source>Recovery</source>
-        <translation type="unfinished"></translation>
+        <translation>Khôi phục</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="599"/>
         <source>Choose a method to obtain a recovery password</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn một cách để nhận mật mã khôi phục</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="624"/>
         <source>EMAIL ADDRESS</source>
-        <translation type="unfinished"></translation>
+        <translation>ĐỊA CHỈ EMAIL</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="631"/>
         <source>You&apos;ll receive an email with additional instructions on how to recover your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn sẽ nhận một email với hướng dẫn bổ sung về khôi phục tài khoản.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="651"/>
         <source>If you don&apos;t have access to any of these recovery methods, or you require further assistance, send us an email and we&apos;ll help you out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nếu bạn không thể truy cập cách nào, hoặc bạn cần trợ giúp tiếp, hãy gửi chúng tôi một email, và chúng tôi sẽ giúp bạn.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="453"/>
@@ -933,34 +933,36 @@
     <message>
         <location filename="../online/logindialog.cpp" line="285"/>
         <source>Reset Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt lại mật khẩu</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="286"/>
         <source>You&apos;ll need to set a new password for your account.
 
 Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn sẽ cần đặt mật khẩu mới cho tài khoản của bạn.
+
+Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn nên không sử dụng mật khẩu này lại.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="288"/>
         <source>Set New Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt mật khẩu mới</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="297"/>
         <source>Enter a new password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền mật khẩu mới cho tài khoản của bạn</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="303"/>
         <source>Enter the same password</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền mật khẩu đó lại</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="303"/>
         <source>Confirm the new password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Xác nhận mật khẩu mới cho tài khoản của bạn</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="322"/>
@@ -970,7 +972,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../online/logindialog.cpp" line="357"/>
         <source>What&apos;s your username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng của bạn là gì?</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="372"/>
@@ -978,47 +980,47 @@ Make it a good password and save it for this account. You don&apos;t want to be 
         <location filename="../online/logindialog.cpp" line="431"/>
         <location filename="../online/logindialog.cpp" line="443"/>
         <source>Password Recovery Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Khôi phục mật khẩu thất bại</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="378"/>
         <source>That username is incorrect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên người dùng đó không có đúng.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="380"/>
         <source>Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy thử lại sau.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="386"/>
         <source>Send an email to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gửi email đến %1</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="412"/>
         <source>Enter the full email address</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền vào email hoàn thành</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="412"/>
         <source>Use the email address %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng địa chỉ email %1</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="432"/>
         <source>Try again at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy thử lại sau.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="435"/>
         <source>Password Recovery</source>
-        <translation type="unfinished"></translation>
+        <translation>Khôi phục mật khẩu</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="436"/>
         <source>If %1 matches the email we&apos;ve got on file for your account, you&apos;ll receive an email with further instructions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nếu %1 khớp với địa chỉ email chúng tôi đã lưu lại cho tài khoản của bạn, bạn sẽ nhận một email với hướng dẫn bổ sung.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="321"/>
@@ -1234,7 +1236,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.ui" line="219"/>
         <source>View Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem Chính Sách Bảo Mật</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="245"/>
@@ -1244,7 +1246,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.ui" line="248"/>
         <source>Accept the new Terms and Community Guidelines and connect to Entertaining Games Online</source>
-        <translation type="unfinished"></translation>
+        <translation>Chấp nhận điều khoản và nguyên tắc công cộng mới và kết nối với Chợ Trời Giải Trí Trực Tuyến</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="255"/>
@@ -1254,7 +1256,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.ui" line="258"/>
         <source>Log out of your current account</source>
-        <translation type="unfinished"></translation>
+        <translation>Đăng xuất khỏi tài khoản hiện tại</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="52"/>
@@ -1264,7 +1266,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.ui" line="212"/>
         <source>View the behavioural requirements that we expect you to display while using the services</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem yêu cầu hành vi chúng tôi mong đợi bạn theo trong khi bạn sử dụng các dịch vụ</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="152"/>
@@ -1279,7 +1281,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.ui" line="222"/>
         <source>View information about how we collect and use your data</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem thông tin về cách chúng tôi thu thập và sử dụng dữ liệu của bạn</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="91"/>
@@ -1289,7 +1291,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.cpp" line="109"/>
         <source>The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents.</source>
-        <translation type="unfinished"></translation>
+        <translation>Điều khoản và nguyên tắc công cộng này sẽ chi phối việc sử dụng dịch vụ Trò Chơi Giải Trí của bạn. Bởi cách tạo tài khoản và sử dụng các dịch vụ, bạn sẽ chấp nhận các tài liệu này.</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="124"/>
@@ -1305,12 +1307,12 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../online/onlineterms.cpp" line="178"/>
         <source>Acceptance Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Chấp Nhận đã thất bại</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="196"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Chính sách bảo mật</translation>
     </message>
 </context>
 <context>
@@ -1434,7 +1436,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <location filename="../private/otpsetupdialog.ui" line="711"/>
         <location filename="../private/otpsetupdialog.cpp" line="373"/>
         <source>Print Backup Codes</source>
-        <translation type="unfinished"></translation>
+        <translation>In Mã Dự Phòng</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="718"/>
@@ -1540,32 +1542,32 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="413"/>
         <source>Entertaining Games</source>
-        <translation type="unfinished"></translation>
+        <translation>Trò Chơi Giải Trí</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="422"/>
         <source>Two Factor Authentication Backup Codes</source>
-        <translation type="unfinished"></translation>
+        <translation>Mã Xác Minh Hai Bước Dự Phòng</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="430"/>
         <source>Hey there,</source>
-        <translation type="unfinished"></translation>
+        <translation>Xin chào bạn,</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="433"/>
         <source>Each backup code can only be used once, so it&apos;s a good idea to cross each one out as you use it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mỗi mã dự phòng chỉ được sử dụng một lần, vì vậy, đó là một ý tưởng tốt để gạch xóa mỗi cái khi bạn sử dụng nó.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="436"/>
         <source>This page was printed on %1, so if you&apos;ve regenerated your backup codes since then, these ones may not be the correct ones to use.</source>
-        <translation type="unfinished"></translation>
+        <translation>Trang này đã bị in tại %1, thì nếu bạn đã tạo lại mà dự phòng mới sau khi đó, các mã này có thể không phải mà dùng.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="494"/>
         <source>Need more codes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cần thêm mã?</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="495"/>
@@ -1607,90 +1609,92 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <location filename="../private/passwordchangedialog.ui" line="194"/>
         <location filename="../private/passwordchangedialog.cpp" line="47"/>
         <source>Change Password</source>
-        <translation type="unfinished">Đổi mật khẩu</translation>
+        <translation>Đổi mật khẩu</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="139"/>
         <source>Confirm New Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Xác nhận mật khẩu mới</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="160"/>
         <source>After changing your password, we&apos;ll log you out of all your other devices.
 
 Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sau khi bạn đổi mật khẩu, chúng tôi sẽ đâng xuất bạn khỏi các thiết bị khác.
+
+Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn nên không sử dụng mật khẩu này lại.</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="203"/>
         <location filename="../private/passwordchangedialog.cpp" line="43"/>
         <source>New Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Mật khẩu mới</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="44"/>
         <source>Confirm Password</source>
-        <translation type="unfinished">Xác nhận mật khẩu</translation>
+        <translation>Xác nhận mật khẩu</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="46"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="87"/>
         <source>Enter a new password</source>
-        <translation type="unfinished"></translation>
+        <translation>Điền mật khẩu mới</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="88"/>
         <source>Confirm your password</source>
-        <translation type="unfinished">Xác minh mật khẩu của bạn</translation>
+        <translation>Xác minh mật khẩu của bạn</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="90"/>
         <source>Check that the passwords match</source>
-        <translation type="unfinished">Kiểm tra xem mật khẩu đã khớp</translation>
+        <translation>Kiểm tra xem mật khẩu đã khớp</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="95"/>
         <source>Check your input</source>
-        <translation type="unfinished">Kiểm tra các trường</translation>
+        <translation>Kiểm tra các trường</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="105"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished">Xác minh mật khẩu cho tài khoản của bạn</translation>
+        <translation>Xác minh mật khẩu cho tài khoản của bạn</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="123"/>
         <source>Chaning Password Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi mật khẩu thất bại</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="124"/>
         <source>We weren&apos;t able to change your password. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chúng tôi không thể đổi mật khẩu của bạn. Hãy thử lại sau.</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="131"/>
         <source>Password Changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Mật khẩu bị đổi</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="132"/>
         <source>Your password has been changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mật khẩu của bạn đã bị đổi.</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="146"/>
         <source>Changing Password Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Đổi mật khẩu thất bại</translation>
     </message>
 </context>
 <context>
@@ -1781,7 +1785,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/reportwidget.ui" line="93"/>
         <source>File a content report</source>
-        <translation type="unfinished"></translation>
+        <translation>Nộp báo cáo nội dung</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="136"/>
@@ -1793,12 +1797,12 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../private/reportwidget.ui" line="163"/>
         <source>Got it!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiểu rồi!</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="255"/>
         <source>Provide Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Cung cấp thông tin</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="360"/>
@@ -1844,13 +1848,13 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../private/reportwidget.cpp" line="55"/>
         <source>Select</source>
-        <translation type="unfinished">Chọn</translation>
+        <translation>Chọn</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="56"/>
         <location filename="../private/reportwidget.cpp" line="65"/>
         <source>Back</source>
-        <translation type="unfinished">Lại</translation>
+        <translation>Lại</translation>
     </message>
 </context>
 <context>
@@ -2007,7 +2011,7 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../keyboards/uskeyboard.cpp" line="46"/>
         <source>English (US)</source>
-        <translation type="unfinished">Tiếng Anh (US)</translation>
+        <translation>Tiếng Anh (US)</translation>
     </message>
 </context>
 </TS>
