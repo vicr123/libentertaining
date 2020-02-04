@@ -27,12 +27,11 @@ namespace Ui {
 }
 
 struct OtpSetupDialogPrivate;
-class OtpSetupDialog : public QWidget
-{
+class OtpSetupDialog : public QWidget {
         Q_OBJECT
 
     public:
-        explicit OtpSetupDialog(QWidget *parent = nullptr);
+        explicit OtpSetupDialog(QWidget* parent = nullptr);
         ~OtpSetupDialog();
 
         void show();
@@ -54,8 +53,10 @@ class OtpSetupDialog : public QWidget
 
         void on_stackedWidget_currentChanged(int arg1);
 
+        void on_printButton_clicked();
+
     private:
-        Ui::OtpSetupDialog *ui;
+        Ui::OtpSetupDialog* ui;
         OtpSetupDialogPrivate* d;
 
         void setBackupCodes(QJsonArray backupCodes);

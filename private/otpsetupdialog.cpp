@@ -21,6 +21,9 @@
 #include "ui_otpsetupdialog.h"
 
 #include <QShortcut>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QSvgRenderer>
 #include "online/onlineapi.h"
 #include "pauseoverlay.h"
 #include "questionoverlay.h"
@@ -30,12 +33,13 @@
 struct OtpSetupDialogPrivate {
     QWidget* parent;
     QString accountPassword;
+
+    QJsonArray backupCodes;
 };
 
-OtpSetupDialog::OtpSetupDialog(QWidget *parent) :
+OtpSetupDialog::OtpSetupDialog(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::OtpSetupDialog)
-{
+    ui(new Ui::OtpSetupDialog) {
     ui->setupUi(this);
 
     d = new OtpSetupDialogPrivate();
@@ -50,7 +54,7 @@ OtpSetupDialog::OtpSetupDialog(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         ui->backButton->click();
     });
 
@@ -58,17 +62,17 @@ OtpSetupDialog::OtpSetupDialog(QWidget *parent) :
     ui->gamepadHud_2->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         ui->backButton_2->click();
     });
 
     QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), ui->setupPage);
-    connect(backShortcut, &QShortcut::activated, this, [=] {
+    connect(backShortcut, &QShortcut::activated, this, [ = ] {
         ui->backButton->click();
     });
 
     QShortcut* backShortcut_2 = new QShortcut(QKeySequence(Qt::Key_Escape), ui->managePage);
-    connect(backShortcut_2, &QShortcut::activated, this, [=] {
+    connect(backShortcut_2, &QShortcut::activated, this, [ = ] {
         ui->backButton_2->click();
     });
 
@@ -81,14 +85,12 @@ OtpSetupDialog::OtpSetupDialog(QWidget *parent) :
     ui->focusBarrier_4->setBounceWidget(ui->turnOffTotpButton);
 }
 
-OtpSetupDialog::~OtpSetupDialog()
-{
+OtpSetupDialog::~OtpSetupDialog() {
     delete d;
     delete ui;
 }
 
-void OtpSetupDialog::show()
-{
+void OtpSetupDialog::show() {
     bool canceled;
     d->accountPassword = TextInputOverlay::getText(d->parent, tr("Confirm the password for your account"), &canceled, "", QLineEdit::Password);
     if (canceled) {
@@ -100,7 +102,7 @@ void OtpSetupDialog::show()
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
     OnlineApi::instance()->post("/users/otp/status", {
         {"password", d->accountPassword}
-    })->then([=](QJsonDocument doc) {
+    })->then([ = ](QJsonDocument doc) {
         QJsonObject obj = doc.object();
 
         if (obj.value("enabled").toBool()) {
@@ -124,7 +126,7 @@ void OtpSetupDialog::show()
             ui->stackedWidget->setCurrentWidget(ui->setupPage);
             ui->setupPage->setFocus();
         }
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         if (OnlineApi::httpStatusCodeFromPromiseRejection(error) == 401) {
             question->setIcon(QMessageBox::Warning);
@@ -137,7 +139,7 @@ void OtpSetupDialog::show()
         }
         question->setButtons(QMessageBox::Ok);
 
-        auto after = [=] {
+        auto after = [ = ] {
             question->deleteLater();
             this->close();
         };
@@ -147,25 +149,21 @@ void OtpSetupDialog::show()
     });
 }
 
-void OtpSetupDialog::close()
-{
-    PauseOverlay::overlayForWindow(this)->popOverlayWidget([=]{
+void OtpSetupDialog::close() {
+    PauseOverlay::overlayForWindow(this)->popOverlayWidget([ = ] {
         emit done();
     });
 }
 
-void OtpSetupDialog::on_backButton_clicked()
-{
+void OtpSetupDialog::on_backButton_clicked() {
     this->close();
 }
 
-void OtpSetupDialog::on_backButton_2_clicked()
-{
+void OtpSetupDialog::on_backButton_2_clicked() {
     this->close();
 }
 
-void OtpSetupDialog::on_enterOtpTokenButton_clicked()
-{
+void OtpSetupDialog::on_enterOtpTokenButton_clicked() {
     bool canceled;
     QString totpToken = TextInputOverlay::getTextWithRegex(this, tr("Enter the code displayed on your phone"), QRegularExpression("\\d{12}|\\d{6}"), &canceled, "", tr("Enter a valid Two Factor Authentication code"), Qt::ImhDigitsOnly);
     if (!canceled) {
@@ -173,7 +171,7 @@ void OtpSetupDialog::on_enterOtpTokenButton_clicked()
         PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
         OnlineApi::instance()->post("/users/otp/enable", {
             {"otpToken", totpToken}
-        })->then([=](QJsonDocument doc) {
+        })->then([ = ](QJsonDocument doc) {
             QJsonObject obj = doc.object();
 
             QuestionOverlay* question = new QuestionOverlay(this);
@@ -201,7 +199,7 @@ void OtpSetupDialog::on_enterOtpTokenButton_clicked()
             question->setButtons(QMessageBox::Ok);
             connect(question, &QuestionOverlay::accepted, question, &QuestionOverlay::deleteLater);
             connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
-        })->error([=](QString error) {
+        })->error([ = ](QString error) {
             QuestionOverlay* question = new QuestionOverlay(this);
             question->setIcon(QMessageBox::Critical);
             question->setTitle(tr("Enabling OTP Token failed"));
@@ -216,8 +214,7 @@ void OtpSetupDialog::on_enterOtpTokenButton_clicked()
     }
 }
 
-void OtpSetupDialog::setBackupCodes(QJsonArray backupCodes)
-{
+void OtpSetupDialog::setBackupCodes(QJsonArray backupCodes) {
     QLabel* l[10] = {
         ui->backupCode,
         ui->backupCode_2,
@@ -263,22 +260,23 @@ void OtpSetupDialog::setBackupCodes(QJsonArray backupCodes)
             l[i]->setText("");
         }
     }
+
+    d->backupCodes = backupCodes;
 }
 
-void OtpSetupDialog::on_regenerateBackupCodesButton_clicked()
-{
+void OtpSetupDialog::on_regenerateBackupCodesButton_clicked() {
     QuestionOverlay* question = new QuestionOverlay(this);
     question->setIcon(QMessageBox::Question);
     question->setTitle(tr("Regenerate Backup Codes?"));
     question->setText(tr("After regenerating your backup codes, your old backup codes will be invalidated and you'll only be able to use the new backup codes."));
     question->setButtons(QMessageBox::Yes | QMessageBox::Cancel, tr("Regenerate Backup Codes"), true);
-    connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+    connect(question, &QuestionOverlay::accepted, this, [ = ](QMessageBox::StandardButton button) {
         if (button == QMessageBox::Yes) {
             //Regenerate Codes
             ui->stackedWidget->setCurrentWidget(ui->loaderPage);
             OnlineApi::instance()->post("/users/otp/regenerate", {
                 {"password", d->accountPassword}
-            })->then([=](QJsonDocument doc) {
+            })->then([ = ](QJsonDocument doc) {
                 if (doc.object().contains("error")) {
                     QuestionOverlay* question = new QuestionOverlay(this);
                     question->setIcon(QMessageBox::Critical);
@@ -295,7 +293,7 @@ void OtpSetupDialog::on_regenerateBackupCodesButton_clicked()
 
                 ui->stackedWidget->setCurrentWidget(ui->managePage);
                 ui->managePage->setFocus();
-            })->error([=](QString error) {
+            })->error([ = ](QString error) {
                 QuestionOverlay* question = new QuestionOverlay(this);
                 question->setIcon(QMessageBox::Critical);
                 question->setTitle(tr("Two Factor Authentication Removal Failed"));
@@ -312,20 +310,19 @@ void OtpSetupDialog::on_regenerateBackupCodesButton_clicked()
     connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 }
 
-void OtpSetupDialog::on_turnOffTotpButton_clicked()
-{
+void OtpSetupDialog::on_turnOffTotpButton_clicked() {
     QuestionOverlay* question = new QuestionOverlay(this);
     question->setIcon(QMessageBox::Question);
     question->setTitle(tr("Turn off Two Factor Authentication?"));
     question->setText(tr("After turning off Two Factor Authentication, you'll only need to log in with your password."));
     question->setButtons(QMessageBox::Yes | QMessageBox::Cancel, tr("Turn off Two Factor Authentication"), true);
-    connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+    connect(question, &QuestionOverlay::accepted, this, [ = ](QMessageBox::StandardButton button) {
         if (button == QMessageBox::Yes) {
             //Disable TOTP
             ui->stackedWidget->setCurrentWidget(ui->loaderPage);
             OnlineApi::instance()->post("/users/otp/disable", {
                 {"password", d->accountPassword}
-            })->then([=](QJsonDocument doc) {
+            })->then([ = ](QJsonDocument doc) {
                 bool close = false;
                 QuestionOverlay* question = new QuestionOverlay(this);
                 if (doc.object().contains("error")) {
@@ -341,13 +338,13 @@ void OtpSetupDialog::on_turnOffTotpButton_clicked()
                 }
                 question->setButtons(QMessageBox::Ok);
 
-                auto after = [=] {
+                auto after = [ = ] {
                     question->deleteLater();
                     if (close) this->close();
                 };
                 connect(question, &QuestionOverlay::accepted, this, after);
                 connect(question, &QuestionOverlay::rejected, this, after);
-            })->error([=](QString error) {
+            })->error([ = ](QString error) {
                 QuestionOverlay* question = new QuestionOverlay(this);
                 question->setIcon(QMessageBox::Critical);
                 question->setTitle(tr("Two Factor Authentication Removal Failed"));
@@ -364,7 +361,149 @@ void OtpSetupDialog::on_turnOffTotpButton_clicked()
     connect(question, &QuestionOverlay::rejected, question, &QuestionOverlay::deleteLater);
 }
 
-void OtpSetupDialog::on_stackedWidget_currentChanged(int arg1)
-{
+void OtpSetupDialog::on_stackedWidget_currentChanged(int arg1) {
     this->setFocusProxy(ui->stackedWidget->currentWidget());
+}
+
+void OtpSetupDialog::on_printButton_clicked() {
+    QPrinter* printer = new QPrinter();
+    printer->setPageMargins(1, 1, 1, 1, QPrinter::Inch);
+
+    QPrintDialog* dialog = new QPrintDialog(printer);
+    dialog->setWindowTitle(tr("Print Backup Codes"));
+    connect(dialog, QOverload<QPrinter*>::of(&QPrintDialog::accepted), this, [ = ]() {
+        QPainter* painter = new QPainter(printer);
+
+        //Print cool stuff! Let's go!
+        QFont bodyFont = this->font();
+        QFont subtitleFont = this->font();
+        subtitleFont.setBold(true);
+        QFont titleFont = this->font();
+        titleFont.setPointSize(30);
+        QFont codeFont = this->font();
+        codeFont.setPointSize(15);
+
+        auto printText = [ = ](QString text, QFont font, int top) {
+            QFontMetrics metrics(font, printer);
+
+            QRect textRect;
+            textRect.setSize(printer->pageRect().size());
+            textRect.setTop(top);
+            textRect.moveLeft(0);
+
+            textRect = metrics.boundingRect(textRect, Qt::TextWordWrap, text);
+
+            painter->setFont(font);
+            painter->drawText(textRect, text);
+
+            return textRect.bottom();
+        };
+
+        QFontMetrics titleMetrics(titleFont, printer);
+        int currentY;
+
+        //Draw the Entertaining Games icon
+        QSvgRenderer iconRenderer(QStringLiteral(":/libentertaining/icons/icon.svg"));
+        QRect iconRect;
+        iconRect.setSize(QSize(titleMetrics.height(), titleMetrics.height()));
+        iconRect.moveTopLeft(QPoint(0, 0));
+        iconRenderer.render(painter, iconRect);
+
+        //Draw the Entertaining Games title
+        QString logoText = tr("Entertaining Games");
+        QRect logoTextRect;
+        logoTextRect.setSize(QSize(titleMetrics.horizontalAdvance(logoText), titleMetrics.height()));
+        logoTextRect.moveTop(0);
+        logoTextRect.moveLeft(iconRect.right() + 9);
+        painter->setFont(titleFont);
+        painter->drawText(logoTextRect, logoText);
+
+        //Draw the title text
+        currentY = printText(tr("Two Factor Authentication Backup Codes"), codeFont, logoTextRect.bottom() + 9);
+
+        //Draw a header line
+        currentY += 9;
+        painter->setPen(Qt::black);
+        painter->drawLine(0, currentY, printer->pageRect().width(), currentY);
+        currentY++;
+
+        currentY = printText(tr("Hey there,").append("\n\n")
+                .append(tr("Your backup codes are displayed below. Keep them in a safe place.")) //Keep in sync with the UI
+                .append("\n\n")
+                .append(tr("Each backup code can only be used once, so it's a good idea to "
+                        "cross each one out as you use it."))
+                .append("\n\n")
+                .append(tr("This page was printed on %1, so if you've regenerated your backup "
+                        "codes since then, these ones may not be the correct ones to use.")
+                    .arg(QLocale().toString(QDateTime::currentDateTime(), "ddd, dd MMM yyyy"))),
+                bodyFont, currentY + 9);
+
+        //Start printing the backup codes!
+        auto printBackupCode = [ = ](QJsonValue val, int number, int startY) {
+            painter->save();
+
+            QString code;
+            bool used;
+
+            if (val.isObject()) {
+                QJsonObject obj = val.toObject();
+                code = obj.value("code").toString();
+                used = obj.value("used").toBool();
+            } else {
+                code = val.toString();
+                used = false;
+            }
+
+            //Pad the code key
+            for (int i = 1, j = 1; i < code.length(); i++, j++) {
+                if (j % 4 == 0) {
+                    code.insert(i, ' ');
+                    i++;
+                }
+            }
+
+            QFont font = codeFont;
+            font.setStrikeOut(used);
+
+            painter->setOpacity(used ? 0.5 : 1);
+
+            //Calculate where we need to put this text
+            QFontMetrics metrics(font, printer);
+
+            QRect textRect;
+            textRect.setWidth(printer->pageRect().size().width() / 2);
+            textRect.setHeight(metrics.height());
+            textRect.moveTop(startY + ((metrics.height() + 9) * (number / 2)));
+            textRect.moveLeft(textRect.width() * (number % 2));
+
+            painter->setFont(font);
+            painter->drawText(textRect, Qt::AlignCenter, code);
+
+            painter->restore();
+
+            return textRect.bottom();
+        };
+
+        int newBottom = currentY;
+        currentY += 9;
+        for (int i = 0; i < d->backupCodes.count(); i++) {
+            newBottom = printBackupCode(d->backupCodes.at(i), i, currentY);
+        }
+        currentY = newBottom;
+
+        currentY = printText(tr("Need more codes?").toUpper(), subtitleFont, currentY + 9);
+        currentY = printText(tr("Generate more codes in any Entertaining Games application. "
+                    "These codes will be invalidated when you do."),
+                bodyFont, currentY + 9);
+
+        painter->end();
+
+        dialog->deleteLater();
+        delete printer;
+    });
+    connect(dialog, &QPrintDialog::rejected, this, [ = ] {
+        dialog->deleteLater();
+        delete printer;
+    });
+    dialog->open();
 }

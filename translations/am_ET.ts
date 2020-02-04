@@ -1065,96 +1065,96 @@ Make it a good password and save it for this account. You don&apos;t want to be 
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="354"/>
+        <location filename="../online/onlineapi.cpp" line="332"/>
         <source>The server is not operating correctly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="111"/>
+        <location filename="../online/onlineapi.cpp" line="102"/>
         <source>You are not logged in.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="119"/>
+        <location filename="../online/onlineapi.cpp" line="110"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="124"/>
+        <location filename="../online/onlineapi.cpp" line="115"/>
         <source>The connection was lost because a server error occurred.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="128"/>
+        <location filename="../online/onlineapi.cpp" line="119"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="131"/>
+        <location filename="../online/onlineapi.cpp" line="122"/>
         <source>The connection was lost because too much data was sent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="134"/>
+        <location filename="../online/onlineapi.cpp" line="125"/>
         <source>The connection was lost because an internal error occurred.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="139"/>
+        <location filename="../online/onlineapi.cpp" line="130"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="145"/>
+        <location filename="../online/onlineapi.cpp" line="136"/>
         <source>The connection was lost because the server does not support this application.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="148"/>
+        <location filename="../online/onlineapi.cpp" line="139"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="164"/>
+        <location filename="../online/onlineapi.cpp" line="155"/>
         <source>The connection was lost because your account has been suspended from online play.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="173"/>
+        <location filename="../online/onlineapi.cpp" line="164"/>
         <source>The connection to the server was lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="185"/>
+        <location filename="../online/onlineapi.cpp" line="176"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="188"/>
+        <location filename="../online/onlineapi.cpp" line="179"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="191"/>
+        <location filename="../online/onlineapi.cpp" line="182"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="283"/>
+        <location filename="../online/onlineapi.cpp" line="269"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="285"/>
+        <location filename="../online/onlineapi.cpp" line="271"/>
         <source>You are not authorized to perform this action now.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="287"/>
+        <location filename="../online/onlineapi.cpp" line="273"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1432,6 +1432,7 @@ If it&apos;s been more than a day since you received the verification email, you
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="637"/>
+        <location filename="../private/otpsetupdialog.cpp" line="431"/>
         <source>Your backup codes are displayed below. Keep them in a safe place.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1452,129 +1453,170 @@ If it&apos;s been more than a day since you received the verification email, you
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="711"/>
-        <location filename="../private/otpsetupdialog.cpp" line="274"/>
-        <source>Regenerate Backup Codes</source>
+        <location filename="../private/otpsetupdialog.cpp" line="373"/>
+        <source>Print Backup Codes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="718"/>
-        <location filename="../private/otpsetupdialog.cpp" line="321"/>
+        <location filename="../private/otpsetupdialog.cpp" line="272"/>
+        <source>Regenerate Backup Codes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.ui" line="725"/>
+        <location filename="../private/otpsetupdialog.cpp" line="318"/>
         <source>Turn off Two Factor Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="49"/>
-        <location filename="../private/otpsetupdialog.cpp" line="57"/>
+        <location filename="../private/otpsetupdialog.cpp" line="53"/>
+        <location filename="../private/otpsetupdialog.cpp" line="61"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="50"/>
-        <location filename="../private/otpsetupdialog.cpp" line="58"/>
+        <location filename="../private/otpsetupdialog.cpp" line="54"/>
+        <location filename="../private/otpsetupdialog.cpp" line="62"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="93"/>
+        <location filename="../private/otpsetupdialog.cpp" line="95"/>
         <source>Confirm the password for your account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="131"/>
-        <location filename="../private/otpsetupdialog.cpp" line="184"/>
+        <location filename="../private/otpsetupdialog.cpp" line="133"/>
+        <location filename="../private/otpsetupdialog.cpp" line="182"/>
         <source>Incorrect Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="132"/>
+        <location filename="../private/otpsetupdialog.cpp" line="134"/>
         <source>Check your password and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="170"/>
+        <location filename="../private/otpsetupdialog.cpp" line="168"/>
         <source>Enter the code displayed on your phone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="170"/>
+        <location filename="../private/otpsetupdialog.cpp" line="168"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="186"/>
-        <location filename="../private/otpsetupdialog.cpp" line="207"/>
+        <location filename="../private/otpsetupdialog.cpp" line="184"/>
+        <location filename="../private/otpsetupdialog.cpp" line="205"/>
         <source>Enabling OTP Token failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="188"/>
+        <location filename="../private/otpsetupdialog.cpp" line="186"/>
         <source>Try enabling Two Factor Authentication at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="194"/>
+        <location filename="../private/otpsetupdialog.cpp" line="192"/>
         <source>Two Factor Authentication enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="195"/>
+        <location filename="../private/otpsetupdialog.cpp" line="193"/>
         <source>Two Factor Authentication has been enabled for your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="272"/>
+        <location filename="../private/otpsetupdialog.cpp" line="270"/>
         <source>Regenerate Backup Codes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="273"/>
+        <location filename="../private/otpsetupdialog.cpp" line="271"/>
         <source>After regenerating your backup codes, your old backup codes will be invalidated and you&apos;ll only be able to use the new backup codes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="286"/>
+        <location filename="../private/otpsetupdialog.cpp" line="284"/>
         <source>Backup Code Regeneration Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="287"/>
+        <location filename="../private/otpsetupdialog.cpp" line="285"/>
         <source>Try regenerating your Two Factor Authentication codes at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="319"/>
+        <location filename="../private/otpsetupdialog.cpp" line="316"/>
         <source>Turn off Two Factor Authentication?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="320"/>
+        <location filename="../private/otpsetupdialog.cpp" line="317"/>
         <source>After turning off Two Factor Authentication, you&apos;ll only need to log in with your password.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="301"/>
-        <location filename="../private/otpsetupdialog.cpp" line="334"/>
-        <location filename="../private/otpsetupdialog.cpp" line="353"/>
+        <location filename="../private/otpsetupdialog.cpp" line="413"/>
+        <source>Entertaining Games</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="422"/>
+        <source>Two Factor Authentication Backup Codes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="430"/>
+        <source>Hey there,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="433"/>
+        <source>Each backup code can only be used once, so it&apos;s a good idea to cross each one out as you use it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="436"/>
+        <source>This page was printed on %1, so if you&apos;ve regenerated your backup codes since then, these ones may not be the correct ones to use.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="494"/>
+        <source>Need more codes?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="495"/>
+        <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/otpsetupdialog.cpp" line="299"/>
+        <location filename="../private/otpsetupdialog.cpp" line="331"/>
+        <location filename="../private/otpsetupdialog.cpp" line="350"/>
         <source>Two Factor Authentication Removal Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="335"/>
+        <location filename="../private/otpsetupdialog.cpp" line="332"/>
         <source>Try removing Two Factor Authentication at a later time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="338"/>
+        <location filename="../private/otpsetupdialog.cpp" line="335"/>
         <source>Two Factor Authentication Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="339"/>
+        <location filename="../private/otpsetupdialog.cpp" line="336"/>
         <source>Two Factor Authentication has been disabled for your account.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="135"/>
+        <location filename="../private/otpsetupdialog.cpp" line="137"/>
         <source>Retrieval of OTP Token Information failed</source>
         <translation type="unfinished"></translation>
     </message>

@@ -30,23 +30,20 @@ struct OnlineApiPrivate {
     OnlineApi* instance = nullptr;
     QSettings* settings = EntertainingSettings::instance();
 
+    QNetworkAccessManager mgr;
     QString loggedInUsername;
     QMap<QString, QImage> imageCache;
 };
 
 OnlineApiPrivate* OnlineApi::d = new OnlineApiPrivate();
 
-OnlineApi*OnlineApi::instance()
-{
+OnlineApi* OnlineApi::instance() {
     if (d->instance == nullptr) d->instance = new OnlineApi();
     return d->instance;
 }
 
-tPromise<QJsonDocument>*OnlineApi::post(QString endpoint, QJsonObject body)
-{
-    return new tPromise<QJsonDocument>([=](std::function<void(QJsonDocument)> res, std::function<void(QString)> rej) {
-        QNetworkAccessManager* mgr = new QNetworkAccessManager();
-
+tPromise<QJsonDocument>* OnlineApi::post(QString endpoint, QJsonObject body) {
+    return new tPromise<QJsonDocument>([ = ](std::function<void(QJsonDocument)> res, std::function<void(QString)> rej) {
         QUrl url("http://" + serverHost());
         url.setScheme(isServerSecure() ? "https" : "http");
         url.setPath("/api/" + endpoint);
@@ -58,19 +55,15 @@ tPromise<QJsonDocument>*OnlineApi::post(QString endpoint, QJsonObject body)
             req.setRawHeader("Authorization", auth.toUtf8());
         }
 
-        QNetworkReply* reply = mgr->post(req, QJsonDocument(body).toJson(QJsonDocument::Compact));
-        connect(reply, &QNetworkReply::finished, this, [=] {
+        QNetworkReply* reply = d->mgr.post(req, QJsonDocument(body).toJson(QJsonDocument::Compact));
+        connect(reply, &QNetworkReply::finished, this, [ = ] {
             processReply(reply, res, rej);
-            mgr->deleteLater();
         });
     });
 }
 
-tPromise<QJsonDocument>*OnlineApi::get(QString endpoint)
-{
-    return new tPromise<QJsonDocument>([=](std::function<void(QJsonDocument)> res, std::function<void(QString)> rej) {
-        QNetworkAccessManager* mgr = new QNetworkAccessManager();
-
+tPromise<QJsonDocument>* OnlineApi::get(QString endpoint) {
+    return new tPromise<QJsonDocument>([ = ](std::function<void(QJsonDocument)> res, std::function<void(QString)> rej) {
         QUrl url("http://" + serverHost());
         url.setScheme(isServerSecure() ? "https" : "http");
         url.setPath("/api/" + endpoint);
@@ -82,16 +75,14 @@ tPromise<QJsonDocument>*OnlineApi::get(QString endpoint)
             req.setRawHeader("Authorization", auth.toUtf8());
         }
 
-        QNetworkReply* reply = mgr->get(req);
-        connect(reply, &QNetworkReply::finished, this, [=] {
+        QNetworkReply* reply = d->mgr.get(req);
+        connect(reply, &QNetworkReply::finished, this, [ = ] {
             processReply(reply, res, rej);
-            mgr->deleteLater();
         });
     });
 }
 
-tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString applicationVersion, QWidget*parentWidget)
-{
+tPromise<OnlineWebSocket*>* OnlineApi::play(QString applicationName, QString applicationVersion, QWidget* parentWidget) {
     OnlineWebSocket* ws = new OnlineWebSocket(applicationName, applicationVersion, parentWidget);
 
     qRegisterMetaType<QAbstractSocket::SocketState>();
@@ -101,18 +92,18 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
     url.setPath("/api/play");
 
     if (d->settings->contains("online/token")) {
-        QTimer::singleShot(500, this, [=] {
+        QTimer::singleShot(500, this, [ = ] {
             ws->open(url);
         });
     }
 
-    return new tPromise<OnlineWebSocket*>([=](std::function<void(OnlineWebSocket*)> res, std::function<void(QString)> rej) {
+    return new tPromise<OnlineWebSocket*>([ = ](std::function<void(OnlineWebSocket*)> res, std::function<void(QString)> rej) {
         if (!d->settings->contains("online/token")) {
             rej("!" + tr("You are not logged in."));
             return;
         }
         QMetaObject::Connection* disconnectedConnection = new QMetaObject::Connection();
-        *disconnectedConnection = connect(ws, &OnlineWebSocket::disconnected, this, [=] {
+        *disconnectedConnection = connect(ws, &OnlineWebSocket::disconnected, this, [ = ] {
             QString error;
             switch (static_cast<int>(ws->closeCode())) {
                 case QWebSocketProtocol::CloseCodeGoingAway:
@@ -134,7 +125,7 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
                     error = tr("The connection was lost because an internal error occurred.");
                     break;
 
-                    //Application specific close codes
+                //Application specific close codes
                 case 4000: //Authentication Error
                     error = tr("The connection was lost because your credentials have expired or are incorrect.\n\nTry connecting again and re-enter your credentials.");
 
@@ -149,12 +140,12 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
                     break;
                 case 4003: { //Terms Update Required
                     OnlineTerms* t = new OnlineTerms(parentWidget, true);
-                    connect(t, &OnlineTerms::accepted, this, [=] {
+                    connect(t, &OnlineTerms::accepted, this, [ = ] {
                         //Attempt to log in again
                         t->deleteLater();
                         this->play(applicationName, applicationVersion, parentWidget)->then(res)->error(rej);
                     });
-                    connect(t, &OnlineTerms::rejected, this, [=] {
+                    connect(t, &OnlineTerms::rejected, this, [ = ] {
                         t->deleteLater();
                         rej("disconnect");
                     });
@@ -168,7 +159,7 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
                     break;
 
                 case QWebSocketProtocol::CloseCodeAbnormalDisconnection:
-                    //maybe come up with a specific message for this later
+                //maybe come up with a specific message for this later
                 default:
                     error = tr("The connection to the server was lost.");
             }
@@ -178,7 +169,7 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
         });
 
         QMetaObject::Connection* errorConnection = new QMetaObject::Connection();
-        *errorConnection = connect(ws, QOverload<QAbstractSocket::SocketError>::of(&OnlineWebSocket::error), this, [=] {
+        *errorConnection = connect(ws, QOverload<QAbstractSocket::SocketError>::of(&OnlineWebSocket::error), this, [ = ] {
             QString error;
             switch (ws->error()) {
                 case QAbstractSocket::ConnectionRefusedError:
@@ -199,7 +190,7 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
             ws->deleteLater();
         });
 
-        connect(ws, &OnlineWebSocket::ready, this, [=] {
+        connect(ws, &OnlineWebSocket::ready, this, [ = ] {
             disconnect(*disconnectedConnection);
             delete disconnectedConnection;
             disconnect(*errorConnection);
@@ -210,10 +201,9 @@ tPromise<OnlineWebSocket*>*OnlineApi::play(QString applicationName, QString appl
     });
 }
 
-tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSize)
-{
-    return new tPromise<QImage>([=](std::function<void(QImage)> res, std::function<void(QString)> rej) {
-        auto processImage = [=](QImage image) {
+tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSize) {
+    return new tPromise<QImage>([ = ](std::function<void(QImage)> res, std::function<void(QString)> rej) {
+        auto processImage = [ = ](QImage image) {
             QImage displayImage(QSize(pictureSize, pictureSize), QImage::Format_ARGB32_Premultiplied);
             displayImage.fill(Qt::transparent);
 
@@ -236,7 +226,7 @@ tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSiz
         //Get the profile picture
         QNetworkAccessManager* mgr = new QNetworkAccessManager();
         QNetworkReply* reply = mgr->get(QNetworkRequest(QUrl(QStringLiteral("http://gravatar.com/avatar/%1.png?d=404&s=512").arg(gravatarHash))));
-        connect(reply, &QNetworkReply::finished, this, [=] {
+        connect(reply, &QNetworkReply::finished, this, [ = ] {
             QImage image;
             if (reply->error() == QNetworkReply::NoError) {
                 image = QImage::fromData(reply->readAll());
@@ -252,29 +242,25 @@ tPromise<QImage>* OnlineApi::profilePicture(QString gravatarHash, int pictureSiz
     });
 }
 
-QUrl OnlineApi::urlForPath(QString path)
-{
+QUrl OnlineApi::urlForPath(QString path) {
     QUrl url("http://" + serverHost());
     url.setScheme(isServerSecure() ? "https" : "http");
     url.setPath(path);
     return url;
 }
 
-void OnlineApi::logOut()
-{
+void OnlineApi::logOut() {
     d->settings->remove("online/token");
     d->settings->sync();
     emit loggedOut();
 }
 
-int OnlineApi::httpStatusCodeFromPromiseRejection(QString rejection)
-{
+int OnlineApi::httpStatusCodeFromPromiseRejection(QString rejection) {
     QStringList parts = rejection.split(":|");
     return parts.at(1).toInt();
 }
 
-QString OnlineApi::errorFromPromiseRejection(QString rejection)
-{
+QString OnlineApi::errorFromPromiseRejection(QString rejection) {
     if (rejection.startsWith("!")) return rejection.mid(1);
     QStringList parts = rejection.split(":|");
     switch (httpStatusCodeFromPromiseRejection(rejection)) {
@@ -290,30 +276,25 @@ QString OnlineApi::errorFromPromiseRejection(QString rejection)
     }
 }
 
-QString OnlineApi::getLoggedInUsername()
-{
+QString OnlineApi::getLoggedInUsername() {
     return d->loggedInUsername;
 }
 
-void OnlineApi::setLoggedInUsername(QString loggedInUsername)
-{
+void OnlineApi::setLoggedInUsername(QString loggedInUsername) {
     d->loggedInUsername = loggedInUsername;
 }
 
-OnlineApi::OnlineApi(QObject *parent) : QObject(parent)
-{
+OnlineApi::OnlineApi(QObject* parent) : QObject(parent) {
 
 }
 
-QString OnlineApi::serverHost()
-{
+QString OnlineApi::serverHost() {
     QByteArray server = qgetenv("ENTERTAINING_ONLINE_HOST");
     if (server.isEmpty()) server = DEFAULT_ENTERTAINING_ONLINE_HOST;
     return server;
 }
 
-bool OnlineApi::isServerSecure()
-{
+bool OnlineApi::isServerSecure() {
     QByteArray isSecure = qgetenv("ENTERTAINING_ONLINE_HOST_IS_SECURE");
     bool secure;
     if (isSecure.isEmpty()) {
@@ -324,8 +305,7 @@ bool OnlineApi::isServerSecure()
     return secure;
 }
 
-QString OnlineApi::authorizationHeader()
-{
+QString OnlineApi::authorizationHeader() {
     if (d->settings->contains("online/token")) {
         return "Token " + d->settings->value("online/token").toString();
     } else {
@@ -333,8 +313,7 @@ QString OnlineApi::authorizationHeader()
     }
 }
 
-QString OnlineApi::buildRejection(QNetworkReply*reply)
-{
+QString OnlineApi::buildRejection(QNetworkReply* reply) {
     QStringList list;
     list.append(QString::number(reply->error()));
     list.append(QString::number(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt()));
@@ -342,8 +321,7 @@ QString OnlineApi::buildRejection(QNetworkReply*reply)
     return list.join(":|");
 }
 
-void OnlineApi::processReply(QNetworkReply* reply, std::function<void (QJsonDocument)> res, std::function<void (QString)> rej)
-{
+void OnlineApi::processReply(QNetworkReply* reply, std::function<void (QJsonDocument)> res, std::function<void (QString)> rej) {
     if (reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 204) {
         //Respond with an empty document
         res(QJsonDocument());

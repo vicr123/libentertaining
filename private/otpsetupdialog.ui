@@ -706,6 +706,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="printButton">
+              <property name="text">
+               <string>Print Backup Codes</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="regenerateBackupCodesButton">
               <property name="text">
                <string>Regenerate Backup Codes</string>
@@ -772,6 +779,18 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>backButton</tabstop>
+  <tabstop>focusBarrier</tabstop>
+  <tabstop>enterOtpTokenButton</tabstop>
+  <tabstop>focusBarrier_2</tabstop>
+  <tabstop>backButton_2</tabstop>
+  <tabstop>focusBarrier_3</tabstop>
+  <tabstop>printButton</tabstop>
+  <tabstop>regenerateBackupCodesButton</tabstop>
+  <tabstop>turnOffTotpButton</tabstop>
+  <tabstop>focusBarrier_4</tabstop>
+ </tabstops>
  <resources>
   <include location="../libentertaining_resources.qrc"/>
  </resources>

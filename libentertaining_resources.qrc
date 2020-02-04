@@ -45,5 +45,6 @@
         <file>icons/list-add.svg</file>
         <file>icons/user.svg</file>
         <file>icons/go-next.svg</file>
+        <file>icons/icon.svg</file>
     </qresource>
 </RCC>

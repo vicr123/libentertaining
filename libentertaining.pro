@@ -1,4 +1,4 @@
-QT += widgets gamepad svg multimedia network websockets
+QT += widgets gamepad svg multimedia network websockets printsupport svg
 SHARE_APP_NAME = libentertaining
 
 DEFINES += SETTINGS_ORGANISATION="\\\"theSuite\\\""
