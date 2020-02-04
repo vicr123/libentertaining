@@ -6,207 +6,207 @@
     <message>
         <location filename="../online/accountdialog.ui" line="149"/>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Account</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="285"/>
         <source>VERIFY YOUR EMAIL</source>
-        <translation type="unfinished"></translation>
+        <translation>VERIFI</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="292"/>
         <source>Check your email for a code that we sent you. If you can&apos;t find it, try checking your spam folder, and if that doesnt work, try resending a verification email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoek in je email naar een code die we naar je hebben verstuurd. Als je hem niet kunt vinden, kijk dan eens in je spam-map, en als dat niet werkt, probeer dan een nieuwe verificatie-email te sturen.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="320"/>
         <source>Resend Verification Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificatie-email Opnieuw Versturen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="327"/>
         <source>Enter Verification Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificatiecode Invoeren</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="345"/>
         <source>PROFILE</source>
-        <translation type="unfinished"></translation>
+        <translation>PROFIEL</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="355"/>
         <source>Change Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikersnaam Veranderen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="362"/>
         <source>Change Profile Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Profielfoto Veranderen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="369"/>
         <source>Change Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailadres veranderen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="382"/>
         <source>SECURITY</source>
-        <translation type="unfinished"></translation>
+        <translation>BEVEILIGING</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="392"/>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord Veranderen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="399"/>
         <source>Set up Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-factorauthenticatie Instellen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="412"/>
         <source>SERVICES</source>
-        <translation type="unfinished"></translation>
+        <translation>DIENSTEN</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="422"/>
         <source>View Terms and Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Termen en Gemeenschaptsrichtlijnen Bekijken</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="266"/>
         <location filename="../online/accountdialog.cpp" line="81"/>
         <location filename="../online/accountdialog.cpp" line="83"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitloggen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="49"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="50"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="82"/>
         <source>Log out of %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitloggen van %1?</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="116"/>
         <source>What&apos;s your new username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wat is je nieuwe gebruikersnaam?</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="119"/>
         <location filename="../online/accountdialog.cpp" line="283"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig het wachtwoord voor je account</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="134"/>
         <location filename="../online/accountdialog.cpp" line="150"/>
         <source>Changing username failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikersnaam wijzigen mislukt</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="135"/>
         <source>Try changing your username at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer je gebruikersnaam later nog een keer te veranderen.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="138"/>
         <source>Username changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikersnaam veranderd</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="139"/>
         <source>Your username has been changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je gebruikersnaam is veranderd.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="181"/>
         <source>Couldn&apos;t retrieve account information</source>
-        <translation type="unfinished"></translation>
+        <translation>Kon accountinformatie niet ophalen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="205"/>
         <source>Verification Email Resent</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificatie-email Verstuurd</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="206"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kijk in je mailbox voor de verificatiecode. Misschien moet je in je spam-map kijken.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="215"/>
         <source>Couldn&apos;t resend verification email</source>
-        <translation type="unfinished"></translation>
+        <translation>Kon de verificatie-email niet opnieuw versturen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="229"/>
         <source>Enter the verification code</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer de verificatiecode in</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="229"/>
         <source>Enter a valid verification code</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een geldige verificatiecode in</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="245"/>
         <source>Email Verification Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailverificatie Mislukt</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="246"/>
         <source>We weren&apos;t able to verify your email. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>We konden je emailadres niet verifiëren. Probeer het later opnieuw.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="249"/>
         <source>Email Verified</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailadres Geverifiëerd</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="250"/>
         <source>Your email has been verified. Thank you!</source>
-        <translation type="unfinished"></translation>
+        <translation>Je emailadres is geverifiëerd. Dankjewel!</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="262"/>
         <source>Couldn&apos;t verify your email email</source>
-        <translation type="unfinished"></translation>
+        <translation>Kon je emailadres niet verifiëren</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="280"/>
         <source>What&apos;s your new email address?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wat is je nieuwe emailadres?</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="298"/>
         <location filename="../online/accountdialog.cpp" line="315"/>
         <source>Changing email failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailadres Veranderen Mislukt</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="299"/>
         <source>Try changing your email at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer je emailadres later nog een keer te veranderen.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="302"/>
         <source>Email changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Emailadres Veranderd</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="303"/>
         <source>Your email has been changed. Don&apos;t forget to check your email for a verification code and verify your email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je emailadres is veranderd. Vergeet niet je emailadres te controleren op een verificatiecode en je emailadres te verifiëren.</translation>
     </message>
 </context>
 <context>
@@ -214,37 +214,37 @@
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="41"/>
         <source>Button Diagnostics</source>
-        <translation type="unfinished"></translation>
+        <translation>Knopdiagnose</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="51"/>
         <source>Press a button on the gamepad and the symbol for the button will appear here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Druk op een knop op de gamepad en het symbool voor de knop zal hier verschijnen.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="158"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaar</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.ui" line="180"/>
         <source>You can also hold down any button to end the test.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je kunt ook een knop ingedrukt houden om de test te beëindigen.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="49"/>
         <source>Depending on your setup, the %1 button may not register here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Afhankelijk van je instellingen, kan het zijn dat de %1-knop hier niet geregistreerd wordt.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="59"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbinding met de Gamepad Verbroken</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttondiagnostics.cpp" line="60"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished"></translation>
+        <translation>De gamepad die je aan het testen was is niet meer verbonden.</translation>
     </message>
 </context>
 <context>
@@ -260,107 +260,107 @@
     <message>
         <location filename="../private/friendpage.ui" line="91"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>ACTIES</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="108"/>
         <location filename="../private/friendpage.cpp" line="145"/>
         <source>Remove Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriend Verwijderen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="164"/>
         <source>Accept this friend request?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wil je dit vriendschapsverzoek accepteren?</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="181"/>
         <source>Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>Accepteren</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="184"/>
         <source>Add this user to your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze gebruiker aan je lijst met vrienden toevoegen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="191"/>
         <source>Decline</source>
-        <translation type="unfinished"></translation>
+        <translation>Afwijzen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="194"/>
         <source>Remove this user from your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze gebruiker weghalen van je lijst met vrienden</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="270"/>
         <source>Retract Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Terugtrekken</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="273"/>
         <source>Cancel the friend request</source>
-        <translation type="unfinished"></translation>
+        <translation>Het vriendschapsverzoek annuleren</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="118"/>
         <location filename="../private/friendpage.ui" line="204"/>
         <source>Block</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokkeren</translation>
     </message>
     <message>
         <location filename="../private/friendpage.ui" line="207"/>
         <source>Remove this user from your friends list and don&apos;t show them again</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze gebruiker van je lijst met vrienden weghalen en hem niet meer laten zien</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="65"/>
         <source>We&apos;re awaiting %1&apos;s response.</source>
-        <translation type="unfinished"></translation>
+        <translation>We wachten op de reactie van %1.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="102"/>
         <location filename="../private/friendpage.cpp" line="160"/>
         <source>Unknown User</source>
-        <translation type="unfinished"></translation>
+        <translation>Onbekende Gebruiker</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="103"/>
         <location filename="../private/friendpage.cpp" line="161"/>
         <source>That user doesn&apos;t exist.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die gebruiker bestaat niet.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="105"/>
         <location filename="../private/friendpage.cpp" line="132"/>
         <source>Friend Request Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Mislukt</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="111"/>
         <source>Friend Request Accepted</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Geaccepteerd</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="116"/>
         <source>Friend Request Declined</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek afgewezen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="117"/>
         <source>The friend request from %1 has been removed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het vriendschapsverzoek van %1 is verwijderd.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="119"/>
         <source>Friend Request Retracted</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Teruggetrokken</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="120"/>
         <source>Your friend request to %1 has been retracted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je vriendschapsverzoek aan %1 is teruggetrokken.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="146"/>
