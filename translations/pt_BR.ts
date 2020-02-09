@@ -6,27 +6,27 @@
     <message>
         <location filename="../online/accountdialog.ui" line="149"/>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Conta</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="285"/>
         <source>VERIFY YOUR EMAIL</source>
-        <translation type="unfinished"></translation>
+        <translation>VERIFICAR SEU EMAIL</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="292"/>
         <source>Check your email for a code that we sent you. If you can&apos;t find it, try checking your spam folder, and if that doesnt work, try resending a verification email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifique seu email para um codigo que te mandamos. Se não o acahar, tente verificar sua pasta spam, e se isso não funcionar, tente mandar o email de novo.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="320"/>
         <source>Resend Verification Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Mandar Email de Novo</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="327"/>
         <source>Enter Verification Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código de Verificação</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="345"/>
