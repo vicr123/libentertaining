@@ -6,12 +6,12 @@
     <message>
         <location filename="../online/accountdialog.ui" line="149"/>
         <source>Account</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="285"/>
         <source>VERIFY YOUR EMAIL</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">BESTÄTIGE DEINE E-MAIL</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="292"/>
