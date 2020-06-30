@@ -22,6 +22,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QPainter>
+#include <QPainterPath>
 #include "onlinewebsocket.h"
 #include "online/onlineterms.h"
 #include "private/entertainingsettings.h"
