@@ -180,7 +180,7 @@
     <message>
         <location filename="../online/accountdialog.cpp" line="252"/>
         <source>Couldn&apos;t verify your email.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kon je e-mail niet verifiëren.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="269"/>
@@ -357,43 +357,43 @@
     <message>
         <location filename="../private/friendpage.cpp" line="146"/>
         <source>Remove %1 as a friend?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 als vriend verwijderen?</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="147"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="163"/>
         <source>Not Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen vrienden</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="164"/>
         <source>You&apos;re not friends with this user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je bent nog geen vrienden met deze gebruiker.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="166"/>
         <location filename="../private/friendpage.cpp" line="183"/>
         <source>Friend Removal Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriend verwijderen mislukt</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="171"/>
         <source>Friend Removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriend verwijderd</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="172"/>
         <source>%1 has been removed from your friend list.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 is uit je vriendenlijst gehaald.</translation>
     </message>
     <message>
         <location filename="../private/friendpage.cpp" line="112"/>
         <source>The friend request from %1 has been accepted.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het vriendschapsverzoek van %1 is geaccepteerd.</translation>
     </message>
 </context>
 <context>
@@ -401,73 +401,73 @@
     <message>
         <location filename="../online/friendsdialog.ui" line="122"/>
         <source>Friends and Relations</source>
-        <translation type="unfinished"></translation>
+        <translation>Vrienden en relaties</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="197"/>
         <source>Add Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg vriend toe</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="220"/>
         <source>You can send a friend request to someone by entering their username.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je kunt een vriendschapsverzoek naar iemand sturen door de gebruikersnaam in te vullen.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.ui" line="237"/>
         <source>Add Friend by Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg vriend toe op gebruikersnaam</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="75"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="76"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="119"/>
         <source>What&apos;s your friend&apos;s username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wat is de gebruikersnaam van je vriend?</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="131"/>
         <source>Unknown User</source>
-        <translation type="unfinished">Onbekende Gebruiker</translation>
+        <translation>Onbekende Gebruiker</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="132"/>
         <source>That user doesn&apos;t exist.</source>
-        <translation type="unfinished">Die gebruiker bestaat niet.</translation>
+        <translation>Die gebruiker bestaat niet.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="134"/>
         <source>Already Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Al vrienden</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="135"/>
         <source>You&apos;re already friends with that user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je bent al vrienden met die gebruiker.</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="137"/>
         <location filename="../online/friendsdialog.cpp" line="154"/>
         <source>Friend Request Failed</source>
-        <translation type="unfinished">Vriendschapsverzoek Mislukt</translation>
+        <translation>Vriendschapsverzoek Mislukt</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="142"/>
         <source>Friend Request Sent</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriendschapsverzoek Verstuurd</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="143"/>
         <source>Your friend request to %1 has been sent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je vriendschapsverzoek aan %1 is verstuurd.</translation>
     </message>
 </context>
 <context>
@@ -475,32 +475,32 @@
     <message>
         <location filename="../private/friendsmodel.cpp" line="54"/>
         <source>Add Friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Vriend Toevoegen</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="56"/>
         <source>Add a friend to your friends list</source>
-        <translation type="unfinished"></translation>
+        <translation>Een vriend aan je vriendenlijst toevoegen</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="106"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Vrienden</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="135"/>
         <source>Outgoing Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitgaande Vriendschapsverzoeken</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="130"/>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="133"/>
         <source>Incoming Friend Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Inkomend Vriendschapsverzoek</translation>
     </message>
     <message>
         <location filename="../private/friendsmodel.cpp" line="137"/>
