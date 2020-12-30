@@ -190,9 +190,9 @@ unix:!macx:!android {
 
     QT += thelib
 
-    target.path = /usr/lib
-    header.path = /usr/include/libentertaining
-    onlineheader.path = /usr/include/libentertaining/online
+    target.path = $$[QT_INSTALL_LIBS]
+    header.path = $$[QT_INSTALL_HEADERS]/libentertaining
+    onlineheader.path = $$[QT_INSTALL_HEADERS]/libentertaining/online
     module.files = qt_libentertaining.pri
 }
 
