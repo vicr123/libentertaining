@@ -4,6 +4,6 @@ QT.entertaining.MINOR_VERSION = 1
 QT.entertaining.name = entertaining
 QT.entertaining.module = entertaining
 QT.entertaining.depends = core dbus thelib gamepad
-QT.entertaining.includes = /usr/include/libentertaining/
+QT.entertaining.includes = $$QT_MODULE_INCLUDE_BASE $$QT_MODULE_INCLUDE_BASE/libentertaining/
 QT.entertaining.libs = $$QT_MODULE_LIB_BASE
 QT_MODULES += entertaining

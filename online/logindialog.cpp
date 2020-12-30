@@ -41,10 +41,9 @@ struct LoginDialogPrivate {
     QVariantMap recoveryChallenges;
 };
 
-LoginDialog::LoginDialog(QWidget *parent) :
+LoginDialog::LoginDialog(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::LoginDialog)
-{
+    ui(new Ui::LoginDialog) {
     ui->setupUi(this);
 
     d = new LoginDialogPrivate();
@@ -72,16 +71,16 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         MusicEngine::playSoundEffect(MusicEngine::Backstep);
         ui->backButton->click();
     });
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [ = ] {
         ui->loginButton->click();
     });
 
     QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), ui->loginPage);
-    connect(backShortcut, &QShortcut::activated, this, [=] {
+    connect(backShortcut, &QShortcut::activated, this, [ = ] {
         ui->backButton->click();
     });
 
@@ -90,16 +89,16 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->gamepadHud2->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud2->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud2->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud2->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         MusicEngine::playSoundEffect(MusicEngine::Backstep);
         ui->backButton_2->click();
     });
-    ui->gamepadHud2->setButtonAction(QGamepadManager::ButtonStart, [=] {
+    ui->gamepadHud2->setButtonAction(QGamepadManager::ButtonStart, [ = ] {
         ui->doRegisterButton->click();
     });
 
     QShortcut* backShortcut2 = new QShortcut(QKeySequence(Qt::Key_Escape), ui->registerPage);
-    connect(backShortcut2, &QShortcut::activated, this, [=] {
+    connect(backShortcut2, &QShortcut::activated, this, [ = ] {
         ui->backButton_2->click();
     });
 
@@ -107,13 +106,13 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->gamepadHud3->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud3->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud3->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud3->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         MusicEngine::playSoundEffect(MusicEngine::Backstep);
         ui->backButton_3->click();
     });
 
     QShortcut* backShortcut3 = new QShortcut(QKeySequence(Qt::Key_Escape), ui->registerPage);
-    connect(backShortcut3, &QShortcut::activated, this, [=] {
+    connect(backShortcut3, &QShortcut::activated, this, [ = ] {
         ui->backButton_3->click();
     });
 
@@ -130,14 +129,12 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->focusBarrier_6->setBounceWidget(ui->recoveryEmailButton);
 }
 
-LoginDialog::~LoginDialog()
-{
+LoginDialog::~LoginDialog() {
     delete d;
     delete ui;
 }
 
-bool LoginDialog::exec()
-{
+bool LoginDialog::exec() {
     if (d->settings->contains("online/token")) return true;
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 
@@ -153,27 +150,23 @@ bool LoginDialog::exec()
     return success;
 }
 
-void LoginDialog::on_backButton_clicked()
-{
+void LoginDialog::on_backButton_clicked() {
     emit rejected();
 }
 
-void LoginDialog::on_backButton_2_clicked()
-{
+void LoginDialog::on_backButton_2_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->loginPage);
     this->setFocusProxy(ui->usernameBox);
 }
 
-void LoginDialog::on_registerButton_clicked()
-{
+void LoginDialog::on_registerButton_clicked() {
     ui->registerUsernameBox->setText(ui->usernameBox->text());
     ui->registerPasswordBox->setText(ui->passwordBox->text());
     ui->stackedWidget->setCurrentWidget(ui->registerPage);
     this->setFocusProxy(ui->registerUsernameBox);
 }
 
-void LoginDialog::on_doRegisterButton_clicked()
-{
+void LoginDialog::on_doRegisterButton_clicked() {
     QString error = "";
 
     if (ui->registerUsernameBox->text().isEmpty()) error = tr("Enter a new username");
@@ -197,10 +190,10 @@ void LoginDialog::on_doRegisterButton_clicked()
     //Attempt to create the user
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     OnlineApi::instance()->post("/users/create", {
-                                    {"username", ui->registerUsernameBox->text()},
-                                    {"password", ui->registerPasswordBox->text()},
-                                    {"email", ui->registerEmailBox->text()}
-                                })->then([=](QJsonDocument response) {
+        {"username", ui->registerUsernameBox->text()},
+        {"password", ui->registerPasswordBox->text()},
+        {"email", ui->registerEmailBox->text()}
+    })->then([ = ](QJsonDocument response) {
         QJsonObject obj = response.object();
         if (obj.contains("error")) {
             QuestionOverlay* question = new QuestionOverlay(this);
@@ -217,7 +210,7 @@ void LoginDialog::on_doRegisterButton_clicked()
             d->settings->sync();
             emit accepted();
         }
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Registration Failed"));
@@ -230,13 +223,11 @@ void LoginDialog::on_doRegisterButton_clicked()
     });
 }
 
-void LoginDialog::on_loginButton_clicked()
-{
+void LoginDialog::on_loginButton_clicked() {
     attemptLogin(ui->usernameBox->text(), ui->passwordBox->text(), "", "");
 }
 
-void LoginDialog::attemptLogin(QString username, QString password, QString otpToken, QString newPassword)
-{
+void LoginDialog::attemptLogin(QString username, QString password, QString otpToken, QString newPassword) {
     QString error = "";
 
     if (username.isEmpty()) error = tr("Enter your username");
@@ -256,18 +247,18 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
     //Attempt to log the user in
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     OnlineApi::instance()->post("/users/token", {
-                                    {"username", username},
-                                    {"password", password},
-                                    {"otpToken", otpToken},
-                                    {"newPassword", newPassword}
-                                })->then([=](QJsonDocument response) {
+        {"username", username},
+        {"password", password},
+        {"otpToken", otpToken},
+        {"newPassword", newPassword}
+    })->then([ = ](QJsonDocument response) {
         QJsonObject obj = response.object();
         if (obj.contains("error")) {
             QString error = obj.value("error").toString();
             if (error == "otp.required") {
                 //Ask for the OTP token
                 bool canceled;
-                QString totpToken = TextInputOverlay::getTextWithRegex(this, tr("Enter your Two Factor Authentication code"), QRegularExpression("\\d{12}|\\d{6}"), &canceled, "", tr("Enter a valid Two Factor Authentication code"), Qt::ImhDigitsOnly);
+                QString totpToken = TextInputOverlay::getTextWithRegex(this, tr("Enter your Two Factor Authentication code"), QRegularExpression("\\d{12}|\\d{6}"), &canceled, "", tr("Enter a valid Two Factor Authentication code"), Qt::ImhDigitsOnly, QLineEdit::Normal, tr("You can also use a 12 digit backup code"));
                 if (canceled) {
                     ui->stackedWidget->setCurrentWidget(ui->loginPage);
                 } else {
@@ -284,16 +275,16 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                 question->setIcon(QMessageBox::Information);
                 question->setTitle(tr("Reset Password"));
                 question->setText(tr("You'll need to set a new password for your account.\n\n"
-                                     "Make it a good password and save it for this account. You don't want to be reusing this password."));
+                        "Make it a good password and save it for this account. You don't want to be reusing this password."));
                 question->setButtons(QMessageBox::Ok | QMessageBox::Cancel, tr("Set New Password"));
-                connect(question, &QuestionOverlay::accepted, this, [=](QMessageBox::StandardButton button) {
+                connect(question, &QuestionOverlay::accepted, this, [ = ](QMessageBox::StandardButton button) {
                     question->deleteLater();
                     if (button == QMessageBox::Ok) {
-                        QTimer::singleShot(1000, this, [=] {
+                        QTimer::singleShot(1000, this, [ = ] {
                             QString newPassword = "";
                             bool canceled;
 
-                            promptPassword:
+promptPassword:
                             newPassword = TextInputOverlay::getText(this, tr("Enter a new password for your account"), &canceled, "", QLineEdit::Password);
                             if (canceled) {
                                 ui->stackedWidget->setCurrentWidget(ui->loginPage);
@@ -310,7 +301,7 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
                         ui->stackedWidget->setCurrentWidget(ui->loginPage);
                     }
                 });
-                connect(question, &QuestionOverlay::rejected, this, [=] {
+                connect(question, &QuestionOverlay::rejected, this, [ = ] {
                     question->deleteLater();
 
                     ui->stackedWidget->setCurrentWidget(ui->loginPage);
@@ -330,7 +321,7 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
             d->settings->setValue("online/token", response.object().value("token").toString());
             emit accepted();
         }
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Login Failed"));
@@ -343,16 +334,14 @@ void LoginDialog::attemptLogin(QString username, QString password, QString otpTo
     });
 }
 
-void LoginDialog::on_viewTermsAndCommunityGuidelines_clicked()
-{
+void LoginDialog::on_viewTermsAndCommunityGuidelines_clicked() {
     OnlineTerms* t = new OnlineTerms(this);
-    connect(t, &OnlineTerms::rejected, this, [=] {
+    connect(t, &OnlineTerms::rejected, this, [ = ] {
         t->deleteLater();
     });
 }
 
-void LoginDialog::on_forgotPasswordButton_clicked()
-{
+void LoginDialog::on_forgotPasswordButton_clicked() {
     bool canceled;
     d->recoveryUsername = TextInputOverlay::getText(this, tr("What's your username?"), &canceled, ui->usernameBox->text());
     if (canceled) return;
@@ -362,8 +351,8 @@ void LoginDialog::on_forgotPasswordButton_clicked()
     //Prepare password recovery
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     OnlineApi::instance()->post("/users/recoverPassword", {
-                                    {"username", d->recoveryUsername}
-                                })->then([=](QJsonDocument response) {
+        {"username", d->recoveryUsername}
+    })->then([ = ](QJsonDocument response) {
         QJsonObject obj = response.object();
         if (obj.contains("error")) {
             QString error = obj.value("error").toString();
@@ -387,7 +376,7 @@ void LoginDialog::on_forgotPasswordButton_clicked()
             ui->stackedWidget->setCurrentWidget(ui->recoveryPage);
             this->setFocusProxy(ui->recoveryPage);
         }
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Password Recovery Failed"));
@@ -400,14 +389,12 @@ void LoginDialog::on_forgotPasswordButton_clicked()
     });
 }
 
-void LoginDialog::on_backButton_3_clicked()
-{
+void LoginDialog::on_backButton_3_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->loginPage);
     this->setFocusProxy(ui->loginPage);
 }
 
-void LoginDialog::on_recoveryEmailButton_clicked()
-{
+void LoginDialog::on_recoveryEmailButton_clicked() {
     bool canceled;
     QString email = TextInputOverlay::getTextWithRegex(this, tr("Enter the full email address"), QRegularExpression(QRegularExpression::escape(d->recoveryChallenges.value("email").toString()).replace("\\∙\\∙\\∙", ".*")), &canceled, "", tr("Use the email address %1").arg(d->recoveryChallenges.value("email").toString()));
     if (canceled) return;
@@ -415,9 +402,9 @@ void LoginDialog::on_recoveryEmailButton_clicked()
     //Attempt password recovery
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     OnlineApi::instance()->post("/users/recoverPassword", {
-                                    {"username", d->recoveryUsername},
-                                    {"email", email}
-                                })->then([=](QJsonDocument response) {
+        {"username", d->recoveryUsername},
+        {"email", email}
+    })->then([ = ](QJsonDocument response) {
         QJsonObject obj = response.object();
 
         QuestionOverlay* question = new QuestionOverlay(this);
@@ -437,7 +424,7 @@ void LoginDialog::on_recoveryEmailButton_clicked()
             ui->stackedWidget->setCurrentWidget(ui->loginPage);
             this->setFocusProxy(ui->loginPage);
         }
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Password Recovery Failed"));

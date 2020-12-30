@@ -78,16 +78,33 @@
           <number>20</number>
          </property>
          <item>
-          <widget class="QLabel" name="questionLabel">
-           <property name="font">
-            <font>
-             <pointsize>15</pointsize>
-            </font>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>6</number>
            </property>
-           <property name="text">
-            <string notr="true">Question</string>
-           </property>
-          </widget>
+           <item>
+            <widget class="QLabel" name="questionLabel">
+             <property name="font">
+              <font>
+               <pointsize>15</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string notr="true">Question</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="auxLabel">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string notr="true"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -124,7 +141,7 @@
                 <string>Cancel</string>
                </property>
                <property name="icon">
-                <iconset resource="libentertaining_resources.qrc">
+                <iconset>
                  <normaloff>:/libentertaining/icons/dialog-cancel.svg</normaloff>:/libentertaining/icons/dialog-cancel.svg</iconset>
                </property>
               </widget>
@@ -135,7 +152,7 @@
                 <string>OK</string>
                </property>
                <property name="icon">
-                <iconset resource="libentertaining_resources.qrc">
+                <iconset>
                  <normaloff>:/libentertaining/icons/dialog-ok.svg</normaloff>:/libentertaining/icons/dialog-ok.svg</iconset>
                </property>
               </widget>
@@ -185,9 +202,7 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="libentertaining_resources.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>responseBox</sender>

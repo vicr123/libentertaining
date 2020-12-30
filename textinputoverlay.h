@@ -30,20 +30,20 @@ namespace Ui {
 
 struct TextInputOverlayPrivate;
 class PauseOverlay;
-class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
-{
+class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget {
         Q_OBJECT
 
     public:
-        explicit TextInputOverlay(QWidget *parent);
+        explicit TextInputOverlay(QWidget* parent);
         ~TextInputOverlay();
 
-        static QString getText(QWidget* parent, QString question, bool* canceled = nullptr, QString defaultText = "", QLineEdit::EchoMode echoMode = QLineEdit::Normal);
-        static int getInt(QWidget* parent, QString question, bool* canceled = nullptr, int defaultText = 0, int min = 0, int max = 100, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
-        static QString getTextWithRegex(QWidget* parent, QString question, QRegularExpression regex, bool* canceled = nullptr, QString defaultText = "", QString errorText = "", Qt::InputMethodHints hints = Qt::ImhNone, QLineEdit::EchoMode echoMode = QLineEdit::Normal);
+        static QString getText(QWidget* parent, QString question, bool* canceled = nullptr, QString defaultText = "", QLineEdit::EchoMode echoMode = QLineEdit::Normal, QString auxText = "");
+        static int getInt(QWidget* parent, QString question, bool* canceled = nullptr, int defaultText = 0, int min = 0, int max = 100, QLineEdit::EchoMode echoMode = QLineEdit::Normal, QString auxText = "");
+        static QString getTextWithRegex(QWidget* parent, QString question, QRegularExpression regex, bool* canceled = nullptr, QString defaultText = "", QString errorText = "", Qt::InputMethodHints hints = Qt::ImhNone, QLineEdit::EchoMode echoMode = QLineEdit::Normal, QString auxText = "");
         static void installHandler(QLineEdit* lineEdit, QString question = "", QWidget* overlayOn = nullptr);
 
         void setQuestion(QString question);
+        void setAuxiliary(QString auxiliary);
 
         void setResponse(QString response);
         QString response();
@@ -66,7 +66,7 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
 
         void on_cancelButton_clicked();
 
-        void on_responseBox_textChanged(const QString &arg1);
+        void on_responseBox_textChanged(const QString& arg1);
 
         void tryAccept();
 
@@ -75,7 +75,7 @@ class LIBENTERTAINING_EXPORT TextInputOverlay : public QWidget
         void keyboardSpace();
 
     private:
-        Ui::TextInputOverlay *ui;
+        Ui::TextInputOverlay* ui;
 
         TextInputOverlayPrivate* d;
 

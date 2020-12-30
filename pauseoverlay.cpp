@@ -54,8 +54,7 @@ struct PauseOverlayPrivate {
 
 QMap<QWidget*, PauseOverlay*> PauseOverlayPrivate::overlays = QMap<QWidget*, PauseOverlay*>();
 
-PauseOverlay::PauseOverlay(QWidget*blurOver, QWidget *parent) : QWidget(parent)
-{
+PauseOverlay::PauseOverlay(QWidget* blurOver, QWidget* parent) : QWidget(parent) {
     d = new PauseOverlayPrivate();
 
     d->tempFocusWidget = new QWidget(this);
@@ -100,24 +99,20 @@ PauseOverlay::PauseOverlay(QWidget*blurOver, QWidget *parent) : QWidget(parent)
 //    t->start();
 }
 
-void PauseOverlay::registerOverlayForWindow(QWidget*window, QWidget*blurOver)
-{
+void PauseOverlay::registerOverlayForWindow(QWidget* window, QWidget* blurOver) {
     PauseOverlay* overlay = new PauseOverlay(blurOver, window->window());
     PauseOverlayPrivate::overlays.insert(window->window(), overlay);
 }
 
-PauseOverlay*PauseOverlay::overlayForWindow(QWidget*window)
-{
+PauseOverlay* PauseOverlay::overlayForWindow(QWidget* window) {
     return PauseOverlayPrivate::overlays.value(window->window());
 }
 
-PauseOverlay::~PauseOverlay()
-{
+PauseOverlay::~PauseOverlay() {
     delete d;
 }
 
-void PauseOverlay::showOverlay()
-{
+void PauseOverlay::showOverlay() {
     this->show();
 
     //Hide the focus pointer until we're done
@@ -128,12 +123,12 @@ void PauseOverlay::showOverlay()
     anim->setEndValue(1.0);
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
 //        d->opacity->setOpacity(value.toDouble());
         d->opacity = value.toReal();
         this->update();
     });
-    connect(anim, &tVariantAnimation::finished, this, [=] {
+    connect(anim, &tVariantAnimation::finished, this, [ = ] {
         anim->deleteLater();
 //        d->opacity->setEnabled(false);
         setNewOverlayWidget(d->overlayWidget.top());
@@ -147,10 +142,10 @@ void PauseOverlay::showOverlay()
     blurAnim->setEndValue(20.0);
     blurAnim->setDuration(250);
     blurAnim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(blurAnim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->blur->setBlurRadius(value.toReal());
     });
-    connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+    connect(blurAnim, &tVariantAnimation::finished, this, [ = ] {
         blurAnim->deleteLater();
 //        d->blur->setBlurHints(QGraphicsBlurEffect::QualityHint);
     });
@@ -158,8 +153,7 @@ void PauseOverlay::showOverlay()
 #endif
 }
 
-void PauseOverlay::hideOverlay()
-{
+void PauseOverlay::hideOverlay() {
     d->animatingHide = true;
 
 //    d->blur->setBlurHints(QGraphicsBlurEffect::AnimationHint);
@@ -168,11 +162,11 @@ void PauseOverlay::hideOverlay()
     anim->setEndValue(0.0);
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->opacity = value.toReal();
         this->update();
     });
-    connect(anim, &tVariantAnimation::finished, this, [=] {
+    connect(anim, &tVariantAnimation::finished, this, [ = ] {
         anim->deleteLater();
         this->hide();
         d->animatingHide = false;
@@ -185,7 +179,7 @@ void PauseOverlay::hideOverlay()
     blurAnim->setEndValue(0.0);
     blurAnim->setDuration(250);
     blurAnim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(blurAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(blurAnim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->blur->setBlurRadius(value.toReal());
 
         //HACK HACK force the blur effect to update
@@ -193,7 +187,7 @@ void PauseOverlay::hideOverlay()
         d->blurOver->move(d->blurOver->geometry().topLeft() - QPoint(1, 1));
 
     });
-    connect(blurAnim, &tVariantAnimation::finished, this, [=] {
+    connect(blurAnim, &tVariantAnimation::finished, this, [ = ] {
         d->blur->setEnabled(false);
         blurAnim->deleteLater();
     });
@@ -201,17 +195,15 @@ void PauseOverlay::hideOverlay()
 #endif
 }
 
-void PauseOverlay::setOverlayWidget(QWidget*overlayWidget)
-{
+void PauseOverlay::setOverlayWidget(QWidget* overlayWidget) {
     d->overlayWidget.clear();
     pushOverlayWidget(overlayWidget);
 }
 
-void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
-{
+void PauseOverlay::pushOverlayWidget(QWidget* overlayWidget) {
     if (d->animatingHide) {
         //Wait for the hide animation to finish
-        QTimer::singleShot(300, this, [=] {
+        QTimer::singleShot(300, this, [ = ] {
             this->pushOverlayWidget(overlayWidget);
         });
         return;
@@ -222,7 +214,7 @@ void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
     //We'll automatically show this widget when the pop completes
     if (!d->animatingPop) {
         if (this->isVisible()) {
-            animateCurrentOut([=] {
+            animateCurrentOut([ = ] {
                 setNewOverlayWidget(overlayWidget);
             });
         } else {
@@ -231,15 +223,19 @@ void PauseOverlay::pushOverlayWidget(QWidget*overlayWidget)
     }
 }
 
-void PauseOverlay::popOverlayWidget(std::function<void ()> after)
-{
+void PauseOverlay::popOverlayWidget(std::function<void ()> after) {
+    if (d->overlayWidget.isEmpty()) {
+        after();
+        return;
+    }
+
     //If we're already popping we want to go back more steps
     if (d->animatingPop) {
         QWidget* topWidget = d->overlayWidget.pop();
         topWidget->setGraphicsEffect(nullptr);
 
         QMetaObject::Connection* c = new QMetaObject::Connection();
-        *c = connect(this, &PauseOverlay::widgetPopped, this, [=] {
+        *c = connect(this, &PauseOverlay::widgetPopped, this, [ = ] {
             disconnect(*c);
             delete c;
 
@@ -252,8 +248,8 @@ void PauseOverlay::popOverlayWidget(std::function<void ()> after)
     d->animatingPop = true;
     QWidget* topWidget = d->overlayWidget.pop();
 
-    animateCurrentOut([=] {
-        QTimer::singleShot(0, this, [=] {
+    animateCurrentOut([ = ] {
+        QTimer::singleShot(0, this, [ = ] {
             d->animatingPop = false;
 
             if (d->overlayWidget.count() > 0) {
@@ -269,16 +265,14 @@ void PauseOverlay::popOverlayWidget(std::function<void ()> after)
     });
 }
 
-bool PauseOverlay::eventFilter(QObject*watched, QEvent*event)
-{
+bool PauseOverlay::eventFilter(QObject* watched, QEvent* event) {
     if (watched == d->parentWidget && event->type() == QEvent::Resize) {
         this->resize(d->parentWidget->width(), d->parentWidget->height());
     }
     return false;
 }
 
-void PauseOverlay::paintEvent(QPaintEvent*event)
-{
+void PauseOverlay::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     painter.setOpacity(d->opacity);
     painter.setBrush(QColor(0, 0, 0, 200));
@@ -291,8 +285,7 @@ void PauseOverlay::paintEvent(QPaintEvent*event)
     }
 }
 
-void PauseOverlay::animateCurrentOut(std::function<void ()> after)
-{
+void PauseOverlay::animateCurrentOut(std::function<void ()> after) {
     //Hide the focus pointer until we're done
     d->tempFocusWidget->setFocus();
     d->overlayOpacity->setEnabled(true);
@@ -302,10 +295,10 @@ void PauseOverlay::animateCurrentOut(std::function<void ()> after)
     anim->setEndValue(0.0);
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->overlayOpacity->setOpacity(value.toDouble());
     });
-    connect(anim, &tVariantAnimation::finished, this, [=] {
+    connect(anim, &tVariantAnimation::finished, this, [ = ] {
         anim->deleteLater();
         d->layout->removeWidget(d->currentOverlayWidget);
         d->currentOverlayWidget->setVisible(false);
@@ -314,8 +307,7 @@ void PauseOverlay::animateCurrentOut(std::function<void ()> after)
     anim->start();
 }
 
-void PauseOverlay::setNewOverlayWidget(QWidget*widget, std::function<void()> after)
-{
+void PauseOverlay::setNewOverlayWidget(QWidget* widget, std::function<void()> after) {
     d->currentOverlayWidget = widget;
     d->layout->addWidget(widget);
 
@@ -330,11 +322,11 @@ void PauseOverlay::setNewOverlayWidget(QWidget*widget, std::function<void()> aft
     anim->setEndValue(1.0);
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
-    connect(anim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->overlayOpacity->setOpacity(value.toDouble());
         this->update();
     });
-    connect(anim, &tVariantAnimation::finished, this, [=] {
+    connect(anim, &tVariantAnimation::finished, this, [ = ] {
         anim->deleteLater();
         this->update();
         d->overlayOpacity->setEnabled(false);

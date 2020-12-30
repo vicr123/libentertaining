@@ -26,6 +26,7 @@
 #include <QShortcut>
 #include <QKeyEvent>
 #include <QValidator>
+#include <QPointer>
 #include <terrorflash.h>
 #include "pauseoverlay.h"
 #include "musicengine.h"
@@ -38,7 +39,7 @@ struct TextInputOverlayPrivate {
     QWidget* parent;
 
     QList<Keyboard*> keyboards;
-    QValidator* validator = nullptr;
+    QPointer<QValidator> validator = nullptr;
     QString validatorError;
 
     static QList<TextInputLineEditHandler*> handledLineEdits;
@@ -46,18 +47,18 @@ struct TextInputOverlayPrivate {
 
 QList<TextInputLineEditHandler*> TextInputOverlayPrivate::handledLineEdits = QList<TextInputLineEditHandler*>();
 
-TextInputOverlay::TextInputOverlay(QWidget *parent) :
+TextInputOverlay::TextInputOverlay(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::TextInputOverlay)
-{
+    ui(new Ui::TextInputOverlay) {
     ui->setupUi(this);
 
     d = new TextInputOverlayPrivate();
     d->parent = parent;
 
     ui->keyboardWidget->setFixedHeight(SC_DPI(300));
+    ui->auxLabel->setVisible(false);
 
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         QString text = ui->responseBox->text();
         if (text.isEmpty()) {
             //Cancel instead
@@ -68,7 +69,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
             ui->responseBox->setText(text);
         }
     });
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonStart, [ = ] {
         tryAccept();
     });
     ui->gamepadHud->bindKey(Qt::Key_Space, QGamepadManager::ButtonX);
@@ -79,27 +80,27 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     ui->responseBox->setPalette(pal);
 
     QShortcut* cancelShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
-    connect(cancelShortcut, &QShortcut::activated, this, [=] {
+    connect(cancelShortcut, &QShortcut::activated, this, [ = ] {
         ui->cancelButton->click();
     });
-    connect(cancelShortcut, &QShortcut::activatedAmbiguously, this, [=] {
+    connect(cancelShortcut, &QShortcut::activatedAmbiguously, this, [ = ] {
         ui->cancelButton->click();
     });
 
-    connect(ui->keyboardWidget, &Keyboard::typeKey, this, [=](QString key) {
+    connect(ui->keyboardWidget, &Keyboard::typeKey, this, [ = ](QString key) {
         ui->responseBox->insert(key);
     });
-    connect(ui->keyboardWidget, &Keyboard::backspace, this, [=] {
+    connect(ui->keyboardWidget, &Keyboard::backspace, this, [ = ] {
         ui->responseBox->backspace();
     });
-    connect(ui->keyboardWidget, &Keyboard::accept, this, [=] {
+    connect(ui->keyboardWidget, &Keyboard::accept, this, [ = ] {
         tryAccept();
     });
-    connect(ui->keyboardWidget, &Keyboard::replayKeyEvent, this, [=](QKeyEvent* event) {
+    connect(ui->keyboardWidget, &Keyboard::replayKeyEvent, this, [ = ](QKeyEvent * event) {
         QApplication::sendEvent(ui->responseBox, event);
         ui->responseBox->setFocus();
     });
-    connect(ui->keyboardWidget, &Keyboard::capsStateChanged, this, [=](Keyboard::CapsState capsState) {
+    connect(ui->keyboardWidget, &Keyboard::capsStateChanged, this, [ = ](Keyboard::CapsState capsState) {
         switch (capsState) {
             case Keyboard::None:
             case Keyboard::Shift:
@@ -111,7 +112,7 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
 
         }
     });
-    connect(ui->keyboardWidget, &Keyboard::keyboardUpdated, this, [=] {
+    connect(ui->keyboardWidget, &Keyboard::keyboardUpdated, this, [ = ] {
         ui->gamepadHud->removeText(QGamepadManager::ButtonA);
         ui->gamepadHud->removeText(QGamepadManager::ButtonB);
         ui->gamepadHud->removeText(QGamepadManager::ButtonY);
@@ -148,18 +149,17 @@ TextInputOverlay::TextInputOverlay(QWidget *parent) :
     ui->responseBox->installEventFilter(this);
 }
 
-TextInputOverlay::~TextInputOverlay()
-{
+TextInputOverlay::~TextInputOverlay() {
     delete ui;
     delete d;
 }
 
-QString TextInputOverlay::getText(QWidget* parent, QString question, bool*canceled, QString defaultText, QLineEdit::EchoMode echoMode)
-{
+QString TextInputOverlay::getText(QWidget* parent, QString question, bool* canceled, QString defaultText, QLineEdit::EchoMode echoMode, QString auxText) {
     QEventLoop* loop = new QEventLoop();
 
     TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
+    input->setAuxiliary(auxText);
     input->setResponse(defaultText);
     input->setEchoMode(echoMode);
     input->show();
@@ -181,14 +181,14 @@ QString TextInputOverlay::getText(QWidget* parent, QString question, bool*cancel
     }
 }
 
-int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, int defaultText, int min, int max, QLineEdit::EchoMode echoMode)
-{
+int TextInputOverlay::getInt(QWidget* parent, QString question, bool* canceled, int defaultText, int min, int max, QLineEdit::EchoMode echoMode, QString auxText) {
     QEventLoop* loop = new QEventLoop();
 
     QIntValidator validator(min, max);
 
     TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
+    input->setAuxiliary(auxText);
     input->setResponse(QString::number(defaultText));
     input->setEchoMode(echoMode);
     input->setInputMethodHints(Qt::ImhDigitsOnly | Qt::ImhPreferNumbers);
@@ -212,14 +212,14 @@ int TextInputOverlay::getInt(QWidget*parent, QString question, bool*canceled, in
     }
 }
 
-QString TextInputOverlay::getTextWithRegex(QWidget*parent, QString question, QRegularExpression regex, bool*canceled, QString defaultText, QString errorText, Qt::InputMethodHints hints, QLineEdit::EchoMode echoMode)
-{
+QString TextInputOverlay::getTextWithRegex(QWidget* parent, QString question, QRegularExpression regex, bool* canceled, QString defaultText, QString errorText, Qt::InputMethodHints hints, QLineEdit::EchoMode echoMode, QString auxText) {
     QEventLoop* loop = new QEventLoop();
 
     QRegularExpressionValidator validator(regex);
 
     TextInputOverlay* input = new TextInputOverlay(parent);
     input->setQuestion(question);
+    input->setAuxiliary(auxText);
     input->setResponse(defaultText);
     input->setEchoMode(echoMode);
     input->setInputMethodHints(hints);
@@ -243,14 +243,13 @@ QString TextInputOverlay::getTextWithRegex(QWidget*parent, QString question, QRe
     }
 }
 
-void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWidget*overlayOn)
-{
+void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWidget* overlayOn) {
     TextInputLineEditHandler* handler = new TextInputLineEditHandler(lineEdit);
     TextInputOverlayPrivate::handledLineEdits.append(handler);
-    connect(handler, &TextInputLineEditHandler::destroyed, [=] {
+    connect(handler, &TextInputLineEditHandler::destroyed, [ = ] {
         TextInputOverlayPrivate::handledLineEdits.removeAll(handler);
     });
-    connect(handler, &TextInputLineEditHandler::openKeyboard, [=] {
+    connect(handler, &TextInputLineEditHandler::openKeyboard, [ = ] {
         QEventLoop* loop = new QEventLoop();
 
         QWidget* overlay = overlayOn;
@@ -274,8 +273,7 @@ void TextInputOverlay::installHandler(QLineEdit* lineEdit, QString question, QWi
     });
 }
 
-void TextInputOverlay::setQuestion(QString question)
-{
+void TextInputOverlay::setQuestion(QString question) {
     if (question.isEmpty()) {
         ui->questionLabel->setVisible(false);
     } else {
@@ -284,29 +282,33 @@ void TextInputOverlay::setQuestion(QString question)
     }
 }
 
-void TextInputOverlay::setResponse(QString response)
-{
+void TextInputOverlay::setAuxiliary(QString auxiliary) {
+    if (auxiliary.isEmpty()) {
+        ui->auxLabel->setVisible(false);
+    } else {
+        ui->auxLabel->setText(auxiliary);
+        ui->auxLabel->setVisible(true);
+    }
+}
+
+void TextInputOverlay::setResponse(QString response) {
     ui->responseBox->setText(response);
 }
 
-QString TextInputOverlay::response()
-{
+QString TextInputOverlay::response() {
     return ui->responseBox->text();
 }
 
-void TextInputOverlay::setEchoMode(QLineEdit::EchoMode echoMode)
-{
+void TextInputOverlay::setEchoMode(QLineEdit::EchoMode echoMode) {
     ui->responseBox->setEchoMode(echoMode);
 }
 
-void TextInputOverlay::setValidator(QValidator*validator, QString errorMessage)
-{
+void TextInputOverlay::setValidator(QValidator* validator, QString errorMessage) {
     d->validator = validator;
     d->validatorError = errorMessage;
 }
 
-void TextInputOverlay::show()
-{
+void TextInputOverlay::show() {
     //Choose the correct layout
     KeyboardLayout layout = KeyboardLayoutsDatabase::layoutForName("en-US");
     if (this->inputMethodHints() & Qt::ImhDigitsOnly) layout = KeyboardLayoutsDatabase::layoutForName("numOnly");
@@ -316,23 +318,21 @@ void TextInputOverlay::show()
 
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 
-    #ifdef Q_OS_ANDROID
-        //Use the built in system keyboard on Android
-        ui->keyboardWidget->setVisible(false);
-        QApplication::inputMethod()->show();
-    #endif
+#ifdef Q_OS_ANDROID
+    //Use the built in system keyboard on Android
+    ui->keyboardWidget->setVisible(false);
+    QApplication::inputMethod()->show();
+#endif
 }
 
-void TextInputOverlay::paintEvent(QPaintEvent*event)
-{
+void TextInputOverlay::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     painter.setBrush(QColor(0, 0, 0, 127));
     painter.setPen(Qt::transparent);
     painter.drawRect(0, 0, this->width(), this->height());
 }
 
-bool TextInputOverlay::eventFilter(QObject*watched, QEvent*event)
-{
+bool TextInputOverlay::eventFilter(QObject* watched, QEvent* event) {
     if (watched == ui->responseBox && event->type() == QKeyEvent::KeyPress) {
         QKeyEvent* e = static_cast<QKeyEvent*>(event);
         if (e->key() == Qt::Key_Down) {
@@ -343,26 +343,22 @@ bool TextInputOverlay::eventFilter(QObject*watched, QEvent*event)
     return false;
 }
 
-void TextInputOverlay::on_responseBox_returnPressed()
-{
+void TextInputOverlay::on_responseBox_returnPressed() {
 
 }
 
-void TextInputOverlay::on_okButton_clicked()
-{
+void TextInputOverlay::on_okButton_clicked() {
     tryAccept();
 }
 
-void TextInputOverlay::on_cancelButton_clicked()
-{
+void TextInputOverlay::on_cancelButton_clicked() {
     MusicEngine::playSoundEffect(MusicEngine::Backstep);
-    PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget([=] {
+    PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget([ = ] {
         emit rejected();
     });
 }
 
-void TextInputOverlay::on_responseBox_textChanged(const QString &arg1)
-{
+void TextInputOverlay::on_responseBox_textChanged(const QString& arg1) {
     if (arg1.isEmpty()) {
         ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Cancel"));
     } else {
@@ -370,12 +366,11 @@ void TextInputOverlay::on_responseBox_textChanged(const QString &arg1)
     }
 }
 
-void TextInputOverlay::tryAccept()
-{
+void TextInputOverlay::tryAccept() {
     QString text = ui->responseBox->text();
     QString error = "";
 
-    if (d->validator != nullptr) {
+    if (d->validator) {
         int pos = 0;
         QValidator::State state = d->validator->validate(text, pos);
         switch (state) {
@@ -390,7 +385,7 @@ void TextInputOverlay::tryAccept()
 
     if (error.isEmpty()) {
         MusicEngine::playSoundEffect(MusicEngine::Selection);
-        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget([=] {
+        PauseOverlay::overlayForWindow(d->parent)->popOverlayWidget([ = ] {
             emit accepted(ui->responseBox->text());
         });
     } else {
@@ -400,8 +395,7 @@ void TextInputOverlay::tryAccept()
     }
 }
 
-void TextInputOverlay::keyboardShift()
-{
+void TextInputOverlay::keyboardShift() {
     MusicEngine::playSoundEffect(MusicEngine::Selection);
     if (ui->keyboardWidget->capsState() == Keyboard::None) {
         ui->keyboardWidget->setCapsState(Keyboard::Shift);
@@ -410,8 +404,7 @@ void TextInputOverlay::keyboardShift()
     }
 }
 
-void TextInputOverlay::keyboardSpace()
-{
+void TextInputOverlay::keyboardSpace() {
     MusicEngine::playSoundEffect(MusicEngine::Selection);
     QString text = ui->responseBox->text();
     text.append(" ");

@@ -745,7 +745,7 @@
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
         <location filename="../online/logindialog.ui" line="219"/>
-        <location filename="../online/logindialog.cpp" line="71"/>
+        <location filename="../online/logindialog.cpp" line="70"/>
         <source>Log In</source>
         <translation>Đăng nhập</translation>
     </message>
@@ -757,8 +757,8 @@
     <message>
         <location filename="../online/logindialog.ui" line="183"/>
         <location filename="../online/logindialog.ui" line="379"/>
-        <location filename="../online/logindialog.cpp" line="64"/>
-        <location filename="../online/logindialog.cpp" line="66"/>
+        <location filename="../online/logindialog.cpp" line="63"/>
+        <location filename="../online/logindialog.cpp" line="65"/>
         <source>Password</source>
         <translation>Mật khẩu</translation>
     </message>
@@ -820,8 +820,8 @@
     <message>
         <location filename="../online/logindialog.ui" line="149"/>
         <location filename="../online/logindialog.ui" line="423"/>
-        <location filename="../online/logindialog.cpp" line="63"/>
-        <location filename="../online/logindialog.cpp" line="65"/>
+        <location filename="../online/logindialog.cpp" line="62"/>
+        <location filename="../online/logindialog.cpp" line="64"/>
         <source>Username</source>
         <translation>Tên người dùng</translation>
     </message>
@@ -837,106 +837,111 @@
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="430"/>
-        <location filename="../online/logindialog.cpp" line="68"/>
+        <location filename="../online/logindialog.cpp" line="67"/>
         <source>Email Address</source>
         <translation>Địa chỉ email</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="341"/>
-        <location filename="../online/logindialog.cpp" line="67"/>
+        <location filename="../online/logindialog.cpp" line="66"/>
         <source>Confirm Password</source>
         <translation>Xác nhận mật khẩu</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="212"/>
         <location filename="../online/logindialog.ui" line="370"/>
-        <location filename="../online/logindialog.cpp" line="89"/>
+        <location filename="../online/logindialog.cpp" line="88"/>
         <source>Register</source>
         <translation>Đăng ký</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="70"/>
-        <location filename="../online/logindialog.cpp" line="88"/>
-        <location filename="../online/logindialog.cpp" line="106"/>
+        <location filename="../online/logindialog.cpp" line="69"/>
+        <location filename="../online/logindialog.cpp" line="87"/>
+        <location filename="../online/logindialog.cpp" line="105"/>
         <source>Select</source>
         <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="72"/>
-        <location filename="../online/logindialog.cpp" line="90"/>
-        <location filename="../online/logindialog.cpp" line="107"/>
+        <location filename="../online/logindialog.cpp" line="71"/>
+        <location filename="../online/logindialog.cpp" line="89"/>
+        <location filename="../online/logindialog.cpp" line="106"/>
         <source>Back</source>
         <translation>Lại</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="179"/>
+        <location filename="../online/logindialog.cpp" line="172"/>
         <source>Enter a new username</source>
         <translation>Điền vào tên người dùng mới</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="180"/>
+        <location filename="../online/logindialog.cpp" line="173"/>
         <source>Enter a password</source>
         <translation>Điền vào mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="181"/>
+        <location filename="../online/logindialog.cpp" line="174"/>
         <source>Confirm your password</source>
         <translation>Xác minh mật khẩu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="182"/>
+        <location filename="../online/logindialog.cpp" line="175"/>
         <source>Enter your email address</source>
         <translation>Điền vào địa chỉ email của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="184"/>
+        <location filename="../online/logindialog.cpp" line="177"/>
         <source>Check that the passwords match</source>
         <translation>Kiểm tra xem mật khẩu đã khớp</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="189"/>
-        <location filename="../online/logindialog.cpp" line="248"/>
+        <location filename="../online/logindialog.cpp" line="182"/>
+        <location filename="../online/logindialog.cpp" line="239"/>
         <source>Check your input</source>
         <translation>Kiểm tra các trường</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="208"/>
-        <location filename="../online/logindialog.cpp" line="223"/>
+        <location filename="../online/logindialog.cpp" line="201"/>
+        <location filename="../online/logindialog.cpp" line="216"/>
         <source>Registration Failed</source>
         <translation>Đăng ký không thành công</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="209"/>
+        <location filename="../online/logindialog.cpp" line="202"/>
         <source>We weren&apos;t able to register you. Try again later.</source>
         <translation>Chúng tôi không thể đăng ký bạn. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="242"/>
+        <location filename="../online/logindialog.cpp" line="233"/>
         <source>Enter your username</source>
         <translation>Điền vào tên người dùng của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="243"/>
+        <location filename="../online/logindialog.cpp" line="234"/>
         <source>Enter your password</source>
         <translation>Điền vào mật khẩu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="270"/>
+        <location filename="../online/logindialog.cpp" line="261"/>
         <source>Enter a valid Two Factor Authentication code</source>
         <translation>Điền vào một mã Xác Minh Hai Bước hợp lệ</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="270"/>
+        <location filename="../online/logindialog.cpp" line="261"/>
         <source>Enter your Two Factor Authentication code</source>
         <translation>Điền vào mã Xác Minh Hai Bước</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="285"/>
+        <location filename="../online/logindialog.cpp" line="261"/>
+        <source>You can also use a 12 digit backup code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.cpp" line="276"/>
         <source>Reset Password</source>
         <translation>Đặt lại mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="286"/>
+        <location filename="../online/logindialog.cpp" line="277"/>
         <source>You&apos;ll need to set a new password for your account.
 
 Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
@@ -945,86 +950,86 @@ Make it a good password and save it for this account. You don&apos;t want to be 
 Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn nên không sử dụng mật khẩu này lại.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="288"/>
+        <location filename="../online/logindialog.cpp" line="279"/>
         <source>Set New Password</source>
         <translation>Đặt mật khẩu mới</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="297"/>
+        <location filename="../online/logindialog.cpp" line="288"/>
         <source>Enter a new password for your account</source>
         <translation>Điền mật khẩu mới cho tài khoản của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="303"/>
+        <location filename="../online/logindialog.cpp" line="294"/>
         <source>Enter the same password</source>
         <translation>Điền mật khẩu đó lại</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="303"/>
+        <location filename="../online/logindialog.cpp" line="294"/>
         <source>Confirm the new password for your account</source>
         <translation>Xác nhận mật khẩu mới cho tài khoản của bạn</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="322"/>
+        <location filename="../online/logindialog.cpp" line="313"/>
         <source>Check your details and try again.</source>
         <translation>Kiểm tra chi tiết và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="357"/>
+        <location filename="../online/logindialog.cpp" line="346"/>
         <source>What&apos;s your username?</source>
         <translation>Tên người dùng của bạn là gì?</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="372"/>
-        <location filename="../online/logindialog.cpp" line="393"/>
-        <location filename="../online/logindialog.cpp" line="431"/>
-        <location filename="../online/logindialog.cpp" line="443"/>
+        <location filename="../online/logindialog.cpp" line="361"/>
+        <location filename="../online/logindialog.cpp" line="382"/>
+        <location filename="../online/logindialog.cpp" line="418"/>
+        <location filename="../online/logindialog.cpp" line="430"/>
         <source>Password Recovery Failed</source>
         <translation>Khôi phục mật khẩu thất bại</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="378"/>
+        <location filename="../online/logindialog.cpp" line="367"/>
         <source>That username is incorrect.</source>
         <translation>Tên người dùng đó không có đúng.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="380"/>
+        <location filename="../online/logindialog.cpp" line="369"/>
         <source>Try again later.</source>
         <translation>Hãy thử lại sau.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="386"/>
+        <location filename="../online/logindialog.cpp" line="375"/>
         <source>Send an email to %1</source>
         <translation>Gửi email đến %1</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="412"/>
+        <location filename="../online/logindialog.cpp" line="399"/>
         <source>Enter the full email address</source>
         <translation>Điền vào email hoàn thành</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="412"/>
+        <location filename="../online/logindialog.cpp" line="399"/>
         <source>Use the email address %1</source>
         <translation>Sử dụng địa chỉ email %1</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="432"/>
+        <location filename="../online/logindialog.cpp" line="419"/>
         <source>Try again at a later time.</source>
         <translation>Hãy thử lại sau.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="435"/>
+        <location filename="../online/logindialog.cpp" line="422"/>
         <source>Password Recovery</source>
         <translation>Khôi phục mật khẩu</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="436"/>
+        <location filename="../online/logindialog.cpp" line="423"/>
         <source>If %1 matches the email we&apos;ve got on file for your account, you&apos;ll receive an email with further instructions.</source>
         <translation>Nếu %1 khớp với địa chỉ email chúng tôi đã lưu lại cho tài khoản của bạn, bạn sẽ nhận một email với hướng dẫn bổ sung.</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.cpp" line="321"/>
-        <location filename="../online/logindialog.cpp" line="336"/>
+        <location filename="../online/logindialog.cpp" line="312"/>
+        <location filename="../online/logindialog.cpp" line="327"/>
         <source>Login Failed</source>
         <translation>Đăng nhập không thành công</translation>
     </message>
@@ -1040,42 +1045,42 @@ Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn 
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="332"/>
+        <location filename="../online/onlineapi.cpp" line="333"/>
         <source>The server is not operating correctly.</source>
         <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="102"/>
+        <location filename="../online/onlineapi.cpp" line="103"/>
         <source>You are not logged in.</source>
         <translation>Bạn chưa đăng nhập.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="110"/>
+        <location filename="../online/onlineapi.cpp" line="111"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ hiện đang bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="115"/>
+        <location filename="../online/onlineapi.cpp" line="116"/>
         <source>The connection was lost because a server error occurred.</source>
         <translation>Kết nối của bạn bị mất tại vì một lỗi tại máy chủ đã xảy ra.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="119"/>
+        <location filename="../online/onlineapi.cpp" line="120"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ không hiểu tin nhắn của chúng tôi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="122"/>
+        <location filename="../online/onlineapi.cpp" line="123"/>
         <source>The connection was lost because too much data was sent.</source>
         <translation>Kết nối của bạn bị mất tại vì quá nhiều dữ liệu bị gửi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="125"/>
+        <location filename="../online/onlineapi.cpp" line="126"/>
         <source>The connection was lost because an internal error occurred.</source>
         <translation>Kết nối của bạn bị mất tại vì một lỗi nội bộ đã xảy ra.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="130"/>
+        <location filename="../online/onlineapi.cpp" line="131"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
@@ -1084,37 +1089,37 @@ Try connecting again and re-enter your credentials.</source>
 Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="136"/>
+        <location filename="../online/onlineapi.cpp" line="137"/>
         <source>The connection was lost because the server does not support this application.</source>
         <translation>Kết nối của bạn bị mất tại vì máy chủ không có hỗ trợ ứng dụng này.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="139"/>
+        <location filename="../online/onlineapi.cpp" line="140"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
         <translation>Kết nối của bạn bị mất tại vì bạn cần cập nhật để tiếp tục chơi trực tuyến.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="155"/>
+        <location filename="../online/onlineapi.cpp" line="156"/>
         <source>The connection was lost because your account has been suspended from online play.</source>
         <translation>Kết nối của bạn bị mất vì tài khoản của bạn đã bị đình chỉ chơi trực tuyến.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="164"/>
+        <location filename="../online/onlineapi.cpp" line="165"/>
         <source>The connection to the server was lost.</source>
         <translation>Kết nối của bạn bị mất.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="176"/>
+        <location filename="../online/onlineapi.cpp" line="177"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>Máy chủ đã từ chối kết nối của chúng tôi. Nó có thể đang được bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="179"/>
+        <location filename="../online/onlineapi.cpp" line="180"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>Máy chủ DNS không thể tìm địa chỉ IP của máy chủ Entertaining Games.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="182"/>
+        <location filename="../online/onlineapi.cpp" line="183"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -1123,17 +1128,17 @@ Try again later.</source>
 Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="269"/>
+        <location filename="../online/onlineapi.cpp" line="270"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="271"/>
+        <location filename="../online/onlineapi.cpp" line="272"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="273"/>
+        <location filename="../online/onlineapi.cpp" line="274"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>
@@ -1961,36 +1966,36 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
 <context>
     <name>TextInputOverlay</name>
     <message>
-        <location filename="../textinputoverlay.ui" line="124"/>
-        <location filename="../textinputoverlay.cpp" line="123"/>
-        <location filename="../textinputoverlay.cpp" line="367"/>
+        <location filename="../textinputoverlay.ui" line="141"/>
+        <location filename="../textinputoverlay.cpp" line="124"/>
+        <location filename="../textinputoverlay.cpp" line="363"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.ui" line="135"/>
-        <location filename="../textinputoverlay.cpp" line="142"/>
+        <location filename="../textinputoverlay.ui" line="152"/>
+        <location filename="../textinputoverlay.cpp" line="143"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="121"/>
+        <location filename="../textinputoverlay.cpp" line="122"/>
         <source>Key</source>
         <translation>Gõ</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="106"/>
-        <location filename="../textinputoverlay.cpp" line="129"/>
+        <location filename="../textinputoverlay.cpp" line="107"/>
+        <location filename="../textinputoverlay.cpp" line="130"/>
         <source>Shift</source>
         <translation>Shift</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="136"/>
+        <location filename="../textinputoverlay.cpp" line="137"/>
         <source>Space</source>
         <translation>Dấu Cách</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="109"/>
+        <location filename="../textinputoverlay.cpp" line="110"/>
         <source>Caps Off</source>
         <translation>Tắt Caps</translation>
     </message>
@@ -2000,8 +2005,8 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
         <translation>Nhập số từ %1 đến %2</translation>
     </message>
     <message>
-        <location filename="../textinputoverlay.cpp" line="125"/>
-        <location filename="../textinputoverlay.cpp" line="369"/>
+        <location filename="../textinputoverlay.cpp" line="126"/>
+        <location filename="../textinputoverlay.cpp" line="365"/>
         <source>Backspace</source>
         <translation>Backspace</translation>
     </message>
