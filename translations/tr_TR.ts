@@ -933,7 +933,7 @@
     <message>
         <location filename="../online/logindialog.cpp" line="261"/>
         <source>You can also use a 12 digit backup code</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayrıca 12 basamaklı bir yedek kod da kullanabilirsin</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="276"/>
