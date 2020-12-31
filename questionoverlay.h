@@ -29,25 +29,33 @@ namespace Ui {
 }
 
 struct QuestionOverlayPrivate;
-class LIBENTERTAINING_EXPORT QuestionOverlay : public QWidget
-{
+class LIBENTERTAINING_EXPORT QuestionOverlay : public QWidget {
         Q_OBJECT
 
     public:
-        explicit QuestionOverlay(QWidget *parent = nullptr);
+        explicit QuestionOverlay(QWidget* parent = nullptr);
         ~QuestionOverlay();
+
+        enum StandardDialog {
+            FileCorrupt,
+            ServerMaintenanceAboutToStart,
+            ServerProtocolError,
+            ServerDisconnected
+        };
 
         void setTitle(QString title);
         void setText(QString text);
         void setButtons(QMessageBox::StandardButtons buttons, QString yesPrompt = "", bool isYesDestructive = false);
         void setIcon(QMessageBox::Icon icon);
 
+        void setStandardDialog(StandardDialog standardDialog);
+
     signals:
         void accepted(QMessageBox::StandardButton button);
         void rejected();
 
     private:
-        Ui::QuestionOverlay *ui;
+        Ui::QuestionOverlay* ui;
         QuestionOverlayPrivate* d;
 
         void reject();

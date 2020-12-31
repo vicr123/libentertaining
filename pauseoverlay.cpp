@@ -30,7 +30,7 @@
 #include <QRandomGenerator>
 
 struct PauseOverlayPrivate {
-    static QMap<QWidget*, PauseOverlay*> overlays;
+    static QHash<QWidget*, PauseOverlay*> overlays;
 
     QStack<QPointer<QWidget>> overlayWidget;
     QWidget* currentOverlayWidget = nullptr;
@@ -42,7 +42,7 @@ struct PauseOverlayPrivate {
 
 //    QGraphicsOpacityEffect* opacity;
     qreal opacity = 0;
-    QGraphicsOpacityEffect* overlayOpacity;
+    QPointer<QGraphicsOpacityEffect> overlayOpacity;
     QGraphicsBlurEffect* blur;
     QWidget* blurOver;
 
@@ -52,7 +52,7 @@ struct PauseOverlayPrivate {
     bool animatingHide = false;
 };
 
-QMap<QWidget*, PauseOverlay*> PauseOverlayPrivate::overlays = QMap<QWidget*, PauseOverlay*>();
+QHash<QWidget*, PauseOverlay*> PauseOverlayPrivate::overlays = QHash<QWidget*, PauseOverlay*>();
 
 PauseOverlay::PauseOverlay(QWidget* blurOver, QWidget* parent) : QWidget(parent) {
     d = new PauseOverlayPrivate();
@@ -288,7 +288,7 @@ void PauseOverlay::paintEvent(QPaintEvent* event) {
 void PauseOverlay::animateCurrentOut(std::function<void ()> after) {
     //Hide the focus pointer until we're done
     d->tempFocusWidget->setFocus();
-    d->overlayOpacity->setEnabled(true);
+    if (d->overlayOpacity) d->overlayOpacity->setEnabled(true);
 
     tVariantAnimation* anim = new tVariantAnimation(this);
     anim->setStartValue(1.0);
@@ -296,7 +296,7 @@ void PauseOverlay::animateCurrentOut(std::function<void ()> after) {
     anim->setDuration(250);
     anim->setEasingCurve(QEasingCurve::OutCubic);
     connect(anim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
-        d->overlayOpacity->setOpacity(value.toDouble());
+        if (d->overlayOpacity) d->overlayOpacity->setOpacity(value.toDouble());
     });
     connect(anim, &tVariantAnimation::finished, this, [ = ] {
         anim->deleteLater();

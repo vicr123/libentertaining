@@ -31,10 +31,9 @@ struct QuestionOverlayPrivate {
     QMessageBox::Icon icon;
 };
 
-QuestionOverlay::QuestionOverlay(QWidget *parent) :
+QuestionOverlay::QuestionOverlay(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::QuestionOverlay)
-{
+    ui(new Ui::QuestionOverlay) {
     ui->setupUi(this);
     d = new QuestionOverlayPrivate();
 
@@ -43,41 +42,37 @@ QuestionOverlay::QuestionOverlay(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonA, tr("Select"));
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, [ = ] {
         QKeyEvent event(QKeyEvent::KeyPress, Qt::Key_Space, Qt::NoModifier);
         QApplication::sendEvent(QApplication::focusWidget(), &event);
 
         QKeyEvent event2(QKeyEvent::KeyRelease, Qt::Key_Space, Qt::NoModifier);
         QApplication::sendEvent(QApplication::focusWidget(), &event2);
     });
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         reject();
     });
 
     QShortcut* backShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
-    connect(backShortcut, &QShortcut::activated, this, [=] {
+    connect(backShortcut, &QShortcut::activated, this, [ = ] {
         reject();
     });
 }
 
-QuestionOverlay::~QuestionOverlay()
-{
+QuestionOverlay::~QuestionOverlay() {
     delete d;
     delete ui;
 }
 
-void QuestionOverlay::setTitle(QString title)
-{
+void QuestionOverlay::setTitle(QString title) {
     ui->titleLabel->setText(title);
 }
 
-void QuestionOverlay::setText(QString text)
-{
+void QuestionOverlay::setText(QString text) {
     ui->messageLabel->setText(text);
 }
 
-void QuestionOverlay::setButtons(QMessageBox::StandardButtons buttons, QString yesPrompt, bool isYesDestructive)
-{
+void QuestionOverlay::setButtons(QMessageBox::StandardButtons buttons, QString yesPrompt, bool isYesDestructive) {
     if (yesPrompt == "") yesPrompt = tr("Yes");
 
     QLayoutItem* item;
@@ -126,8 +121,8 @@ void QuestionOverlay::setButtons(QMessageBox::StandardButtons buttons, QString y
             b->setProperty("type", "destructive");
         }
         if (!button.icon.isEmpty()) b->setIcon(QIcon(QStringLiteral(":/libentertaining/icons/%1.svg").arg(button.icon)));
-        connect(b, &QPushButton::clicked, this, [=] {
-            PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
+        connect(b, &QPushButton::clicked, this, [ = ] {
+            PauseOverlay::overlayForWindow(this)->popOverlayWidget([ = ] {
                 emit accepted(button.id);
             });
         });
@@ -145,8 +140,7 @@ void QuestionOverlay::setButtons(QMessageBox::StandardButtons buttons, QString y
     QWidget::setTabOrder(lastButton, ui->rightBarrier);
 }
 
-void QuestionOverlay::setIcon(QMessageBox::Icon icon)
-{
+void QuestionOverlay::setIcon(QMessageBox::Icon icon) {
     QSize pixmapSize = SC_DPI_T(QSize(24, 24), QSize);
 
     d->icon = icon;
@@ -172,10 +166,38 @@ void QuestionOverlay::setIcon(QMessageBox::Icon icon)
     }
 }
 
-void QuestionOverlay::reject()
-{
+void QuestionOverlay::setStandardDialog(QuestionOverlay::StandardDialog standardDialog) {
+    switch (standardDialog) {
+        case QuestionOverlay::ServerDisconnected:
+            this->setIcon(QMessageBox::Critical);
+            this->setTitle(tr("Error"));
+            this->setText(tr("You've been disconnected from the server."));
+            this->setButtons(QMessageBox::Ok);
+            break;
+        case QuestionOverlay::ServerMaintenanceAboutToStart:
+            this->setIcon(QMessageBox::Critical);
+            this->setTitle(tr("Server Maintenance"));
+            this->setText(tr("You've been disconnected because the server is about to undergo maintenance."));
+            this->setButtons(QMessageBox::Ok);
+            break;
+        case QuestionOverlay::ServerProtocolError:
+            this->setIcon(QMessageBox::Critical);
+            this->setTitle(tr("Error"));
+            this->setText(tr("You've been disconnected from the server because there was a communication error."));
+            this->setButtons(QMessageBox::Ok);
+            break;
+        case QuestionOverlay::FileCorrupt:
+            this->setIcon(QMessageBox::Critical);
+            this->setTitle(tr("Corrupt File"));
+            this->setText(tr("Sorry, that file is corrupt and needs to be deleted."));
+            this->setButtons(QMessageBox::Ok);
+            break;
+    }
+}
+
+void QuestionOverlay::reject() {
     MusicEngine::playSoundEffect(MusicEngine::Backstep);
-    PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
+    PauseOverlay::overlayForWindow(this)->popOverlayWidget([ = ] {
         emit rejected();
     });
 }

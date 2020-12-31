@@ -728,19 +728,6 @@
     </message>
 </context>
 <context>
-    <name>LoadOverlay</name>
-    <message>
-        <location filename="../loadoverlay.cpp" line="70"/>
-        <source>Corrupt File</source>
-        <translation>Tệp bị hỏng</translation>
-    </message>
-    <message>
-        <location filename="../loadoverlay.cpp" line="71"/>
-        <source>Sorry, that file is corrupt and needs to be deleted.</source>
-        <translation>Xin lỗi, tệp đó đã bị hỏng và cần phải bị xóa.</translation>
-    </message>
-</context>
-<context>
     <name>LoginDialog</name>
     <message>
         <location filename="../online/logindialog.ui" line="90"/>
@@ -1705,82 +1692,118 @@ Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn 
 <context>
     <name>QuestionOverlay</name>
     <message>
-        <location filename="../questionoverlay.cpp" line="105"/>
+        <location filename="../questionoverlay.cpp" line="100"/>
         <source>Discard</source>
         <translation>Vứt đi</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="106"/>
+        <location filename="../questionoverlay.cpp" line="101"/>
         <source>Open</source>
         <translation>Mở</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="107"/>
+        <location filename="../questionoverlay.cpp" line="102"/>
         <source>Save</source>
         <translation>Lưu</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="108"/>
+        <location filename="../questionoverlay.cpp" line="103"/>
         <source>Save All</source>
         <translation>Lưu tất cả</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="81"/>
+        <location filename="../questionoverlay.cpp" line="76"/>
         <source>Yes</source>
         <translation>Có</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="43"/>
+        <location filename="../questionoverlay.cpp" line="42"/>
         <source>Select</source>
         <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="44"/>
+        <location filename="../questionoverlay.cpp" line="43"/>
         <source>Back</source>
         <translation>Lại</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="109"/>
+        <location filename="../questionoverlay.cpp" line="104"/>
         <source>Yes To All</source>
         <translation>Có với tất cả</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="110"/>
+        <location filename="../questionoverlay.cpp" line="105"/>
         <source>No</source>
         <translation>Không</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="111"/>
+        <location filename="../questionoverlay.cpp" line="106"/>
         <source>No To All</source>
         <translation>Không với tất cả</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="112"/>
+        <location filename="../questionoverlay.cpp" line="107"/>
         <source>Abort</source>
         <translation>Bỏ ngay</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="113"/>
+        <location filename="../questionoverlay.cpp" line="108"/>
         <source>Retry</source>
         <translation>Thử lại</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="114"/>
+        <location filename="../questionoverlay.cpp" line="109"/>
         <source>Ignore</source>
         <translation>Bỏ qua</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="115"/>
+        <location filename="../questionoverlay.cpp" line="110"/>
         <source>Close</source>
         <translation>Đóng</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="116"/>
+        <location filename="../questionoverlay.cpp" line="111"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../questionoverlay.cpp" line="104"/>
+        <location filename="../questionoverlay.cpp" line="173"/>
+        <location filename="../questionoverlay.cpp" line="185"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="174"/>
+        <source>You&apos;ve been disconnected from the server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="179"/>
+        <source>Server Maintenance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="180"/>
+        <source>You&apos;ve been disconnected because the server is about to undergo maintenance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="186"/>
+        <source>You&apos;ve been disconnected from the server because there was a communication error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="191"/>
+        <source>Corrupt File</source>
+        <translation type="unfinished">Tệp bị hỏng</translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="192"/>
+        <source>Sorry, that file is corrupt and needs to be deleted.</source>
+        <translation type="unfinished">Xin lỗi, tệp đó đã bị hỏng và cần phải bị xóa.</translation>
+    </message>
+    <message>
+        <location filename="../questionoverlay.cpp" line="99"/>
         <source>Cancel</source>
         <translation>Hủy</translation>
     </message>
