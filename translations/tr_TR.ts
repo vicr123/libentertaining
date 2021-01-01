@@ -1770,37 +1770,37 @@ Bu yeni şifreyi güçlü bir şifre haline getirin ve işiniz bittiğinde bu he
         <location filename="../questionoverlay.cpp" line="173"/>
         <location filename="../questionoverlay.cpp" line="185"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Hata</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="174"/>
         <source>You&apos;ve been disconnected from the server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sunucuyla bağlantınız kesildi.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="179"/>
         <source>Server Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Sunucu bakımı</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="180"/>
         <source>You&apos;ve been disconnected because the server is about to undergo maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantınız kesildi çünkü sunucu bakıma girmek üzere.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="186"/>
         <source>You&apos;ve been disconnected from the server because there was a communication error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir iletişim hatası olduğu için sunucuyla bağlantınız kesildi.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="191"/>
         <source>Corrupt File</source>
-        <translation type="unfinished">Bozuk dosya</translation>
+        <translation>Bozuk dosya</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="192"/>
         <source>Sorry, that file is corrupt and needs to be deleted.</source>
-        <translation type="unfinished">Maalesef bu dosya bozuk ve silinmesi gerekiyor.</translation>
+        <translation>Maalesef bu dosya bozuk ve silinmesi gerekiyor.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="99"/>
@@ -1847,44 +1847,46 @@ Bu aracı, beğenmediğiniz içeriği bildirmek için kullanmayın.</translation
     <message>
         <location filename="../private/reportwidget.ui" line="306"/>
         <source>Abusive or Hateful</source>
-        <translation type="unfinished"></translation>
+        <translation>Kötüye Kullanım ya da Nefret İçeren</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="313"/>
         <source>Violent</source>
-        <translation type="unfinished"></translation>
+        <translation>Şiddet içeren</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="320"/>
         <source>Other (or violates the community guidelines in some other way)</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer (ya da topluluk kurallarını başka bir şekilde ihlal ediyor)</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="327"/>
         <source>Advertising</source>
-        <translation type="unfinished"></translation>
+        <translation>Reklâm</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="334"/>
         <source>Infringes Copyright</source>
-        <translation type="unfinished"></translation>
+        <translation>Telif Hakkını İhlal Ediyor</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="341"/>
         <source>Sexually Explicit</source>
-        <translation type="unfinished"></translation>
+        <translation>Cinsel Açıdan Açık</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="292"/>
         <source>Spam</source>
-        <translation type="unfinished"></translation>
+        <translation>İstenmeyen</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="397"/>
         <source>Once you&apos;re happy with this report, hit the submit button to send it to us for review.
 
 While we do review all content reports, you may not receive a response once we have made a decision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu rapordan memnun olduğunuzda, incelememiz için bize göndermek üzere gönder düğmesine basın.
+
+Tüm içerik raporlarını incelerken, bir karar verdikten sonra yanıt alamayabilirsin.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="354"/>
@@ -1899,12 +1901,12 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../private/reportwidget.ui" line="361"/>
         <source>Promotes Racism</source>
-        <translation type="unfinished"></translation>
+        <translation>Irkçılığı Teşvik Ediyor</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="390"/>
         <source>SUBMIT</source>
-        <translation type="unfinished"></translation>
+        <translation>SUNMAK</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="411"/>
@@ -1915,23 +1917,23 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../private/reportwidget.ui" line="519"/>
         <source>Content Report Submitted</source>
-        <translation type="unfinished"></translation>
+        <translation>İçerik Raporu Gönderildi</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="535"/>
         <source>CONTENT REPORT SUBMITTED</source>
-        <translation type="unfinished"></translation>
+        <translation>İÇERİK RAPORU GÖNDERİLDİ</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="542"/>
         <source>Thanks for that. We&apos;ve received your report and we&apos;ll review it soon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bunun için teşekkürler. Raporunuzu aldık ve yakında inceleyeceğiz.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="556"/>
         <location filename="../private/reportwidget.cpp" line="82"/>
         <source>Done</source>
-        <translation type="unfinished">Bitti</translation>
+        <translation>Bitti</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="60"/>
@@ -1948,22 +1950,22 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../private/reportwidget.cpp" line="250"/>
         <source>Complete the form</source>
-        <translation type="unfinished"></translation>
+        <translation>Formu doldurun</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="251"/>
         <source>Please select a reason for sending this content report.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lütfen bu içerik raporunu göndermek için bir neden seçin.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="275"/>
         <source>Content Report not sent</source>
-        <translation type="unfinished"></translation>
+        <translation>İçerik Raporu gönderilmedi</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="276"/>
         <source>Sorry, there was a problem sending your content report.</source>
-        <translation type="unfinished"></translation>
+        <translation>Üzgünüm, içerik raporunuzu gönderirken bir sorun oluştu.</translation>
     </message>
 </context>
 <context>
