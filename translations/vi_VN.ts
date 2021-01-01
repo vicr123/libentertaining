@@ -511,8 +511,8 @@
 <context>
     <name>GamepadButtons</name>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="112"/>
-        <location filename="../gamepadbuttons.cpp" line="122"/>
+        <location filename="../gamepadbuttons.cpp" line="130"/>
+        <location filename="../gamepadbuttons.cpp" line="140"/>
         <source>No Shortcut</source>
         <translation>Không có lối tắt</translation>
     </message>

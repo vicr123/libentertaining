@@ -66,9 +66,13 @@ const QMap<QGamepadManager::GamepadButton, QString> buttonToStringMapping = {
     {QGamepadManager::ButtonGuide, "[%!GAMEPAD_GD]"}
 };
 
-QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColor tint)
-{
+const QMap<Qt::MouseButton, QString> mouseToStringMapping = {
+    {Qt::LeftButton, "[%!MOUSE_1]"},
+    {Qt::RightButton, "[%!MOUSE_2]"},
+    {Qt::MiddleButton, "[%!MOUSE_3]"}
+};
 
+QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColor tint) {
     const QMap<QGamepadManager::GamepadButton, QString> buttonToIconMapping = {
         {QGamepadManager::ButtonA, "btnA"},
         {QGamepadManager::ButtonB, "btnB"},
@@ -97,16 +101,30 @@ QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColo
     return iconForButtonHelper(buttonToIconMapping.value(button, "btn"), tint);
 }
 
-QString GamepadButtons::stringForButton(QGamepadManager::GamepadButton button)
+QIcon GamepadButtons::iconForButton(Qt::MouseButton button, QColor tint)
 {
+    const QMap<Qt::MouseButton, QString> buttonToIconMapping = {
+        {Qt::LeftButton, "mouse1"},
+        {Qt::RightButton, "mouse2"},
+        {Qt::MiddleButton, "mouse3"}
+    };
+
+    return iconForButtonHelper(buttonToIconMapping.value(button, "mouse"), tint);
+}
+
+QString GamepadButtons::stringForButton(QGamepadManager::GamepadButton button) {
     return buttonToStringMapping.value(button, "[%!GAMEPAD_INV]");
 }
 
-QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
+QString GamepadButtons::stringForButton(Qt::MouseButton button)
 {
+    return mouseToStringMapping.value(button, "[%!MOUSE_INV]");
+}
+
+QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal) {
     QFontMetrics metrics(font);
     QString sequence = key.toString(QKeySequence::NativeText);
-    QStringList chordParts = sequence.split(", ", QString::SkipEmptyParts);
+    QStringList chordParts = sequence.split(", ", Qt::SkipEmptyParts);
     if (chordParts.count() == 0) {
         QRect textRect;
         textRect.setWidth(metrics.horizontalAdvance(tr("No Shortcut")) + 1);
@@ -125,9 +143,9 @@ QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
     } else {
         int width = 0;
         for (int i = 0; i < chordParts.count(); i++) {
-            QStringList keys = chordParts.at(i).split("+", QString::SkipEmptyParts);
+            QStringList keys = chordParts.at(i).split("+", Qt::SkipEmptyParts);
 
-            for (QString key : keys) {
+            for (const QString& key : qAsConst(keys)) {
                 QPixmap icon = getKeyIcon(key, font, pal);
                 width += icon.width() + SC_DPI(4);
             }
@@ -140,21 +158,27 @@ QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
 
         QPixmap pixmap(width, qMax(SC_DPI(24), metrics.height() + SC_DPI(8)));
         pixmap.fill(Qt::transparent);
+
         QPainter painter(&pixmap);
         painter.setPen(pal.color(QPalette::WindowText));
         int currentX = 0;
         bool cropTo16 = true;
 
         for (int i = 0; i < chordParts.count(); i++) {
-            QStringList keys = chordParts.at(i).split("+", QString::SkipEmptyParts);
+            QStringList keys = chordParts.at(i).split("+", Qt::SkipEmptyParts);
 
-            for (QString key : keys) {
+            for (const QString& key : qAsConst(keys)) {
                 QPixmap icon = getKeyIcon(key, font, pal);
                 if (icon.width() == SC_DPI(16)) {
                     painter.drawPixmap(currentX, 0, icon);
                 } else {
                     cropTo16 = false;
-                    painter.drawPixmap(currentX, SC_DPI(4), icon);
+
+                    QRect iconRect;
+                    iconRect.setSize(icon.size());
+                    iconRect.moveLeft(currentX);
+                    iconRect.moveTop(pixmap.height() / 2 - icon.height() / 2);
+                    painter.drawPixmap(iconRect, icon);
                 }
                 currentX += icon.width() + SC_DPI(4);
             }
@@ -179,13 +203,11 @@ QPixmap GamepadButtons::iconForKey(QKeySequence key, QFont font, QPalette pal)
     }
 }
 
-QString GamepadButtons::stringForKey(QKeySequence key)
-{
+QString GamepadButtons::stringForKey(QKeySequence key) {
     return QStringLiteral("[%!KEYBOARD_%1]").arg(key.toString(QKeySequence::PortableText));
 }
 
-int GamepadButtons::measureGamepadString(QFont font, QString string)
-{
+int GamepadButtons::measureGamepadString(QFont font, QString string) {
     QRegularExpression regex("\\[%!.*?\\]");
     QRegularExpressionMatchIterator matches = regex.globalMatch(string);
     QStringList normalStringParts = string.split(regex);
@@ -197,7 +219,7 @@ int GamepadButtons::measureGamepadString(QFont font, QString string)
     }
 
     int width = 0;
-    for (QString stringPart : stringParts) {
+    for (const QString& stringPart : stringParts) {
         if (buttonToStringMapping.values().contains(stringPart)) {
             width += QFontMetrics(font).height();
         } else if (stringPart.startsWith("[%!KEYBOARD_")) {
@@ -210,8 +232,7 @@ int GamepadButtons::measureGamepadString(QFont font, QString string)
     return width;
 }
 
-void GamepadButtons::drawGamepadString(QPainter* painter, QString string, QRect boundingRect, QPalette pal)
-{
+void GamepadButtons::drawGamepadString(QPainter* painter, QString string, QRect boundingRect, QPalette pal) {
     //Build the regex to split by
 //    QStringList regexParts;
 //    for (QString button : buttonToStringMapping.values()) {
@@ -231,12 +252,24 @@ void GamepadButtons::drawGamepadString(QPainter* painter, QString string, QRect 
     }
 
     int currentX = boundingRect.left();
-    for (QString stringPart : stringParts) {
+    for (const QString &stringPart : stringParts) {
         if (buttonToStringMapping.values().contains(stringPart)) {
             qDebug() << "Draw button" << stringPart;
 
             QSize pxSize(painter->fontMetrics().height(), painter->fontMetrics().height());
             QPixmap px = iconForButton(buttonToStringMapping.key(stringPart), painter->pen().color()).pixmap(pxSize);
+
+            QRect bRect;
+            bRect.moveLeft(currentX);
+            bRect.setSize(pxSize);
+            bRect.moveTop(boundingRect.top() + (boundingRect.height() / 2 - pxSize.height() / 2));
+            painter->drawPixmap(bRect, px);
+            currentX += pxSize.width();
+        } else if (mouseToStringMapping.values().contains(stringPart)) {
+            qDebug() << "Draw mbutton" << stringPart;
+
+            QSize pxSize(painter->fontMetrics().height(), painter->fontMetrics().height());
+            QPixmap px = iconForButton(mouseToStringMapping.key(stringPart), painter->pen().color()).pixmap(pxSize);
 
             QRect bRect;
             bRect.moveLeft(currentX);
@@ -269,13 +302,11 @@ void GamepadButtons::drawGamepadString(QPainter* painter, QString string, QRect 
     }
 }
 
-GamepadButtons::GamepadButtons(QObject *parent) : QObject(parent)
-{
+GamepadButtons::GamepadButtons(QObject* parent) : QObject(parent) {
 
 }
 
-QPixmap GamepadButtons::getKeyIcon(QString key, QFont font, QPalette pal)
-{
+QPixmap GamepadButtons::getKeyIcon(QString key, QFont font, QPalette pal) {
     //Special Cases
     if (key == "Meta") key = "Super";
     if (key == "Print") key = "PrtSc";

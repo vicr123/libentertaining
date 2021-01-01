@@ -34,6 +34,9 @@ class LIBENTERTAINING_EXPORT GamepadButtons : public QObject
         static QIcon iconForButton(QGamepadManager::GamepadButton button, QColor tint);
         static QString stringForButton(QGamepadManager::GamepadButton button);
 
+        static QIcon iconForButton(Qt::MouseButton button, QColor tint);
+        static QString stringForButton(Qt::MouseButton button);
+
         static QPixmap iconForKey(QKeySequence key, QFont font, QPalette pal);
         static QString stringForKey(QKeySequence key);
 

@@ -46,5 +46,8 @@
         <file>icons/user.svg</file>
         <file>icons/go-next.svg</file>
         <file>icons/icon.svg</file>
+        <file>icons/mouse1.svg</file>
+        <file>icons/mouse2.svg</file>
+        <file>icons/mouse3.svg</file>
     </qresource>
 </RCC>
