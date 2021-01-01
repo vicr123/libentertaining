@@ -24,7 +24,9 @@
 #include "gamepadevent.h"
 #include <tvariantanimation.h>
 #include "musicengine.h"
+#include "online/onlineapi.h"
 #include "online/reportcontroller.h"
+#include <ttoast.h>
 
 struct ReportWidgetPrivate {
     QWidget* parent;
@@ -35,19 +37,22 @@ struct ReportWidgetPrivate {
     bool isScreenReport;
 };
 
-ReportWidget::ReportWidget(QWidget *parent) :
+ReportWidget::ReportWidget(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::ReportWidget)
-{
+    ui(new Ui::ReportWidget) {
     ui->setupUi(this);
     d = new ReportWidgetPrivate();
 
     d->effect = new QGraphicsOpacityEffect();
     this->setGraphicsEffect(d->effect);
 
+    ui->titleLabel->setBackButtonShown(true);
+    ui->titleLabel_2->setBackButtonShown(true);
+
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::SlideHorizontal);
     ui->mainExplainWidget->setMinimumWidth(SC_DPI(600));
     ui->screenReportContents->setMinimumWidth(SC_DPI(600));
+    ui->contentReportSubmittedWidget->setMinimumWidth(SC_DPI(600));
 
     ui->focusBarrier->setBounceWidget(ui->explainPageContinue);
     ui->focusBarrier_2->setBounceWidget(ui->explainPageContinue);
@@ -56,33 +61,42 @@ ReportWidget::ReportWidget(QWidget *parent) :
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         MusicEngine::playSoundEffect(MusicEngine::Backstep);
-        ui->backButton->click();
+        ui->titleLabel->backButtonClicked();
     });
 
-    ui->gamepadHud_2->setButtonText(QGamepadManager::ButtonA, tr("Submit"));
+    ui->gamepadHud_2->setButtonText(QGamepadManager::ButtonA, tr("Select"));
     ui->gamepadHud_2->setButtonText(QGamepadManager::ButtonB, tr("Back"));
+    ui->gamepadHud_2->setButtonText(QGamepadManager::ButtonStart, tr("Submit"));
 
     ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         MusicEngine::playSoundEffect(MusicEngine::Backstep);
-        ui->backButton_2->click();
+        ui->titleLabel_2->backButtonClicked();
+    });
+    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonStart, [ = ] {
+        ui->submitButton->click();
     });
 
+    ui->gamepadHud_3->setButtonText(QGamepadManager::ButtonA, tr("Done"));
+    ui->gamepadHud_3->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
+
     ui->mainExplainWidget->setFocusProxy(ui->explainPageContinue);
-    ui->screenReportScreen->setFocusProxy(ui->radioButton);
-    ui->backButton_2->setFocusProxy(ui->radioButton);
+    ui->screenReportScreen->setFocusProxy(ui->advertisingButton);
+    ui->donePage->setFocusProxy(ui->doneButton);
+    ui->titleLabel_2->setFocusProxy(ui->advertisingButton);
+
+    ui->doneFocusBarrierTop->setBounceWidget(ui->doneButton);
+    ui->doneFocusBarrierBottom->setBounceWidget(ui->doneButton);
 }
 
-ReportWidget::~ReportWidget()
-{
+ReportWidget::~ReportWidget() {
     delete ui;
     delete d;
 }
 
-void ReportWidget::beginScreenReport(QWidget*widget, QVariantMap details)
-{
+void ReportWidget::beginScreenReport(QWidget* widget, QVariantMap details) {
     d->screenReportPixmap = widget->grab();
     d->isScreenReport = true;
 
@@ -90,18 +104,17 @@ void ReportWidget::beginScreenReport(QWidget*widget, QVariantMap details)
     d->parent = widget;
     d->parent->installEventFilter(this);
 
-    ui->screenLabel->setPixmap(d->screenReportPixmap.scaledToWidth(qMin(SC_DPI(600), this->width())));
+    ui->screenLabel->setPixmap(d->screenReportPixmap.scaledToWidth(qMin(SC_DPI(600), this->width()), Qt::SmoothTransformation));
+    ui->stackedWidget->setCurrentWidget(ui->explainPage, false);
 
     this->show();
 }
 
-ReportControllerEventFilter::ReportControllerEventFilter() : QObject(nullptr)
-{
+ReportControllerEventFilter::ReportControllerEventFilter() : QObject(nullptr) {
 
 }
 
-bool ReportControllerEventFilter::eventFilter(QObject*watched, QEvent*event)
-{
+bool ReportControllerEventFilter::eventFilter(QObject* watched, QEvent* event) {
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent* e = static_cast<QKeyEvent*>(event);
         if (e->key() == Qt::Key_F3 && e->modifiers() == Qt::SHIFT) {
@@ -136,13 +149,11 @@ bool ReportControllerEventFilter::eventFilter(QObject*watched, QEvent*event)
     return false;
 }
 
-void ReportWidget::on_explainPageContinue_clicked()
-{
+void ReportWidget::on_explainPageContinue_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->screenReportScreen);
 }
 
-bool ReportWidget::eventFilter(QObject*watched, QEvent*event)
-{
+bool ReportWidget::eventFilter(QObject* watched, QEvent* event) {
     if (watched == d->parent) {
         if (event->type() == QEvent::Resize) {
             this->resize(d->parent->size());
@@ -153,18 +164,7 @@ bool ReportWidget::eventFilter(QObject*watched, QEvent*event)
     return false;
 }
 
-void ReportWidget::on_backButton_clicked()
-{
-    this->close();
-}
-
-void ReportWidget::on_backButton_2_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->explainPage);
-}
-
-void ReportWidget::show()
-{
+void ReportWidget::show() {
     this->move(0, SC_DPI(150));
     this->resize(d->parent->size());
 
@@ -173,7 +173,7 @@ void ReportWidget::show()
     yAnim->setEndValue(0);
     yAnim->setEasingCurve(QEasingCurve::OutCubic);
     yAnim->setDuration(250);
-    connect(yAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(yAnim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         this->move(0, value.toInt());
     });
     connect(yAnim, &tVariantAnimation::finished, yAnim, &tVariantAnimation::deleteLater);
@@ -185,7 +185,7 @@ void ReportWidget::show()
     oAnim->setEndValue(1.0);
     oAnim->setEasingCurve(QEasingCurve::OutCubic);
     oAnim->setDuration(250);
-    connect(oAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(oAnim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->effect->setOpacity(value.toDouble());
     });
     connect(oAnim, &tVariantAnimation::finished, oAnim, &tVariantAnimation::deleteLater);
@@ -195,8 +195,7 @@ void ReportWidget::show()
     ui->explainPageContinue->setFocus();
 }
 
-void ReportWidget::close()
-{
+void ReportWidget::close() {
     this->setEnabled(false);
 
     tVariantAnimation* yAnim = new tVariantAnimation();
@@ -204,7 +203,7 @@ void ReportWidget::close()
     yAnim->setEndValue(SC_DPI(150));
     yAnim->setEasingCurve(QEasingCurve::InCubic);
     yAnim->setDuration(250);
-    connect(yAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(yAnim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         this->move(0, value.toInt());
     });
     connect(yAnim, &tVariantAnimation::finished, yAnim, &tVariantAnimation::deleteLater);
@@ -215,14 +214,73 @@ void ReportWidget::close()
     oAnim->setEndValue(0.0);
     oAnim->setEasingCurve(QEasingCurve::InCubic);
     oAnim->setDuration(250);
-    connect(oAnim, &tVariantAnimation::valueChanged, this, [=](QVariant value) {
+    connect(oAnim, &tVariantAnimation::valueChanged, this, [ = ](QVariant value) {
         d->effect->setOpacity(value.toDouble());
     });
     connect(oAnim, &tVariantAnimation::finished, oAnim, &tVariantAnimation::deleteLater);
-    connect(oAnim, &tVariantAnimation::finished, this, [=] {
+    connect(oAnim, &tVariantAnimation::finished, this, [ = ] {
         oAnim->deleteLater();
         emit done();
         QWidget::close();
     });
     oAnim->start();
 }
+
+void ReportWidget::on_titleLabel_backButtonClicked() {
+    this->close();
+}
+
+void ReportWidget::on_titleLabel_2_backButtonClicked() {
+    ui->stackedWidget->setCurrentWidget(ui->explainPage);
+}
+
+void ReportWidget::on_submitButton_clicked() {
+    QString reason;
+    if (ui->advertisingButton->isChecked()) reason = "advertising";
+    if (ui->violentButton->isChecked()) reason = "violent";
+    if (ui->explicitButton->isChecked()) reason = "explicit";
+    if (ui->abusiveButton->isChecked()) reason = "abusive";
+    if (ui->racismButton->isChecked()) reason = "racism";
+    if (ui->copyrightButton->isChecked()) reason = "copyright";
+    if (ui->spamButton->isChecked()) reason = "spam";
+    if (ui->otherButton->isChecked()) reason = "other";
+
+    if (reason.isEmpty()) {
+        tToast* toast = new tToast(this);
+        toast->setTitle(tr("Complete the form"));
+        toast->setText(tr("Please select a reason for sending this content report."));
+        connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+        toast->show(this);
+        return;
+    }
+
+    ui->stackedWidget->setCurrentWidget(ui->sendingPage);
+
+    QBuffer pictureBuffer;
+    pictureBuffer.open(QBuffer::WriteOnly);
+    d->screenReportPixmap.save(&pictureBuffer, "PNG");
+    pictureBuffer.close();
+
+    QJsonObject report;
+    report.insert("picture", QString(pictureBuffer.buffer().toBase64(QByteArray::Base64UrlEncoding)));
+    report.insert("reason", reason);
+
+    QTimer::singleShot(500, this, [ = ] {
+        OnlineApi::instance()->post("/report", report)->then([ = ](QJsonDocument doc) {
+            ui->stackedWidget->setCurrentWidget(ui->donePage);
+        })->error([ = ](QString error) {
+            ui->stackedWidget->setCurrentWidget(ui->screenReportScreen);
+
+            tToast* toast = new tToast(this);
+            toast->setTitle(tr("Content Report not sent"));
+            toast->setText(tr("Sorry, there was a problem sending your content report."));
+            connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+            toast->show(this);
+        });
+    });
+}
+
+void ReportWidget::on_doneButton_clicked() {
+    this->close();
+}
+

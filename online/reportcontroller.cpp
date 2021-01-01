@@ -19,6 +19,8 @@
  * *************************************/
 #include "reportcontroller.h"
 
+#include <QApplication>
+#include <QPointer>
 #include <QWidget>
 #include "private/reportwidget.h"
 
@@ -26,13 +28,14 @@ struct ReportControllerPrivate {
     static QList<QWidget*> reportingEnabledFor;
     static QMap<QWidget*, QVariantMap> reportingDetails;
     static ReportControllerEventFilter* filter;
+    static QPointer<QWidget> focusRestore;
 };
 ReportControllerEventFilter* ReportControllerPrivate::filter = nullptr;
 QList<QWidget*> ReportControllerPrivate::reportingEnabledFor = QList<QWidget*>();
 QMap<QWidget*, QVariantMap> ReportControllerPrivate::reportingDetails = QMap<QWidget*, QVariantMap>();
+QPointer<QWidget> ReportControllerPrivate::focusRestore = QPointer<QWidget>();
 
-void ReportController::setAutomaticReportingEnabled(QWidget*parent, bool reportingEnabled)
-{
+void ReportController::setAutomaticReportingEnabled(QWidget* parent, bool reportingEnabled) {
     if (ReportControllerPrivate::filter == nullptr) ReportControllerPrivate::filter = new ReportControllerEventFilter();
 
     QWidget* w = parent->window();
@@ -43,33 +46,36 @@ void ReportController::setAutomaticReportingEnabled(QWidget*parent, bool reporti
         ReportControllerPrivate::reportingEnabledFor.append(w);
         w->installEventFilter(ReportControllerPrivate::filter);
 
-        connect(w, &QWidget::destroyed, [=] {
+        connect(w, &QWidget::destroyed, [ = ] {
             ReportControllerPrivate::reportingEnabledFor.removeAll(w);
         });
     }
 }
 
-void ReportController::setReportDetails(QWidget*parent, QVariantMap details)
-{
+void ReportController::setReportDetails(QWidget* parent, QVariantMap details) {
     ReportControllerPrivate::reportingDetails.insert(parent->window(), details);
 }
 
-void ReportController::beginScreenReport(QWidget*parent)
-{
+void ReportController::beginScreenReport(QWidget* parent) {
     if (parent == nullptr) return;
+    ReportControllerPrivate::focusRestore = QApplication::focusWidget();
     QWidget* w = parent->window();
 
     w->removeEventFilter(ReportControllerPrivate::filter);
     ReportWidget* reporter = new ReportWidget(w);
     reporter->beginScreenReport(parent, ReportControllerPrivate::reportingDetails.value(w, QVariantMap()));
-    connect(reporter, &ReportWidget::done, [=] {
+    connect(reporter, &ReportWidget::done, [ = ] {
         if (ReportControllerPrivate::reportingEnabledFor.contains(w)) {
             w->installEventFilter(ReportControllerPrivate::filter);
+        }
+
+        if (ReportControllerPrivate::focusRestore) {
+            ReportControllerPrivate::focusRestore->setFocus();
+            ReportControllerPrivate::focusRestore.clear();
         }
     });
 }
 
-ReportController::ReportController(QObject *parent) : QObject(parent)
-{
+ReportController::ReportController(QObject* parent) : QObject(parent) {
 
 }

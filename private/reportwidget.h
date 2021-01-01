@@ -27,12 +27,11 @@ namespace Ui {
 }
 
 struct ReportWidgetPrivate;
-class ReportWidget : public QWidget
-{
+class ReportWidget : public QWidget {
         Q_OBJECT
 
     public:
-        explicit ReportWidget(QWidget *parent = nullptr);
+        explicit ReportWidget(QWidget* parent = nullptr);
         ~ReportWidget();
 
         void beginScreenReport(QWidget* widget, QVariantMap details);
@@ -40,15 +39,19 @@ class ReportWidget : public QWidget
     private slots:
         void on_explainPageContinue_clicked();
 
-        void on_backButton_clicked();
+        void on_titleLabel_backButtonClicked();
 
-        void on_backButton_2_clicked();
+        void on_titleLabel_2_backButtonClicked();
+
+        void on_submitButton_clicked();
+
+        void on_doneButton_clicked();
 
     signals:
         void done();
 
     private:
-        Ui::ReportWidget *ui;
+        Ui::ReportWidget* ui;
         ReportWidgetPrivate* d;
 
         void show();

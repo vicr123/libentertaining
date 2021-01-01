@@ -1811,12 +1811,12 @@ Bu yeni şifreyi güçlü bir şifre haline getirin ve işiniz bittiğinde bu he
 <context>
     <name>ReportWidget</name>
     <message>
-        <location filename="../private/reportwidget.ui" line="93"/>
+        <location filename="../private/reportwidget.ui" line="57"/>
         <source>File a content report</source>
         <translation>Bir içerik raporu oluşturun</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="136"/>
+        <location filename="../private/reportwidget.ui" line="82"/>
         <source>A report is only to be used when you encounter content that violates the community guidelines.
 
 Do not use this tool for reporting content that you simply don&apos;t like.</source>
@@ -1825,66 +1825,145 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
 Bu aracı, beğenmediğiniz içeriği bildirmek için kullanmayın.</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="163"/>
+        <location filename="../private/reportwidget.ui" line="109"/>
         <source>Got it!</source>
         <translation>Anladım!</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="255"/>
+        <location filename="../private/reportwidget.ui" line="165"/>
         <source>Provide Information</source>
         <translation>Bilgi Sağlayın</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="360"/>
+        <location filename="../private/reportwidget.ui" line="252"/>
         <source>INFRINGING CONTENT</source>
         <translation>İHLAL EDEN İÇERİK</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="367"/>
+        <location filename="../private/reportwidget.ui" line="259"/>
         <source>Here&apos;s a screenshot that will be sent along with this report.</source>
         <translation>İşte bu raporla birlikte gönderilecek bir ekran görüntüsü.</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="400"/>
-        <source>It contains unfortunate content</source>
-        <translation>Talihsiz içerik barındırıyor</translation>
+        <location filename="../private/reportwidget.ui" line="306"/>
+        <source>Abusive or Hateful</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="413"/>
+        <location filename="../private/reportwidget.ui" line="313"/>
+        <source>Violent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="320"/>
+        <source>Other (or violates the community guidelines in some other way)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="327"/>
+        <source>Advertising</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="334"/>
+        <source>Infringes Copyright</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="341"/>
+        <source>Sexually Explicit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="292"/>
+        <source>Spam</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="397"/>
+        <source>Once you&apos;re happy with this report, hit the submit button to send it to us for review.
+
+While we do review all content reports, you may not receive a response once we have made a decision.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="354"/>
         <source>EXPLAIN</source>
         <translation>AÇIKLAMAK</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="420"/>
+        <location filename="../private/reportwidget.ui" line="299"/>
         <source>What&apos;s wrong with this content?</source>
         <translation>Bu içeriğin nesi var?</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="427"/>
-        <source>It contains anime</source>
-        <translation>Anime içeriyor</translation>
+        <location filename="../private/reportwidget.ui" line="361"/>
+        <source>Promotes Racism</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="436"/>
-        <source>Reporting is not currently implemented. If there are any issues, shoot an email to hello@entertaining.games and we&apos;ll take a look.</source>
-        <translation>Raporlama şu anda uygulanmamaktadır. Herhangi bir sorun varsa, hello@entertaining.games adresine bir e-posta gönderin ve bir göz atalım.</translation>
+        <location filename="../private/reportwidget.ui" line="390"/>
+        <source>SUBMIT</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.ui" line="452"/>
-        <location filename="../private/reportwidget.cpp" line="64"/>
+        <location filename="../private/reportwidget.ui" line="411"/>
+        <location filename="../private/reportwidget.cpp" line="71"/>
         <source>Submit</source>
         <translation>Sunmak</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.cpp" line="55"/>
+        <location filename="../private/reportwidget.ui" line="519"/>
+        <source>Content Report Submitted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="535"/>
+        <source>CONTENT REPORT SUBMITTED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="542"/>
+        <source>Thanks for that. We&apos;ve received your report and we&apos;ll review it soon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.ui" line="556"/>
+        <location filename="../private/reportwidget.cpp" line="82"/>
+        <source>Done</source>
+        <translation type="unfinished">Bitti</translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="60"/>
+        <location filename="../private/reportwidget.cpp" line="69"/>
         <source>Select</source>
         <translation>Seç</translation>
     </message>
     <message>
-        <location filename="../private/reportwidget.cpp" line="56"/>
-        <location filename="../private/reportwidget.cpp" line="65"/>
+        <location filename="../private/reportwidget.cpp" line="61"/>
+        <location filename="../private/reportwidget.cpp" line="70"/>
         <source>Back</source>
         <translation>Geri</translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="250"/>
+        <source>Complete the form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="251"/>
+        <source>Please select a reason for sending this content report.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="275"/>
+        <source>Content Report not sent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/reportwidget.cpp" line="276"/>
+        <source>Sorry, there was a problem sending your content report.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
