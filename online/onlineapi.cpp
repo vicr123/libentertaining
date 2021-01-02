@@ -31,7 +31,7 @@ struct OnlineApiPrivate {
     OnlineApi* instance = nullptr;
     QSettings* settings = EntertainingSettings::instance();
 
-    QNetworkAccessManager mgr;
+    QNetworkAccessManager* mgr;
     QString loggedInUsername;
     QMap<QString, QImage> imageCache;
 };
@@ -56,7 +56,7 @@ tPromise<QJsonDocument>* OnlineApi::post(QString endpoint, QJsonObject body) {
             req.setRawHeader("Authorization", auth.toUtf8());
         }
 
-        QNetworkReply* reply = d->mgr.post(req, QJsonDocument(body).toJson(QJsonDocument::Compact));
+        QNetworkReply* reply = d->mgr->post(req, QJsonDocument(body).toJson(QJsonDocument::Compact));
         connect(reply, &QNetworkReply::finished, this, [ = ] {
             processReply(reply, res, rej);
         });
@@ -76,7 +76,7 @@ tPromise<QJsonDocument>* OnlineApi::get(QString endpoint) {
             req.setRawHeader("Authorization", auth.toUtf8());
         }
 
-        QNetworkReply* reply = d->mgr.get(req);
+        QNetworkReply* reply = d->mgr->get(req);
         connect(reply, &QNetworkReply::finished, this, [ = ] {
             processReply(reply, res, rej);
         });
@@ -286,7 +286,7 @@ void OnlineApi::setLoggedInUsername(QString loggedInUsername) {
 }
 
 OnlineApi::OnlineApi(QObject* parent) : QObject(parent) {
-
+    d->mgr = new QNetworkAccessManager();
 }
 
 QString OnlineApi::serverHost() {
