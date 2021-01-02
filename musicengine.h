@@ -24,8 +24,7 @@
 #include <QObject>
 
 struct MusicEnginePrivate;
-class LIBENTERTAINING_EXPORT MusicEngine : public QObject
-{
+class LIBENTERTAINING_EXPORT MusicEngine : public QObject {
         Q_OBJECT
     public:
         enum KnownSoundEffect {
@@ -40,6 +39,8 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
 
         static void setBackgroundMusic(QUrl path);
         static void setBackgroundMusic(QString audioResource);
+        static void setBackgroundMusic(QUrl initialPath, QUrl loopingPath);
+        static void setBackgroundMusic(QString initialResource, QString loopingResource);
         static void playBackgroundMusic();
         static void pauseBackgroundMusic();
 
@@ -60,10 +61,12 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject
     private:
         static MusicEnginePrivate* d;
 
-        explicit MusicEngine(QObject *parent = nullptr);
+        explicit MusicEngine(QObject* parent = nullptr);
         static void ensureInstance();
-        static void tryNextBackgroundTrack();
+        static void tryNextBackgroundStart();
+        static void tryNextBackgroundLoop();
         static QList<QUrl> resolveAudioResource(QString audioResource);
+        void fillAudioBuffer();
 };
 
 #endif // MUSICENGINE_H
