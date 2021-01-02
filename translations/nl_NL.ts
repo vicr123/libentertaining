@@ -505,7 +505,7 @@
     <message>
         <location filename="../private/friendsmodel.cpp" line="137"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruiker</translation>
     </message>
 </context>
 <context>
@@ -514,7 +514,7 @@
         <location filename="../gamepadbuttons.cpp" line="130"/>
         <location filename="../gamepadbuttons.cpp" line="140"/>
         <source>No Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen snelkoppeling</translation>
     </message>
 </context>
 <context>
@@ -522,22 +522,22 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="68"/>
         <source>Gamepads</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamepads</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="143"/>
         <source>Configure a gamepad</source>
-        <translation type="unfinished"></translation>
+        <translation>Een gamepad configureren</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="153"/>
         <source>Select the gamepad you want to configure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer de gamepad die je wilt configureren.</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="222"/>
         <source>GAMEPAD</source>
-        <translation type="unfinished"></translation>
+        <translation>GAMEPAD</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="231"/>
@@ -552,12 +552,12 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="278"/>
         <source>DIAGNOSTICS</source>
-        <translation type="unfinished"></translation>
+        <translation>DIAGNOSTIEK</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="287"/>
         <source>Check Buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Knoppen Controleren</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="294"/>
@@ -577,7 +577,7 @@
     <message>
         <location filename="../gamepadconfigurationoverlay.cpp" line="60"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
 </context>
 <context>
@@ -585,12 +585,12 @@
     <message>
         <location filename="../private/gamepadlistener.cpp" line="73"/>
         <source>Gamepad Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamepad Verbonden</translation>
     </message>
     <message>
         <location filename="../private/gamepadlistener.cpp" line="63"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished">Verbinding met de Gamepad Verbroken</translation>
+        <translation>Verbinding met de Gamepad Verbroken</translation>
     </message>
 </context>
 <context>
@@ -598,13 +598,13 @@
     <message>
         <location filename="../keyboards/keyboard.cpp" line="233"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../keyboards/keyboard.cpp" line="252"/>
         <source>ABC</source>
         <comment>ABC for alphabetic keyboard; use something that makes sense in your locale</comment>
-        <translation type="unfinished"></translation>
+        <translation>ABC</translation>
     </message>
 </context>
 <context>
@@ -612,12 +612,12 @@
     <message>
         <location filename="../keyboards/keyboardlayoutsdatabase.cpp" line="36"/>
         <source>English (US)</source>
-        <translation type="unfinished"></translation>
+        <translation>Engels (US)</translation>
     </message>
     <message>
         <location filename="../keyboards/keyboardlayoutsdatabase.cpp" line="50"/>
         <source>Vietnamese (VN)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vietnamees (VN)</translation>
     </message>
 </context>
 <context>
@@ -625,7 +625,7 @@
     <message>
         <location filename="../keyboards/layoutselect.ui" line="71"/>
         <source>Select Keyboard Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Toetsenbordindeling Selecteren</translation>
     </message>
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="37"/>
@@ -635,7 +635,7 @@
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
 </context>
 <context>
@@ -644,54 +644,54 @@
         <location filename="../private/loaddialog.ui" line="71"/>
         <location filename="../private/loaddialog.cpp" line="50"/>
         <source>Load</source>
-        <translation type="unfinished"></translation>
+        <translation>Laden</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.ui" line="96"/>
         <source>Select a file to load</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer een bestand om te laden</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="51"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opties</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="52"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="53"/>
         <location filename="../private/loaddialog.cpp" line="83"/>
         <source>o</source>
         <comment>Shortcut key for (O)ptions</comment>
-        <translation type="unfinished"></translation>
+        <translation>o</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="135"/>
         <source>Copy to which file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Naar welk bestand kopiëren?</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="143"/>
         <source>Rename to what?</source>
-        <translation type="unfinished"></translation>
+        <translation>Waarheen hernoemen?</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="152"/>
         <source>Delete this file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit bestand verwijderen?</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="153"/>
         <source>Once you delete this file, you can&apos;t get it back.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zodra je dit bestand verwijdert, kun je hem niet meer terugkrijgen.</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="154"/>
         <source>Delete File</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestand Verwijderen</translation>
     </message>
 </context>
 <context>
@@ -699,32 +699,32 @@
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="71"/>
         <source>File Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestandsopties</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="102"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiëren</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="107"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Hernoemen</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.ui" line="112"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="35"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="36"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
 </context>
 <context>
@@ -734,12 +734,12 @@
         <location filename="../online/logindialog.ui" line="219"/>
         <location filename="../online/logindialog.cpp" line="70"/>
         <source>Log In</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="142"/>
         <source>Log in to your Entertaining Games account to play online.</source>
-        <translation type="unfinished"></translation>
+        <translation>Log in bij je Vermakelijke Spellen-account om online te spelen.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="183"/>
@@ -747,62 +747,62 @@
         <location filename="../online/logindialog.cpp" line="63"/>
         <location filename="../online/logindialog.cpp" line="65"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="192"/>
         <source>Forgot Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord Vergeten</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="443"/>
         <source>ACCOUNT INFORMATION</source>
-        <translation type="unfinished"></translation>
+        <translation>ACCOUNT-INFORMATIE</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="486"/>
         <source>TERMS AND COMMUNITY GUIDELINES</source>
-        <translation type="unfinished"></translation>
+        <translation>ALGEMENE VOORWAARDEN EN COMMUNITY-RICHTLIJNEN</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="550"/>
         <source>Recovery</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstellen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="599"/>
         <source>Choose a method to obtain a recovery password</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies een manier om een herstelwachtwoord te krijgen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="624"/>
         <source>EMAIL ADDRESS</source>
-        <translation type="unfinished"></translation>
+        <translation>E-MAILADRES</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="631"/>
         <source>You&apos;ll receive an email with additional instructions on how to recover your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je ontvangt een e-mail met instructies om je account terug te krijgen.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="651"/>
         <source>If you don&apos;t have access to any of these recovery methods, or you require further assistance, send us an email and we&apos;ll help you out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als al deze manieren niet werken, of je meer hulp nodig hebt, stuur ons dan een e-mail en dan helpen we je verder.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="453"/>
         <source>Register an account to play online.</source>
-        <translation type="unfinished"></translation>
+        <translation>Registreer een account om online te spelen.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="334"/>
         <source>Terms and Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene Voorwaarden en Community-richtlijnen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="414"/>
         <source>Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Maak er een goed wachtwoord van en gebruik hem alleen voor dit account. Je wilt hem liever niet hergebruiken.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="149"/>
@@ -810,159 +810,161 @@
         <location filename="../online/logindialog.cpp" line="62"/>
         <location filename="../online/logindialog.cpp" line="64"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="285"/>
         <source>Register an account</source>
-        <translation type="unfinished"></translation>
+        <translation>Een account registereren</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="386"/>
         <source>You shoud view the Terms and the Community Guidelines as these documents govern your use of the services, and by creating an account and using the services, you indicate acceptance of these documents.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekijk de Algemene voorwaarden en Community-richtlijnen, omdat deze documenten bepalen hoe je de diensten gebruikt, en omdat je door een account te maken en de diensten te gebruiken aangeeft hiermee akkoord te gaan.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="430"/>
         <location filename="../online/logindialog.cpp" line="67"/>
         <source>Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>E-mailadres</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="341"/>
         <location filename="../online/logindialog.cpp" line="66"/>
         <source>Confirm Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord Bevestigen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="212"/>
         <location filename="../online/logindialog.ui" line="370"/>
         <location filename="../online/logindialog.cpp" line="88"/>
         <source>Register</source>
-        <translation type="unfinished"></translation>
+        <translation>Registreren</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="69"/>
         <location filename="../online/logindialog.cpp" line="87"/>
         <location filename="../online/logindialog.cpp" line="105"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="71"/>
         <location filename="../online/logindialog.cpp" line="89"/>
         <location filename="../online/logindialog.cpp" line="106"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="172"/>
         <source>Enter a new username</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een nieuwe gebruikersnaam in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="173"/>
         <source>Enter a password</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een wachtwoord in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="174"/>
         <source>Confirm your password</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig je wachtwoord</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="175"/>
         <source>Enter your email address</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer je e-mailadres in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="177"/>
         <source>Check that the passwords match</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer of de wachtwoorden overeen komen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="182"/>
         <location filename="../online/logindialog.cpp" line="239"/>
         <source>Check your input</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer je input</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="201"/>
         <location filename="../online/logindialog.cpp" line="216"/>
         <source>Registration Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Registratie Mislukt</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="202"/>
         <source>We weren&apos;t able to register you. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>We konden je niet registreren. Probeer het later nog eens.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="233"/>
         <source>Enter your username</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer je gebruikersnaam in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="234"/>
         <source>Enter your password</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer je wachtwoord in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="261"/>
         <source>Enter a valid Two Factor Authentication code</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een geldige Twee-factorauthenticatiecode in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="261"/>
         <source>Enter your Two Factor Authentication code</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer je Twee-factorauthenticatiecode in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="261"/>
         <source>You can also use a 12 digit backup code</source>
-        <translation type="unfinished"></translation>
+        <translation>Je kunt ook een 12-cijferige backup-code gebruiken</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="276"/>
         <source>Reset Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord Resetten</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="277"/>
         <source>You&apos;ll need to set a new password for your account.
 
 Make it a good password and save it for this account. You don&apos;t want to be reusing this password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je moet een nieuw wachtwoord instellen voor je account.
+
+Maak er een goed wachtwoord van en gebruik hem alleen voor dit account. Je wilt hem liever niet hergebruiken.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="279"/>
         <source>Set New Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Een Nieuw Wachtwoord Instellen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="288"/>
         <source>Enter a new password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een nieuw wachtwoord in voor je account</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="294"/>
         <source>Enter the same password</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer hetzelfde wachtwoord in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="294"/>
         <source>Confirm the new password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig het nieuwe wachtwoord voor je account</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="313"/>
         <source>Check your details and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer je gegevens en probeer het opnieuw.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="346"/>
         <source>What&apos;s your username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Wat is je gebruikersnaam?</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="361"/>
@@ -970,53 +972,53 @@ Make it a good password and save it for this account. You don&apos;t want to be 
         <location filename="../online/logindialog.cpp" line="418"/>
         <location filename="../online/logindialog.cpp" line="430"/>
         <source>Password Recovery Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord Herstellen Mislukt</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="367"/>
         <source>That username is incorrect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die gebruikersnaam is incorrect.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="369"/>
         <source>Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer het later nog eens.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="375"/>
         <source>Send an email to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Stuur een e-mail naar %1</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="399"/>
         <source>Enter the full email address</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer het volledige e-mailadres in</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="399"/>
         <source>Use the email address %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruiker het e-mailadres %1</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="419"/>
         <source>Try again at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer het op een ander moment nog eens.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="422"/>
         <source>Password Recovery</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord Herstellen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="423"/>
         <source>If %1 matches the email we&apos;ve got on file for your account, you&apos;ll receive an email with further instructions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als %1 overeenkomt met het e-mailadres dat we hebben opgeslagen voor je account, ontvang je een e-mail met verdere instructies.</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="312"/>
         <location filename="../online/logindialog.cpp" line="327"/>
         <source>Login Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggen Mislukt</translation>
     </message>
 </context>
 <context>
@@ -1024,7 +1026,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../notificationengine.cpp" line="151"/>
         <source>%1 / %2 to focus</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 / %2 om te focussen</translation>
     </message>
 </context>
 <context>
@@ -1032,91 +1034,95 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../online/onlineapi.cpp" line="333"/>
         <source>The server is not operating correctly.</source>
-        <translation type="unfinished"></translation>
+        <translation>De server werkt niet goed.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="103"/>
         <source>You are not logged in.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je bent niet ingelogd.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="111"/>
         <source>The connection was lost because the server is now undergoing maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding is verloren omdat de server nu in onderhoud is.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="116"/>
         <source>The connection was lost because a server error occurred.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat er een serverfout was.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="120"/>
         <source>The connection was lost because the server couldn&apos;t understand our messages.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat de server onze berichten niet begreep.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="123"/>
         <source>The connection was lost because too much data was sent.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verlorern omdat er teveel gegevens waren verstuurd.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="126"/>
         <source>The connection was lost because an internal error occurred.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat er een interne fout was.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="131"/>
         <source>The connection was lost because your credentials have expired or are incorrect.
 
 Try connecting again and re-enter your credentials.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat je inloggegevens verlopen zijn of niet kloppen.
+
+Probeer opnieuw te verbinden en je gegevens opnieuw in te vullen.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="137"/>
         <source>The connection was lost because the server does not support this application.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat de server deze applicatie niet ondersteunt.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="140"/>
         <source>The connection was lost because an update is required to continue playing online.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat er een update nodig is om online te blijven spelen.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="156"/>
         <source>The connection was lost because your account has been suspended from online play.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding was verloren omdat je account niet meer gebruikt kan worden voor online spelen.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="165"/>
         <source>The connection to the server was lost.</source>
-        <translation type="unfinished"></translation>
+        <translation>De verbinding met de server is verloren.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="177"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>De server wees de verbinding af. Het zou kunnen dat de server offline is voor onderhoud.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="180"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
-        <translation type="unfinished"></translation>
+        <translation>De DNS-server kon het IP-adres van de Vermakelijke Spellen-server niet vinden.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="183"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>De Vermakelijke Spellen-server reageerde niet.
+
+Probeer het later opnieuw.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="270"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>De server werkt niet goed. Probeer het op een ander moment nog eens.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="272"/>
         <source>You are not authorized to perform this action now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je mag deze actie nu niet uitvoeren.</translation>
     </message>
     <message>
         <location filename="../online/onlineapi.cpp" line="274"/>
