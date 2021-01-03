@@ -920,7 +920,7 @@
     <message>
         <location filename="../online/logindialog.cpp" line="261"/>
         <source>You can also use a 12 digit backup code</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn cũng dùng một mã dự phòng 12 chứ số được</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="276"/>
@@ -1564,7 +1564,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="495"/>
         <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do so.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo thêm mã dự phòng trong ứng dụng Trò Chơi Giải Trí nào. Mã này sẽ bị thu hồi khi bạn tạo thêm mã.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="299"/>
@@ -1770,37 +1770,37 @@ Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn 
         <location filename="../questionoverlay.cpp" line="173"/>
         <location filename="../questionoverlay.cpp" line="185"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Lỗi</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="174"/>
         <source>You&apos;ve been disconnected from the server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn với máy chủ bị ngắt.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="179"/>
         <source>Server Maintenance</source>
-        <translation type="unfinished"></translation>
+        <translation>Bảo trì máy chủ</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="180"/>
         <source>You&apos;ve been disconnected because the server is about to undergo maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn với máy chủ bị ngất vì mấy chú chuẩn bị bảo trì.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="186"/>
         <source>You&apos;ve been disconnected from the server because there was a communication error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết nối của bạn với máy chủ bị ngắt vì một lỗi giao tiếp.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="191"/>
         <source>Corrupt File</source>
-        <translation type="unfinished">Tệp bị hỏng</translation>
+        <translation>Tệp bị hỏng</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="192"/>
         <source>Sorry, that file is corrupt and needs to be deleted.</source>
-        <translation type="unfinished">Xin lỗi, tệp đó đã bị hỏng và cần phải bị xóa.</translation>
+        <translation>Rất tiếc, tệp đó đã bị hỏng và cần phải bị xóa.</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="99"/>
@@ -1820,7 +1820,9 @@ Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn 
         <source>A report is only to be used when you encounter content that violates the community guidelines.
 
 Do not use this tool for reporting content that you simply don&apos;t like.</source>
-        <translation type="unfinished"></translation>
+        <translation>Báo cáo chỉ được sử dụng khi bạn gặp nội dung vi phạm nguyên tắc cộng đồng.
+
+Không sử dụng công cụ này để báo cáo nội dung mà bạn chỉ không thích.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="109"/>
@@ -1835,37 +1837,37 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../private/reportwidget.ui" line="252"/>
         <source>INFRINGING CONTENT</source>
-        <translation type="unfinished"></translation>
+        <translation>NỘI DUNG VI PHẠM</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="259"/>
         <source>Here&apos;s a screenshot that will be sent along with this report.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đây là một ảnh chụp màn hình sẽ bị gửi với báo cáo này.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="306"/>
         <source>Abusive or Hateful</source>
-        <translation type="unfinished"></translation>
+        <translation>Lạm dụng hoặc căm thù</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="313"/>
         <source>Violent</source>
-        <translation type="unfinished"></translation>
+        <translation>Hung bạo</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="320"/>
         <source>Other (or violates the community guidelines in some other way)</source>
-        <translation type="unfinished"></translation>
+        <translation>Khác (hoặc vi phạm các nguyên tắc cộng đồng theo cách khác)</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="327"/>
         <source>Advertising</source>
-        <translation type="unfinished"></translation>
+        <translation>Quảng cáo</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="334"/>
         <source>Infringes Copyright</source>
-        <translation type="unfinished"></translation>
+        <translation>Vi phạm bản quyền</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="341"/>
@@ -1875,61 +1877,63 @@ Do not use this tool for reporting content that you simply don&apos;t like.</sou
     <message>
         <location filename="../private/reportwidget.ui" line="292"/>
         <source>Spam</source>
-        <translation type="unfinished"></translation>
+        <translation>Nội dung rác</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="397"/>
         <source>Once you&apos;re happy with this report, hit the submit button to send it to us for review.
 
 While we do review all content reports, you may not receive a response once we have made a decision.</source>
-        <translation type="unfinished"></translation>
+        <translation>Khi bạn hài lòng với báo cáo này, bấm nút gửi để gửi cho chúng tôi để xem.
+
+Chúng tôi đảm bảo rằng chúng tôi xem tất cả các báo cáo nội dung, nhưng bạn có thể không nghe lại khi chúng tôi thực hiện một giải quyết.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="354"/>
         <source>EXPLAIN</source>
-        <translation type="unfinished"></translation>
+        <translation>GIẢI THÍCH</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="299"/>
         <source>What&apos;s wrong with this content?</source>
-        <translation type="unfinished"></translation>
+        <translation>Có gì với nội dung này?</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="361"/>
         <source>Promotes Racism</source>
-        <translation type="unfinished"></translation>
+        <translation>Phân biệt chủng tộc</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="390"/>
         <source>SUBMIT</source>
-        <translation type="unfinished"></translation>
+        <translation>GỬI</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="411"/>
         <location filename="../private/reportwidget.cpp" line="71"/>
         <source>Submit</source>
-        <translation type="unfinished"></translation>
+        <translation>Gửi</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="519"/>
         <source>Content Report Submitted</source>
-        <translation type="unfinished"></translation>
+        <translation>Đã gửi báo cáo nội dung</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="535"/>
         <source>CONTENT REPORT SUBMITTED</source>
-        <translation type="unfinished"></translation>
+        <translation>ĐÃ GỬI BÁO CÁO NỘI DUNG</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="542"/>
         <source>Thanks for that. We&apos;ve received your report and we&apos;ll review it soon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cảm ơn bạn. Chúng tôi đã nhận báo cáo của bạn và mình sẽ xem nó.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.ui" line="556"/>
         <location filename="../private/reportwidget.cpp" line="82"/>
         <source>Done</source>
-        <translation type="unfinished">Kết thúc</translation>
+        <translation>Kết thúc</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="60"/>
@@ -1946,22 +1950,22 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../private/reportwidget.cpp" line="250"/>
         <source>Complete the form</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoàn thành biểu mẫu</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="251"/>
         <source>Please select a reason for sending this content report.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vui lòng chọn một lý do gửi báo cáo này.</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="275"/>
         <source>Content Report not sent</source>
-        <translation type="unfinished"></translation>
+        <translation>Báo cáo nội dung chưa gửi</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="276"/>
         <source>Sorry, there was a problem sending your content report.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rất tiếc, chúng tôi gặp một vấn đề khi gửi báo cáo nội dung của bạn.</translation>
     </message>
 </context>
 <context>
