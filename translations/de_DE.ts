@@ -11,7 +11,7 @@
     <message>
         <location filename="../online/accountdialog.ui" line="285"/>
         <source>VERIFY YOUR EMAIL</source>
-        <translation type="unfinished">BESTÄTIGE DEINE E-MAIL</translation>
+        <translation>BESTÄTIGE DEINE E-MAIL</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="292"/>
@@ -21,47 +21,47 @@
     <message>
         <location filename="../online/accountdialog.ui" line="320"/>
         <source>Resend Verification Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifikations-Email erneut senden</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="327"/>
         <source>Enter Verification Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifikations-Code eingeben</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="345"/>
         <source>PROFILE</source>
-        <translation type="unfinished"></translation>
+        <translation>PROFIL</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="355"/>
         <source>Change Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzernamen ändern</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="362"/>
         <source>Change Profile Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Profilbild ändern</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="369"/>
         <source>Change Email Address</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail Adresse ändern</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="382"/>
         <source>SECURITY</source>
-        <translation type="unfinished"></translation>
+        <translation>SICHERHEIT</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="392"/>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="399"/>
         <source>Set up Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>2 Faktor Authentifizierung einrichten</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="412"/>
@@ -71,96 +71,96 @@
     <message>
         <location filename="../online/accountdialog.ui" line="422"/>
         <source>View Terms and Community Guidelines</source>
-        <translation type="unfinished"></translation>
+        <translation>Nutzungsbedingungen und Community-Richtlinien anzeigen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.ui" line="266"/>
         <location filename="../online/accountdialog.cpp" line="78"/>
         <location filename="../online/accountdialog.cpp" line="80"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Abmelden</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="48"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Auswählen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="49"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="79"/>
         <source>Log out of %1?</source>
-        <translation type="unfinished"></translation>
+        <translation>Aus %1 ausloggen?</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="110"/>
         <source>What&apos;s your new username?</source>
-        <translation type="unfinished"></translation>
+        <translation>Was ist dein neuer Benutzername?</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="113"/>
         <location filename="../online/accountdialog.cpp" line="272"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestätige das Passwort für deinen Account</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="128"/>
         <location filename="../online/accountdialog.cpp" line="144"/>
         <source>Changing username failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändern des Benutzernamens Fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="129"/>
         <source>Try changing your username at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Versuche Deinen Benutzernamen zu einem späteren Zeitpunkt zu ändern.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="132"/>
         <source>Username changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzername geändert</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="133"/>
         <source>Your username has been changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dein Benutzername wurde geändert.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="174"/>
         <source>Couldn&apos;t retrieve account information</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontoinformationen konnten nicht abgerufen werden</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="196"/>
         <source>Verification Email Resent</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifikations-E-Mail erneut gesendet</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="197"/>
         <source>Check your mailbox for the verification code. You may have to check your spam folder.</source>
-        <translation type="unfinished"></translation>
+        <translation>Überprüfe deinen Posteingang nach einem Bestätigungscode. Möglicherweise musst du deinen Spam-Ordner überprüfen.</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="206"/>
         <source>Couldn&apos;t resend verification email</source>
-        <translation type="unfinished"></translation>
+        <translation>Konnte Verifikations-E-Mail nicht erneut schicken</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="219"/>
         <source>Enter the verification code</source>
-        <translation type="unfinished"></translation>
+        <translation>Gib den Verifikations-Code ein</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="219"/>
         <source>Enter a valid verification code</source>
-        <translation type="unfinished"></translation>
+        <translation>Gib einen gültigen Verifikations-Code ein</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="235"/>
         <source>Email Verification Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail Verifikation Fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../online/accountdialog.cpp" line="236"/>
