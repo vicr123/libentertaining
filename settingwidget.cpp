@@ -115,6 +115,7 @@ void SettingWidget::keyPressEvent(QKeyEvent* event) {
             QApplication::sendEvent(this, &event);
             QKeyEvent event1(QKeyEvent::KeyRelease, Qt::Key_Tab, Qt::NoModifier);
             QApplication::sendEvent(this, &event1);
+            break;
         }
         case Qt::Key_Right: {
             switch (d->type) {
