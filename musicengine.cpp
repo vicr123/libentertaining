@@ -26,6 +26,7 @@
 #include <QQueue>
 #include <QAudioOutput>
 #include <QAudioDecoder>
+#include <QPointer>
 #include <tapplication.h>
 
 struct MusicEnginePrivate {
@@ -33,7 +34,7 @@ struct MusicEnginePrivate {
 
 //    QMediaPlayer* backgroundMusic;
     QAudioOutput* backgroundOutput = nullptr;
-    QIODevice* backgroundSink = nullptr;
+    QPointer<QIODevice> backgroundSink = nullptr;
     bool playingBackgroudMusic = false;
 
     QAudioFormat format;
@@ -308,6 +309,9 @@ QList<QUrl> MusicEngine::resolveAudioResource(QString audioResource) {
 }
 
 void MusicEngine::fillAudioBuffer() {
+    //Make sure the background sink is open
+    if (!d->backgroundSink) return;
+
     quint64 startData = d->backgroundStart.length();
     quint64 totalData = d->backgroundLoop.length() + startData;
     if (totalData == 0) {
