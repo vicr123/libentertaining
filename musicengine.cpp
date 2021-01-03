@@ -146,18 +146,16 @@ void MusicEngine::pauseBackgroundMusic() {
     d->playingBackgroudMusic = false;
 }
 
-void MusicEngine::setMuteMusic(bool mute) {
+void MusicEngine::setUserBackgroundVolume(qreal volume) {
     ensureInstance();
 
-//    d->backgroundMusic->setVolume(mute ? 0 : 100);
-    d->backgroundOutput->setVolume(mute ? 0 : 100);
+    d->backgroundOutput->setVolume(volume);
 }
 
-bool MusicEngine::isMusicMuted() {
+qreal MusicEngine::userBackgroundVolume() {
     ensureInstance();
 
-//    return d->backgroundMusic->volume() == 0 ? true : false;
-    return d->backgroundOutput->volume() == 0 ? true : false;
+    return d->backgroundOutput->volume();
 }
 
 void MusicEngine::playSoundEffect(MusicEngine::KnownSoundEffect effect) {
@@ -218,10 +216,15 @@ MusicEngine::MusicEngine(QObject* parent) : QObject(parent) {
     d->format.setSampleType(QAudioFormat::UnSignedInt);
 
     d->backgroundOutput = new QAudioOutput(d->format);
-    d->backgroundOutput->setBufferSize(100000);
+    d->backgroundOutput->setBufferSize(d->format.sampleRate() * d->format.channelCount() / 4);
     d->backgroundOutput->setNotifyInterval(100);
     connect(d->backgroundOutput, &QAudioOutput::notify, this, [ = ] {
         fillAudioBuffer();
+    });
+    connect(d->backgroundOutput, &QAudioOutput::stateChanged, this, [ = ](QAudio::State state) {
+        if (state == QAudio::IdleState) {
+            fillAudioBuffer();
+        }
     });
 }
 

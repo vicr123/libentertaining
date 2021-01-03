@@ -44,8 +44,8 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject {
         static void playBackgroundMusic();
         static void pauseBackgroundMusic();
 
-        static void setMuteMusic(bool mute);
-        static bool isMusicMuted();
+        static void setUserBackgroundVolume(qreal volume);
+        static qreal userBackgroundVolume();
 
         static void playSoundEffect(KnownSoundEffect effect);
         static void playSoundEffect(QUrl path);

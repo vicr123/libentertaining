@@ -10,17 +10,17 @@ namespace Ui {
 }
 
 struct SettingWidgetPrivate;
-class LIBENTERTAINING_EXPORT SettingWidget : public QWidget
-{
+class LIBENTERTAINING_EXPORT SettingWidget : public QWidget {
         Q_OBJECT
 
     public:
         enum Type {
             Boolean,
-            Text
+            Text,
+            Range
         };
 
-        explicit SettingWidget(QWidget* parent, Type type, QString text, QString key, QVariant defaultValue, QVariantMap metadata = QVariantMap());
+        explicit SettingWidget(QWidget* parent, Type type, QString text, QString key, QVariantMap metadata = QVariantMap());
         ~SettingWidget();
 
     public slots:
@@ -32,7 +32,7 @@ class LIBENTERTAINING_EXPORT SettingWidget : public QWidget
         void hasFocus();
 
     private:
-        Ui::SettingWidget *ui;
+        Ui::SettingWidget* ui;
         SettingWidgetPrivate* d;
 
         void keyPressEvent(QKeyEvent* event);

@@ -5,23 +5,23 @@
 #include <QKeyEvent>
 #include <musicengine.h>
 #include <tswitch.h>
+#include <tsettings.h>
+#include <QSlider>
 #include "textinputoverlay.h"
 
 struct SettingWidgetPrivate {
-    QSettings settings;
+    tSettings settings;
     QVariant currentValue;
 
     SettingWidget::Type type;
     QString key;
     QWidget* stateWidget;
     QVariantMap metadata;
-    QVariant defaultValue;
 };
 
-SettingWidget::SettingWidget(QWidget *parent, Type type, QString text, QString key, QVariant defaultValue, QVariantMap metadata) :
+SettingWidget::SettingWidget(QWidget* parent, Type type, QString text, QString key, QVariantMap metadata) :
     QWidget(parent),
-    ui(new Ui::SettingWidget)
-{
+    ui(new Ui::SettingWidget) {
     ui->setupUi(this);
 
     d = new SettingWidgetPrivate();
@@ -29,9 +29,8 @@ SettingWidget::SettingWidget(QWidget *parent, Type type, QString text, QString k
     d->type = type;
     d->key = key;
     d->metadata = metadata;
-    d->defaultValue = defaultValue;
     ui->textLabel->setText(text);
-    d->currentValue = d->settings.value(key, defaultValue);
+    d->currentValue = d->settings.value(key);
 
     switch (type) {
         case Boolean: {
@@ -46,17 +45,30 @@ SettingWidget::SettingWidget(QWidget *parent, Type type, QString text, QString k
             installStateWidget(l);
             break;
         }
+        case Range: {
+            QSlider* s = new QSlider(this);
+            s->setOrientation(Qt::Horizontal);
+//            s->setFixedSize(SC_DPI(300), s->sizeHint().height());
+            s->setMaximum(metadata.value("maximum", 100).toInt());
+            s->setValue(d->currentValue.toInt());
+            installStateWidget(s);
+
+            connect(s, &QSlider::valueChanged, this, [ = ](int value) {
+                d->currentValue = value;
+                updateStateWidget();
+                emit settingChanged(d->currentValue);
+            });
+            break;
+        }
     }
 }
 
-SettingWidget::~SettingWidget()
-{
+SettingWidget::~SettingWidget() {
     delete d;
     delete ui;
 }
 
-void SettingWidget::activate()
-{
+void SettingWidget::activate() {
     MusicEngine::playSoundEffect(MusicEngine::Selection);
     switch (d->type) {
         case Boolean: {
@@ -70,19 +82,21 @@ void SettingWidget::activate()
                 d->currentValue = set;
             }
         }
+        case Range: {
+            //Do Nothing
+            break;
+        }
     }
     updateStateWidget();
     emit settingChanged(d->currentValue);
 }
 
-void SettingWidget::updateSetting()
-{
-    d->currentValue = d->settings.value(d->key, d->defaultValue);
+void SettingWidget::updateSetting() {
+    d->currentValue = d->settings.value(d->key);
     updateStateWidget();
 }
 
-void SettingWidget::keyPressEvent(QKeyEvent* event)
-{
+void SettingWidget::keyPressEvent(QKeyEvent* event) {
     switch (event->key()) {
         case Qt::Key_Enter:
         case Qt::Key_Return:
@@ -96,55 +110,82 @@ void SettingWidget::keyPressEvent(QKeyEvent* event)
             QApplication::sendEvent(this, &event1);
             break;
         }
-        case Qt::Key_Down:{
+        case Qt::Key_Down: {
             QKeyEvent event(QKeyEvent::KeyPress, Qt::Key_Tab, Qt::NoModifier);
             QApplication::sendEvent(this, &event);
             QKeyEvent event1(QKeyEvent::KeyRelease, Qt::Key_Tab, Qt::NoModifier);
             QApplication::sendEvent(this, &event1);
         }
+        case Qt::Key_Right: {
+            switch (d->type) {
+                case Range: {
+                    d->currentValue = d->currentValue.toInt() + d->metadata.value("step", 10).toInt();
+                    updateStateWidget();
+                    emit settingChanged(d->currentValue);
+                    break;
+                }
+                default:
+                    break;
+            }
+            break;
+        }
+        case Qt::Key_Left: {
+            switch (d->type) {
+                case Range: {
+                    d->currentValue = d->currentValue.toInt() - d->metadata.value("step", 10).toInt();
+                    updateStateWidget();
+                    emit settingChanged(d->currentValue);
+                    break;
+                }
+                default:
+                    break;
+            }
+            break;
+        }
     }
 }
 
-void SettingWidget::mousePressEvent(QMouseEvent* event)
-{
+void SettingWidget::mousePressEvent(QMouseEvent* event) {
     if (event->button() == Qt::LeftButton) {
         event->accept();
     }
 }
 
-void SettingWidget::mouseReleaseEvent(QMouseEvent* event)
-{
+void SettingWidget::mouseReleaseEvent(QMouseEvent* event) {
     if (event->button() == Qt::LeftButton && this->geometry().contains(this->mapToParent(event->pos()))) {
         activate();
     }
 }
 
-void SettingWidget::focusInEvent(QFocusEvent* event)
-{
+void SettingWidget::focusInEvent(QFocusEvent* event) {
     emit hasFocus();
 }
 
-void SettingWidget::installStateWidget(QWidget* w)
-{
+void SettingWidget::installStateWidget(QWidget* w) {
     w->setFocusPolicy(Qt::NoFocus);
-    w->setAttribute(Qt::WA_TransparentForMouseEvents);
+    if (d->type != Range) w->setAttribute(Qt::WA_TransparentForMouseEvents);;
     ui->typeLayout->addWidget(w);
     d->stateWidget = w;
 }
 
-void SettingWidget::updateStateWidget()
-{
+void SettingWidget::updateStateWidget() {
     switch (d->type) {
         case Boolean: {
             tSwitch* s = qobject_cast<tSwitch*>(d->stateWidget);
             s->setChecked(d->currentValue.toBool());
-            d->settings.setValue(d->key, d->currentValue);
+            d->settings.setValue(d->key, d->currentValue.toBool());
             break;
         }
         case Text: {
             QLabel* l = qobject_cast<QLabel*>(d->stateWidget);
             l->setText(d->currentValue.toString());
             d->settings.setValue(d->key, d->currentValue.toString());
+            break;
+        }
+        case Range: {
+            QSlider* s = qobject_cast<QSlider*>(d->stateWidget);
+            s->setValue(d->currentValue.toInt());
+            d->settings.setValue(d->key, d->currentValue.toInt());
         }
     }
 }
