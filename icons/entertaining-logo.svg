@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666665 8.4666672"
+   version="1.1"
+   id="svg1761"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="entertaining-logo.svg">
+  <defs
+     id="defs1755">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient896"
+       id="linearGradient898"
+       x1="5.2916665"
+       y1="3.96875"
+       x2="5.2916665"
+       y2="5.0270834"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(6.9146717,128.81429)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient896">
+      <stop
+         style="stop-color:#c8c8c8;stop-opacity:1"
+         offset="0"
+         id="stop892" />
+      <stop
+         style="stop-color:#c8c8c8;stop-opacity:0"
+         offset="1"
+         id="stop894" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient896"
+       id="linearGradient908"
+       x1="3.96875"
+       y1="5.2916665"
+       x2="5.0270834"
+       y2="6.3499999"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(6.9146717,128.81429)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="181.47114"
+     inkscape:cy="48.21268"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     fit-margin-top="2"
+     fit-margin-bottom="2"
+     fit-margin-right="2"
+     fit-margin-left="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="2560"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1758">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-6.9146719,-128.81428)">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-linecap:round;stroke-linejoin:round"
+       id="rect871"
+       width="7.4083333"
+       height="7.4083333"
+       x="7.4438386"
+       y="129.34344"
+       ry="0.52916676" />
+    <path
+       style="fill:#00af00;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 10.354255,132.78304 1.852083,-1.85209 1.852084,1.85209 z"
+       id="path873-6" />
+    <path
+       style="fill:url(#linearGradient898);fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 10.354255,132.78304 1.058333,1.05833 h 3.439584 l -5.73e-4,-0.42379 -0.793177,-0.63454 z"
+       id="path890"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:#0096ff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7.9730051,133.3122 1.8520834,1.85209 1.8520835,-1.85209 z"
+       id="path873" />
+    <path
+       style="fill:url(#linearGradient908);fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 9.8250884,135.16429 h 1.0583336 1.852083 0.79375 l -1.852083,-1.85209 z"
+       id="path900"
+       sodipodi:nodetypes="cccccc" />
+  </g>
+</svg>

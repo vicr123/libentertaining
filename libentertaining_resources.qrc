@@ -49,5 +49,8 @@
         <file>icons/mouse1.svg</file>
         <file>icons/mouse2.svg</file>
         <file>icons/mouse3.svg</file>
+        <file>icons/entertaining-logo.svg</file>
+        <file>icons/entertaining-logo-wordmark.svg</file>
+        <file>icons/entertaining-logo-wordmark-dark.svg</file>
     </qresource>
 </RCC>
