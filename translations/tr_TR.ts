@@ -252,7 +252,7 @@
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="35"/>
@@ -279,12 +279,12 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="54"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished">Gamepad Bağlantısı Kesildi</translation>
+        <translation>Gamepad Bağlantısı Kesildi</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="55"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished">Test ettiğiniz oyun kumandasının bağlantısı kesildi.</translation>
+        <translation>Test ettiğiniz oyun kumandasının bağlantısı kesildi.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="116"/>
@@ -302,7 +302,7 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="36"/>
@@ -576,7 +576,7 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="35"/>
@@ -586,12 +586,12 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="37"/>
         <source>Select</source>
-        <translation type="unfinished">Seç</translation>
+        <translation>Seç</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished">Geri</translation>
+        <translation>Geri</translation>
     </message>
 </context>
 <context>
@@ -610,12 +610,12 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadbuttons.cpp" line="361"/>
         <source>PlayStation</source>
-        <translation type="unfinished"></translation>
+        <translation>PlayStation</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="363"/>
         <source>Nintendo</source>
-        <translation type="unfinished"></translation>
+        <translation>Nintendo</translation>
     </message>
 </context>
 <context>
