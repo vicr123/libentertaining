@@ -29,7 +29,7 @@
 
 struct OnlineApiPrivate {
     OnlineApi* instance = nullptr;
-    QSettings* settings = EntertainingSettings::instance();
+    tSettings* settings = EntertainingSettings::instance();
 
     QNetworkAccessManager* mgr;
     QString loggedInUsername;
@@ -92,14 +92,14 @@ tPromise<OnlineWebSocket*>* OnlineApi::play(QString applicationName, QString app
     url.setScheme(isServerSecure() ? "wss" : "ws");
     url.setPath("/api/play");
 
-    if (d->settings->contains("online/token")) {
+    if (!d->settings->value("online/token").toString().isEmpty()) {
         QTimer::singleShot(500, this, [ = ] {
             ws->open(url);
         });
     }
 
     return new tPromise<OnlineWebSocket*>([ = ](std::function<void(OnlineWebSocket*)> res, std::function<void(QString)> rej) {
-        if (!d->settings->contains("online/token")) {
+        if (d->settings->value("online/token").toString().isEmpty()) {
             rej("!" + tr("You are not logged in."));
             return;
         }
@@ -251,7 +251,7 @@ QUrl OnlineApi::urlForPath(QString path) {
 }
 
 void OnlineApi::logOut() {
-    d->settings->remove("online/token");
+    d->settings->setValue("online/token", "");
     d->settings->sync();
     emit loggedOut();
 }
@@ -307,7 +307,7 @@ bool OnlineApi::isServerSecure() {
 }
 
 QString OnlineApi::authorizationHeader() {
-    if (d->settings->contains("online/token")) {
+    if (!d->settings->value("online/token").toString().isEmpty()) {
         return "Token " + d->settings->value("online/token").toString();
     } else {
         return "";

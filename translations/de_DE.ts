@@ -248,6 +248,69 @@
     </message>
 </context>
 <context>
+    <name>ButtonMapping</name>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="35"/>
+        <source>Map Gamepad Buttons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="87"/>
+        <source>MAP BUTTONS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="94"/>
+        <source>Select a button to map, and then press the button on your gamepad to map it to.
+
+Multiple buttons on the controller may be mapped to one button.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="113"/>
+        <source>Reset Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="54"/>
+        <source>Gamepad Disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="55"/>
+        <source>The gamepad that you were testing was disconnected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="116"/>
+        <source>Gamepad Buttons Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="117"/>
+        <source>Button mappings for this gamepad have been reset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ButtonMappingItem</name>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="36"/>
+        <source>Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FriendPage</name>
     <message>
         <location filename="../private/friendpage.ui" line="91"/>
@@ -421,12 +484,12 @@
     <message>
         <location filename="../online/friendsdialog.cpp" line="75"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="76"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../online/friendsdialog.cpp" line="119"/>
@@ -509,11 +572,49 @@
     </message>
 </context>
 <context>
+    <name>GamepadButtonIconSelectionDialog</name>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="35"/>
+        <source>Icon Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="37"/>
+        <source>Select</source>
+        <translation type="unfinished">Auswählen</translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="38"/>
+        <source>Back</source>
+        <translation type="unfinished">Zurück</translation>
+    </message>
+</context>
+<context>
     <name>GamepadButtons</name>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="130"/>
-        <location filename="../gamepadbuttons.cpp" line="140"/>
+        <location filename="../gamepadbuttons.cpp" line="177"/>
+        <location filename="../gamepadbuttons.cpp" line="187"/>
         <source>No Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="359"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="361"/>
+        <source>PlayStation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="363"/>
+        <source>Nintendo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -536,60 +637,78 @@
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="222"/>
+        <source>Icon Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="235"/>
+        <source>GLOBAL GAMEPAD SETTINGS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="249"/>
+        <source>These settings apply to all gamepads.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="327"/>
         <source>GAMEPAD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="231"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="336"/>
         <source>Configure Button Mappings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="238"/>
-        <source>Configure Button Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="278"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="376"/>
         <source>DIAGNOSTICS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="287"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="385"/>
         <source>Check Buttons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="294"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="392"/>
         <source>Check Sticks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="44"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="50"/>
         <source>Gamepad ID: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="71"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="60"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="72"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
 </context>
 <context>
     <name>GamepadListener</name>
     <message>
-        <location filename="../private/gamepadlistener.cpp" line="73"/>
+        <location filename="../private/gamepadlistener.cpp" line="72"/>
         <source>Gamepad Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/gamepadlistener.cpp" line="63"/>
+        <location filename="../private/gamepadlistener.cpp" line="62"/>
         <source>Gamepad Disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GamepadModel</name>
+    <message>
+        <location filename="../private/gamepadmodel.cpp" line="50"/>
+        <source>Global Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -630,12 +749,12 @@
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="37"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../keyboards/layoutselect.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
 </context>
 <context>
@@ -659,7 +778,7 @@
     <message>
         <location filename="../private/loaddialog.cpp" line="52"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../private/loaddialog.cpp" line="53"/>
@@ -719,12 +838,12 @@
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="35"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../private/loaddialogfileoptions.cpp" line="36"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
 </context>
 <context>
@@ -846,14 +965,14 @@
         <location filename="../online/logindialog.cpp" line="87"/>
         <location filename="../online/logindialog.cpp" line="105"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="71"/>
         <location filename="../online/logindialog.cpp" line="89"/>
         <location filename="../online/logindialog.cpp" line="106"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../online/logindialog.cpp" line="172"/>
@@ -1235,7 +1354,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.ui" line="255"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abmelden</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.ui" line="258"/>
@@ -1280,13 +1399,13 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../online/onlineterms.cpp" line="124"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="125"/>
         <location filename="../online/onlineterms.cpp" line="132"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../online/onlineterms.cpp" line="178"/>
@@ -1343,7 +1462,7 @@ If it&apos;s been more than a day since you received the verification email, you
     <message>
         <location filename="../private/otpsetupdialog.ui" line="161"/>
         <source>Set up Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2 Faktor Authentifizierung einrichten</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="217"/>
@@ -1438,18 +1557,18 @@ If it&apos;s been more than a day since you received the verification email, you
         <location filename="../private/otpsetupdialog.cpp" line="53"/>
         <location filename="../private/otpsetupdialog.cpp" line="61"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="54"/>
         <location filename="../private/otpsetupdialog.cpp" line="62"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="95"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bestätige das Passwort für deinen Account</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="133"/>
@@ -1593,7 +1712,7 @@ If it&apos;s been more than a day since you received the verification email, you
         <location filename="../private/passwordchangedialog.ui" line="194"/>
         <location filename="../private/passwordchangedialog.cpp" line="47"/>
         <source>Change Password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Passwort ändern</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="139"/>
@@ -1621,12 +1740,12 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="46"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="87"/>
@@ -1651,7 +1770,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="105"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bestätige das Passwort für deinen Account</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="123"/>
@@ -1709,12 +1828,12 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../questionoverlay.cpp" line="42"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="43"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="104"/>
@@ -1925,13 +2044,13 @@ While we do review all content reports, you may not receive a response once we h
         <location filename="../private/reportwidget.cpp" line="60"/>
         <location filename="../private/reportwidget.cpp" line="69"/>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auswählen</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="61"/>
         <location filename="../private/reportwidget.cpp" line="70"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="250"/>
@@ -1975,7 +2094,7 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../private/savedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurück</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="98"/>

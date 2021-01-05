@@ -24,6 +24,7 @@
 #include <QToolButton>
 #include "gamepadevent.h"
 #include "gamepadbuttons.h"
+#include "private/entertainingsettings.h"
 
 struct GamepadHudPrivate {
     QMap<QGamepadManager::GamepadButton, QToolButton*> hudItems;
@@ -38,46 +39,44 @@ struct GamepadHudPrivate {
     bool isShowingGamepadButtons = false;
 };
 
-GamepadHud::GamepadHud(QWidget *parent) :
+GamepadHud::GamepadHud(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::GamepadHud)
-{
+    ui(new Ui::GamepadHud) {
     ui->setupUi(this);
     d = new GamepadHudPrivate();
 
     this->setParent(parent);
-    connect(static_cast<QApplication*>(QApplication::instance()), &QApplication::focusChanged, this, [=](QWidget* oldFocus, QWidget* newFocus) {
+    connect(static_cast<QApplication*>(QApplication::instance()), &QApplication::focusChanged, this, [ = ](QWidget * oldFocus, QWidget * newFocus) {
         if (oldFocus) oldFocus->removeEventFilter(this);
         if (newFocus) newFocus->installEventFilter(this);
     });
+
+    connect(EntertainingSettings::instance(), &tSettings::settingChanged, this, [ = ](QString key, QVariant value) {
+        if (key == "gamepad/icons") this->setShowGamepadButtons(d->isShowingGamepadButtons);
+    });
 }
 
-GamepadHud::~GamepadHud()
-{
+GamepadHud::~GamepadHud() {
     delete ui;
     delete d;
 }
 
-void GamepadHud::setParent(QWidget* parent)
-{
+void GamepadHud::setParent(QWidget* parent) {
     if (d->parent != nullptr) d->parent->removeEventFilter(this);
     QWidget::setParent(parent);
     d->parent = parent;
     if (parent != nullptr) parent->installEventFilter(this);
 }
 
-void GamepadHud::addListener(QWidget*listenTo)
-{
+void GamepadHud::addListener(QWidget* listenTo) {
     listenTo->installEventFilter(this);
 }
 
-void GamepadHud::removeListener(QWidget*listenTo)
-{
+void GamepadHud::removeListener(QWidget* listenTo) {
     listenTo->removeEventFilter(this);
 }
 
-void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString text)
-{
+void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString text) {
 //    d->buttonText.insert(button, text);
     QToolButton* item;
     if (d->hudItems.contains(button)) {
@@ -98,7 +97,7 @@ void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString te
             item->setIcon(GamepadButtons::iconForKey(d->keyBinds.key(button), this->font(), this->palette()));
         }
 
-        connect(item, &QToolButton::clicked, this, [=] {
+        connect(item, &QToolButton::clicked, this, [ = ] {
             if (d->buttonActions.contains(button)) {
                 d->buttonActions.value(button)();
             }
@@ -111,13 +110,11 @@ void GamepadHud::setButtonText(QGamepadManager::GamepadButton button, QString te
     item->setText(text);
 }
 
-void GamepadHud::setButtonAction(QGamepadManager::GamepadButton button, std::function<void ()> action)
-{
+void GamepadHud::setButtonAction(QGamepadManager::GamepadButton button, std::function<void ()> action) {
     d->buttonActions.insert(button, action);
 }
 
-void GamepadHud::removeText(QGamepadManager::GamepadButton button)
-{
+void GamepadHud::removeText(QGamepadManager::GamepadButton button) {
     if (d->hudItems.contains(button)) {
         QToolButton* item = d->hudItems.value(button);
         d->hudItems.remove(button);
@@ -126,13 +123,11 @@ void GamepadHud::removeText(QGamepadManager::GamepadButton button)
     }
 }
 
-void GamepadHud::removeButtonAction(QGamepadManager::GamepadButton button)
-{
+void GamepadHud::removeButtonAction(QGamepadManager::GamepadButton button) {
     d->buttonActions.remove(button);
 }
 
-void GamepadHud::bindKey(QKeySequence key, QGamepadManager::GamepadButton button)
-{
+void GamepadHud::bindKey(QKeySequence key, QGamepadManager::GamepadButton button) {
     d->keyBinds.insert(key, button);
     if (!d->isShowingGamepadButtons) {
         QToolButton* item = d->hudItems.value(button);
@@ -140,18 +135,16 @@ void GamepadHud::bindKey(QKeySequence key, QGamepadManager::GamepadButton button
     }
 }
 
-void GamepadHud::unbindKey(QKeySequence key)
-{
+void GamepadHud::unbindKey(QKeySequence key) {
     QToolButton* item = d->hudItems.value(d->keyBinds.value(key));
     if (item) item->setIcon(GamepadButtons::iconForButton(d->keyBinds.value(key), this->palette().color(QPalette::WindowText)));
     d->keyBinds.remove(key);
 }
 
-std::function<void ()> GamepadHud::standardAction(GamepadHud::StandardAction action)
-{
+std::function<void ()> GamepadHud::standardAction(GamepadHud::StandardAction action) {
     switch (action) {
         case GamepadHud::SelectAction:
-            return [=] {
+            return [ = ] {
                 QKeyEvent event(QKeyEvent::KeyPress, Qt::Key_Space, Qt::NoModifier);
                 QApplication::sendEvent(QApplication::focusWidget(), &event);
 
@@ -161,8 +154,7 @@ std::function<void ()> GamepadHud::standardAction(GamepadHud::StandardAction act
     }
 }
 
-bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
-{
+bool GamepadHud::eventFilter(QObject* watched, QEvent* event) {
     if (watched == QApplication::focusWidget()) {
         if (event->spontaneous() && event->type() == QEvent::KeyPress && d->isShowingGamepadButtons) {
             setShowGamepadButtons(false);
@@ -194,25 +186,24 @@ bool GamepadHud::eventFilter(QObject*watched, QEvent*event)
         }
     } else if (watched == d->parent && event->type() == QEvent::KeyRelease) {
         QKeyEvent* e = static_cast<QKeyEvent*>(event);
-        #ifdef Q_OS_ANDROID
-            if (e->key() == Qt::Key_Back) {
-                if (d->buttonActions.contains(QGamepadManager::ButtonB)) {
-                    //Run the back action
-                    d->buttonActions.value(QGamepadManager::ButtonB)();
-                } else if (d->buttonActions.contains(QGamepadManager::ButtonStart)) {
-                    //Run the pause action
-                    d->buttonActions.value(QGamepadManager::ButtonStart)();
-                }
-                event->accept();
-                return true;
+#ifdef Q_OS_ANDROID
+        if (e->key() == Qt::Key_Back) {
+            if (d->buttonActions.contains(QGamepadManager::ButtonB)) {
+                //Run the back action
+                d->buttonActions.value(QGamepadManager::ButtonB)();
+            } else if (d->buttonActions.contains(QGamepadManager::ButtonStart)) {
+                //Run the pause action
+                d->buttonActions.value(QGamepadManager::ButtonStart)();
             }
-        #endif
+            event->accept();
+            return true;
+        }
+#endif
     }
     return false;
 }
 
-void GamepadHud::setShowGamepadButtons(bool showGamepadButtons)
-{
+void GamepadHud::setShowGamepadButtons(bool showGamepadButtons) {
     d->isShowingGamepadButtons = showGamepadButtons;
     for (QGamepadManager::GamepadButton btn : d->hudItems.keys()) {
         QToolButton* button = d->hudItems.value(btn);

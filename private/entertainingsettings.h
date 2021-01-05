@@ -20,15 +20,14 @@
 #ifndef ENTERTAININGSETTINGS_H
 #define ENTERTAININGSETTINGS_H
 
-#include <QSettings>
+#include <tsettings.h>
 
-class EntertainingSettings
-{
+class EntertainingSettings {
     public:
-        static QSettings* instance();
+        static tSettings* instance();
 
     private:
-        static QSettings* i;
+        static tSettings* i;
 };
 
 #endif // ENTERTAININGSETTINGS_H

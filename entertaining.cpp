@@ -28,12 +28,17 @@
 #include "private/entertainingsettings.h"
 #include "private/applicationeventfilter.h"
 
-void Entertaining::initialize()
-{
+void Entertaining::initialize() {
     Entertaining* e = new Entertaining();
 
     Q_INIT_RESOURCE(libentertaining_resources);
     Q_INIT_RESOURCE(libentertaining_translations);
+
+    tSettings::registerDefaults(SETTINGS_ORGANISATION, SETTINGS_APPLICATION, ":/libentertaining/defaults.conf");
+
+    QSettings gamepadSettings(QSettings::IniFormat, QSettings::UserScope, SETTINGS_ORGANISATION, QStringLiteral(SETTINGS_APPLICATION).append("-gamepads"));
+    QGamepadManager::instance()->setSettingsFile(gamepadSettings.fileName());
+
     new GamepadListener();
 
     QTranslator* translator = new QTranslator();

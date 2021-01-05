@@ -248,6 +248,69 @@
     </message>
 </context>
 <context>
+    <name>ButtonMapping</name>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="35"/>
+        <source>Map Gamepad Buttons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="87"/>
+        <source>MAP BUTTONS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="94"/>
+        <source>Select a button to map, and then press the button on your gamepad to map it to.
+
+Multiple buttons on the controller may be mapped to one button.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.ui" line="113"/>
+        <source>Reset Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="54"/>
+        <source>Gamepad Disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="55"/>
+        <source>The gamepad that you were testing was disconnected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="116"/>
+        <source>Gamepad Buttons Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmapping.cpp" line="117"/>
+        <source>Button mappings for this gamepad have been reset.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ButtonMappingItem</name>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="36"/>
+        <source>Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FriendPage</name>
     <message>
         <location filename="../private/friendpage.ui" line="91"/>
@@ -509,11 +572,49 @@
     </message>
 </context>
 <context>
+    <name>GamepadButtonIconSelectionDialog</name>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="35"/>
+        <source>Icon Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="37"/>
+        <source>Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="38"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GamepadButtons</name>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="130"/>
-        <location filename="../gamepadbuttons.cpp" line="140"/>
+        <location filename="../gamepadbuttons.cpp" line="177"/>
+        <location filename="../gamepadbuttons.cpp" line="187"/>
         <source>No Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="359"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="361"/>
+        <source>PlayStation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="363"/>
+        <source>Nintendo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -536,46 +637,56 @@
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="222"/>
+        <source>Icon Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="235"/>
+        <source>GLOBAL GAMEPAD SETTINGS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="249"/>
+        <source>These settings apply to all gamepads.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadconfigurationoverlay.ui" line="327"/>
         <source>GAMEPAD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="231"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="336"/>
         <source>Configure Button Mappings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="238"/>
-        <source>Configure Button Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="278"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="376"/>
         <source>DIAGNOSTICS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="287"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="385"/>
         <source>Check Buttons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.ui" line="294"/>
+        <location filename="../gamepadconfigurationoverlay.ui" line="392"/>
         <source>Check Sticks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="44"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="50"/>
         <source>Gamepad ID: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="59"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="71"/>
         <source>Select</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadconfigurationoverlay.cpp" line="60"/>
+        <location filename="../gamepadconfigurationoverlay.cpp" line="72"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -583,13 +694,21 @@
 <context>
     <name>GamepadListener</name>
     <message>
-        <location filename="../private/gamepadlistener.cpp" line="73"/>
+        <location filename="../private/gamepadlistener.cpp" line="72"/>
         <source>Gamepad Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/gamepadlistener.cpp" line="63"/>
+        <location filename="../private/gamepadlistener.cpp" line="62"/>
         <source>Gamepad Disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GamepadModel</name>
+    <message>
+        <location filename="../private/gamepadmodel.cpp" line="50"/>
+        <source>Global Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

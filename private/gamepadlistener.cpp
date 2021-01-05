@@ -39,26 +39,25 @@ struct GamepadListenerPrivate {
     QList<int> gamepadsWaitingForNotification;
 };
 
-GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
-{
+GamepadListener::GamepadListener(QObject* parent) : QObject(parent) {
     d = new GamepadListenerPrivate();
 
-    connect(QGamepadManager::instance(), &QGamepadManager::gamepadButtonPressEvent, this, [=](int deviceId, QGamepadManager::GamepadButton button, double value) {
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadButtonPressEvent, this, [ = ](int deviceId, QGamepadManager::GamepadButton button, double value) {
         GamepadEvent event(deviceId, button, value);
         propagateEvent(&event);
     });
-    connect(QGamepadManager::instance(), &QGamepadManager::gamepadButtonReleaseEvent, this, [=](int deviceId, QGamepadManager::GamepadButton button) {
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadButtonReleaseEvent, this, [ = ](int deviceId, QGamepadManager::GamepadButton button) {
         GamepadEvent event(deviceId, button, 0);
         propagateEvent(&event);
     });
-    connect(QGamepadManager::instance(), &QGamepadManager::gamepadAxisEvent, this, [=](int deviceId, QGamepadManager::GamepadAxis axis, double value) {
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadAxisEvent, this, [ = ](int deviceId, QGamepadManager::GamepadAxis axis, double value) {
         GamepadEvent event(deviceId, axis, value);
         propagateEvent(&event);
     });
-    connect(QGamepadManager::instance(), &QGamepadManager::gamepadConnected, this, [=](int deviceId) {
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadConnected, this, [ = ](int deviceId) {
         d->gamepadsWaitingForNotification.append(deviceId);
     });
-    connect(QGamepadManager::instance(), &QGamepadManager::gamepadDisconnected, this, [=](int deviceId) {
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadDisconnected, this, [ = ](int deviceId) {
         NotificationEngine::push({
             tr("Gamepad Disconnected"),
             d->gamepadNames.value(deviceId)
@@ -66,7 +65,7 @@ GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
         d->gamepadNames.remove(deviceId);
         d->gamepadsWaitingForNotification.removeAll(deviceId);
     });
-    connect(QGamepadManager::instance(), &QGamepadManager::gamepadNameChanged, this, [=](int deviceId, QString name) {
+    connect(QGamepadManager::instance(), &QGamepadManager::gamepadNameChanged, this, [ = ](int deviceId, QString name) {
         d->gamepadNames.insert(deviceId, name);
         if (d->gamepadsWaitingForNotification.contains(deviceId)) {
             NotificationEngine::push({
@@ -86,16 +85,18 @@ GamepadListener::GamepadListener(QObject *parent) : QObject(parent)
     connect(d->scrollTimer, &QTimer::timeout, this, &GamepadListener::scroll);
 }
 
-GamepadListener::~GamepadListener()
-{
+GamepadListener::~GamepadListener() {
     delete d;
 }
 
-void GamepadListener::scroll()
-{
+void GamepadListener::scroll() {
     if (!d->currentScrollArea.isNull()) {
+        double xAxis = d->rightAxisX;
+        if (qAbs(xAxis) < 0.1) xAxis = 0;
+        double yAxis = d->rightAxisY;
+        if (qAbs(yAxis) < 0.1) yAxis = 0;
         QPoint gPos = d->currentScrollArea->viewport()->mapToGlobal(QPoint(0, 0));
-        QPointF delta(-10 * d->rightAxisX, -10 * d->rightAxisY);
+        QPointF delta(-20 * xAxis, -20 * yAxis);
 
         QWheelEvent event(QPoint(0, 0), gPos, delta.toPoint(), delta.toPoint(), Qt::NoButton, Qt::NoModifier, Qt::NoScrollPhase, true, Qt::MouseEventNotSynthesized);
         QApplication::sendEvent(d->currentScrollArea->viewport(), &event);
@@ -103,8 +104,7 @@ void GamepadListener::scroll()
 }
 
 #include <QDebug>
-void GamepadListener::propagateEvent(GamepadEvent*event)
-{
+void GamepadListener::propagateEvent(GamepadEvent* event) {
     d->currentScrollArea = nullptr;
 
     QWidget* currentHandling = QApplication::focusWidget();
@@ -125,12 +125,12 @@ void GamepadListener::propagateEvent(GamepadEvent*event)
         Qt::Key key;
         if (event->isButtonEvent()) {
             if (QList<QGamepadManager::GamepadButton>({
-                QGamepadManager::ButtonUp,
-                QGamepadManager::ButtonDown,
-                QGamepadManager::ButtonLeft,
-                QGamepadManager::ButtonRight,
-                QGamepadManager::ButtonA
-            }).contains(event->button())) {
+            QGamepadManager::ButtonUp,
+            QGamepadManager::ButtonDown,
+            QGamepadManager::ButtonLeft,
+            QGamepadManager::ButtonRight,
+            QGamepadManager::ButtonA
+        }).contains(event->button())) {
                 switch (event->button()) {
                     case QGamepadManager::ButtonUp:
                         key = Qt::Key_Up;

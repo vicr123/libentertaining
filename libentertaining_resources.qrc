@@ -52,5 +52,10 @@
         <file>icons/entertaining-logo.svg</file>
         <file>icons/entertaining-logo-wordmark.svg</file>
         <file>icons/entertaining-logo-wordmark-dark.svg</file>
+        <file>defaults.conf</file>
+        <file>icons/btnNINL1.svg</file>
+        <file>icons/btnNINL2.svg</file>
+        <file>icons/btnNINR1.svg</file>
+        <file>icons/btnNINR2.svg</file>
     </qresource>
 </RCC>

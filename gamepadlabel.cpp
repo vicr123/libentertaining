@@ -20,15 +20,16 @@
 #include "gamepadlabel.h"
 
 #include <QPainter>
+#include "private/entertainingsettings.h"
 #include "gamepadbuttons.h"
 
-GamepadLabel::GamepadLabel(QWidget *parent) : QLabel(parent)
-{
-
+GamepadLabel::GamepadLabel(QWidget* parent) : QLabel(parent) {
+    connect(EntertainingSettings::instance(), &tSettings::settingChanged, this, [ = ](QString key, QVariant value) {
+        if (key == "gamepad/icons") this->update();
+    });
 }
 
-void GamepadLabel::paintEvent(QPaintEvent* event)
-{
+void GamepadLabel::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     painter.setFont(this->font());
     painter.setPen(this->palette().color(QPalette::WindowText));
@@ -38,8 +39,7 @@ void GamepadLabel::paintEvent(QPaintEvent* event)
     GamepadButtons::drawGamepadString(&painter, this->text(), boundingRect, this->palette());
 }
 
-QSize GamepadLabel::sizeHint() const
-{
+QSize GamepadLabel::sizeHint() const {
     QSize size;
     size.setHeight(this->fontMetrics().height());
     size.setWidth(GamepadButtons::measureGamepadString(this->font(), this->text()));
@@ -48,7 +48,6 @@ QSize GamepadLabel::sizeHint() const
     return size;
 }
 
-QSize GamepadLabel::minimumSizeHint() const
-{
+QSize GamepadLabel::minimumSizeHint() const {
     return sizeHint();
 }

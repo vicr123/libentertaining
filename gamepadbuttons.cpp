@@ -25,6 +25,7 @@
 #include <QDebug>
 #include <QKeySequence>
 #include <the-libs_global.h>
+#include "private/entertainingsettings.h"
 
 QIcon iconForButtonHelper(QString iconName, QColor tint) {
     QIcon icon;
@@ -72,37 +73,84 @@ const QMap<Qt::MouseButton, QString> mouseToStringMapping = {
     {Qt::MiddleButton, "[%!MOUSE_3]"}
 };
 
-QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColor tint) {
-    const QMap<QGamepadManager::GamepadButton, QString> buttonToIconMapping = {
-        {QGamepadManager::ButtonA, "btnA"},
-        {QGamepadManager::ButtonB, "btnB"},
-        {QGamepadManager::ButtonX, "btnX"},
-        {QGamepadManager::ButtonY, "btnY"},
-//        {QGamepadManager::ButtonA, "btnPSX"},
-//        {QGamepadManager::ButtonB, "btnPSC"},
-//        {QGamepadManager::ButtonX, "btnPST"},
-//        {QGamepadManager::ButtonY, "btnPSS"},
-        {QGamepadManager::ButtonL1, "btnL1"},
-        {QGamepadManager::ButtonL2, "btnL2"},
-        {QGamepadManager::ButtonL3, "btnL3"},
-        {QGamepadManager::ButtonR1, "btnR1"},
-        {QGamepadManager::ButtonR2, "btnR2"},
-        {QGamepadManager::ButtonR3, "btnL3"},
-        {QGamepadManager::ButtonSelect, "btnSEL"},
-        {QGamepadManager::ButtonStart, "btnSTR"},
-        {QGamepadManager::ButtonUp, "btnDU"},
-        {QGamepadManager::ButtonDown, "btnDD"},
-        {QGamepadManager::ButtonLeft, "btnDL"},
-        {QGamepadManager::ButtonRight, "btnDR"},
-        {QGamepadManager::ButtonCenter, "btn"},
-        {QGamepadManager::ButtonGuide, "btnGDE"}
-    };
+QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColor tint, int type) {
+    if (type == -1) {
+        type = EntertainingSettings::instance()->value("gamepad/icons").toInt();
+    }
+
+    QMap<QGamepadManager::GamepadButton, QString> buttonToIconMapping;
+    switch (type) {
+        case 1: //PlayStation
+            buttonToIconMapping = {
+                {QGamepadManager::ButtonA, "btnPSX"},
+                {QGamepadManager::ButtonB, "btnPSC"},
+                {QGamepadManager::ButtonX, "btnPST"},
+                {QGamepadManager::ButtonY, "btnPSS"},
+                {QGamepadManager::ButtonL1, "btnL1"},
+                {QGamepadManager::ButtonL2, "btnL2"},
+                {QGamepadManager::ButtonL3, "btnL3"},
+                {QGamepadManager::ButtonR1, "btnR1"},
+                {QGamepadManager::ButtonR2, "btnR2"},
+                {QGamepadManager::ButtonR3, "btnR3"},
+                {QGamepadManager::ButtonSelect, "btnSEL"},
+                {QGamepadManager::ButtonStart, "btnSTR"},
+                {QGamepadManager::ButtonUp, "btnDU"},
+                {QGamepadManager::ButtonDown, "btnDD"},
+                {QGamepadManager::ButtonLeft, "btnDL"},
+                {QGamepadManager::ButtonRight, "btnDR"},
+                {QGamepadManager::ButtonCenter, "btn"},
+                {QGamepadManager::ButtonGuide, "btnGDE"}
+            };
+            break;
+        case 2: //Nintendo
+            buttonToIconMapping = {
+                {QGamepadManager::ButtonA, "btnA"},
+                {QGamepadManager::ButtonB, "btnB"},
+                {QGamepadManager::ButtonX, "btnX"},
+                {QGamepadManager::ButtonY, "btnY"},
+                {QGamepadManager::ButtonL1, "btnNINL1"},
+                {QGamepadManager::ButtonL2, "btnNINL2"},
+                {QGamepadManager::ButtonL3, "btnL3"},
+                {QGamepadManager::ButtonR1, "btnNINR1"},
+                {QGamepadManager::ButtonR2, "btnNINR2"},
+                {QGamepadManager::ButtonR3, "btnR3"},
+                {QGamepadManager::ButtonSelect, "btnSEL"},
+                {QGamepadManager::ButtonStart, "btnSTR"},
+                {QGamepadManager::ButtonUp, "btnDU"},
+                {QGamepadManager::ButtonDown, "btnDD"},
+                {QGamepadManager::ButtonLeft, "btnDL"},
+                {QGamepadManager::ButtonRight, "btnDR"},
+                {QGamepadManager::ButtonCenter, "btn"},
+                {QGamepadManager::ButtonGuide, "btnGDE"}
+            };
+            break;
+        default:
+            buttonToIconMapping = {
+                {QGamepadManager::ButtonA, "btnA"},
+                {QGamepadManager::ButtonB, "btnB"},
+                {QGamepadManager::ButtonX, "btnX"},
+                {QGamepadManager::ButtonY, "btnY"},
+                {QGamepadManager::ButtonL1, "btnL1"},
+                {QGamepadManager::ButtonL2, "btnL2"},
+                {QGamepadManager::ButtonL3, "btnL3"},
+                {QGamepadManager::ButtonR1, "btnR1"},
+                {QGamepadManager::ButtonR2, "btnR2"},
+                {QGamepadManager::ButtonR3, "btnR3"},
+                {QGamepadManager::ButtonSelect, "btnSEL"},
+                {QGamepadManager::ButtonStart, "btnSTR"},
+                {QGamepadManager::ButtonUp, "btnDU"},
+                {QGamepadManager::ButtonDown, "btnDD"},
+                {QGamepadManager::ButtonLeft, "btnDL"},
+                {QGamepadManager::ButtonRight, "btnDR"},
+                {QGamepadManager::ButtonCenter, "btn"},
+                {QGamepadManager::ButtonGuide, "btnGDE"}
+            };
+    }
 
     return iconForButtonHelper(buttonToIconMapping.value(button, "btn"), tint);
 }
 
-QIcon GamepadButtons::iconForButton(Qt::MouseButton button, QColor tint)
-{
+QIcon GamepadButtons::iconForButton(Qt::MouseButton button, QColor tint) {
     const QMap<Qt::MouseButton, QString> buttonToIconMapping = {
         {Qt::LeftButton, "mouse1"},
         {Qt::RightButton, "mouse2"},
@@ -116,8 +164,7 @@ QString GamepadButtons::stringForButton(QGamepadManager::GamepadButton button) {
     return buttonToStringMapping.value(button, "[%!GAMEPAD_INV]");
 }
 
-QString GamepadButtons::stringForButton(Qt::MouseButton button)
-{
+QString GamepadButtons::stringForButton(Qt::MouseButton button) {
     return mouseToStringMapping.value(button, "[%!MOUSE_INV]");
 }
 
@@ -252,7 +299,7 @@ void GamepadButtons::drawGamepadString(QPainter* painter, QString string, QRect 
     }
 
     int currentX = boundingRect.left();
-    for (const QString &stringPart : stringParts) {
+    for (const QString& stringPart : stringParts) {
         if (buttonToStringMapping.values().contains(stringPart)) {
             qDebug() << "Draw button" << stringPart;
 
@@ -300,6 +347,22 @@ void GamepadButtons::drawGamepadString(QPainter* painter, QString string, QRect 
             currentX += bRect.width();
         }
     }
+}
+
+QString GamepadButtons::currentIconTypeName() {
+    return iconTypeNameForIndex(EntertainingSettings::instance()->value("gamepad/icons").toInt());
+}
+
+QString GamepadButtons::iconTypeNameForIndex(int index) {
+    switch (index) {
+        case 0:
+            return tr("Default");
+        case 1:
+            return tr("PlayStation");
+        case 2:
+            return tr("Nintendo");
+    }
+    return "";
 }
 
 GamepadButtons::GamepadButtons(QObject* parent) : QObject(parent) {

@@ -35,7 +35,7 @@
 
 struct LoginDialogPrivate {
     QWidget* parent;
-    QSettings* settings = EntertainingSettings::instance();
+    tSettings* settings = EntertainingSettings::instance();
 
     QString recoveryUsername;
     QVariantMap recoveryChallenges;
@@ -135,7 +135,7 @@ LoginDialog::~LoginDialog() {
 }
 
 bool LoginDialog::exec() {
-    if (d->settings->contains("online/token")) return true;
+    if (!d->settings->value("online/token").toString().isEmpty()) return true;
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 
     QEventLoop* loop = new QEventLoop();

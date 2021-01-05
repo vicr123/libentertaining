@@ -22,37 +22,43 @@
 #include <QGamepad>
 #include <QGamepadManager>
 
-GamepadModel::GamepadModel(QObject *parent)
-    : QAbstractListModel(parent)
-{
-    connect(QGamepadManager::instance(), &QGamepadManager::connectedGamepadsChanged, this, [=] {
+GamepadModel::GamepadModel(QObject* parent)
+    : QAbstractListModel(parent) {
+    connect(QGamepadManager::instance(), &QGamepadManager::connectedGamepadsChanged, this, [ = ] {
         emit dataChanged(index(0), index(rowCount()));
     });
 }
 
-int GamepadModel::rowCount(const QModelIndex &parent) const
-{
+int GamepadModel::rowCount(const QModelIndex& parent) const {
     // For list models only the root node (an invalid parent) should return the list's size. For all
     // other (valid) parents, rowCount() should return 0 so that it does not become a tree model.
     if (parent.isValid()) {
         return 0;
     }
 
-    return QGamepadManager::instance()->connectedGamepads().count();
+    return QGamepadManager::instance()->connectedGamepads().count() + 1;
 }
 
-QVariant GamepadModel::data(const QModelIndex &index, int role) const
-{
+QVariant GamepadModel::data(const QModelIndex& index, int role) const {
     if (!index.isValid()) {
         return QVariant();
     }
 
-    QGamepad gamepad(QGamepadManager::instance()->connectedGamepads().at(index.row()));
-    switch (role) {
-        case Qt::DisplayRole:
-            return gamepad.name();
-        case Qt::UserRole:
-            return gamepad.deviceId();
+    if (index.row() == 0) {
+        switch (role) {
+            case Qt::DisplayRole:
+                return tr("Global Settings");
+            case Qt::UserRole:
+                return QVariant();
+        }
+    } else {
+        QGamepad gamepad(QGamepadManager::instance()->connectedGamepads().at(index.row() - 1));
+        switch (role) {
+            case Qt::DisplayRole:
+                return gamepad.name();
+            case Qt::UserRole:
+                return gamepad.deviceId();
+        }
     }
 
     return QVariant();

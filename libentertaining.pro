@@ -72,6 +72,8 @@ SOURCES += \
     focusbarrier.cpp \
     focuspointer.cpp \
     gamepadConfiguration/buttondiagnostics.cpp \
+    gamepadConfiguration/buttonmapping.cpp \
+    gamepadConfiguration/buttonmappingitem.cpp \
     gamepadConfiguration/stickdiagnostics.cpp \
     gamepadConfiguration/stickdiagnosticsstickwidget.cpp \
     gamepadbuttons.cpp \
@@ -102,6 +104,7 @@ SOURCES += \
     private/entertainingsettings.cpp \
     private/friendpage.cpp \
     private/friendsmodel.cpp \
+    private/gamepadbuttoniconselectiondialog.cpp \
     private/gamepadlistener.cpp \
     private/gamepadmodel.cpp \
     private/loaddialog.cpp \
@@ -124,6 +127,8 @@ HEADERS += \
     focusbarrier.h \
     focuspointer.h \
     gamepadConfiguration/buttondiagnostics.h \
+    gamepadConfiguration/buttonmapping.h \
+    gamepadConfiguration/buttonmappingitem.h \
     gamepadConfiguration/stickdiagnostics.h \
     gamepadConfiguration/stickdiagnosticsstickwidget.h \
     gamepadbuttons.h \
@@ -156,6 +161,7 @@ HEADERS += \
     private/entertainingsettings.h \
     private/friendpage.h \
     private/friendsmodel.h \
+    private/gamepadbuttoniconselectiondialog.h \
     private/gamepadlistener.h \
     private/gamepadmodel.h \
     private/loaddialog.h \
@@ -173,6 +179,7 @@ HEADERS += \
     textinputoverlay.h
 
 DISTFILES += \
+    defaults.conf \
     qt_libentertaining.pri
 
 # Install rules
@@ -248,6 +255,8 @@ RESOURCES += \
 FORMS += \
     dialogueoverlay.ui \
     gamepadConfiguration/buttondiagnostics.ui \
+    gamepadConfiguration/buttonmapping.ui \
+    gamepadConfiguration/buttonmappingitem.ui \
     gamepadConfiguration/stickdiagnostics.ui \
     gamepadconfigurationoverlay.ui \
     gamepadhud.ui \
@@ -260,6 +269,7 @@ FORMS += \
     online/logindialog.ui \
     online/onlineterms.ui \
     private/friendpage.ui \
+    private/gamepadbuttoniconselectiondialog.ui \
     private/loaddialog.ui \
     private/loaddialogfileoptions.ui \
     private/otpsetupdialog.ui \

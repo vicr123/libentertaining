@@ -21,15 +21,14 @@
 
 #include <QStandardPaths>
 
-QSettings* EntertainingSettings::i = nullptr;
+tSettings* EntertainingSettings::i = nullptr;
 
-QSettings*EntertainingSettings::instance()
-{
+tSettings* EntertainingSettings::instance() {
     if (i == nullptr) {
-        #ifdef Q_OS_ANDROID
-            QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation));
-        #endif
-        i = new QSettings(SETTINGS_ORGANISATION, SETTINGS_APPLICATION);
+#ifdef Q_OS_ANDROID
+        QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation));
+#endif
+        i = new tSettings(SETTINGS_ORGANISATION, SETTINGS_APPLICATION);
     }
     return i;
 }

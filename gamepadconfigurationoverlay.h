@@ -27,12 +27,11 @@ namespace Ui {
     class GamepadConfigurationOverlay;
 }
 
-class LIBENTERTAINING_EXPORT GamepadConfigurationOverlay : public QWidget
-{
+class LIBENTERTAINING_EXPORT GamepadConfigurationOverlay : public QWidget {
         Q_OBJECT
 
     public:
-        explicit GamepadConfigurationOverlay(QWidget *parent = nullptr);
+        explicit GamepadConfigurationOverlay(QWidget* parent = nullptr);
         ~GamepadConfigurationOverlay();
 
     private slots:
@@ -42,11 +41,15 @@ class LIBENTERTAINING_EXPORT GamepadConfigurationOverlay : public QWidget
 
         void on_checkSticks_clicked();
 
+        void on_configureButtonMappings_clicked();
+
+        void on_gamepadIconTypeButton_clicked();
+
     signals:
         void done();
 
     private:
-        Ui::GamepadConfigurationOverlay *ui;
+        Ui::GamepadConfigurationOverlay* ui;
 
         bool eventFilter(QObject* watched, QEvent* event);
 };

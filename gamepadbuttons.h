@@ -27,11 +27,10 @@
 class QPainter;
 class QFontMetrics;
 
-class LIBENTERTAINING_EXPORT GamepadButtons : public QObject
-{
+class LIBENTERTAINING_EXPORT GamepadButtons : public QObject {
         Q_OBJECT
     public:
-        static QIcon iconForButton(QGamepadManager::GamepadButton button, QColor tint);
+        static QIcon iconForButton(QGamepadManager::GamepadButton button, QColor tint, int type = -1);
         static QString stringForButton(QGamepadManager::GamepadButton button);
 
         static QIcon iconForButton(Qt::MouseButton button, QColor tint);
@@ -43,12 +42,15 @@ class LIBENTERTAINING_EXPORT GamepadButtons : public QObject
         static int measureGamepadString(QFont font, QString string);
         static void drawGamepadString(QPainter* painter, QString string, QRect boundingRect, QPalette pal);
 
+        static QString currentIconTypeName();
+        static QString iconTypeNameForIndex(int index);
+
     signals:
 
     public slots:
 
     private:
-        explicit GamepadButtons(QObject *parent = nullptr);
+        explicit GamepadButtons(QObject* parent = nullptr);
 
         static QPixmap getKeyIcon(QString key, QFont font, QPalette pal);
 };
