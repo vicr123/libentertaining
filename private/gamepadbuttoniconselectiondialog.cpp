@@ -52,7 +52,7 @@ GamepadButtonIconSelectionDialog::GamepadButtonIconSelectionDialog(QWidget* pare
         emit done();
     });
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         ui->optionsWidget->addItem(GamepadButtons::iconTypeNameForIndex(i));
     }
 }

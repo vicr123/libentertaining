@@ -57,5 +57,13 @@
         <file>icons/btnNINL2.svg</file>
         <file>icons/btnNINR1.svg</file>
         <file>icons/btnNINR2.svg</file>
+        <file>icons/btnPSO.svg</file>
+        <file>icons/btnPSE.svg</file>
+        <file>icons/btnXBB.svg</file>
+        <file>icons/btnXBLB.svg</file>
+        <file>icons/btnXBLT.svg</file>
+        <file>icons/btnXBRB.svg</file>
+        <file>icons/btnXBRT.svg</file>
+        <file>icons/btnXBS.svg</file>
     </qresource>
 </RCC>

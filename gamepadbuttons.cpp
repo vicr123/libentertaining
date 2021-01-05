@@ -92,8 +92,8 @@ QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColo
                 {QGamepadManager::ButtonR1, "btnR1"},
                 {QGamepadManager::ButtonR2, "btnR2"},
                 {QGamepadManager::ButtonR3, "btnR3"},
-                {QGamepadManager::ButtonSelect, "btnSEL"},
-                {QGamepadManager::ButtonStart, "btnSTR"},
+                {QGamepadManager::ButtonSelect, "btnPSE"},
+                {QGamepadManager::ButtonStart, "btnPSO"},
                 {QGamepadManager::ButtonUp, "btnDU"},
                 {QGamepadManager::ButtonDown, "btnDD"},
                 {QGamepadManager::ButtonLeft, "btnDL"},
@@ -116,6 +116,28 @@ QIcon GamepadButtons::iconForButton(QGamepadManager::GamepadButton button, QColo
                 {QGamepadManager::ButtonR3, "btnR3"},
                 {QGamepadManager::ButtonSelect, "btnSEL"},
                 {QGamepadManager::ButtonStart, "btnSTR"},
+                {QGamepadManager::ButtonUp, "btnDU"},
+                {QGamepadManager::ButtonDown, "btnDD"},
+                {QGamepadManager::ButtonLeft, "btnDL"},
+                {QGamepadManager::ButtonRight, "btnDR"},
+                {QGamepadManager::ButtonCenter, "btn"},
+                {QGamepadManager::ButtonGuide, "btnGDE"}
+            };
+            break;
+        case 3: //Xbox 360
+            buttonToIconMapping = {
+                {QGamepadManager::ButtonA, "btnA"},
+                {QGamepadManager::ButtonB, "btnB"},
+                {QGamepadManager::ButtonX, "btnX"},
+                {QGamepadManager::ButtonY, "btnY"},
+                {QGamepadManager::ButtonL1, "btnXBLB"},
+                {QGamepadManager::ButtonL2, "btnXBLT"},
+                {QGamepadManager::ButtonL3, "btnL3"},
+                {QGamepadManager::ButtonR1, "btnXBRB"},
+                {QGamepadManager::ButtonR2, "btnXBRT"},
+                {QGamepadManager::ButtonR3, "btnR3"},
+                {QGamepadManager::ButtonSelect, "btnXBB"},
+                {QGamepadManager::ButtonStart, "btnXBS"},
                 {QGamepadManager::ButtonUp, "btnDU"},
                 {QGamepadManager::ButtonDown, "btnDD"},
                 {QGamepadManager::ButtonLeft, "btnDL"},
@@ -358,9 +380,11 @@ QString GamepadButtons::iconTypeNameForIndex(int index) {
         case 0:
             return tr("Default");
         case 1:
-            return tr("PlayStation");
+            return tr("PlayStation 4/5");
         case 2:
-            return tr("Nintendo");
+            return tr("Nintendo Switch");
+        case 3:
+            return tr("Xbox 360");
     }
     return "";
 }

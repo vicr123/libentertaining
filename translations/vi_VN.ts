@@ -597,24 +597,29 @@ Multiple buttons on the controller may be mapped to one button.</source>
 <context>
     <name>GamepadButtons</name>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="177"/>
-        <location filename="../gamepadbuttons.cpp" line="187"/>
+        <location filename="../gamepadbuttons.cpp" line="199"/>
+        <location filename="../gamepadbuttons.cpp" line="209"/>
         <source>No Shortcut</source>
         <translation>Không có lối tắt</translation>
     </message>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="359"/>
+        <location filename="../gamepadbuttons.cpp" line="381"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="361"/>
-        <source>PlayStation</source>
+        <location filename="../gamepadbuttons.cpp" line="383"/>
+        <source>PlayStation 4/5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gamepadbuttons.cpp" line="363"/>
-        <source>Nintendo</source>
+        <location filename="../gamepadbuttons.cpp" line="385"/>
+        <source>Nintendo Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gamepadbuttons.cpp" line="387"/>
+        <source>Xbox 360</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
