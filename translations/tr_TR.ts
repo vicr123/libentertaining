@@ -612,17 +612,17 @@ Denetleyicideki birden fazla düğme tek bir düğmeyle eşleştirilebilir.</tra
     <message>
         <location filename="../gamepadbuttons.cpp" line="383"/>
         <source>PlayStation 4/5</source>
-        <translation type="unfinished"></translation>
+        <translation>PlayStation 4/5</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="385"/>
         <source>Nintendo Switch</source>
-        <translation type="unfinished"></translation>
+        <translation>Nintendo Switch</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="387"/>
         <source>Xbox 360</source>
-        <translation type="unfinished"></translation>
+        <translation>Xbox 360</translation>
     </message>
 </context>
 <context>
