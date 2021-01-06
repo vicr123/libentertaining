@@ -252,49 +252,51 @@
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="35"/>
         <source>Map Gamepad Buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Harita Gamepad Düğmeleri</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="87"/>
         <source>MAP BUTTONS</source>
-        <translation type="unfinished"></translation>
+        <translation>HARİTA DÜĞMELERİ</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="94"/>
         <source>Select a button to map, and then press the button on your gamepad to map it to.
 
 Multiple buttons on the controller may be mapped to one button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Eşlemek için bir düğme seçin ve ardından eşlemek için gamepad&apos;inizdeki düğmeye basın.
+
+Denetleyicideki birden fazla düğme tek bir düğmeyle eşleştirilebilir.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="113"/>
         <source>Reset Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapılandırmayı Sıfırla</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="54"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished">Gamepad Bağlantısı Kesildi</translation>
+        <translation>Gamepad Bağlantısı Kesildi</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="55"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished">Test ettiğiniz oyun kumandasının bağlantısı kesildi.</translation>
+        <translation>Test ettiğiniz oyun kumandasının bağlantısı kesildi.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="116"/>
         <source>Gamepad Buttons Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamepad Düğmelerini Sıfırla</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="117"/>
         <source>Button mappings for this gamepad have been reset.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu gamepad için düğme eşlemeleri sıfırlandı.</translation>
     </message>
 </context>
 <context>
@@ -302,12 +304,12 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmappingitem.ui" line="36"/>
         <source>Map</source>
-        <translation type="unfinished"></translation>
+        <translation>Harita</translation>
     </message>
 </context>
 <context>
@@ -576,22 +578,22 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="35"/>
         <source>Icon Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Simge Türü</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="37"/>
         <source>Select</source>
-        <translation type="unfinished">Seç</translation>
+        <translation>Seç</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished">Geri</translation>
+        <translation>Geri</translation>
     </message>
 </context>
 <context>
@@ -605,7 +607,7 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadbuttons.cpp" line="381"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılan</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="383"/>
@@ -643,17 +645,17 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="222"/>
         <source>Icon Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Simge Türü</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="235"/>
         <source>GLOBAL GAMEPAD SETTINGS</source>
-        <translation type="unfinished"></translation>
+        <translation>GENEL GAMEPAD AYARLARI</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="249"/>
         <source>These settings apply to all gamepads.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bütün bu ayarları kontrol etmek için uygulanır.</translation>
     </message>
     <message>
         <location filename="../gamepadconfigurationoverlay.ui" line="327"/>
@@ -714,7 +716,7 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../private/gamepadmodel.cpp" line="50"/>
         <source>Global Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel Ayarlar</translation>
     </message>
 </context>
 <context>
