@@ -36,6 +36,7 @@ struct MusicEnginePrivate {
     QAudioOutput* backgroundOutput = nullptr;
     QPointer<QIODevice> backgroundSink = nullptr;
     bool playingBackgroudMusic = false;
+    bool isBackgroundSuspended = false;
 
     QAudioFormat format;
 
@@ -135,7 +136,8 @@ void MusicEngine::playBackgroundMusic() {
     ensureInstance();
 
 //    d->backgroundMusic->play();
-    d->backgroundOutput->resume();
+    if (d->isBackgroundSuspended) d->backgroundOutput->resume();
+    d->isBackgroundSuspended = false;
     d->playingBackgroudMusic = true;
 }
 
@@ -143,7 +145,8 @@ void MusicEngine::pauseBackgroundMusic() {
     ensureInstance();
 
 //    d->backgroundMusic->pause();
-    d->backgroundOutput->suspend();
+    if (!d->isBackgroundSuspended) d->backgroundOutput->suspend();
+    d->isBackgroundSuspended = true;
     d->playingBackgroudMusic = false;
 }
 
@@ -315,7 +318,8 @@ void MusicEngine::fillAudioBuffer() {
     quint64 startData = d->backgroundStart.length();
     quint64 totalData = d->backgroundLoop.length() + startData;
     if (totalData == 0) {
-        d->backgroundOutput->suspend();
+        if (!d->isBackgroundSuspended) d->backgroundOutput->suspend();
+        d->isBackgroundSuspended = true;
         return;
     }
 
@@ -337,7 +341,8 @@ void MusicEngine::fillAudioBuffer() {
         if (d->audioPointer >= totalData) d->audioPointer = startData;
     }
 
-    if (d->playingBackgroudMusic) {
+    if (d->playingBackgroudMusic && d->isBackgroundSuspended) {
         d->backgroundOutput->resume();
+        d->isBackgroundSuspended = false;
     }
 }
