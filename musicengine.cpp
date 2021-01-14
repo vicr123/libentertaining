@@ -28,12 +28,14 @@
 #include <QAudioDecoder>
 #include <QPointer>
 #include <tapplication.h>
+#include "music/musicelementplayer.h"
 #include "music/filemusicelement.h"
 
 struct MusicEnginePrivate {
     MusicEngine* instance = nullptr;
 
     AbstractMusicElement* backgroundMusic = nullptr;
+    MusicElementPlayer* backgroundMusicPlayer = nullptr;
     qreal backgroundVolume;
     QString backgroundInitialResource, backgroundLoopingResource;
 
@@ -66,11 +68,13 @@ void MusicEngine::setBackgroundMusic(QString audioResource) {
 void MusicEngine::setBackgroundMusic(QUrl initialPath, QUrl loopingPath) {
     ensureInstance();
 
+    if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->deleteLater();
     if (d->backgroundMusic) d->backgroundMusic->deleteLater();
 
-    d->backgroundMusic = new FileMusicElement(initialPath, loopingPath);
-    d->backgroundMusic->setVolume(d->backgroundVolume);
-    d->backgroundMusic->play();
+    d->backgroundMusic = new FileMusicElement("bgm", initialPath, loopingPath);
+    d->backgroundMusicPlayer = new MusicElementPlayer(d->backgroundMusic);
+    d->backgroundMusicPlayer->setVolume(d->backgroundVolume);
+    d->backgroundMusicPlayer->play();
 
     d->backgroundInitialResource.clear();
     d->backgroundLoopingResource.clear();
@@ -82,11 +86,13 @@ void MusicEngine::setBackgroundMusic(QString initialResource, QString loopingRes
     //NOTE: Somehow ensure that the background music is actually being changed
     if (d->backgroundInitialResource == initialResource && d->backgroundLoopingResource == loopingResource) return;
 
+    if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->deleteLater();
     if (d->backgroundMusic) d->backgroundMusic->deleteLater();
 
-    d->backgroundMusic = new FileMusicElement(initialResource, loopingResource);
-    d->backgroundMusic->setVolume(d->backgroundVolume);
-    d->backgroundMusic->play();
+    d->backgroundMusic = new FileMusicElement("bgm", initialResource, loopingResource);
+    d->backgroundMusicPlayer = new MusicElementPlayer(d->backgroundMusic);
+    d->backgroundMusicPlayer->setVolume(d->backgroundVolume);
+    d->backgroundMusicPlayer->play();
 
     d->backgroundInitialResource = initialResource;
     d->backgroundLoopingResource = loopingResource;
@@ -95,20 +101,20 @@ void MusicEngine::setBackgroundMusic(QString initialResource, QString loopingRes
 void MusicEngine::playBackgroundMusic() {
     ensureInstance();
 
-    if (d->backgroundMusic) d->backgroundMusic->play();
+    if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->play();
 }
 
 void MusicEngine::pauseBackgroundMusic() {
     ensureInstance();
 
-    if (d->backgroundMusic) d->backgroundMusic->pause();
+    if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->pause();
 }
 
 void MusicEngine::setUserBackgroundVolume(qreal volume) {
     ensureInstance();
 
     d->backgroundVolume = volume;
-    if (d->backgroundMusic) d->backgroundMusic->setVolume(volume);
+    if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->setVolume(volume);
 }
 
 qreal MusicEngine::userBackgroundVolume() {

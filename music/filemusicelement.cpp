@@ -29,24 +29,18 @@
 
 struct FileMusicElementPrivate {
     QAudioFormat format;
-    QAudioOutput* output;
-    QIODevice* sink = nullptr;
 
     QByteArray backgroundStart, backgroundLoop;
-    quint64 audioPointer = 0;
 
     QQueue<QUrl> backgroundStartUrls;
     QQueue<QUrl> backgroundLoopUrls;
     QString backgroundStartResource;
     QString backgroundLoopResource;
     bool haveStart = false;
-    bool isPlaying = false;
-    bool isSuspended = false;
 };
 
-FileMusicElement::FileMusicElement(QString startResource, QString loopResource, QObject* parent) : AbstractMusicElement(parent) {
+FileMusicElement::FileMusicElement(QString trackName, QString startResource, QString loopResource, QObject* parent) : AbstractMusicElement(trackName, parent) {
     init();
-    d->sink = d->output->start();
 
     if (startResource.isEmpty()) {
         d->haveStart = false;
@@ -66,9 +60,8 @@ FileMusicElement::FileMusicElement(QString startResource, QString loopResource, 
     tryNextBackgroundLoop();
 }
 
-FileMusicElement::FileMusicElement(QUrl startUrl, QUrl loopUrl, QObject* parent) : AbstractMusicElement(parent) {
+FileMusicElement::FileMusicElement(QString trackName, QUrl startUrl, QUrl loopUrl, QObject* parent) : AbstractMusicElement(trackName, parent) {
     init();
-    d->sink = d->output->start();
 
     if (startUrl.isValid()) {
         d->backgroundStartUrls.append(startUrl);
@@ -95,54 +88,6 @@ void FileMusicElement::init() {
     d->format.setCodec("audio/pcm");
     d->format.setByteOrder(QAudioFormat::LittleEndian);
     d->format.setSampleType(QAudioFormat::UnSignedInt);
-
-    d->output = new QAudioOutput(d->format, this);
-    d->output->setBufferSize(d->format.sampleRate() * d->format.channelCount() / 4);
-    d->output->setNotifyInterval(100);
-    connect(d->output, &QAudioOutput::notify, this, [ = ] {
-        fillAudioBuffer();
-    });
-    connect(d->output, &QAudioOutput::stateChanged, this, [ = ](QAudio::State state) {
-        if (state == QAudio::IdleState) {
-            fillAudioBuffer();
-        }
-    });
-}
-
-void FileMusicElement::fillAudioBuffer() {
-    //Make sure the background sink is open
-    if (!d->sink) return;
-
-    quint64 startData = d->backgroundStart.length();
-    quint64 totalData = d->backgroundLoop.length() + startData;
-    if (totalData == 0) {
-        if (!d->isSuspended) d->output->suspend();
-        d->isSuspended = true;
-        return;
-    }
-
-    quint64 free = d->output->bytesFree();
-    if (d->audioPointer < startData) {
-        //Continue to read in the start data
-        QByteArray data = d->backgroundStart.mid(d->audioPointer, free);
-        free -= data.length();
-        d->audioPointer += data.length();
-        d->sink->write(data);
-    }
-
-    while (free != 0 && d->backgroundLoop.length() != 0) {
-        //Continue to read in the loop
-        QByteArray data = d->backgroundLoop.mid(d->audioPointer - startData, free);
-        free -= data.length();
-        d->audioPointer += data.length();
-        d->sink->write(data);
-        if (d->audioPointer >= totalData) d->audioPointer = startData;
-    }
-
-    if (d->isPlaying && d->isSuspended) {
-        d->output->resume();
-        d->isSuspended = false;
-    }
 }
 
 void FileMusicElement::tryNextBackgroundStart() {
@@ -157,18 +102,16 @@ void FileMusicElement::tryNextBackgroundStart() {
         connect(initialDecoder, &QAudioDecoder::bufferReady, this, [ = ] {
             QAudioBuffer buf = initialDecoder->read();
             d->backgroundStart.append(buf.constData<char>(), buf.byteCount());
-            if (d->backgroundLoop.length() > d->output->bufferSize() && (!d->haveStart || d->backgroundStart.length() > d->output->bufferSize())) fillAudioBuffer();
         });
         connect(initialDecoder, &QAudioDecoder::finished, [ = ] {
             initialDecoder->deleteLater();
+            emit attemptBufferFill();
         });
         connect(initialDecoder, QOverload<QAudioDecoder::Error>::of(&QAudioDecoder::error), this, [ = ](QAudioDecoder::Error error) {
             tryNextBackgroundStart();
             initialDecoder->deleteLater();
         });
         initialDecoder->start();
-
-        if (d->isPlaying) play();
     }
 }
 
@@ -184,34 +127,54 @@ void FileMusicElement::tryNextBackgroundLoop() {
         connect(loopDecoder, &QAudioDecoder::bufferReady, this, [ = ] {
             QAudioBuffer buf = loopDecoder->read();
             d->backgroundLoop.append(buf.constData<char>(), buf.byteCount());
-            if (d->backgroundLoop.length() > d->output->bufferSize() && (!d->haveStart || d->backgroundStart.length() > d->output->bufferSize())) fillAudioBuffer();
         });
         connect(loopDecoder, &QAudioDecoder::finished, [ = ] {
             loopDecoder->deleteLater();
+            emit attemptBufferFill();
         });
         connect(loopDecoder, QOverload<QAudioDecoder::Error>::of(&QAudioDecoder::error), this, [ = ](QAudioDecoder::Error error) {
             tryNextBackgroundLoop();
             loopDecoder->deleteLater();
         });
         loopDecoder->start();
-
-        if (d->isPlaying) play();
     }
 }
 
+QByteArray FileMusicElement::data(quint64 offset, quint64 length) {
+    quint64 startData = d->backgroundStart.length();
+    quint64 totalData = d->backgroundLoop.length() + startData;
+    if (totalData == 0) {
+        return QByteArray(length, 0);
+    }
 
-void FileMusicElement::play() {
-    if (d->isSuspended) d->output->resume();
-    d->isSuspended = false;
-    d->isPlaying = true;
+    quint64 audioPointer = offset;
+    QByteArray audioData;
+
+    quint64 free = length;
+    if (audioPointer < startData) {
+        //Continue to read in the start data
+        QByteArray data = d->backgroundStart.mid(audioPointer, free);
+        free -= data.length();
+        audioPointer += data.length();
+        audioData.append(data);
+    }
+
+    while (free != 0 && d->backgroundLoop.length() != 0) {
+        //Continue to read in the loop
+        QByteArray data = d->backgroundLoop.mid(audioPointer - startData, free);
+        free -= data.length();
+        audioPointer += data.length();
+        audioData.append(data);
+        if (audioPointer >= totalData) audioPointer = startData;
+    }
+
+    return audioData;
 }
 
-void FileMusicElement::pause() {
-    if (!d->isSuspended) d->output->suspend();
-    d->isSuspended = true;
-    d->isPlaying = false;
-}
-
-void FileMusicElement::setVolume(qreal volume) {
-    d->output->setVolume(volume);
+bool FileMusicElement::blocking(quint64 bufferSize) {
+    if (static_cast<quint64>(d->backgroundLoop.length()) > bufferSize && (!d->haveStart || static_cast<quint64>(d->backgroundStart.length()) > bufferSize)) {
+        return d->backgroundStart.length() + d->backgroundLoop.length() == 0;
+    } else {
+        return true;
+    }
 }

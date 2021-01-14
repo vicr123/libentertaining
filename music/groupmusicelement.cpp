@@ -19,6 +19,6 @@
  * *************************************/
 #include "groupmusicelement.h"
 
-GroupMusicElement::GroupMusicElement(QObject* parent) : AbstractMusicElement(parent) {
+GroupMusicElement::GroupMusicElement(QObject* parent) : AbstractMusicElement(QStringLiteral("GroupTrack"), parent) {
 
 }

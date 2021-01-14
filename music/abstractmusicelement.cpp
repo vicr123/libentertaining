@@ -19,7 +19,6 @@
  * *************************************/
 #include "abstractmusicelement.h"
 
-AbstractMusicElement::AbstractMusicElement(QObject *parent) : QObject(parent)
-{
+AbstractMusicElement::AbstractMusicElement(QString trackName, QObject* parent) : QObject(parent) {
 
 }

@@ -25,13 +25,13 @@
 class AbstractMusicElement : public QObject {
         Q_OBJECT
     public:
-        explicit AbstractMusicElement(QObject* parent = nullptr);
+        explicit AbstractMusicElement(QString trackName, QObject* parent = nullptr);
 
-        virtual void play() = 0;
-        virtual void pause() = 0;
-        virtual void setVolume(qreal volume) = 0;
+        virtual QByteArray data(quint64 offset, quint64 length) = 0;
+        virtual bool blocking(quint64 bufferSize) = 0;
 
     signals:
+        void attemptBufferFill();
 
 };
 

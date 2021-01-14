@@ -91,6 +91,7 @@ SOURCES += \
     music/abstractmusicelement.cpp \
     music/filemusicelement.cpp \
     music/groupmusicelement.cpp \
+    music/musicelementplayer.cpp \
     musicengine.cpp \
     notificationengine.cpp \
     notifications/notificationpopup.cpp \
@@ -151,6 +152,7 @@ HEADERS += \
     music/abstractmusicelement.h \
     music/filemusicelement.h \
     music/groupmusicelement.h \
+    music/musicelementplayer.h \
     musicengine.h \
     notificationengine.h \
     notifications/notificationpopup.h \

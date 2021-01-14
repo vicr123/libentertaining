@@ -17,32 +17,29 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
-#ifndef FILEMUSICELEMENT_H
-#define FILEMUSICELEMENT_H
+#ifndef MUSICELEMENTPLAYER_H
+#define MUSICELEMENTPLAYER_H
 
-#include "abstractmusicelement.h"
+#include <QObject>
 
-struct FileMusicElementPrivate;
-class FileMusicElement : public AbstractMusicElement {
+class AbstractMusicElement;
+struct MusicElementPlayerPrivate;
+class MusicElementPlayer : public QObject {
         Q_OBJECT
     public:
-        explicit FileMusicElement(QString trackName, QString startResource, QString loopResource, QObject* parent = nullptr);
-        explicit FileMusicElement(QString trackName, QUrl startUrl, QUrl loopUrl, QObject* parent = nullptr);
-        ~FileMusicElement();
+        explicit MusicElementPlayer(AbstractMusicElement* element, QObject* parent = nullptr);
+        ~MusicElementPlayer();
+
+        void play();
+        void pause();
+        void setVolume(qreal volume);
 
     signals:
 
     private:
-        FileMusicElementPrivate* d;
+        MusicElementPlayerPrivate* d;
 
-        void init();
-        void tryNextBackgroundStart();
-        void tryNextBackgroundLoop();
-
-        // AbstractMusicElement interface
-    public:
-        QByteArray data(quint64 offset, quint64 length);
-        bool blocking(quint64 bufferSize);
+        void fillAudioBuffer();
 };
 
-#endif // FILEMUSICELEMENT_H
+#endif // MUSICELEMENTPLAYER_H
