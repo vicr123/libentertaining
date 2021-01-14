@@ -367,12 +367,14 @@ void OtpSetupDialog::on_stackedWidget_currentChanged(int arg1) {
 
 void OtpSetupDialog::on_printButton_clicked() {
     QPrinter* printer = new QPrinter();
-    printer->setPageMargins(1, 1, 1, 1, QPrinter::Inch);
+    printer->setPageMargins(QMarginsF(1, 1, 1, 1), QPageLayout::Inch);
 
     QPrintDialog* dialog = new QPrintDialog(printer);
     dialog->setWindowTitle(tr("Print Backup Codes"));
     connect(dialog, QOverload<QPrinter*>::of(&QPrintDialog::accepted), this, [ = ]() {
         QPainter* painter = new QPainter(printer);
+
+        QRect pageRect = printer->pageLayout().paintRectPixels(printer->resolution());
 
         //Print cool stuff! Let's go!
         QFont bodyFont = this->font();
@@ -387,7 +389,7 @@ void OtpSetupDialog::on_printButton_clicked() {
             QFontMetrics metrics(font, printer);
 
             QRect textRect;
-            textRect.setSize(printer->pageRect().size());
+            textRect.setSize(pageRect.size());
             textRect.setTop(top);
             textRect.moveLeft(0);
 
@@ -403,28 +405,30 @@ void OtpSetupDialog::on_printButton_clicked() {
         int currentY;
 
         //Draw the Entertaining Games icon
-        QSvgRenderer iconRenderer(QStringLiteral(":/libentertaining/icons/icon.svg"));
+        QSvgRenderer iconRenderer(QStringLiteral(":/libentertaining/icons/entertaining-logo-wordmark.svg"));
+        QSize iconSize = iconRenderer.defaultSize();
+        iconSize.scale(pageRect.width(), titleMetrics.height(), Qt::KeepAspectRatio);
         QRect iconRect;
-        iconRect.setSize(QSize(titleMetrics.height(), titleMetrics.height()));
+        iconRect.setSize(iconSize);
         iconRect.moveTopLeft(QPoint(0, 0));
         iconRenderer.render(painter, iconRect);
 
         //Draw the Entertaining Games title
-        QString logoText = tr("Entertaining Games");
-        QRect logoTextRect;
-        logoTextRect.setSize(QSize(titleMetrics.horizontalAdvance(logoText), titleMetrics.height()));
-        logoTextRect.moveTop(0);
-        logoTextRect.moveLeft(iconRect.right() + 9);
-        painter->setFont(titleFont);
-        painter->drawText(logoTextRect, logoText);
+//        QString logoText = tr("Entertaining Games");
+//        QRect logoTextRect;
+//        logoTextRect.setSize(QSize(titleMetrics.horizontalAdvance(logoText), titleMetrics.height()));
+//        logoTextRect.moveTop(0);
+//        logoTextRect.moveLeft(iconRect.right() + 9);
+//        painter->setFont(titleFont);
+//        painter->drawText(logoTextRect, logoText);
 
         //Draw the title text
-        currentY = printText(tr("Two Factor Authentication Backup Codes"), codeFont, logoTextRect.bottom() + 9);
+        currentY = printText(tr("Two Factor Authentication Backup Codes"), codeFont, iconRect.bottom() + 9);
 
         //Draw a header line
         currentY += 9;
         painter->setPen(Qt::black);
-        painter->drawLine(0, currentY, printer->pageRect().width(), currentY);
+        painter->drawLine(0, currentY, pageRect.width(), currentY);
         currentY++;
 
         currentY = printText(tr("Hey there,").append("\n\n")
@@ -471,7 +475,7 @@ void OtpSetupDialog::on_printButton_clicked() {
             QFontMetrics metrics(font, printer);
 
             QRect textRect;
-            textRect.setWidth(printer->pageRect().size().width() / 2);
+            textRect.setWidth(pageRect.size().width() / 2);
             textRect.setHeight(metrics.height());
             textRect.moveTop(startY + ((metrics.height() + 9) * (number / 2)));
             textRect.moveLeft(textRect.width() * (number % 2));

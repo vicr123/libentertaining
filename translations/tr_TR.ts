@@ -1531,7 +1531,7 @@ Doğrulama e-postasını aldıktan sonra bir günden fazla zaman geçtiyse, yeni
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="637"/>
-        <location filename="../private/otpsetupdialog.cpp" line="431"/>
+        <location filename="../private/otpsetupdialog.cpp" line="435"/>
         <source>Your backup codes are displayed below. Keep them in a safe place.</source>
         <translation>Yedek kodlarınız aşağıda gösterilmektedir. Bunları güvenli bir yerde saklayın.</translation>
     </message>
@@ -1658,37 +1658,32 @@ Doğrulama e-postasını aldıktan sonra bir günden fazla zaman geçtiyse, yeni
         <translation>İki Faktörlü Kimlik Doğrulamayı kapattıktan sonra, yalnızca parolanızla oturum açmanız gerekir.</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="413"/>
-        <source>Entertaining Games</source>
-        <translation>Eğlenceli Oyunlar</translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="422"/>
+        <location filename="../private/otpsetupdialog.cpp" line="426"/>
         <source>Two Factor Authentication Backup Codes</source>
         <translation>İki Faktörlü Kimlik Doğrulama Yedekleme Kodları</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="430"/>
+        <location filename="../private/otpsetupdialog.cpp" line="434"/>
         <source>Hey there,</source>
         <translation>Merhaba,</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="433"/>
+        <location filename="../private/otpsetupdialog.cpp" line="437"/>
         <source>Each backup code can only be used once, so it&apos;s a good idea to cross each one out as you use it.</source>
         <translation>Her bir yedekleme kodu yalnızca bir kez kullanılabilir, bu nedenle, her birini kullanırken üzerini çizmek iyi bir fikirdir.</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="436"/>
+        <location filename="../private/otpsetupdialog.cpp" line="440"/>
         <source>This page was printed on %1, so if you&apos;ve regenerated your backup codes since then, these ones may not be the correct ones to use.</source>
         <translation>Bu sayfa %1 üzerine basılmıştır, dolayısıyla o zamandan beri yedek kodlarınızı yeniden oluşturduysanız, bunlar kullanmak için doğru olanlar olmayabilir.</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="494"/>
+        <location filename="../private/otpsetupdialog.cpp" line="498"/>
         <source>Need more codes?</source>
         <translation>Daha fazla koda mı ihtiyacınız var?</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="495"/>
+        <location filename="../private/otpsetupdialog.cpp" line="499"/>
         <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do so.</source>
         <translation>Herhangi bir Eğlenceli Oyunlar uygulamasında daha fazla kod oluşturun. Bunu yaptığınızda bu kodlar geçersiz hale gelecektir.</translation>
     </message>

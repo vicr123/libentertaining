@@ -24,6 +24,7 @@
 #include <QObject>
 
 struct MusicEnginePrivate;
+class FileMusicElement;
 class LIBENTERTAINING_EXPORT MusicEngine : public QObject {
         Q_OBJECT
     public:
@@ -58,15 +59,15 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject {
 
     public slots:
 
+    protected:
+        friend FileMusicElement;
+        static QList<QUrl> resolveAudioResource(QString audioResource);
+
     private:
         static MusicEnginePrivate* d;
 
         explicit MusicEngine(QObject* parent = nullptr);
         static void ensureInstance();
-        static void tryNextBackgroundStart();
-        static void tryNextBackgroundLoop();
-        static QList<QUrl> resolveAudioResource(QString audioResource);
-        void fillAudioBuffer();
 };
 
 #endif // MUSICENGINE_H

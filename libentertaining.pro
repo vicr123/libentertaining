@@ -88,6 +88,9 @@ SOURCES += \
     keyboards/layoutselect.cpp \
     keyboards/uskeyboard.cpp \
     loadoverlay.cpp \
+    music/abstractmusicelement.cpp \
+    music/filemusicelement.cpp \
+    music/groupmusicelement.cpp \
     musicengine.cpp \
     notificationengine.cpp \
     notifications/notificationpopup.cpp \
@@ -145,6 +148,9 @@ HEADERS += \
     libentertaining_global.h \
     entertaining.h \
     loadoverlay.h \
+    music/abstractmusicelement.h \
+    music/filemusicelement.h \
+    music/groupmusicelement.h \
     musicengine.h \
     notificationengine.h \
     notifications/notificationpopup.h \

@@ -1521,7 +1521,7 @@ If it&apos;s been more than a day since you received the verification email, you
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="637"/>
-        <location filename="../private/otpsetupdialog.cpp" line="431"/>
+        <location filename="../private/otpsetupdialog.cpp" line="435"/>
         <source>Your backup codes are displayed below. Keep them in a safe place.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1648,37 +1648,32 @@ If it&apos;s been more than a day since you received the verification email, you
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="413"/>
-        <source>Entertaining Games</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="422"/>
+        <location filename="../private/otpsetupdialog.cpp" line="426"/>
         <source>Two Factor Authentication Backup Codes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="430"/>
+        <location filename="../private/otpsetupdialog.cpp" line="434"/>
         <source>Hey there,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="433"/>
+        <location filename="../private/otpsetupdialog.cpp" line="437"/>
         <source>Each backup code can only be used once, so it&apos;s a good idea to cross each one out as you use it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="436"/>
+        <location filename="../private/otpsetupdialog.cpp" line="440"/>
         <source>This page was printed on %1, so if you&apos;ve regenerated your backup codes since then, these ones may not be the correct ones to use.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="494"/>
+        <location filename="../private/otpsetupdialog.cpp" line="498"/>
         <source>Need more codes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="495"/>
+        <location filename="../private/otpsetupdialog.cpp" line="499"/>
         <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do so.</source>
         <translation type="unfinished"></translation>
     </message>

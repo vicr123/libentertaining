@@ -1529,7 +1529,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="637"/>
-        <location filename="../private/otpsetupdialog.cpp" line="431"/>
+        <location filename="../private/otpsetupdialog.cpp" line="435"/>
         <source>Your backup codes are displayed below. Keep them in a safe place.</source>
         <translation>Mã dự phòng của bạn đang hiện dưới đây. Giứ nó vào một nơi an toàn.</translation>
     </message>
@@ -1656,37 +1656,32 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <translation>Sau khi bạn tắt Xác Minh Hai Bước, bạn chỉ cần đăng nhập bởi mật khẩu của bạn.</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="413"/>
-        <source>Entertaining Games</source>
-        <translation>Trò Chơi Giải Trí</translation>
-    </message>
-    <message>
-        <location filename="../private/otpsetupdialog.cpp" line="422"/>
+        <location filename="../private/otpsetupdialog.cpp" line="426"/>
         <source>Two Factor Authentication Backup Codes</source>
         <translation>Mã Xác Minh Hai Bước Dự Phòng</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="430"/>
+        <location filename="../private/otpsetupdialog.cpp" line="434"/>
         <source>Hey there,</source>
         <translation>Xin chào bạn,</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="433"/>
+        <location filename="../private/otpsetupdialog.cpp" line="437"/>
         <source>Each backup code can only be used once, so it&apos;s a good idea to cross each one out as you use it.</source>
         <translation>Mỗi mã dự phòng chỉ được sử dụng một lần, vì vậy, đó là một ý tưởng tốt để gạch xóa mỗi cái khi bạn sử dụng nó.</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="436"/>
+        <location filename="../private/otpsetupdialog.cpp" line="440"/>
         <source>This page was printed on %1, so if you&apos;ve regenerated your backup codes since then, these ones may not be the correct ones to use.</source>
         <translation>Trang này đã bị in tại %1, thì nếu bạn đã tạo lại mà dự phòng mới sau khi đó, các mã này có thể không phải mà dùng.</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="494"/>
+        <location filename="../private/otpsetupdialog.cpp" line="498"/>
         <source>Need more codes?</source>
         <translation>Cần thêm mã?</translation>
     </message>
     <message>
-        <location filename="../private/otpsetupdialog.cpp" line="495"/>
+        <location filename="../private/otpsetupdialog.cpp" line="499"/>
         <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do so.</source>
         <translation>Tạo thêm mã dự phòng trong ứng dụng Trò Chơi Giải Trí nào. Mã này sẽ bị thu hồi khi bạn tạo thêm mã.</translation>
     </message>
