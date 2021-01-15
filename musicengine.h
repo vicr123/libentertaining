@@ -38,6 +38,12 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject {
             Error
         };
 
+        struct MusicStream {
+            QString streamName;
+            QList<QUrl> initialPaths;
+            QList<QUrl> loopingPaths;
+        };
+
         static void setBackgroundMusic(QUrl path);
         static void setBackgroundMusic(QString audioResource);
         static void setBackgroundMusic(QUrl initialPath, QUrl loopingPath);
@@ -54,6 +60,11 @@ class LIBENTERTAINING_EXPORT MusicEngine : public QObject {
 
         static void setMuteEffects(bool mute);
         static bool isEffectsMuted();
+
+        static MusicStream createMusicStream(QString streamName, QUrl initialPath, QUrl loopingPath);
+        static MusicStream createMusicStream(QString streamName, QString initialResource, QString loopingResource);
+        static void registerMultiTrackResource(QString resourceName, QList<MusicStream> streams);
+        static void setStreamVolume(QString streamName, qreal volume);
 
     signals:
 

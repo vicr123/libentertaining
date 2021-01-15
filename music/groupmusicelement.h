@@ -22,13 +22,25 @@
 
 #include "abstractmusicelement.h"
 
+struct GroupMusicElementPrivate;
 class GroupMusicElement : public AbstractMusicElement {
         Q_OBJECT
     public:
         explicit GroupMusicElement(QObject* parent = nullptr);
+        ~GroupMusicElement();
+
+        void giveElement(AbstractMusicElement* element);
 
     signals:
 
+    private:
+        GroupMusicElementPrivate* d;
+
+        // AbstractMusicElement interface
+    public:
+        QByteArray data(quint64 offset, quint64 length);
+        bool blocking(quint64 bufferSize);
+        void setStreamVolume(QString trackName, qreal volume);
 };
 
 #endif // GROUPMUSICELEMENT_H

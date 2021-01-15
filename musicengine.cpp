@@ -30,6 +30,7 @@
 #include <tapplication.h>
 #include "music/musicelementplayer.h"
 #include "music/filemusicelement.h"
+#include "music/groupmusicelement.h"
 
 struct MusicEnginePrivate {
     MusicEngine* instance = nullptr;
@@ -41,6 +42,8 @@ struct MusicEnginePrivate {
 
     QList<QSoundEffect*> activeEffects;
     bool muteEffects = false;
+
+    QMap<QString, QList<MusicEngine::MusicStream>> multiTrackStreams;
 
     const QMap<MusicEngine::KnownSoundEffect, QUrl> soundEffectUrls = {
         {MusicEngine::FocusChanged, QUrl("qrc:/libentertaining/audio/focusmove.wav")},
@@ -62,7 +65,29 @@ void MusicEngine::setBackgroundMusic(QUrl path) {
 }
 
 void MusicEngine::setBackgroundMusic(QString audioResource) {
-    setBackgroundMusic("", audioResource);
+    if (d->multiTrackStreams.contains(audioResource)) {
+        if (d->backgroundLoopingResource == audioResource) return;
+
+        if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->deleteLater();
+        if (d->backgroundMusic) d->backgroundMusic->deleteLater();
+
+        //Set up the music element
+        GroupMusicElement* groupElement = new GroupMusicElement();
+        for (MusicEngine::MusicStream stream : d->multiTrackStreams.value(audioResource)) {
+            FileMusicElement* element = new FileMusicElement(stream.streamName, stream.initialPaths, stream.loopingPaths);
+            groupElement->giveElement(element);
+        }
+//        d->backgroundMusic = new FileMusicElement("bgm", initialResource, loopingResource);
+        d->backgroundMusic = groupElement;
+        d->backgroundMusicPlayer = new MusicElementPlayer(d->backgroundMusic);
+        d->backgroundMusicPlayer->setVolume(d->backgroundVolume);
+        d->backgroundMusicPlayer->play();
+
+        d->backgroundInitialResource = "";
+        d->backgroundLoopingResource = audioResource;
+    } else {
+        setBackgroundMusic("", audioResource);
+    }
 }
 
 void MusicEngine::setBackgroundMusic(QUrl initialPath, QUrl loopingPath) {
@@ -71,7 +96,7 @@ void MusicEngine::setBackgroundMusic(QUrl initialPath, QUrl loopingPath) {
     if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->deleteLater();
     if (d->backgroundMusic) d->backgroundMusic->deleteLater();
 
-    d->backgroundMusic = new FileMusicElement("bgm", initialPath, loopingPath);
+    d->backgroundMusic = new FileMusicElement("bgm", {initialPath}, {loopingPath});
     d->backgroundMusicPlayer = new MusicElementPlayer(d->backgroundMusic);
     d->backgroundMusicPlayer->setVolume(d->backgroundVolume);
     d->backgroundMusicPlayer->play();
@@ -83,7 +108,6 @@ void MusicEngine::setBackgroundMusic(QUrl initialPath, QUrl loopingPath) {
 void MusicEngine::setBackgroundMusic(QString initialResource, QString loopingResource) {
     ensureInstance();
 
-    //NOTE: Somehow ensure that the background music is actually being changed
     if (d->backgroundInitialResource == initialResource && d->backgroundLoopingResource == loopingResource) return;
 
     if (d->backgroundMusicPlayer) d->backgroundMusicPlayer->deleteLater();
@@ -157,6 +181,31 @@ bool MusicEngine::isEffectsMuted() {
     ensureInstance();
 
     return d->muteEffects;
+}
+
+MusicEngine::MusicStream MusicEngine::createMusicStream(QString streamName, QUrl initialPath, QUrl loopingPath) {
+    MusicStream stream;
+    stream.streamName = streamName;
+    stream.initialPaths = {initialPath};
+    stream.loopingPaths = {loopingPath};
+    return stream;
+}
+
+MusicEngine::MusicStream MusicEngine::createMusicStream(QString streamName, QString initialResource, QString loopingResource) {
+    MusicStream stream;
+    stream.streamName = streamName;
+    stream.initialPaths = resolveAudioResource(initialResource);
+    stream.loopingPaths = resolveAudioResource(loopingResource);
+    return stream;
+}
+
+void MusicEngine::registerMultiTrackResource(QString resourceName, QList<MusicEngine::MusicStream> streams) {
+    d->multiTrackStreams.insert(resourceName, streams);
+}
+
+void MusicEngine::setStreamVolume(QString streamName, qreal volume) {
+    //TODO: save the stream volume so we can restore it later
+    if (d->backgroundMusic) d->backgroundMusic->setStreamVolume(streamName, volume);
 }
 
 MusicEngine::MusicEngine(QObject* parent) : QObject(parent) {

@@ -25,6 +25,7 @@
 #include <QAudioOutput>
 #include <QDebug>
 #include <QAudioDecoder>
+#include <QtConcurrent>
 #include "musicengine.h"
 
 struct FileMusicElementPrivate {
@@ -37,10 +38,14 @@ struct FileMusicElementPrivate {
     QString backgroundStartResource;
     QString backgroundLoopResource;
     bool haveStart = false;
+
+    QString trackName;
+    qreal volume = 1;
 };
 
 FileMusicElement::FileMusicElement(QString trackName, QString startResource, QString loopResource, QObject* parent) : AbstractMusicElement(trackName, parent) {
     init();
+    d->trackName = trackName;
 
     if (startResource.isEmpty()) {
         d->haveStart = false;
@@ -60,15 +65,16 @@ FileMusicElement::FileMusicElement(QString trackName, QString startResource, QSt
     tryNextBackgroundLoop();
 }
 
-FileMusicElement::FileMusicElement(QString trackName, QUrl startUrl, QUrl loopUrl, QObject* parent) : AbstractMusicElement(trackName, parent) {
+FileMusicElement::FileMusicElement(QString trackName, QList<QUrl> startUrl, QList<QUrl> loopUrl, QObject* parent) : AbstractMusicElement(trackName, parent) {
     init();
+    d->trackName = trackName;
 
-    if (startUrl.isValid()) {
+    if (startUrl.isEmpty()) {
+        d->haveStart = false;
+    } else {
         d->backgroundStartUrls.append(startUrl);
         tryNextBackgroundStart();
         d->haveStart = true;
-    } else {
-        d->haveStart = false;
     }
 
     d->backgroundLoopUrls.append(loopUrl);
@@ -142,7 +148,8 @@ void FileMusicElement::tryNextBackgroundLoop() {
 
 QByteArray FileMusicElement::data(quint64 offset, quint64 length) {
     quint64 startData = d->backgroundStart.length();
-    quint64 totalData = d->backgroundLoop.length() + startData;
+    quint64 loopData = d->backgroundLoop.length();
+    quint64 totalData = loopData + startData;
     if (totalData == 0) {
         return QByteArray(length, 0);
     }
@@ -161,12 +168,18 @@ QByteArray FileMusicElement::data(quint64 offset, quint64 length) {
 
     while (free != 0 && d->backgroundLoop.length() != 0) {
         //Continue to read in the loop
-        QByteArray data = d->backgroundLoop.mid(audioPointer - startData, free);
+        QByteArray data = d->backgroundLoop.mid((audioPointer - startData) % loopData, free);
         free -= data.length();
         audioPointer += data.length();
         audioData.append(data);
         if (audioPointer >= totalData) audioPointer = startData;
     }
+
+    //Attenuate the data depending on the volume
+    QtConcurrent::blockingMap(audioData, [ = ](char& data) {
+        uchar* udata = reinterpret_cast<uchar*>(&data);
+        *udata *= d->volume;
+    });
 
     return audioData;
 }
@@ -177,4 +190,8 @@ bool FileMusicElement::blocking(quint64 bufferSize) {
     } else {
         return true;
     }
+}
+
+void FileMusicElement::setStreamVolume(QString trackName, qreal volume) {
+    if (d->trackName == trackName) d->volume = volume;
 }

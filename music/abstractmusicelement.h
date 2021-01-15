@@ -29,6 +29,7 @@ class AbstractMusicElement : public QObject {
 
         virtual QByteArray data(quint64 offset, quint64 length) = 0;
         virtual bool blocking(quint64 bufferSize) = 0;
+        virtual void setStreamVolume(QString trackName, qreal volume) = 0;
 
     signals:
         void attemptBufferFill();

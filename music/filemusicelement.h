@@ -27,7 +27,7 @@ class FileMusicElement : public AbstractMusicElement {
         Q_OBJECT
     public:
         explicit FileMusicElement(QString trackName, QString startResource, QString loopResource, QObject* parent = nullptr);
-        explicit FileMusicElement(QString trackName, QUrl startUrl, QUrl loopUrl, QObject* parent = nullptr);
+        explicit FileMusicElement(QString trackName, QList<QUrl> startUrl, QList<QUrl> loopUrl, QObject* parent = nullptr);
         ~FileMusicElement();
 
     signals:
@@ -43,6 +43,7 @@ class FileMusicElement : public AbstractMusicElement {
     public:
         QByteArray data(quint64 offset, quint64 length);
         bool blocking(quint64 bufferSize);
+        void setStreamVolume(QString trackName, qreal volume);
 };
 
 #endif // FILEMUSICELEMENT_H
