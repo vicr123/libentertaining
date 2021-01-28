@@ -257,12 +257,12 @@
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="35"/>
         <source>Map Gamepad Buttons</source>
-        <translation type="unfinished"></translation>
+        <translation>Gamepad-knoppen Indelen</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="87"/>
         <source>MAP BUTTONS</source>
-        <translation type="unfinished"></translation>
+        <translation>KNOPPEN INDELEN</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="94"/>
@@ -274,17 +274,17 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.ui" line="113"/>
         <source>Reset Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuratie Resetten</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="54"/>
         <source>Gamepad Disconnected</source>
-        <translation type="unfinished">Verbinding met de Gamepad Verbroken</translation>
+        <translation>Verbinding met de Gamepad Verbroken</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="55"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished">De gamepad die je aan het testen was is niet meer verbonden.</translation>
+        <translation>De gamepad die je aan het testen was is niet meer verbonden.</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/buttonmapping.cpp" line="116"/>
@@ -568,7 +568,7 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../private/friendsmodel.cpp" line="137"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruiker</translation>
     </message>
 </context>
 <context>
@@ -581,17 +581,17 @@ Multiple buttons on the controller may be mapped to one button.</source>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.ui" line="35"/>
         <source>Icon Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Soort Icoon</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="37"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../private/gamepadbuttoniconselectiondialog.cpp" line="38"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
 </context>
 <context>
@@ -600,17 +600,17 @@ Multiple buttons on the controller may be mapped to one button.</source>
         <location filename="../gamepadbuttons.cpp" line="199"/>
         <location filename="../gamepadbuttons.cpp" line="209"/>
         <source>No Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen Snelkopelling</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="381"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaard</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="383"/>
         <source>PlayStation 4/5</source>
-        <translation type="unfinished"></translation>
+        <translation>PlayStation 4/5</translation>
     </message>
     <message>
         <location filename="../gamepadbuttons.cpp" line="385"/>
