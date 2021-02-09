@@ -1543,7 +1543,7 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
     <message>
         <location filename="../private/otpsetupdialog.ui" line="676"/>
         <source>These backup codes can be used if you lose access to your Two Factor Authentication device, however, they can only be used once. You can generate more backup codes as needed, but this will invalidate the old backup codes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze backupcodes kunnen worden gebruikt als je niet meer bij je apparaat dat je voor Twee-Factorauthenticatie gebruikt kunt. Ze kunnen maar één keer worden gebruikt. Je kunt er meer genereren, maar dan worden de oude codes ongeldig.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="694"/>
@@ -1554,19 +1554,19 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <location filename="../private/otpsetupdialog.ui" line="711"/>
         <location filename="../private/otpsetupdialog.cpp" line="373"/>
         <source>Print Backup Codes</source>
-        <translation type="unfinished"></translation>
+        <translation>Backupcodes Printen</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="718"/>
         <location filename="../private/otpsetupdialog.cpp" line="272"/>
         <source>Regenerate Backup Codes</source>
-        <translation type="unfinished"></translation>
+        <translation>Backupcodes Hergenereren</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.ui" line="725"/>
         <location filename="../private/otpsetupdialog.cpp" line="318"/>
         <source>Turn off Two Factor Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie Uitschakelen</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="53"/>
@@ -1589,125 +1589,125 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <location filename="../private/otpsetupdialog.cpp" line="133"/>
         <location filename="../private/otpsetupdialog.cpp" line="182"/>
         <source>Incorrect Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongeldige Details</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="134"/>
         <source>Check your password and try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer je wachtwoord en probeer het opnieuw.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="168"/>
         <source>Enter the code displayed on your phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer de code in die weergegeven wordt op je telefoon</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="168"/>
         <source>Enter a valid Two Factor Authentication code</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een geldige Twee-Factorauthenticatiecode in</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="184"/>
         <location filename="../private/otpsetupdialog.cpp" line="205"/>
         <source>Enabling OTP Token failed</source>
-        <translation type="unfinished"></translation>
+        <translation>OTP-teken inschakelen mislukt</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="186"/>
         <source>Try enabling Two Factor Authentication at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer Twee-Factorauthenticatie op een ander moment in te schakelen.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="192"/>
         <source>Two Factor Authentication enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie ingeschakeld</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="193"/>
         <source>Two Factor Authentication has been enabled for your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie is ingeschakeld voor je account.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="270"/>
         <source>Regenerate Backup Codes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Backupcodes Hergenereren?</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="271"/>
         <source>After regenerating your backup codes, your old backup codes will be invalidated and you&apos;ll only be able to use the new backup codes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nadat je je backupcodes regenereert, worden je oude codes ongeldig en kun je alleen de nieuwe backupcodes gebruiken.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="284"/>
         <source>Backup Code Regeneration Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Backupcodes Hergenereren Mislukt</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="285"/>
         <source>Try regenerating your Two Factor Authentication codes at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer je Twee-Factorauthenticatiecodes op een ander moment te hergenereren.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="316"/>
         <source>Turn off Two Factor Authentication?</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie uitschakelen?</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="317"/>
         <source>After turning off Two Factor Authentication, you&apos;ll only need to log in with your password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je Twee-Factorauthenticatie uitschakelt, hoef je alleen in te loggen met je wachtwoord.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="426"/>
         <source>Two Factor Authentication Backup Codes</source>
-        <translation type="unfinished"></translation>
+        <translation>Backupcodes voor Twee-Factorauthenticatie</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="434"/>
         <source>Hey there,</source>
-        <translation type="unfinished"></translation>
+        <translation>Hallo,</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="437"/>
         <source>Each backup code can only be used once, so it&apos;s a good idea to cross each one out as you use it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je kunt elke code maar één keer gebruiken, dus het is een goed idee om ze weg te strepen als je ze gebruikt.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="440"/>
         <source>This page was printed on %1, so if you&apos;ve regenerated your backup codes since then, these ones may not be the correct ones to use.</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze pagina is geprint op %1, dus als je je backupcodes later hebt geregenereerd, zijn dit niet de goede codes om te gebruiken.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="498"/>
         <source>Need more codes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Heb je meer codes nodig?</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="499"/>
         <source>Generate more codes in any Entertaining Games application. These codes will be invalidated when you do so.</source>
-        <translation type="unfinished"></translation>
+        <translation>Genereer meer codes in een Entertaining Games-applicatie. Deze codes worden ongeldig als je dat doen.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="299"/>
         <location filename="../private/otpsetupdialog.cpp" line="331"/>
         <location filename="../private/otpsetupdialog.cpp" line="350"/>
         <source>Two Factor Authentication Removal Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie Uitschakelen Mislukt</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="332"/>
         <source>Try removing Two Factor Authentication at a later time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Probeer Twee-Factorauthenticatie op een ander moment te verwijderen.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="335"/>
         <source>Two Factor Authentication Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie Uitgeschakeld</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="336"/>
         <source>Two Factor Authentication has been disabled for your account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Twee-Factorauthenticatie is uitgeschakeld voor je account.</translation>
     </message>
     <message>
         <location filename="../private/otpsetupdialog.cpp" line="137"/>
@@ -1722,7 +1722,7 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <location filename="../private/passwordchangedialog.ui" line="194"/>
         <location filename="../private/passwordchangedialog.cpp" line="47"/>
         <source>Change Password</source>
-        <translation type="unfinished">Wachtwoord Veranderen</translation>
+        <translation>Wachtwoord Veranderen</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.ui" line="139"/>
@@ -1750,12 +1750,12 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="46"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="87"/>
@@ -1780,7 +1780,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="105"/>
         <source>Confirm the password for your account</source>
-        <translation type="unfinished">Bevestig het wachtwoord voor je account</translation>
+        <translation>Bevestig het wachtwoord voor je account</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="123"/>
@@ -1838,12 +1838,12 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../questionoverlay.cpp" line="42"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="43"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="104"/>
@@ -2048,19 +2048,19 @@ While we do review all content reports, you may not receive a response once we h
         <location filename="../private/reportwidget.ui" line="556"/>
         <location filename="../private/reportwidget.cpp" line="82"/>
         <source>Done</source>
-        <translation type="unfinished">Klaar</translation>
+        <translation>Klaar</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="60"/>
         <location filename="../private/reportwidget.cpp" line="69"/>
         <source>Select</source>
-        <translation type="unfinished">Selecteren</translation>
+        <translation>Selecteren</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="61"/>
         <location filename="../private/reportwidget.cpp" line="70"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../private/reportwidget.cpp" line="250"/>
@@ -2104,7 +2104,7 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../private/savedialog.cpp" line="48"/>
         <source>Back</source>
-        <translation type="unfinished">Terug</translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../private/savedialog.cpp" line="98"/>
@@ -2159,7 +2159,7 @@ While we do review all content reports, you may not receive a response once we h
         <location filename="../gamepadConfiguration/stickdiagnostics.ui" line="144"/>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="64"/>
         <source>Done</source>
-        <translation type="unfinished">Klaar</translation>
+        <translation>Klaar</translation>
     </message>
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="40"/>
@@ -2181,7 +2181,7 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../gamepadConfiguration/stickdiagnostics.cpp" line="52"/>
         <source>The gamepad that you were testing was disconnected.</source>
-        <translation type="unfinished">De gamepad die je aan het testen was is niet meer verbonden.</translation>
+        <translation>De gamepad die je aan het testen was is niet meer verbonden.</translation>
     </message>
 </context>
 <context>
