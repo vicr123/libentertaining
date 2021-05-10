@@ -1745,7 +1745,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="44"/>
         <source>Confirm Password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wachtwoord Bevestigen</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="46"/>
@@ -1765,17 +1765,17 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="88"/>
         <source>Confirm your password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bevestig je wachtwoord</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="90"/>
         <source>Check that the passwords match</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Controleer of de wachtwoorden overeenkomen</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="95"/>
         <source>Check your input</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Controleer je input</translation>
     </message>
     <message>
         <location filename="../private/passwordchangedialog.cpp" line="105"/>
@@ -1883,7 +1883,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
     <message>
         <location filename="../questionoverlay.cpp" line="111"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">OK</translation>
     </message>
     <message>
         <location filename="../questionoverlay.cpp" line="173"/>
@@ -2197,7 +2197,7 @@ While we do review all content reports, you may not receive a response once we h
         <location filename="../textinputoverlay.ui" line="152"/>
         <location filename="../textinputoverlay.cpp" line="143"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">OK</translation>
     </message>
     <message>
         <location filename="../textinputoverlay.cpp" line="122"/>
@@ -2237,7 +2237,7 @@ While we do review all content reports, you may not receive a response once we h
     <message>
         <location filename="../keyboards/uskeyboard.cpp" line="46"/>
         <source>English (US)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Engels (US)</translation>
     </message>
 </context>
 </TS>

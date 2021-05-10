@@ -213,6 +213,7 @@ unix:!macx:!android {
     header.path = $$THELIBS_INSTALL_HEADERS/libentertaining
     onlineheader.path = $$THELIBS_INSTALL_HEADERS/libentertaining/online
     module.files = qt_libentertaining.pri
+    module.path = $$THELIBS_INSTALL_MODULES
 }
 
 macx {
