@@ -200,14 +200,18 @@ unix {
 }
 
 unix:!macx:!android {
-    #Include required build tools
-    include(/usr/share/the-libs/pri/gentranslations.pri)
+    # Include the-libs build tools
+    equals(THELIBS_BUILDTOOLS_PATH, "") {
+        THELIBS_BUILDTOOLS_PATH = $$[QT_INSTALL_PREFIX]/share/the-libs/pri
+    }
+    include($$THELIBS_BUILDTOOLS_PATH/gentranslations.pri)
+    include($$THELIBS_BUILDTOOLS_PATH/varset.pri)
 
     QT += thelib
 
-    target.path = $$[QT_INSTALL_LIBS]
-    header.path = $$[QT_INSTALL_HEADERS]/libentertaining
-    onlineheader.path = $$[QT_INSTALL_HEADERS]/libentertaining/online
+    target.path = $$THELIBS_INSTALL_LIB
+    header.path = $$THELIBS_INSTALL_HEADERS/libentertaining
+    onlineheader.path = $$THELIBS_INSTALL_HEADERS/libentertaining/online
     module.files = qt_libentertaining.pri
 }
 
