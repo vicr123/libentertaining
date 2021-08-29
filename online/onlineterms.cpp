@@ -29,45 +29,39 @@ struct OnlineTermsPrivate {
     QWidget* parent;
     QNetworkAccessManager mgr;
 
-    bool isTermsChanged = false;
+    OnlineTerms::TermsType termsType = OnlineTerms::Normal;
 };
 
-OnlineTerms::OnlineTerms(QWidget *parent) :
+OnlineTerms::OnlineTerms(QWidget* parent) :
     QWidget(parent),
-    ui(new Ui::OnlineTerms)
-{
+    ui(new Ui::OnlineTerms) {
     d = new OnlineTermsPrivate();
     d->parent = parent;
 
     this->init();
 }
 
-OnlineTerms::~OnlineTerms()
-{
+OnlineTerms::~OnlineTerms() {
     delete ui;
 }
 
-void OnlineTerms::on_viewCommunityGuidelinesButton_clicked()
-{
+void OnlineTerms::on_viewCommunityGuidelinesButton_clicked() {
     view(tr("Community Guidelines"), "communityguidelines");
 }
 
-void OnlineTerms::on_backButton_2_clicked()
-{
+void OnlineTerms::on_backButton_2_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->mainPage);
 }
 
-OnlineTerms::OnlineTerms(QWidget*parent, bool isTermsChanged) : QWidget(parent), ui(new Ui::OnlineTerms)
-{
+OnlineTerms::OnlineTerms(QWidget* parent, TermsType type) : QWidget(parent), ui(new Ui::OnlineTerms) {
     d = new OnlineTermsPrivate();
     d->parent = parent;
-    d->isTermsChanged = isTermsChanged;
+    d->termsType = type;
 
     this->init();
 }
 
-void OnlineTerms::init()
-{
+void OnlineTerms::init() {
     ui->setupUi(this);
 
     ui->mainWidget->setMaximumWidth(SC_DPI(600));
@@ -89,9 +83,9 @@ void OnlineTerms::init()
         }
 
         const char* localeWarningText = QT_TR_NOOP("The presiding translation for these documents is English; "
-                                                   "only the English version of these documents will be taken into account should any discreapency occur. "
-                                                   "However, should a translation be available, we will show it for your convenience, in the hope that you'll "
-                                                   "be able to understand the translation better.");
+                "only the English version of these documents will be taken into account should any discreapency occur. "
+                "However, should a translation be available, we will show it for your convenience, in the hope that you'll "
+                "be able to understand the translation better.");
 
         ui->localeWarningEnglish->setText(localeWarningText);
 
@@ -102,14 +96,21 @@ void OnlineTerms::init()
         }
     }
 
-    if (d->isTermsChanged) {
-        ui->descriptionLabel->setText(tr("The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you'll need to read and agree to the new documents."));
-        ui->focusBarrier_2->setBounceWidget(ui->logoutButton);
-    } else {
-        ui->descriptionLabel->setText(tr("The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents."));
-        ui->acceptButton->setVisible(false);
-        ui->logoutButton->setVisible(false);
-        ui->focusBarrier_2->setBounceWidget(ui->viewPrivacyPolicyButton);
+    switch (d->termsType) {
+        case OnlineTerms::Normal:
+            ui->descriptionLabel->setText(tr("The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents."));
+            ui->acceptButton->setVisible(false);
+            ui->logoutButton->setVisible(false);
+            ui->focusBarrier_2->setBounceWidget(ui->viewPrivacyPolicyButton);
+            break;
+        case OnlineTerms::TermsChanged:
+            ui->descriptionLabel->setText(tr("The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you'll need to read and agree to the new documents."));
+            ui->focusBarrier_2->setBounceWidget(ui->logoutButton);
+            break;
+        case OnlineTerms::TermsAcceptance:
+            ui->descriptionLabel->setText(tr("Welcome to Entertaining Games! The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By continuing to log into Entertaining Games and using the services, you agree to these documents."));
+            ui->focusBarrier_2->setBounceWidget(ui->logoutButton);
+            break;
     }
 
     this->setFocusProxy(ui->viewCommunityGuidelinesButton);
@@ -125,32 +126,31 @@ void OnlineTerms::init()
     ui->gamepadHud->setButtonText(QGamepadManager::ButtonB, tr("Back"));
 
     ui->gamepadHud->setButtonAction(QGamepadManager::ButtonA, GamepadHud::standardAction(GamepadHud::SelectAction));
-    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         ui->backButton->click();
     });
 
     ui->gamepadHud_2->setButtonText(QGamepadManager::ButtonB, tr("Back"));
-    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [=] {
+    ui->gamepadHud_2->setButtonAction(QGamepadManager::ButtonB, [ = ] {
         ui->backButton_2->click();
     });
 
     PauseOverlay::overlayForWindow(d->parent)->pushOverlayWidget(this);
 }
 
-void OnlineTerms::view(QString title, QString document)
-{
+void OnlineTerms::view(QString title, QString document) {
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
     ui->viewPageTitle->setText(title);
 
     QNetworkRequest cgRequest(OnlineApi::instance()->urlForPath(QStringLiteral("/info/%1").arg(document)));
     cgRequest.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
     QNetworkReply* cgReply = d->mgr.get(cgRequest);
-    connect(cgReply, &QNetworkReply::finished, this, [=] {
+    connect(cgReply, &QNetworkReply::finished, this, [ = ] {
         if (cgReply->error() == QNetworkReply::NoError) {
             ui->viewPageTextBrowser->setHtml(cgReply->readAll());
         } else {
             ui->viewPageTextBrowser->setText(tr("Encountered an error trying to load the community guidelines. Read them online at <a href=\"%1\">%1</a>")
-                                                        .arg(OnlineApi::instance()->urlForPath("/info/communityguidelines").toString()));
+                .arg(OnlineApi::instance()->urlForPath("/info/communityguidelines").toString()));
         }
 
         ui->stackedWidget->setCurrentWidget(ui->viewPage);
@@ -158,21 +158,19 @@ void OnlineTerms::view(QString title, QString document)
     });
 }
 
-void OnlineTerms::on_backButton_clicked()
-{
-    PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
+void OnlineTerms::on_backButton_clicked() {
+    PauseOverlay::overlayForWindow(this)->popOverlayWidget([ = ] {
         emit rejected();
     });
 }
 
-void OnlineTerms::on_acceptButton_clicked()
-{
+void OnlineTerms::on_acceptButton_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->loaderPage);
-    OnlineApi::instance()->post("/users/acceptTerms", {})->then([=](QJsonDocument reply) {
-        PauseOverlay::overlayForWindow(this)->popOverlayWidget([=] {
+    OnlineApi::instance()->post("/users/acceptTerms", {})->then([ = ](QJsonDocument reply) {
+        PauseOverlay::overlayForWindow(this)->popOverlayWidget([ = ] {
             emit accepted();
         });
-    })->error([=](QString error) {
+    })->error([ = ](QString error) {
         QuestionOverlay* question = new QuestionOverlay(this);
         question->setIcon(QMessageBox::Critical);
         question->setTitle(tr("Acceptance Failed"));
@@ -185,18 +183,15 @@ void OnlineTerms::on_acceptButton_clicked()
     });
 }
 
-void OnlineTerms::on_logoutButton_clicked()
-{
+void OnlineTerms::on_logoutButton_clicked() {
     OnlineApi::instance()->logOut();
     ui->backButton->click();
 }
 
-void OnlineTerms::on_viewPrivacyPolicyButton_clicked()
-{
+void OnlineTerms::on_viewPrivacyPolicyButton_clicked() {
     view(tr("Privacy Policy"), "privacy");
 }
 
-void OnlineTerms::on_viewPageTextBrowser_anchorClicked(const QUrl &arg1)
-{
+void OnlineTerms::on_viewPageTextBrowser_anchorClicked(const QUrl& arg1) {
     QDesktopServices::openUrl(arg1);
 }

@@ -29,13 +29,18 @@ namespace Ui {
 
 class OnlineApi;
 struct OnlineTermsPrivate;
-class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
-{
+class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget {
         Q_OBJECT
 
     public:
-        explicit OnlineTerms(QWidget *parent);
+        explicit OnlineTerms(QWidget* parent);
         ~OnlineTerms();
+
+        enum TermsType {
+            Normal,
+            TermsChanged,
+            TermsAcceptance
+        };
 
     private slots:
         void on_viewCommunityGuidelinesButton_clicked();
@@ -50,7 +55,7 @@ class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
 
         void on_viewPrivacyPolicyButton_clicked();
 
-        void on_viewPageTextBrowser_anchorClicked(const QUrl &arg1);
+        void on_viewPageTextBrowser_anchorClicked(const QUrl& arg1);
 
     signals:
         void rejected();
@@ -58,10 +63,10 @@ class LIBENTERTAINING_EXPORT OnlineTerms : public QWidget
 
     protected:
         friend OnlineApi;
-        explicit OnlineTerms(QWidget *parent, bool isTermsChanged);
+        explicit OnlineTerms(QWidget* parent, TermsType type);
 
     private:
-        Ui::OnlineTerms *ui;
+        Ui::OnlineTerms* ui;
         OnlineTermsPrivate* d;
 
         void init();

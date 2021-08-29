@@ -861,11 +861,6 @@ Multiple buttons on the controller may be mapped to one button.</source>
         <translation>Đăng nhập</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="142"/>
-        <source>Log in to your Entertaining Games account to play online.</source>
-        <translation>Đăng nhập vào tài khoản Entertaining Games để chơi trực tuyến.</translation>
-    </message>
-    <message>
         <location filename="../online/logindialog.ui" line="183"/>
         <location filename="../online/logindialog.ui" line="379"/>
         <location filename="../online/logindialog.cpp" line="63"/>
@@ -935,6 +930,11 @@ Multiple buttons on the controller may be mapped to one button.</source>
         <location filename="../online/logindialog.cpp" line="64"/>
         <source>Username</source>
         <translation>Tên người dùng</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="142"/>
+        <source>Log in to your Victor Tran account to play online.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="285"/>
@@ -1156,7 +1156,7 @@ Hãy làm mật khẩu tốt, và giữ nó riêng cho tài khoản này. Bạn 
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="333"/>
+        <location filename="../online/onlineapi.cpp" line="334"/>
         <source>The server is not operating correctly.</source>
         <translation>Máy chủ không hoạt động chính xác.</translation>
     </message>
@@ -1210,27 +1210,27 @@ Hãy thử kết nối lại và điền các thông tin đăng nhập lại.</t
         <translation>Kết nối của bạn bị mất tại vì bạn cần cập nhật để tiếp tục chơi trực tuyến.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="156"/>
-        <source>The connection was lost because your account has been suspended from online play.</source>
-        <translation>Kết nối của bạn bị mất vì tài khoản của bạn đã bị đình chỉ chơi trực tuyến.</translation>
+        <location filename="../online/onlineapi.cpp" line="157"/>
+        <source>The connection was lost because your account has been disabled.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="165"/>
+        <location filename="../online/onlineapi.cpp" line="166"/>
         <source>The connection to the server was lost.</source>
         <translation>Kết nối của bạn bị mất.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="177"/>
+        <location filename="../online/onlineapi.cpp" line="178"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>Máy chủ đã từ chối kết nối của chúng tôi. Nó có thể đang được bảo trì.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="180"/>
+        <location filename="../online/onlineapi.cpp" line="181"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>Máy chủ DNS không thể tìm địa chỉ IP của máy chủ Entertaining Games.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="183"/>
+        <location filename="../online/onlineapi.cpp" line="184"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -1239,17 +1239,17 @@ Try again later.</source>
 Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="270"/>
+        <location filename="../online/onlineapi.cpp" line="271"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Máy chủ không hoạt động chính xác. Hãy thử lại giờ khác.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="272"/>
+        <location filename="../online/onlineapi.cpp" line="273"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Bạn không có phép làm hoạt động này ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="274"/>
+        <location filename="../online/onlineapi.cpp" line="275"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>Máy chủ có thể không hỗ trợ ứng dụng này tại vì đường dẫn đã yêu cầu không có tìm thấy.</translation>
     </message>
@@ -1297,33 +1297,45 @@ Hãy thử lại giờ khác.</translation>
         <translation>Xem lại tên người dùng và mật khẩu và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="35"/>
+        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <source>You need to reset your password.
+
+Use the Forgot Password utility and follow the instructions there</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../online/onlineerrormessages.cpp" line="39"/>
+        <source>Your account has been disabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="44"/>
         <source>Check your Two Factor Authentication code and try again.</source>
         <translation>Xem lại mã Xác Minh Hai Bước và thử lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <location filename="../online/onlineerrormessages.cpp" line="41"/>
         <source>Two Factor Authentication is unavailable at this time.</source>
         <translation>Xác Minh Hai Bước không có sẵn ngay bây giờ.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="37"/>
+        <location filename="../online/onlineerrormessages.cpp" line="42"/>
         <source>Two Factor Authentication is already enabled for your account.</source>
         <translation>Xác Minh Hai Bước đã bị bật cho tài khoản của bạn.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <location filename="../online/onlineerrormessages.cpp" line="43"/>
         <source>Two Factor Authentication is already disabled for your account.</source>
         <translation>Xác Minh Hai Bước đã bị vô hiệu cho tài khoản của bạn.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="45"/>
         <source>Your credentials are incorrect. If you are logged in, you&apos;ll need to log out and log in again.</source>
         <translation>Thông tin đăng nhập của bạn là sai. Nếu bạn đã đăng nhập, bạn cần đăng xuất và đăng nhập lại.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="41"/>
+        <location filename="../online/onlineerrormessages.cpp" line="47"/>
         <source>Your verification code is incorrect, or the verification code has expired.
 
 If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
@@ -1340,7 +1352,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <translation>Điều khoản và nguyên tắc công cộng</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="106"/>
+        <location filename="../online/onlineterms.cpp" line="107"/>
         <source>The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you&apos;ll need to read and agree to the new documents.</source>
         <translation>Điều khoản hoặc nguyên tắc công cộng đã bị cập nhật. Để tiếp tục chơi trực tuyến, bạn cần đọc và chấp nhận tài liệu mới.</translation>
     </message>
@@ -1375,7 +1387,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <translation>Đăng xuất khỏi tài khoản hiện tại</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="52"/>
+        <location filename="../online/onlineterms.cpp" line="49"/>
         <source>Community Guidelines</source>
         <translation>Nguyên Tắc Công Cộng</translation>
     </message>
@@ -1390,7 +1402,7 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <translation>Đã xảy ra lỗi khi tải nguyên tắc công cộng. Xem nó tại &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="84"/>
+        <location filename="../online/onlineterms.cpp" line="78"/>
         <source>Warning</source>
         <translation>Cảnh báo</translation>
     </message>
@@ -1400,33 +1412,38 @@ Nếu đã hơn một ngày kể từ khi bạn nhận được email xác nhâ�
         <translation>Xem thông tin về cách chúng tôi thu thập và sử dụng dữ liệu của bạn</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="91"/>
+        <location filename="../online/onlineterms.cpp" line="85"/>
         <source>The presiding translation for these documents is English; only the English version of these documents will be taken into account should any discreapency occur. However, should a translation be available, we will show it for your convenience, in the hope that you&apos;ll be able to understand the translation better.</source>
         <translation>Bản dịch chủ cho các tài liệu này là Tiếng Anh; chỉ bản Tiếng Anh của tài liệu này sẽ được tính đến nếu bất hợp lý nào xảy ra. Tuy nhiên, nếu bản dịch có sẵn, chúng tôi sẽ hiển thị để thuận tiện cho bạn, với hy vọng bạn có thể hiểu bản dịch tốt hơn.</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="109"/>
+        <location filename="../online/onlineterms.cpp" line="101"/>
         <source>The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents.</source>
         <translation>Điều khoản và nguyên tắc công cộng này sẽ chi phối việc sử dụng dịch vụ Trò Chơi Giải Trí của bạn. Bởi cách tạo tài khoản và sử dụng các dịch vụ, bạn sẽ chấp nhận các tài liệu này.</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="124"/>
+        <location filename="../online/onlineterms.cpp" line="111"/>
+        <source>Welcome to Entertaining Games! The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By continuing to log into Entertaining Games and using the services, you agree to these documents.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="125"/>
         <source>Select</source>
         <translation>Chọn</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="125"/>
-        <location filename="../online/onlineterms.cpp" line="132"/>
+        <location filename="../online/onlineterms.cpp" line="126"/>
+        <location filename="../online/onlineterms.cpp" line="133"/>
         <source>Back</source>
         <translation>Lại</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="178"/>
+        <location filename="../online/onlineterms.cpp" line="176"/>
         <source>Acceptance Failed</source>
         <translation>Chấp Nhận đã thất bại</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="196"/>
+        <location filename="../online/onlineterms.cpp" line="192"/>
         <source>Privacy Policy</source>
         <translation>Chính sách bảo mật</translation>
     </message>

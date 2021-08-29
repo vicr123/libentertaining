@@ -863,11 +863,6 @@ Er kunnen meerdere knoppen op de controller naar één knop worden ingedeeld.</t
         <translation>Inloggen</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="142"/>
-        <source>Log in to your Entertaining Games account to play online.</source>
-        <translation>Log in met je Entertaining Games-account om online te spelen.</translation>
-    </message>
-    <message>
         <location filename="../online/logindialog.ui" line="183"/>
         <location filename="../online/logindialog.ui" line="379"/>
         <location filename="../online/logindialog.cpp" line="63"/>
@@ -937,6 +932,11 @@ Er kunnen meerdere knoppen op de controller naar één knop worden ingedeeld.</t
         <location filename="../online/logindialog.cpp" line="64"/>
         <source>Username</source>
         <translation>Gebruikersnaam</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="142"/>
+        <source>Log in to your Victor Tran account to play online.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="285"/>
@@ -1158,7 +1158,7 @@ Maak er een goed wachtwoord van en gebruik hem alleen voor dit account. Je wil d
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="333"/>
+        <location filename="../online/onlineapi.cpp" line="334"/>
         <source>The server is not operating correctly.</source>
         <translation>De server werkt niet goed.</translation>
     </message>
@@ -1212,27 +1212,27 @@ Probeer opnieuw te verbinden en opnieuw in te loggen.</translation>
         <translation>De verbinding was verloren omdat er een update nodig is om online te spelen.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="156"/>
-        <source>The connection was lost because your account has been suspended from online play.</source>
-        <translation>De verbinding was verbroken omdat je account is buitengesloten van online spelen.</translation>
+        <location filename="../online/onlineapi.cpp" line="157"/>
+        <source>The connection was lost because your account has been disabled.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="165"/>
+        <location filename="../online/onlineapi.cpp" line="166"/>
         <source>The connection to the server was lost.</source>
         <translation>De verbinding met de serevr was verloren.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="177"/>
+        <location filename="../online/onlineapi.cpp" line="178"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>De server weigerde de verbinding. Misschien is de server in onderhoud.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="180"/>
+        <location filename="../online/onlineapi.cpp" line="181"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>De DNS-server kon het IP-adres van de Entertaining Games-server niet vinden.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="183"/>
+        <location filename="../online/onlineapi.cpp" line="184"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -1241,17 +1241,17 @@ Try again later.</source>
 Probeer het later opnieuw.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="270"/>
+        <location filename="../online/onlineapi.cpp" line="271"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>De server werkt niet goed. Probeer het op een ander moment opnieuw.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="272"/>
+        <location filename="../online/onlineapi.cpp" line="273"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Je mag deze actie nu niet uitvoeren.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="274"/>
+        <location filename="../online/onlineapi.cpp" line="275"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>De server ondersteunt dit spel misschien niet, omdat het gevraagde pad niet gevonden was.</translation>
     </message>
@@ -1299,33 +1299,45 @@ Probeer het later opnieuw.</translation>
         <translation>Controleer je gebruikersnaam en wachtwoord en probeer het opnieuw.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="35"/>
+        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <source>You need to reset your password.
+
+Use the Forgot Password utility and follow the instructions there</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../online/onlineerrormessages.cpp" line="39"/>
+        <source>Your account has been disabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="44"/>
         <source>Check your Two Factor Authentication code and try again.</source>
         <translation>Controleer je Twee-Factorauthenticatiecode en probeer het opnieuw.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <location filename="../online/onlineerrormessages.cpp" line="41"/>
         <source>Two Factor Authentication is unavailable at this time.</source>
         <translation>Twee-Factorauthenticatie is momenteel ongeldig.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="37"/>
+        <location filename="../online/onlineerrormessages.cpp" line="42"/>
         <source>Two Factor Authentication is already enabled for your account.</source>
         <translation>Twee-Factorauthenticatie is al in gebruik voor je account.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <location filename="../online/onlineerrormessages.cpp" line="43"/>
         <source>Two Factor Authentication is already disabled for your account.</source>
         <translation>Twee-Factorauthenticatie is al uitgeschakeld voor je account.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="45"/>
         <source>Your credentials are incorrect. If you are logged in, you&apos;ll need to log out and log in again.</source>
         <translation>Je inloggegevens kloppen niet. Als je ingelogd bent, moet je uitloggen en weer inloggen.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="41"/>
+        <location filename="../online/onlineerrormessages.cpp" line="47"/>
         <source>Your verification code is incorrect, or the verification code has expired.
 
 If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
@@ -1342,7 +1354,7 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <translation>Voorwaarden en Community-richtlijnen</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="106"/>
+        <location filename="../online/onlineterms.cpp" line="107"/>
         <source>The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you&apos;ll need to read and agree to the new documents.</source>
         <translation>De Voorwaarden en Community-richtlijnen zijn bijgewerkt. Om online te blijven spelen, moet je de nieuwe documenten lezen en ermee akkoord gaan.</translation>
     </message>
@@ -1377,7 +1389,7 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <translation>Log uit van je hudige account</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="52"/>
+        <location filename="../online/onlineterms.cpp" line="49"/>
         <source>Community Guidelines</source>
         <translation>Community-richtlijnen</translation>
     </message>
@@ -1392,7 +1404,7 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <translation>Fout gevonden bij het laden van de community-richtlijnen. Lees ze online op&lt; a href=&quot;%1&quot;&gt;%1&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="84"/>
+        <location filename="../online/onlineterms.cpp" line="78"/>
         <source>Warning</source>
         <translation>Waarschuwing</translation>
     </message>
@@ -1402,33 +1414,38 @@ Als het langer dan een dag geleden is sinds je de e-mail voor verificatie hebt g
         <translation>Geef informatie weer over hoe we je gegevens verzamelen en gebruiken</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="91"/>
+        <location filename="../online/onlineterms.cpp" line="85"/>
         <source>The presiding translation for these documents is English; only the English version of these documents will be taken into account should any discreapency occur. However, should a translation be available, we will show it for your convenience, in the hope that you&apos;ll be able to understand the translation better.</source>
         <translation>De leidende vertaling voor deze documenten is de Engelse; alleen de Engelse versie van deze documenten wordt gebruikt als er een onenigheid voorkomt. Als er een vertaling beschikbaar is, geven we hem wel weer voor jouw gemak, in de hope dat je de vertaling beter kunt begrijpen.</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="109"/>
+        <location filename="../online/onlineterms.cpp" line="101"/>
         <source>The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents.</source>
         <translation>De Voorwaarden en Communty-regels bepalen je gebruik van de Entertaining Games-diensten. Door een account te maken en de diensten te gebruiken, ga je met deze documenten akkoord.</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="124"/>
+        <location filename="../online/onlineterms.cpp" line="111"/>
+        <source>Welcome to Entertaining Games! The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By continuing to log into Entertaining Games and using the services, you agree to these documents.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="125"/>
         <source>Select</source>
         <translation type="unfinished">Selecteren</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="125"/>
-        <location filename="../online/onlineterms.cpp" line="132"/>
+        <location filename="../online/onlineterms.cpp" line="126"/>
+        <location filename="../online/onlineterms.cpp" line="133"/>
         <source>Back</source>
         <translation>Terug</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="178"/>
+        <location filename="../online/onlineterms.cpp" line="176"/>
         <source>Acceptance Failed</source>
         <translation>Accepteren Mislukt</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="196"/>
+        <location filename="../online/onlineterms.cpp" line="192"/>
         <source>Privacy Policy</source>
         <translation>Privacybeleid</translation>
     </message>

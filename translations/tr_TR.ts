@@ -863,11 +863,6 @@ Denetleyicideki birden fazla düğme tek bir düğmeyle eşleştirilebilir.</tra
         <translation>Giriş Yap</translation>
     </message>
     <message>
-        <location filename="../online/logindialog.ui" line="142"/>
-        <source>Log in to your Entertaining Games account to play online.</source>
-        <translation>Çevrimiçi oynamak için Eğlenceli Oyunlar hesabınızda oturum açın.</translation>
-    </message>
-    <message>
         <location filename="../online/logindialog.ui" line="183"/>
         <location filename="../online/logindialog.ui" line="379"/>
         <location filename="../online/logindialog.cpp" line="63"/>
@@ -937,6 +932,11 @@ Denetleyicideki birden fazla düğme tek bir düğmeyle eşleştirilebilir.</tra
         <location filename="../online/logindialog.cpp" line="64"/>
         <source>Username</source>
         <translation>Kullanıcı adı</translation>
+    </message>
+    <message>
+        <location filename="../online/logindialog.ui" line="142"/>
+        <source>Log in to your Victor Tran account to play online.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../online/logindialog.ui" line="285"/>
@@ -1158,7 +1158,7 @@ Make it a good password and save it for this account. You don&apos;t want to be 
 <context>
     <name>OnlineApi</name>
     <message>
-        <location filename="../online/onlineapi.cpp" line="333"/>
+        <location filename="../online/onlineapi.cpp" line="334"/>
         <source>The server is not operating correctly.</source>
         <translation>Sunucu düzgün çalışmıyor.</translation>
     </message>
@@ -1212,27 +1212,27 @@ Tekrar bağlanmayı deneyin ve kimlik bilgilerinizi yeniden girin.</translation>
         <translation>Çevrimiçi oynamaya devam etmek için güncelleme gerektiğinden bağlantı kesildi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="156"/>
-        <source>The connection was lost because your account has been suspended from online play.</source>
-        <translation>Hesabınız çevrimiçi oyundan askıya alındığı için bağlantı kesildi.</translation>
+        <location filename="../online/onlineapi.cpp" line="157"/>
+        <source>The connection was lost because your account has been disabled.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="165"/>
+        <location filename="../online/onlineapi.cpp" line="166"/>
         <source>The connection to the server was lost.</source>
         <translation>Sunucuyla bağlantı kesildi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="177"/>
+        <location filename="../online/onlineapi.cpp" line="178"/>
         <source>The server refused the connection. It may be undergoing maintenance.</source>
         <translation>Sunucu bağlantıyı reddetti. Bakım yapıyor olabilir.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="180"/>
+        <location filename="../online/onlineapi.cpp" line="181"/>
         <source>The DNS server was unable to locate the IP address of the Entertaining Games server.</source>
         <translation>DNS sunucusu, Eğlenceli Oyunlar sunucusunun IP adresini bulamadı.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="183"/>
+        <location filename="../online/onlineapi.cpp" line="184"/>
         <source>The connection to the Entertaining Games server timed out.
 
 Try again later.</source>
@@ -1241,17 +1241,17 @@ Try again later.</source>
 Daha sonra tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="270"/>
+        <location filename="../online/onlineapi.cpp" line="271"/>
         <source>The server is not operating correctly. Try again at a later time.</source>
         <translation>Sunucu düzgün çalışmıyor. Daha sonra tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="272"/>
+        <location filename="../online/onlineapi.cpp" line="273"/>
         <source>You are not authorized to perform this action now.</source>
         <translation>Şu anda bu eylemi gerçekleştirme yetkiniz yok.</translation>
     </message>
     <message>
-        <location filename="../online/onlineapi.cpp" line="274"/>
+        <location filename="../online/onlineapi.cpp" line="275"/>
         <source>The server may not support this game because the requested path was not found.</source>
         <translation>İstenen yol bulunamadığından sunucu bu oyunu desteklemiyor olabilir.</translation>
     </message>
@@ -1299,33 +1299,45 @@ Daha sonra tekrar deneyin.</translation>
         <translation>Kullanıcı adınızı ve şifrenizi kontrol edin ve tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="35"/>
+        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <source>You need to reset your password.
+
+Use the Forgot Password utility and follow the instructions there</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../online/onlineerrormessages.cpp" line="39"/>
+        <source>Your account has been disabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="44"/>
         <source>Check your Two Factor Authentication code and try again.</source>
         <translation>Two Factor Authentication kodunuzu kontrol edin ve tekrar deneyin.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="36"/>
+        <location filename="../online/onlineerrormessages.cpp" line="41"/>
         <source>Two Factor Authentication is unavailable at this time.</source>
         <translation>İki Faktörlü Kimlik Doğrulama şu anda kullanılamıyor.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="37"/>
+        <location filename="../online/onlineerrormessages.cpp" line="42"/>
         <source>Two Factor Authentication is already enabled for your account.</source>
         <translation>İki Faktörlü Kimlik Doğrulama, hesabınız için zaten etkinleştirildi.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="38"/>
+        <location filename="../online/onlineerrormessages.cpp" line="43"/>
         <source>Two Factor Authentication is already disabled for your account.</source>
         <translation>İki Faktörlü Kimlik Doğrulama, hesabınız için zaten devre dışı bırakıldı.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="40"/>
+        <location filename="../online/onlineerrormessages.cpp" line="45"/>
         <source>Your credentials are incorrect. If you are logged in, you&apos;ll need to log out and log in again.</source>
         <translation>Kimlik bilgileriniz yanlış. Giriş yaptıysanız, çıkış yapmanız ve tekrar giriş yapmanız gerekecektir.</translation>
     </message>
     <message>
-        <location filename="../online/onlineerrormessages.cpp" line="41"/>
+        <location filename="../online/onlineerrormessages.cpp" line="47"/>
         <source>Your verification code is incorrect, or the verification code has expired.
 
 If it&apos;s been more than a day since you received the verification email, you&apos;ll need to resend the verification email to get a new code.</source>
@@ -1342,7 +1354,7 @@ Doğrulama e-postasını aldıktan sonra bir günden fazla zaman geçtiyse, yeni
         <translation>Şartlar ve Topluluk Kuralları</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="106"/>
+        <location filename="../online/onlineterms.cpp" line="107"/>
         <source>The Terms and Conditions or Community Guidelines have been updated. To continue playing online, you&apos;ll need to read and agree to the new documents.</source>
         <translation>Şartlar ve Koşullar veya Topluluk Kuralları güncellendi. Çevrimiçi oynamaya devam etmek için yeni belgeleri okumanız ve kabul etmeniz gerekir.</translation>
     </message>
@@ -1377,7 +1389,7 @@ Doğrulama e-postasını aldıktan sonra bir günden fazla zaman geçtiyse, yeni
         <translation>Mevcut hesabınızdan çıkın</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="52"/>
+        <location filename="../online/onlineterms.cpp" line="49"/>
         <source>Community Guidelines</source>
         <translation>Topluluk Rehberleri</translation>
     </message>
@@ -1392,7 +1404,7 @@ Doğrulama e-postasını aldıktan sonra bir günden fazla zaman geçtiyse, yeni
         <translation>Topluluk yönergelerini yüklemeye çalışırken bir hatayla karşılaşıldı. Bunları &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt; adresinde çevrimiçi olarak okuyun</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="84"/>
+        <location filename="../online/onlineterms.cpp" line="78"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
@@ -1402,33 +1414,38 @@ Doğrulama e-postasını aldıktan sonra bir günden fazla zaman geçtiyse, yeni
         <translation>Verilerinizi nasıl topladığımız ve kullandığımızla ilgili bilgileri görüntüleyin</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="91"/>
+        <location filename="../online/onlineterms.cpp" line="85"/>
         <source>The presiding translation for these documents is English; only the English version of these documents will be taken into account should any discreapency occur. However, should a translation be available, we will show it for your convenience, in the hope that you&apos;ll be able to understand the translation better.</source>
         <translation>Bu belgeler için esas çeviri İngilizcedir; Herhangi bir tutarsızlık olması halinde bu belgelerin yalnızca İngilizce versiyonu dikkate alınacaktır. Ancak, bir çeviri mevcutsa, çeviriyi daha iyi anlayabilmeniz ümidiyle size kolaylık sağlamak için göstereceğiz.</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="109"/>
+        <location filename="../online/onlineterms.cpp" line="101"/>
         <source>The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By creating an account and using the services, you agree to these documents.</source>
         <translation>Eğlence Oyunları hizmetlerini kullanımınızı Şartlar ve Koşullar ve Topluluk Kuralları yönetir. Bir hesap oluşturarak ve hizmetleri kullanarak, bu belgeleri kabul etmiş olursunuz.</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="124"/>
+        <location filename="../online/onlineterms.cpp" line="111"/>
+        <source>Welcome to Entertaining Games! The Terms and Conditions and Community Guidelines govern your use of the Entertaining Games services. By continuing to log into Entertaining Games and using the services, you agree to these documents.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../online/onlineterms.cpp" line="125"/>
         <source>Select</source>
         <translation>Seç</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="125"/>
-        <location filename="../online/onlineterms.cpp" line="132"/>
+        <location filename="../online/onlineterms.cpp" line="126"/>
+        <location filename="../online/onlineterms.cpp" line="133"/>
         <source>Back</source>
         <translation>Geri</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="178"/>
+        <location filename="../online/onlineterms.cpp" line="176"/>
         <source>Acceptance Failed</source>
         <translation>Kabul Başarısız</translation>
     </message>
     <message>
-        <location filename="../online/onlineterms.cpp" line="196"/>
+        <location filename="../online/onlineterms.cpp" line="192"/>
         <source>Privacy Policy</source>
         <translation>Gizlilik Politikası</translation>
     </message>

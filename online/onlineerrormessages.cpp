@@ -32,14 +32,21 @@ struct OnlineErrorMessagesPrivate {
         {"email.bad", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email address is invalid.")},
         {"email.unchanged", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "That email is the same as your current email.")},
         {"authentication.incorrect", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your username and password and try again.")},
+        {
+            "authentication.requestPasswordChange", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "You need to reset your password.\n\n"
+                "Use the Forgot Password utility and follow the instructions there")
+        },
+        {"authentication.disabled", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your account has been disabled.")},
         {"otp.incorrect", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your Two Factor Authentication code and try again.")},
         {"otp.unavailable", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is unavailable at this time.")},
         {"otp.alreadyEnabled", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is already enabled for your account.")},
         {"otp.alreadyDisabled", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Two Factor Authentication is already disabled for your account.")},
         {"otp.invalidToken", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Check your Two Factor Authentication code and try again.")},
         {"authentication.invalid", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your credentials are incorrect. If you are logged in, you'll need to log out and log in again.")},
-        {"verification.invalid", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your verification code is incorrect, or the verification code has expired.\n\n"
-                                                                                 "If it's been more than a day since you received the verification email, you'll need to resend the verification email to get a new code.")}
+        {
+            "verification.invalid", QT_TRANSLATE_NOOP("OnlineErrorMessagesPrivate", "Your verification code is incorrect, or the verification code has expired.\n\n"
+                "If it's been more than a day since you received the verification email, you'll need to resend the verification email to get a new code.")
+        }
     };
 
     Q_DECLARE_TR_FUNCTIONS(OnlineErrorMessagePrivate)
@@ -47,13 +54,11 @@ struct OnlineErrorMessagesPrivate {
 
 OnlineErrorMessagesPrivate* OnlineErrorMessages::d = new OnlineErrorMessagesPrivate();
 
-OnlineErrorMessages::OnlineErrorMessages()
-{
+OnlineErrorMessages::OnlineErrorMessages() {
 
 }
 
-QString OnlineErrorMessages::messageForCode(QString code, QString defaultMessage)
-{
+QString OnlineErrorMessages::messageForCode(QString code, QString defaultMessage) {
     if (d->errorMessages.contains(code)) return OnlineErrorMessagesPrivate::tr(d->errorMessages.value(code));
     return defaultMessage;
 }

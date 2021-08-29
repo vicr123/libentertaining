@@ -139,7 +139,7 @@
          <item row="0" column="0" colspan="2">
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Log in to your Entertaining Games account to play online.</string>
+            <string>Log in to your Victor Tran account to play online.</string>
            </property>
           </widget>
          </item>

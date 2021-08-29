@@ -139,8 +139,9 @@ tPromise<OnlineWebSocket*>* OnlineApi::play(QString applicationName, QString app
                 case 4002: //Bad Version
                     error = tr("The connection was lost because an update is required to continue playing online.");
                     break;
-                case 4003: { //Terms Update Required
-                    OnlineTerms* t = new OnlineTerms(parentWidget, true);
+                case 4003: //Terms Update Required
+                case 4005: { //Terms Acceptance Required
+                    OnlineTerms* t = new OnlineTerms(parentWidget, static_cast<int>(ws->closeCode() == 4003) ? OnlineTerms::TermsChanged : OnlineTerms::TermsAcceptance);
                     connect(t, &OnlineTerms::accepted, this, [ = ] {
                         //Attempt to log in again
                         t->deleteLater();
@@ -153,7 +154,7 @@ tPromise<OnlineWebSocket*>* OnlineApi::play(QString applicationName, QString app
                     return;
                 }
                 case 4004: //Account Suspension
-                    error = tr("The connection was lost because your account has been suspended from online play.");
+                    error = tr("The connection was lost because your account has been disabled.");
 
                     //Log the user out otherwise there is no way to log out
                     this->logOut();
